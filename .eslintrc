@@ -1,0 +1,33 @@
+{
+  "env": {
+    "es6": true,
+    "node": true,
+    "jasmine": true,
+    "browser": true
+  },
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "sourceType": "module"
+  },
+  "extends": ["eslint-config-leapfrog/react"],
+  "plugins": ["react"],
+  "rules": {
+    "curly": "off",
+    "require-jsdoc": ["error", {
+      "require": {
+          "FunctionDeclaration": false,
+          "MethodDefinition": false,
+          "ClassDeclaration": false,
+          "ArrowFunctionExpression": false,
+          "FunctionExpression": true
+      }
+    }]
+  },
+  "settings": {
+    "react": {
+      "pragma": "React", 
+      "version": "detect"
+    }
+  }
+}
