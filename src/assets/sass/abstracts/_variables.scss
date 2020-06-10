@@ -1,0 +1,23 @@
+@import '../base/fonts';
+
+$theme-color: rgb(60, 123, 248);
+$primary-color: darken($theme-color, 10%);
+$secondary-color: lighten($theme-color, 10%);
+$navigation-background: rgba(210, 210, 210, 0.29);
+$footer-background: rgb(255, 255, 255);
+$contrast-font-color: rgb(255, 255, 255);
+
+$white: rgb(255, 255, 255);
+$black: rgb(0, 0, 0);
+$grey: rgb(230, 230, 230);
+
+$font: 'Roboto', serif;
+$h1: 96px;
+$h2: 60px;
+$h3: 48px;
+$h4: 22px;
+$h5: 20px;
+$h6: 18px;
+$subtitle1: 16px;
+$medium: 14px;
+$subtitle2: 12px;
