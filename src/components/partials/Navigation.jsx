@@ -42,7 +42,11 @@ const Navigation = () => {
         <div className="bottom-panel grid-template grid-bottom-panel">
           <div className="logo">
             <div className="img-container">
-              <img src="https://www.chaudharygroup.com/templates/cg/images/logo.png" className="verticle-center" />
+              <img
+                src="https://www.chaudharygroup.com/templates/cg/images/logo.png"
+                className="verticle-center"
+                alt="Special Group"
+              />
             </div>
           </div>
           <div className="verticle-center">
@@ -59,7 +63,7 @@ const Navigation = () => {
             <div className="auth-provider">
               <div className="login-signup flex">
                 <div className="icon-container">
-                  <AccountCircleIcon fontSize="medium" />
+                  <AccountCircleIcon fontSize="large" />
                 </div>
                 <div className="info grid-template grid-row-account float-right paddingLeft-5">
                   <small className="anchor">Welcome, Sign In</small>
@@ -68,14 +72,13 @@ const Navigation = () => {
               </div>
             </div>
             <div className="cart">
-              <AddShoppingCartIcon fontSize="medium" />
+              <AddShoppingCartIcon fontSize="large" />
               <span className="anchor paddingLeft-5">Cart</span>
             </div>
           </div>
         </div>
       </header>
       <MobileNavigation />
-      <QuickNavigation />
     </>
   );
 };

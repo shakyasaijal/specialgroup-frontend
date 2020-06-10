@@ -1,9 +1,12 @@
 @import '../base/fonts';
 
-$theme-color: rgb(60, 123, 248);
+$theme-color: #3b5390;
 $primary-color: darken($theme-color, 10%);
 $secondary-color: lighten($theme-color, 10%);
-$navigation-background: rgba(210, 210, 210, 0.29);
+
+$secondary-font-color: #1467b2;
+
+$navigation-background: rgba(255, 255, 255, 255);
 $footer-background: rgb(255, 255, 255);
 $contrast-font-color: rgb(255, 255, 255);
 
@@ -12,6 +15,11 @@ $black: rgb(0, 0, 0);
 $grey: rgb(230, 230, 230);
 
 $font: 'Roboto', serif;
+
+$font-size-base: 14px !default;
+$font-size-large: ceil(($font-size-base * 1.25)) !default; // ~18px
+$font-size-small: ceil(($font-size-base * 0.85)) !default; // ~12px
+
 $h1: 96px;
 $h2: 60px;
 $h3: 48px;
