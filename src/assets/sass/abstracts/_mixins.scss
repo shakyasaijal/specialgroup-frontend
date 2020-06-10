@@ -1,0 +1,7 @@
+@mixin shadow($color, $portion, $inset: 0) {
+  @if $inset !=0 {
+    box-shadow: inset $portion $color;
+  } @else {
+    box-shadow: $portion $color;
+  }
+}

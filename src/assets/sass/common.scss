@@ -13,7 +13,7 @@
 }
 
 .page-wrapper {
-  padding-bottom: 150px;
+  padding-bottom: 11vh;
   background: #dcdcdcba;
   padding-top: 1vh;
 }
@@ -252,5 +252,17 @@ section {
 }
 .capitalize {
   text-transform: uppercase;
+}
+.grid3 {
+  display: grid;
+  grid-template-columns: 14% 14% 14% 14% 14% 14%;
+  grid-gap: 3.2%;
+}
+.row {
+  & .product-name {
+    font-size: $h5;
+    padding: 10px;
+    color: $theme-color;
+  }
 }
 @import 'base/responsive';

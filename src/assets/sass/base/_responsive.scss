@@ -69,11 +69,25 @@
   }
 
   .row {
+    margin-bottom: 8vh;
+    margin-top: 0;
     & .grid {
       grid-template-columns: 100%;
     }
     & .grid2 {
       grid-template-columns: 50% 50%;
+    }
+    & .grid3 {
+      grid-template-columns: 47% 47%;
+      grid-gap: 1% 5%;
+    }
+    & .product-price {
+      font-size: $medium;
+      color: $theme-color;
+    }
+    & .product-name {
+      font-size: $h6;
+      padding: 15px 10px;
     }
   }
 }
