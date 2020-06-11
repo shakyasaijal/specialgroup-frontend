@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import QuickNavigation from './QuickNavigation';
 import MobileNavigation from './MobileNavigation';
 import FacebookIcon from '@material-ui/icons/Facebook';
 import InstagramIcon from '@material-ui/icons/Instagram';
@@ -67,7 +66,9 @@ const Navigation = () => {
                 </div>
                 <div className="info grid-template grid-row-account float-right paddingLeft-5">
                   <small className="anchor">Welcome, Sign In</small>
-                  <span className="my-account anchor">My Account</span>
+                  <span className="my-account anchor">
+                    <Link to="/signin">My Account</Link>
+                  </span>
                 </div>
               </div>
             </div>

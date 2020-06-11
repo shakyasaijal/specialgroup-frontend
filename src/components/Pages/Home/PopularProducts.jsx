@@ -40,7 +40,7 @@ const PopularProducts = () => {
   const products = productsList();
   const classes = useStyles();
   return (
-    <div className="row mt30">
+    <div className="row mt30 mb9">
       <h4 className="medium-dark mt10">Popular on your area</h4>
       <hr />
       <div className="grid3 center full-width mt30">

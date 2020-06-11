@@ -24,6 +24,11 @@ header {
   width: 100%;
 }
 
+.headline {
+  font-size: $h3;
+  color: $theme-color;
+}
+
 .title {
   font-size: $h4;
 }
@@ -66,6 +71,9 @@ header {
   }
 }
 
+.radius8 {
+  border-radius: 8px;
+}
 .top-panel {
   padding: 5px;
   width: 90%;
@@ -78,6 +86,13 @@ header {
 
 .border-bottom {
   border-bottom: 1px solid rgb(220, 220, 220);
+}
+
+.ads {
+  & .grid2 {
+    grid-template-columns: 49% 49%;
+    grid-gap: 2%;
+  }
 }
 
 .grid-template {
@@ -315,4 +330,130 @@ section {
     background-size: contain;
   }
 }
+
+.mb9 {
+  margin-bottom: 9vh;
+}
+.block {
+  display: block;
+}
+
+.sign {
+  width: 30%;
+}
+
+.sign-in {
+  padding: 30px;
+
+  input {
+    padding: 8px;
+    width: 100%;
+  }
+  .form-group {
+    margin: 15px 0;
+  }
+  .grid2 {
+    margin-top: 5px;
+  }
+  & .google-login,
+  .facebook-login {
+    margin: 25px auto;
+    width: 60%;
+    height: 42px;
+    background-color: #fcfcfc;
+    border-radius: 2px;
+    box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    align-self: center;
+    user-select: none;
+    transition: all 400ms ease 0s;
+    display: flex;
+  }
+  & .facebook-login {
+    background: #3b5898;
+  }
+  & .google-login .google-icon-wrapper,
+  .facebook-login .facebook-icon-wrapper {
+    position: absolute;
+    margin-top: 1px;
+    margin-left: 1px;
+    width: 40px;
+    height: 40px;
+    border-radius: 2px;
+    user-select: none;
+  }
+  & .google-login .google-icon-svg,
+  .facebook-login .facebook-icon-svg {
+    position: absolute;
+    margin-top: 11px;
+    margin-left: 11px;
+    width: 18px;
+    height: 18px;
+    user-select: none;
+  }
+  & .google-login .btn-text,
+  .facebook-login .btn-text {
+    float: right;
+    margin: 11px 14px 40px 40px;
+    color: #757575;
+    font-size: 14px;
+    letter-spacing: 0.2px;
+    font-family: Roboto;
+    user-select: none;
+  }
+  & .facebook-login .btn-text {
+    color: $white;
+  }
+  & .google-login:hover,
+  .facebook-login:hover {
+    box-shadow: 0 3px 8px rgba(117, 117, 117, 0.5);
+    user-select: none;
+  }
+  & .google-login:active,
+  .facebook-login:active {
+    box-shadow: 0 1px 1px #757575;
+    background: #f8f8f8;
+    color: #fff;
+    user-select: none;
+  }
+  & .options-for {
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid #000;
+    line-height: 0.1em;
+    margin: 10px 0 20px;
+  }
+
+  & .options-for span {
+    background: #fff;
+    padding: 0 10px;
+  }
+}
+
+.sign-up-info {
+  & a {
+    color: $theme-color;
+    cursor: pointer;
+  }
+}
+
+.form-group button {
+  margin: 0;
+}
+
+label {
+  display: block;
+  padding-bottom: 5px;
+  &.small-font {
+    font-weight: bold;
+  }
+}
+
+.link-button {
+  text-align: center;
+  padding: 10px;
+  margin: 0 auto;
+  background: #3b5390;
+}
+
 @import 'base/responsive';

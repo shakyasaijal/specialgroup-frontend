@@ -88,6 +88,11 @@
       font-size: $subtitle2;
     }
   }
+  .ads {
+    & .grid2 {
+      grid-template-columns: 100%;
+    }
+  }
   .mobile-footer {
     display: block;
     padding: 30px;
@@ -107,6 +112,43 @@
       grid-template-columns: 100%;
     }
   }
+  .sign {
+    width: 100%;
+    & .grid2 {
+      grid-template-columns: 100%;
+      .sign-in .google-login,
+      .sign-in .facebook-login {
+        margin: 8px;
+        width: 95%;
+      }
+      input {
+        width: 95%;
+      }
+    }
+  }
+  .sign-in {
+    & .google-login,
+    .facebook-login {
+      width: 100%;
+    }
+  }
+  .sign-up-info {
+    width: 100%;
+  }
+  .sign-in input {
+    margin-top: 5px;
+    width: 95%;
+  }
+
+  .headline {
+    font-size: $mid;
+  }
+  .signup-now {
+    padding-top: 5vh;
+  }
+  .form-group button {
+    margin: 0;
+  }
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
@@ -116,6 +158,15 @@
   }
   .quick-navigation {
     display: none;
+  }
+  .sign {
+    width: 60%;
+  }
+  .sign-in {
+    & .google-login,
+    .facebook-login {
+      width: 100%;
+    }
   }
 }
 
@@ -140,6 +191,9 @@
   .quick-navigation {
     display: none;
   }
+  .sign {
+    width: 50%;
+  }
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
@@ -158,6 +212,9 @@
   }
   .quick-navigation {
     display: none;
+  }
+  .sign {
+    width: 40%;
   }
 }
 
