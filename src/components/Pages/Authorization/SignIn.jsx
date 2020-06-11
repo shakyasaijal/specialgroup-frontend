@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
-import Paper from '@material-ui/core/Paper';
 import { Link } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 import LockOpenIcon from '@material-ui/icons/LockOpen';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
-import { green, purple } from '@material-ui/core/colors';
 
 const useStyles = makeStyles((theme) => ({
   button: {
@@ -14,7 +12,6 @@ const useStyles = makeStyles((theme) => ({
 
 const ColorButton = withStyles((theme) => ({
   root: {
-    color: theme.palette.getContrastText(purple[500]),
     backgroundColor: '#4a68b4',
     '&:hover': {
       backgroundColor: '#3b5390',
@@ -88,7 +85,7 @@ const SignIn = () => {
                   <ColorButton
                     variant="contained"
                     color="red"
-                    size="large"
+                    size="small"
                     className={classes.button}
                     startIcon={<LockOpenIcon />}
                   >

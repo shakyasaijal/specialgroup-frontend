@@ -339,7 +339,7 @@ section {
 }
 
 .sign {
-  width: 30%;
+  width: 20%;
 }
 
 .sign-in {
@@ -353,12 +353,14 @@ section {
     margin: 15px 0;
   }
   .grid2 {
+    grid-template-columns: 50% 50%;
     margin-top: 5px;
+    display: grid;
+    padding-bottom: 10px;
   }
   & .google-login,
   .facebook-login {
-    margin: 25px auto;
-    width: 60%;
+    margin: 8px auto;
     height: 42px;
     background-color: #fcfcfc;
     border-radius: 2px;
