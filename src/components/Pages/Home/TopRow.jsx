@@ -8,7 +8,7 @@ const TopRow = () => {
 
   return (
     <>
-      <div className="row">
+      <div className="row mt30">
         <div className="grid">
           <div className="grid-item">
             <h4 className="medium-dark">Shop by Category</h4>

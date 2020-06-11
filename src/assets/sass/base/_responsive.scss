@@ -70,7 +70,6 @@
 
   .row {
     margin-bottom: 8vh;
-    margin-top: 0;
     & .grid {
       grid-template-columns: 100%;
     }
@@ -86,8 +85,26 @@
       color: $theme-color;
     }
     & .product-name {
-      font-size: $h6;
-      padding: 15px 10px;
+      font-size: $subtitle2;
+    }
+  }
+  .mobile-footer {
+    display: block;
+    padding: 30px;
+    & .grid {
+      grid-template-columns: 100%;
+      margin-bottom: 9vh;
+    }
+    & .flex {
+      display: flex;
+    }
+  }
+
+  .bottom-footer {
+    margin-bottom: 9vh;
+    display: block;
+    & .grid {
+      grid-template-columns: 100%;
     }
   }
 }

@@ -14,7 +14,7 @@
 
 .page-wrapper {
   padding-bottom: 11vh;
-  background: #dcdcdcba;
+  background: #f2f3f7;
   padding-top: 1vh;
 }
 
@@ -255,14 +255,64 @@ section {
 }
 .grid3 {
   display: grid;
-  grid-template-columns: 14% 14% 14% 14% 14% 14%;
-  grid-gap: 3.2%;
+  grid-template-columns: 17% 17% 17% 17% 17%;
+  grid-gap: 3.8%;
 }
 .row {
   & .product-name {
     font-size: $h5;
     padding: 10px;
     color: $theme-color;
+  }
+}
+.white-color {
+  color: $white;
+}
+.mobile-footer {
+  background: $secondary-color;
+  padding: 50px;
+  color: tint($theme-color, 70%);
+
+  & .footer-link > * {
+    color: tint($theme-color, 70%);
+
+    &:hover {
+      color: $black;
+    }
+  }
+
+  & .grid {
+    display: grid;
+    grid-gap: 5%;
+    grid-template-columns: 30% 30% 30%;
+  }
+
+  & .flex {
+    display: grid;
+  }
+}
+
+.bottom-footer {
+  background: $primary-color;
+  display: block;
+  padding: 0 50px;
+  height: 5vh;
+  color: $contrast-font-color;
+  & .grid {
+    display: grid;
+    grid-template-columns: 45% 45%;
+    grid-gap: 5%;
+  }
+}
+
+.image-container {
+  height: 150px;
+  margin: 0 auto;
+  width: 150px;
+  background: white;
+  & > * {
+    object-fit: scale-down;
+    background-size: contain;
   }
 }
 @import 'base/responsive';
