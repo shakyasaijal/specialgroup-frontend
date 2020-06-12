@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 import LockOpenIcon from '@material-ui/icons/LockOpen';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
+import SocialAuth from './SocialAuth';
 
 const useStyles = makeStyles((theme) => ({
   button: {
@@ -12,6 +13,7 @@ const useStyles = makeStyles((theme) => ({
 
 const ColorButton = withStyles((theme) => ({
   root: {
+    color: '#fff',
     backgroundColor: '#4a68b4',
     '&:hover': {
       backgroundColor: '#3b5390',
@@ -30,30 +32,7 @@ const SignIn = () => {
           <div className="sign-in">
             <div className="social-auth">
               <h4 className="title text-center">Sign In</h4>
-              <div className="grid2">
-                <div className="google-login">
-                  <div class="google-icon-wrapper">
-                    <img
-                      class="google-icon-svg"
-                      src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
-                    />
-                  </div>
-                  <p class="btn-text">
-                    <b>Sign in with Google</b>
-                  </p>
-                </div>
-                <div className="facebook-login">
-                  <div class="facebook-icon-wrapper">
-                    <img
-                      class="facebook-icon-svg"
-                      src="https://cdn1.iconfinder.com/data/icons/logotypes/32/square-facebook-512.png"
-                    />
-                  </div>
-                  <p class="btn-text">
-                    <b>Sign in with Facebook</b>
-                  </p>
-                </div>
-              </div>
+              <SocialAuth for="sign-in" />
             </div>
             <div className="options">
               <h2 className="options-for">
@@ -73,7 +52,12 @@ const SignIn = () => {
                   />
                 </div>
                 <div className="form-group">
-                  <label className="small-font">Password</label>
+                  <label className="small-font">
+                    Password{' '}
+                    <Link to="/" className="float-right small">
+                      Forget Password?
+                    </Link>
+                  </label>
                   <input
                     type="password"
                     autoComplete="off"
@@ -97,7 +81,7 @@ const SignIn = () => {
             </div>
             <div className="sign-up-info">
               <span>
-                Haven't created an account yet? <Link to="/">Sign Up Now.</Link>
+                New Here? <Link to="/sign-up">Sign Up Now.</Link>
               </span>
             </div>
           </div>
