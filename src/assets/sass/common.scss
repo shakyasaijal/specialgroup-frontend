@@ -361,6 +361,15 @@ section {
   input {
     padding: 8px;
     width: 100%;
+    border: 1px solid #a6a6a6;
+    border-top-color: #949494;
+    border-radius: 3px;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5), 0 1px 0 rgba(0, 0, 0, 0.07) inset;
+    outline: 0;
+    line-height: 0;
+  }
+  & input:focus {
+    border: 1px solid $theme-color;
   }
   .form-group {
     margin: 15px 0;
@@ -509,6 +518,9 @@ label {
     outline: 0;
     line-height: 0;
   }
+  & input:focus {
+    border: 1px solid $theme-color;
+  }
 
   & .divider {
     height: 44px;
@@ -532,6 +544,10 @@ label {
   & .sign-up-options .grid2 {
     top: 50%;
     grid-template-columns: 100% !important;
+  }
+  .error {
+    font-size: 13px;
+    color: #ff1818;
   }
 }
 

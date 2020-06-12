@@ -34,7 +34,7 @@ const SignUp = () => {
                 <div className="group">
                   <label>First Name *</label>
                   <input type="text" name="first_name" required />
-                  {/* <span className="error">First Name is required</span> */}
+                  <span className="error">First Name is required.</span>
                 </div>
                 <div className="group">
                   <label>Last Name *</label>
@@ -49,6 +49,7 @@ const SignUp = () => {
                 <div className="group">
                   <label>Password *</label>
                   <input type="password" name="password" required />
+                  <span className="error">Password don't matched.</span>
                 </div>
                 <div className="group">
                   <label>Confirm Password *</label>
