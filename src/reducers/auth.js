@@ -1,15 +1,19 @@
-const defaultAuthState = {
+import { AUTH_INFO_UPDATE } from 'actions/auth';
+
+const defaultState = {
   userId: null,
   accessToken: null,
   refreshToken: null,
 };
 
-export default function auth(state = defaultAuthState, action) {
+export const auth = (state = defaultState, action) => {
   switch (action.type) {
-    case 1: {
-      return 1;
+    case AUTH_INFO_UPDATE: {
+      const { userId, accessToken, refreshToken } = action;
+
+      return { ...state, userId, accessToken, refreshToken };
     }
     default:
       return state;
   }
-}
+};

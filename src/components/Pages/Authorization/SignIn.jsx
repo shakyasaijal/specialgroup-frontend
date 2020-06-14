@@ -1,9 +1,16 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+
 import Button from '@material-ui/core/Button';
 import LockOpenIcon from '@material-ui/icons/LockOpen';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
+
+import Form from '../../Form';
 import SocialAuth from './SocialAuth';
+import { getCSRFToken } from 'config/Config';
+import { ValidateEmail } from 'util/Validator';
+
+import { ERROR_EMPTY_EMAIL, ERROR_EMAIL, ERROR_EMPTY_PASSWORD } from 'constants/ErrorMessages';
 
 const useStyles = makeStyles((theme) => ({
   button: {
@@ -21,9 +28,46 @@ const ColorButton = withStyles((theme) => ({
   },
 }))(Button);
 
-const SignIn = () => {
+const SignIn = (props) => {
+  const initialState = {
+    email: '',
+    password: '',
+  };
+
   const classes = useStyles();
-  const [form, setForm] = useState({ email: '', password: '' });
+  const [state, setForm] = useState(initialState);
+  const [errors, setErrors] = useState(initialState);
+
+  const onClick = (e) => {
+    if (e) e.preventDefault();
+    const { authLoginRequest } = props;
+    const csrfmiddlewaretoken = getCSRFToken();
+    const err = getFormErrors();
+
+    if (err.email || err.password) {
+      console.log('here');
+      setErrors(err);
+      return;
+    }
+
+    const { email, password } = state;
+    authLoginRequest(email, password, csrfmiddlewaretoken, callbackSuccess);
+  };
+
+  function callbackSuccess() {
+    console.log('login success');
+  }
+
+  const getFormErrors = () => {
+    const err = {};
+    const { email, password } = state;
+
+    if (!email) err.email = ERROR_EMPTY_EMAIL;
+    if (!ValidateEmail(email)) err.email = ERROR_EMAIL;
+    if (!password) err.password = ERROR_EMPTY_PASSWORD;
+
+    return err;
+  };
 
   return (
     <div className="sign center mt10">
@@ -40,15 +84,15 @@ const SignIn = () => {
               </h2>
             </div>
             <div className="sign-in-form">
-              <form method="POST">
+              <Form>
                 <div className="form-group">
                   <label className="small-font">Email</label>
                   <input
                     type="email"
                     autoComplete="off"
-                    onChange={(e) => setForm({ ...form, email: e.target.value })}
+                    onChange={(e) => setForm({ ...state, email: e.target.value })}
                     name="email"
-                    value={form.email}
+                    value={state.email}
                   />
                 </div>
                 <div className="form-group">
@@ -61,23 +105,23 @@ const SignIn = () => {
                   <input
                     type="password"
                     autoComplete="off"
-                    onChange={(e) => setForm({ ...form, password: e.target.value })}
+                    onChange={(e) => setForm({ ...state, password: e.target.value })}
                     name="password"
-                    value={form.password}
+                    value={state.password}
                   />
                 </div>
                 <div className="form-group">
                   <ColorButton
                     variant="contained"
-                    color="red"
                     size="small"
                     className={classes.button}
                     startIcon={<LockOpenIcon />}
+                    onClick={onClick}
                   >
                     SIGN IN
                   </ColorButton>
                 </div>
-              </form>
+              </Form>
             </div>
             <div className="sign-up-info">
               <span>

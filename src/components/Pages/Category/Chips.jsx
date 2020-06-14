@@ -10,7 +10,7 @@ const Chips = () => {
     <div className="row">
       <div className="grid-chips">
         {_categories.map((category, index) => (
-          <Chip color="secondary" avatar={<Avatar src={category.img} />} label={category.name} />
+          <Chip color="secondary" avatar={<Avatar src={category.img} />} label={category.name} key={index} />
         ))}
       </div>
     </div>
