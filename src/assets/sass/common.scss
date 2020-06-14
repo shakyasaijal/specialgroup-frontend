@@ -89,6 +89,9 @@ header {
 
   .short-navbar {
     font-size: $medium;
+    & > * {
+      margin: 0 10px;
+    }
   }
 }
 
@@ -553,6 +556,19 @@ label {
 
 .zIndex {
   z-index: 5000;
+}
+
+.grid-chips {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap;
+
+  & > div {
+    flex: 1 1 auto;
+    margin: 5px;
+  }
 }
 
 @import 'base/responsive';

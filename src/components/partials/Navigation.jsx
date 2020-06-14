@@ -31,9 +31,21 @@ const Navigation = () => {
               </div>
               <div className=""></div>
               <div className="short-navbar">
-                <a href="" className="float-right">
+                <Link to="/" className="float-right">
                   Wishlist
-                </a>
+                </Link>
+                <Link to="/" className="float-right">
+                  Opportunity
+                </Link>
+                <Link to="/" className="float-right">
+                  About Us
+                </Link>
+                <Link to="/" className="float-right customer-care">
+                  Customer Care
+                </Link>
+                <Link to="/" className="float-right">
+                  Home
+                </Link>
               </div>
             </div>
           </div>
