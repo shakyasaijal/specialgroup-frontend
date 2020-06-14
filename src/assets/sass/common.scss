@@ -694,4 +694,34 @@ label {
 .order-history {
   width: 60%;
 }
+
+.product-slider-container {
+  padding: 25px;
+  & .column-flex {
+    display: flex;
+    flex-direction: column;
+  }
+  & .product-container {
+    padding: 10px;
+    overflow: hidden;
+  }
+  & .image-container {
+    height: 200px;
+    width: 160px;
+    & img {
+      height: 100%;
+      width: 100%;
+      object-fit: scale-down;
+    }
+  }
+  & .padding {
+    padding: 10px;
+    overflow: hidden;
+  }
+}
+
+.slick-prev:before,
+.slick-next:before {
+  color: $theme-color;
+}
 @import 'base/responsive';

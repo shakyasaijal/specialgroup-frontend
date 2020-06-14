@@ -188,6 +188,15 @@
       width: 100%;
     }
   }
+  .order-history {
+    width: 100%;
+  }
+  .product-slider-container {
+    padding: 0;
+    & .product-slider {
+      padding: 0 25px;
+    }
+  }
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
@@ -223,6 +232,9 @@
       grid-template-columns: 55% 45%;
       grid-gap: 0;
     }
+  }
+  .order-history {
+    width: 100%;
   }
 }
 

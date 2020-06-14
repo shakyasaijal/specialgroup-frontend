@@ -3,6 +3,7 @@ import MaterialTable from 'material-table';
 import { Link } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
+import ProductsSlider from '../Products/ProductsSlider';
 
 const useStyles = makeStyles((theme) => ({
   button: {
@@ -40,14 +41,18 @@ const OrderHistory = () => {
       { coupon: '55d5we', date: '10/02/2020', total: 1, action: getLink(4) },
     ],
   });
+
   return (
-    <div className="row">
-      <div className="order-history center">
-        <div className="orders">
-          <MaterialTable title="Your Orders" columns={state.columns} data={state.data} />
+    <>
+      <div className="row">
+        <div className="order-history center">
+          <div className="orders">
+            <MaterialTable title="Your Orders" columns={state.columns} data={state.data} />
+          </div>
         </div>
       </div>
-    </div>
+      <ProductsSlider />
+    </>
   );
 };
 
