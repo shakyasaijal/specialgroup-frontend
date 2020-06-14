@@ -67,7 +67,7 @@ const Navigation = () => {
                 <div className="info grid-template grid-row-account float-right paddingLeft-5">
                   <small className="anchor">Welcome, Sign In</small>
                   <span className="my-account anchor">
-                    <Link to="/signin">My Account</Link>
+                    <Link to="/sign-in">My Account</Link>
                   </span>
                 </div>
               </div>

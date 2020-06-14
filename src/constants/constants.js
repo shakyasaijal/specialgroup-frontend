@@ -103,3 +103,7 @@ export const productsList = () => {
     },
   ];
 };
+
+export const getImageUrl = (uri) => {
+  return process.env.PUBLIC_URL + uri;
+};

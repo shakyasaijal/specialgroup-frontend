@@ -116,22 +116,12 @@
     width: 100%;
     & .grid2 {
       grid-template-columns: 100%;
-      .sign-in .google-login,
-      .sign-in .facebook-login {
-        margin: 8px;
-        width: 95%;
-      }
       input {
         width: 95%;
       }
     }
   }
-  .sign-in {
-    & .google-login,
-    .facebook-login {
-      width: 100%;
-    }
-  }
+
   .sign-up-info {
     width: 100%;
   }
@@ -149,6 +139,44 @@
   .form-group button {
     margin: 0;
   }
+  .google-login,
+  .facebook-login {
+    width: 100%;
+  }
+
+  .sign-up-container {
+    width: 100%;
+    & .grid2 {
+      display: flex;
+      flex-direction: column-reverse;
+      grid-template-columns: 100%;
+    }
+    & .sign-up-group {
+      grid-template-columns: 100%;
+    }
+    & input {
+      width: 100%;
+      height: 5vh;
+    }
+    & .group {
+      & input[type='email'] {
+        width: 100%;
+      }
+    }
+    & .sign-up-options {
+      & .zIndex,
+      & .mobile-hide {
+        display: none;
+      }
+      & .mobile-display {
+        margin-top: 7vh;
+        margin-bottom: 3vh;
+      }
+    }
+    & .mobile-display {
+      display: block;
+    }
+  }
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
@@ -163,20 +191,41 @@
     width: 70%;
   }
   .sign-in {
-    & .google-login,
-    .facebook-login {
-      width: 70%;
-    }
     & .grid2 {
       grid-template-columns: 100%;
     }
   }
-
+  .google-login,
+  .facebook-login {
+    width: 70%;
+  }
   .logo {
     .img-container {
-      height: 65%;
-      width: 86%;
+      width: 70%;
       overflow: hidden;
+    }
+  }
+  .sign-up-container {
+    width: 100%;
+    & .grid2 {
+      display: grid;
+      grid-template-columns: 55% 45%;
+      grid-gap: 0;
+    }
+  }
+}
+
+@media only screen and (min-width: 670px) {
+  .sign-up-container {
+    width: 100%;
+    & .grid2 {
+      display: grid;
+      grid-template-columns: 60% 40%;
+      grid-gap: 0;
+    }
+    .google-login,
+    .facebook-login {
+      width: 96%;
     }
   }
 }
@@ -204,6 +253,13 @@
   }
   .sign {
     width: 50%;
+  }
+  .sign-up-container {
+    width: 60%;
+    & .grid2 {
+      display: grid;
+      grid-template-columns: 55% 45%;
+    }
   }
 }
 

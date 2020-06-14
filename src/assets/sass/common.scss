@@ -18,6 +18,14 @@
   padding-top: 1vh;
 }
 
+.black-color {
+  color: $black;
+}
+
+.small {
+  font-size: $subtitle2;
+}
+
 header {
   height: 18vh;
   background: $navigation-background;
@@ -340,6 +348,11 @@ section {
 
 .sign {
   width: 20%;
+
+  & .options {
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
 }
 
 .sign-in {
@@ -348,6 +361,15 @@ section {
   input {
     padding: 8px;
     width: 100%;
+    border: 1px solid #a6a6a6;
+    border-top-color: #949494;
+    border-radius: 3px;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5), 0 1px 0 rgba(0, 0, 0, 0.07) inset;
+    outline: 0;
+    line-height: 0;
+  }
+  & input:focus {
+    border: 1px solid $theme-color;
   }
   .form-group {
     margin: 15px 0;
@@ -358,78 +380,84 @@ section {
     display: grid;
     padding-bottom: 10px;
   }
-  & .google-login,
-  .facebook-login {
-    margin: 8px auto;
-    height: 42px;
-    background-color: #fcfcfc;
-    border-radius: 2px;
-    box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.2);
-    cursor: pointer;
-    align-self: center;
-    user-select: none;
-    transition: all 400ms ease 0s;
-    display: flex;
-  }
-  & .facebook-login {
-    background: #3b5898;
-  }
-  & .google-login .google-icon-wrapper,
-  .facebook-login .facebook-icon-wrapper {
-    position: absolute;
-    margin-top: 1px;
-    margin-left: 1px;
-    width: 40px;
-    height: 40px;
-    border-radius: 2px;
-    user-select: none;
-  }
-  & .google-login .google-icon-svg,
-  .facebook-login .facebook-icon-svg {
-    position: absolute;
-    margin-top: 11px;
-    margin-left: 11px;
-    width: 18px;
-    height: 18px;
-    user-select: none;
-  }
-  & .google-login .btn-text,
-  .facebook-login .btn-text {
-    float: right;
-    margin: 11px 14px 40px 40px;
-    color: #757575;
-    font-size: 14px;
-    letter-spacing: 0.2px;
-    font-family: Roboto;
-    user-select: none;
-  }
-  & .facebook-login .btn-text {
-    color: $white;
-  }
-  & .google-login:hover,
-  .facebook-login:hover {
-    box-shadow: 0 3px 8px rgba(117, 117, 117, 0.5);
-    user-select: none;
-  }
-  & .google-login:active,
-  .facebook-login:active {
-    box-shadow: 0 1px 1px #757575;
-    background: #f8f8f8;
-    color: #fff;
-    user-select: none;
-  }
-  & .options-for {
-    width: 100%;
-    text-align: center;
-    border-bottom: 1px solid #000;
-    line-height: 0.1em;
-    margin: 10px 0 20px;
-  }
+}
 
-  & .options-for span {
-    background: #fff;
-    padding: 0 10px;
-  }
+.mobile-display {
+  display: none;
+}
+
+.options-for {
+  width: 100%;
+  text-align: center;
+  border-bottom: 1px solid #000;
+  line-height: 0.1em;
+  margin: 10px 0 20px;
+}
+
+.options-for span {
+  background: #fff;
+  padding: 0 10px;
+}
+
+.google-login,
+.facebook-login {
+  margin: 8px auto;
+  height: 42px;
+  background-color: #fcfcfc;
+  border-radius: 2px;
+  box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  align-self: center;
+  user-select: none;
+  transition: all 400ms ease 0s;
+  display: flex;
+}
+.facebook-login {
+  background: #3b5898;
+}
+.google-login .google-icon-wrapper,
+.facebook-login .facebook-icon-wrapper {
+  position: absolute;
+  margin-top: 1px;
+  margin-left: 1px;
+  width: 40px;
+  height: 40px;
+  border-radius: 2px;
+  user-select: none;
+}
+.google-login .google-icon-svg,
+.facebook-login .facebook-icon-svg {
+  position: absolute;
+  margin-top: 11px;
+  margin-left: 11px;
+  width: 18px;
+  height: 18px;
+  user-select: none;
+}
+.google-login .btn-text,
+.facebook-login .btn-text {
+  float: right;
+  margin: 11px 14px 40px 40px;
+  color: #757575;
+  font-size: 14px;
+  letter-spacing: 0.2px;
+  font-family: Roboto;
+  user-select: none;
+}
+.facebook-login .btn-text {
+  color: $white;
+}
+.google-login:hover,
+.facebook-login:hover {
+  box-shadow: 0 3px 8px rgba(117, 117, 117, 0.5);
+  user-select: none;
+}
+.google-login:active,
+.facebook-login:active {
+  box-shadow: 0 1px 1px #757575;
+  background: #f8f8f8;
+  color: #fff;
+  user-select: none;
 }
 
 .sign-up-info {
@@ -456,6 +484,75 @@ label {
   padding: 10px;
   margin: 0 auto;
   background: #3b5390;
+}
+
+.sign-up-container {
+  background: $white;
+  padding: 20px;
+  width: 68%;
+
+  & .grid2 {
+    display: grid;
+    grid-template-columns: 45% 45%;
+    grid-gap: 10%;
+  }
+  & .sign-up-group {
+    display: grid;
+    grid-template-columns: 45% 45%;
+    width: 100%;
+  }
+  & .group {
+    padding: 10px;
+    & input[type='email'] {
+      width: 310px;
+    }
+  }
+  & input {
+    padding: 5px 5px;
+    width: 150px;
+    height: 4vh;
+    border: 1px solid #a6a6a6;
+    border-top-color: #949494;
+    border-radius: 3px;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5), 0 1px 0 rgba(0, 0, 0, 0.07) inset;
+    outline: 0;
+    line-height: 0;
+  }
+  & input:focus {
+    border: 1px solid $theme-color;
+  }
+
+  & .divider {
+    height: 44px;
+    background: -webkit-linear-gradient(to bottom, rgba(0, 0, 0, 0.14), rgba(0, 0, 0, 0.03) 3px, transparent);
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.14), rgba(0, 0, 0, 0.03) 3px, transparent);
+    z-index: 0;
+    top: 10%;
+    position: relative;
+    zoom: 1;
+  }
+  & .divider:after {
+    display: block;
+    width: 100%;
+    height: 18px;
+    background-color: transparent;
+    background: -webkit-linear-gradient(to right, #fff, rgba(255, 255, 255, 0), #fff);
+    background: linear-gradient(to right, #fff, rgba(255, 255, 255, 0), #fff);
+    z-index: 1;
+    content: '';
+  }
+  & .sign-up-options .grid2 {
+    top: 50%;
+    grid-template-columns: 100% !important;
+  }
+  .error {
+    font-size: 13px;
+    color: #ff1818;
+  }
+}
+
+.zIndex {
+  z-index: 5000;
 }
 
 @import 'base/responsive';
