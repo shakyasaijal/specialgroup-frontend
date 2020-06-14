@@ -9,6 +9,7 @@ import Header from './components/partials/Header';
 import Home from './components/Pages/Home/Home';
 import SignIn from './components/Pages/Authorization/SignIn';
 import ForgetPassword from './components/Pages/Authorization/ForgetPassword';
+import AccountSettings from './components/Pages/Authorization/AccountSettings';
 import SignUp from './components/Pages/Authorization/SignUp';
 import QuickNavigation from './components/partials/QuickNavigation';
 import Footer from './components/partials/Footer';
@@ -41,6 +42,11 @@ function App() {
               path={PATHS.FORGET_PASSWORD}
               component={ForgetPassword}
               title="Special Group | FORGET PASSWORD"
+            />
+            <SpecialGroupRoute
+              path={PATHS.ACCOUNT_SETTINGS}
+              component={AccountSettings}
+              title="Special Group | Account Settings"
             />
             <SpecialGroupRoute path={PATHS.NOT_FOUND} component={Home} />
           </Switch>

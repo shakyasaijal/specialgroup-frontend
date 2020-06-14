@@ -653,4 +653,41 @@ label {
     font-size: 12px;
   }
 }
+
+.settings-container {
+  & .greetings {
+    border-bottom: 1px solid grey;
+    margin: 15px;
+    font-size: 22px;
+    font-weight: bold;
+    padding-bottom: 8px;
+  }
+  & .account-wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    & > div {
+      flex: 1 1 auto;
+      margin: 15px;
+    }
+    & .img-container {
+      height: 100px;
+      width: 100px;
+      & img {
+        height: 100%;
+        object-fit: scale-down;
+      }
+    }
+    & .settings {
+      display: flex;
+      background: $white;
+      align-items: center;
+      padding: 10px;
+      & > div {
+        flex: 1;
+        margin: 5px;
+      }
+    }
+  }
+}
 @import 'base/responsive';

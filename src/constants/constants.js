@@ -199,6 +199,26 @@ export const productsList = () => {
   ];
 };
 
+export const accountSettings = () => {
+  return [
+    {
+      title: 'Order History',
+      icon: getImageUrl('images/order.png'),
+      subtitle: 'View order histories',
+    },
+    {
+      title: 'Login & Security',
+      icon: getImageUrl('images/security.png'),
+      subtitle: 'Edit phone, password',
+    },
+    {
+      title: 'Address',
+      icon: getImageUrl('images/address.png'),
+      subtitle: 'Edit city, address',
+    },
+  ];
+};
+
 export const getImageUrl = (uri) => {
   return process.env.PUBLIC_URL + uri;
 };
