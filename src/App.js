@@ -13,6 +13,7 @@ import AccountSettings from './components/Pages/Authorization/AccountSettings';
 import SignUp from './components/Pages/Authorization/SignUp';
 import QuickNavigation from './components/partials/QuickNavigation';
 import Footer from './components/partials/Footer';
+import OrderHistory from './components/Pages/Order/OrderHistory';
 
 import './assets/sass/common.css';
 
@@ -47,6 +48,11 @@ function App() {
               path={PATHS.ACCOUNT_SETTINGS}
               component={AccountSettings}
               title="Special Group | Account Settings"
+            />
+            <SpecialGroupRoute
+              path={PATHS.ORDER_HISTORY}
+              component={OrderHistory}
+              title="Special Group | Order History"
             />
             <SpecialGroupRoute path={PATHS.NOT_FOUND} component={Home} />
           </Switch>

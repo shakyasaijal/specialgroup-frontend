@@ -205,16 +205,19 @@ export const accountSettings = () => {
       title: 'Order History',
       icon: getImageUrl('images/order.png'),
       subtitle: 'View order histories',
+      link: '/order-history',
     },
     {
       title: 'Login & Security',
       icon: getImageUrl('images/security.png'),
       subtitle: 'Edit phone, password',
+      link: '',
     },
     {
       title: 'Address',
       icon: getImageUrl('images/address.png'),
       subtitle: 'Edit city, address',
+      link: '',
     },
   ];
 };
