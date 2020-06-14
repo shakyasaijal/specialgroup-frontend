@@ -563,12 +563,46 @@ label {
   flex-direction: row;
   justify-content: flex-start;
   align-items: flex-start;
+  cursor: pointer;
   flex-wrap: wrap;
 
-  & > div {
+  & > * {
     flex: 1 1 auto;
     margin: 5px;
   }
 }
 
+.featured-category {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  & > .feat-categories {
+    flex: 1 1 auto;
+    margin: 30px 15px;
+    width: 30%;
+    overflow: hidden;
+  }
+  & .feat-categories {
+    & .category-name {
+      padding: 15px;
+      font-size: 20px;
+      color: $black;
+      overflow: hidden;
+    }
+    & .links {
+      padding: 15px;
+      font-size: 16px;
+      color: $secondary-color;
+    }
+    & .image-container {
+      height: 200px;
+      & img {
+        height: 100%;
+        object-fit: scale-down;
+        width: 100%;
+      }
+    }
+  }
+}
 @import 'base/responsive';

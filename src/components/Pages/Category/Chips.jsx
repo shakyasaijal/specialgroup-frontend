@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Avatar from '@material-ui/core/Avatar';
 import Chip from '@material-ui/core/Chip';
 import { categoriesForChips } from '../../../constants/constants';
@@ -10,7 +11,15 @@ const Chips = () => {
     <div className="row">
       <div className="grid-chips">
         {_categories.map((category, index) => (
-          <Chip color="secondary" avatar={<Avatar src={category.img} />} label={category.name} />
+          <Link to="/">
+            <Chip
+              color="secondary"
+              size="large"
+              clickable={true}
+              avatar={<Avatar src={category.img} />}
+              label={category.name}
+            />
+          </Link>
         ))}
       </div>
     </div>

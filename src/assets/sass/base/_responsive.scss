@@ -177,6 +177,17 @@
       display: block;
     }
   }
+  .grid-chips {
+    & > * {
+      flex: 1 1;
+    }
+  }
+  .featured-category {
+    & > .feat-categories {
+      margin: 10px 15px;
+      width: 100%;
+    }
+  }
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
