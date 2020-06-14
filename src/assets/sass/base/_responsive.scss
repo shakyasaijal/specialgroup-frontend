@@ -1,0 +1,262 @@
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .mobile-header {
+    height: 9vh;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 1100;
+    overflow: hidden;
+  }
+  .page-wrapper {
+    padding-top: 9vh;
+  }
+  header {
+    height: 9vh;
+  }
+  .bottom-panel {
+    display: none;
+  }
+  .page-header {
+    background: $white;
+    height: 5vh;
+  }
+  .quick-navigation {
+    position: fixed;
+    bottom: 0;
+    overflow: hidden;
+    z-index: 1100;
+    width: 100%;
+  }
+  .search-engine {
+    padding: 5px;
+    height: 9vh;
+    width: 80%;
+    .search-form {
+      top: 14%;
+      position: relative;
+      padding-left: 5px;
+      & input[type='text'] {
+        height: 5vh;
+        width: 100%;
+        background: $navigation-background;
+        border-radius: unset;
+        font-size: $subtitle2;
+        padding: 0 5px;
+      }
+
+      & button {
+        display: none;
+      }
+    }
+  }
+  & a {
+    height: 100%;
+    width: 100%;
+    color: $black;
+  }
+
+  & small {
+    letter-spacing: 1px;
+  }
+
+  & .active {
+    background: #e4e4e4;
+    box-shadow: inset 0 0 6px -3px rgba(0, 0, 0, 0.8);
+  }
+  .page-header {
+    display: none;
+  }
+
+  .row {
+    margin-bottom: 8vh;
+    & .grid {
+      grid-template-columns: 100%;
+    }
+    & .grid2 {
+      grid-template-columns: 50% 50%;
+    }
+    & .grid3 {
+      grid-template-columns: 47% 47%;
+      grid-gap: 1% 5%;
+    }
+    & .product-price {
+      font-size: $medium;
+      color: $theme-color;
+    }
+    & .product-name {
+      font-size: $subtitle2;
+    }
+  }
+  .ads {
+    & .grid2 {
+      grid-template-columns: 100%;
+    }
+  }
+  .mobile-footer {
+    display: block;
+    padding: 30px;
+    & .grid {
+      grid-template-columns: 100%;
+      margin-bottom: 9vh;
+    }
+    & .flex {
+      display: flex;
+    }
+  }
+
+  .bottom-footer {
+    margin-bottom: 9vh;
+    display: block;
+    & .grid {
+      grid-template-columns: 100%;
+    }
+  }
+  .sign {
+    width: 100%;
+    & .grid2 {
+      grid-template-columns: 100%;
+      .sign-in .google-login,
+      .sign-in .facebook-login {
+        margin: 8px;
+        width: 95%;
+      }
+      input {
+        width: 95%;
+      }
+    }
+  }
+  .sign-in {
+    & .google-login,
+    .facebook-login {
+      width: 100%;
+    }
+  }
+  .sign-up-info {
+    width: 100%;
+  }
+  .sign-in input {
+    margin-top: 5px;
+    width: 95%;
+  }
+
+  .headline {
+    font-size: $mid;
+  }
+  .signup-now {
+    padding-top: 5vh;
+  }
+  .form-group button {
+    margin: 0;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  .mobile-header {
+    display: none;
+  }
+  .quick-navigation {
+    display: none;
+  }
+  .sign {
+    width: 70%;
+  }
+  .sign-in {
+    & .google-login,
+    .facebook-login {
+      width: 70%;
+    }
+    & .grid2 {
+      grid-template-columns: 100%;
+    }
+  }
+
+  .logo {
+    .img-container {
+      height: 65%;
+      width: 86%;
+      overflow: hidden;
+    }
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  .img-container {
+    height: 100%;
+    width: 80%;
+  }
+  .grid-bottom-panel {
+    grid-template-columns: 25% 50% auto;
+  }
+  .auth .auth-provider {
+    padding: 25px 0px;
+  }
+  .anchor {
+    font-size: 10px;
+  }
+  .mobile-header {
+    display: none;
+  }
+  .quick-navigation {
+    display: none;
+  }
+  .sign {
+    width: 50%;
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  .img-container {
+    height: 100%;
+  }
+  .auth .auth-provider {
+    padding: 25px 0px;
+  }
+  .anchor {
+    font-size: 10px;
+  }
+  .mobile-header {
+    display: none;
+  }
+  .quick-navigation {
+    display: none;
+  }
+  .sign {
+    width: 30%;
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 993px) {
+  .img-container {
+    height: 100%;
+  }
+  .auth .auth-provider {
+    padding: 25px 0px;
+  }
+  .anchor {
+    font-size: 10px;
+  }
+  .mobile-header {
+    display: none;
+  }
+  .quick-navigation {
+    display: none;
+  }
+  .sign {
+    width: 30%;
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  .quick-navigation {
+    display: none;
+  }
+  // .sign{
+  //   width: 50%;
+  // }
+}

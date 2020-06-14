@@ -1,0 +1,44 @@
+.row {
+  margin-top: 25px;
+  z-index: 0;
+
+  & .grid {
+    display: grid;
+    width: 100%;
+    grid-gap: 1%;
+    grid-template-columns: 32.65% 32.65% 32.65%;
+    height: 100%;
+
+    & .grid-item {
+      background: $white;
+      padding: 10px;
+      height: 100%;
+    }
+    .button {
+      color: $contrast-font-color;
+      & :hover {
+        background: $secondary-color;
+      }
+    }
+  }
+
+  & .grid2 {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    width: 100%;
+  }
+}
+.category-name {
+  color: $black;
+  &:hover {
+    color: $secondary-color;
+  }
+}
+
+.panel {
+  background: $white;
+  padding: 10px;
+  @include shadow($black, 0 6px 13px -11px) &.ad {
+    height: 16vh;
+  }
+}
