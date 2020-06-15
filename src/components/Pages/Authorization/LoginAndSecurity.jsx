@@ -1,13 +1,17 @@
 import React from 'react';
-import Button from '@material-ui/core/Button';
-import { Link } from 'react-router-dom';
 import ChangePassword from './ChangePassword';
+import ChangePhone from './ChangePhone';
 
 const LoginAndSecurity = () => {
-  const [password, setPassword] = React.useState('');
+  const [state, setState] = React.useState({ passwordStatus: '', phoneChange: '', currentPhone: '+977 9843935344' });
   const passwordChanged = (status) => {
     if (status) {
-      setPassword(status);
+      setState({ ...state, passwordStatus: status });
+    }
+  };
+  const phoneChanged = (status, newPhone) => {
+    if (status) {
+      setState({ ...state, phoneChange: status, currentPhone: newPhone });
     }
   };
   return (
@@ -15,7 +19,8 @@ const LoginAndSecurity = () => {
       <div className="login-and-security center">
         <div className="page-title">
           <h3 className="medium-dark">Login and Security</h3>
-          {password ? password : ''}
+          {state.passwordStatus ? state.passwordStatus : ''}
+          {state.phoneChange ? state.phoneChange : ''}
         </div>
         <div className="container mt10">
           <div className="security">
@@ -42,14 +47,10 @@ const LoginAndSecurity = () => {
           <div className="security">
             <div className="head">
               <h4>Phone Number</h4>
-              <h5 className="small-grey">+977 9813455199</h5>
+              <h5 className="small-grey">{state.currentPhone}</h5>
             </div>
             <div className="tail">
-              <Link to="/">
-                <Button variant="contained" color="primary" size="small">
-                  Change
-                </Button>
-              </Link>
+              <ChangePhone currentPhone={state.currentPhone} callback={phoneChanged} />
             </div>
           </div>
           <div className="security">
