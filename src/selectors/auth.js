@@ -15,3 +15,11 @@ export const getRefreshToken = (state) => {
 
   return auth.refreshToken;
 };
+
+export const isLoggedIn = (state) => {
+  const auth = getAuth(state);
+
+  if (!auth) return false;
+
+  return !!auth.userId && !!auth.accessToken;
+};

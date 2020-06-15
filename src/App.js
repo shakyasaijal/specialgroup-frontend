@@ -11,7 +11,7 @@ import PATHS from 'routes';
 import Header from './components/partials/Header';
 import Home from './components/Pages/Home/Home';
 import ReduxSignIn from './components/Pages/Authorization/ReduxSignIn';
-import SignUp from './components/Pages/Authorization/SignUp';
+import ReduxSignUp from './components/Pages/Authorization/ReduxSignUp';
 import QuickNavigation from './components/partials/QuickNavigation';
 import Footer from './components/partials/Footer';
 
@@ -51,7 +51,7 @@ function App() {
             <Switch>
               <SpecialGroupRoute exact path={PATHS.HOME} component={Home} />
               <SpecialGroupRoute path={PATHS.SIGNIN} component={ReduxSignIn} title="Special Group | Login" />
-              <SpecialGroupRoute path={PATHS.SIGNUP} component={SignUp} title="Special Group | Sign Up" />
+              <SpecialGroupRoute path={PATHS.SIGNUP} component={ReduxSignUp} title="Special Group | Sign Up" />
               <SpecialGroupRoute path={PATHS.NOT_FOUND} component={Home} />
             </Switch>
           </Container>

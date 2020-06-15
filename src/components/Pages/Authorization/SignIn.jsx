@@ -5,9 +5,11 @@ import Button from '@material-ui/core/Button';
 import LockOpenIcon from '@material-ui/icons/LockOpen';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
 
-import Form from '../../Form';
+import Form from '../../Form/Form';
 import SocialAuth from './SocialAuth';
 import { ValidateEmail } from 'util/Validator';
+
+import PATHS from 'routes';
 
 import { ERROR_EMPTY_EMAIL, ERROR_EMAIL, ERROR_EMPTY_PASSWORD } from 'constants/ErrorMessages';
 
@@ -37,13 +39,12 @@ const SignIn = (props) => {
   const [state, setForm] = useState(initialState);
   const [errors, setErrors] = useState(initialState);
 
-  const onClick = (e) => {
+  const onSubmit = (e) => {
     if (e) e.preventDefault();
     const { authLoginRequest } = props;
     const err = getFormErrors();
 
     if (err.email || err.password) {
-      console.log('here');
       setErrors(err);
       return;
     }
@@ -53,18 +54,24 @@ const SignIn = (props) => {
   };
 
   function callbackSuccess() {
-    console.log('login success');
+    const { history } = props;
+    history.push(PATHS.HOME);
   }
 
   const getFormErrors = () => {
     const err = {};
     const { email, password } = state;
 
-    if (!email) err.email = ERROR_EMPTY_EMAIL;
     if (!ValidateEmail(email)) err.email = ERROR_EMAIL;
+    if (!email) err.email = ERROR_EMPTY_EMAIL;
     if (!password) err.password = ERROR_EMPTY_PASSWORD;
 
     return err;
+  };
+
+  const handleOnChange = (event) => {
+    let { name, value } = event.target;
+    setForm({ ...state, [name]: value });
   };
 
   return (
@@ -82,16 +89,18 @@ const SignIn = (props) => {
               </h2>
             </div>
             <div className="sign-in-form">
-              <Form>
+              <Form onSubmit={onSubmit}>
                 <div className="form-group">
                   <label className="small-font">Email</label>
                   <input
                     type="email"
+                    className={errors.email ? 'error-input' : ''}
                     autoComplete="off"
-                    onChange={(e) => setForm({ ...state, email: e.target.value })}
+                    onChange={handleOnChange}
                     name="email"
                     value={state.email}
                   />
+                  {errors.email && <span className="error">{errors.email}</span>}
                 </div>
                 <div className="form-group">
                   <label className="small-font">
@@ -102,11 +111,13 @@ const SignIn = (props) => {
                   </label>
                   <input
                     type="password"
+                    className={errors.password ? 'error-input' : ''}
                     autoComplete="off"
-                    onChange={(e) => setForm({ ...state, password: e.target.value })}
+                    onChange={handleOnChange}
                     name="password"
                     value={state.password}
                   />
+                  {errors.password && <span className="error">{errors.password}</span>}
                 </div>
                 <div className="form-group">
                   <ColorButton
@@ -114,7 +125,7 @@ const SignIn = (props) => {
                     size="small"
                     className={classes.button}
                     startIcon={<LockOpenIcon />}
-                    onClick={onClick}
+                    onClick={onSubmit}
                   >
                     SIGN IN
                   </ColorButton>

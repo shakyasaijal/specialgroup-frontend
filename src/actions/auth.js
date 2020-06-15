@@ -1,3 +1,5 @@
+export const AUTH_REGISTER_REQUEST = 'AUTH_REGISTER_REQUEST';
+
 export const AUTH_CLEAR_STORE = 'AUTH_CLEAR_STORE';
 export const AUTH_RESET_STORE = 'AUTH_RESET_STORE';
 
@@ -16,6 +18,25 @@ export function authClearStore() {
 export function authResetStore() {
   return {
     type: AUTH_RESET_STORE,
+  };
+}
+
+export function authRegisterRequest(
+  firstName,
+  lastName,
+  email,
+  password,
+  callbackSuccess = null,
+  callbackError = null
+) {
+  return {
+    type: AUTH_REGISTER_REQUEST,
+    firstName,
+    lastName,
+    email,
+    password,
+    callbackSuccess,
+    callbackError,
   };
 }
 

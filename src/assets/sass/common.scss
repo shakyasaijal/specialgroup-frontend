@@ -489,6 +489,17 @@ label {
   background: #3b5390;
 }
 
+.sign-in-form {
+  .error-input {
+    border-color: #ff1818;
+  }
+
+  .error {
+    font-size: 13px;
+    color: #ff1818;
+  }
+}
+
 .sign-up-container {
   background: $white;
   padding: 20px;
@@ -551,6 +562,9 @@ label {
   .error {
     font-size: 13px;
     color: #ff1818;
+  }
+  .error-input {
+    border-color: #ff1818;
   }
 }
 
