@@ -33,9 +33,9 @@ const MobileFooter = () => {
             <h4 className="medium white-color">Useful Links</h4>
             <div className="content mt10 flex footer-link">
               <Link to="/">About Us</Link>
-              <Link to="/">About Us</Link>
-              <Link to="/">About Us</Link>
-              <Link to="/">About Us</Link>
+              <Link to="/">Opportunity</Link>
+              <Link to="/">Contact Us</Link>
+              <Link to="/">Login and Security</Link>
             </div>
           </div>
         </div>
@@ -43,7 +43,7 @@ const MobileFooter = () => {
       <div className="bottom-footer">
         <div className="grid verticle-center">
           <div className="grid-item">&copy; CopyRight {new Date().getFullYear()} | Special Group</div>
-          <div className="grid-item"></div>
+          <div className="grid-item">Under Development</div>
         </div>
       </div>
     </>

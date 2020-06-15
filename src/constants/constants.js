@@ -211,7 +211,7 @@ export const accountSettings = () => {
       title: 'Login & Security',
       icon: getImageUrl('images/security.png'),
       subtitle: 'Edit phone, password',
-      link: '',
+      link: '/login-and-security',
     },
     {
       title: 'Address',

@@ -14,6 +14,7 @@ import SignUp from './components/Pages/Authorization/SignUp';
 import QuickNavigation from './components/partials/QuickNavigation';
 import Footer from './components/partials/Footer';
 import OrderHistory from './components/Pages/Order/OrderHistory';
+import LoginAndSecurity from './components/Pages/Authorization/LoginAndSecurity';
 
 import './assets/sass/common.css';
 
@@ -39,6 +40,11 @@ function App() {
             <SpecialGroupRoute exact path={PATHS.HOME} component={Home} />
             <SpecialGroupRoute path={PATHS.SIGNIN} component={SignIn} title="Special Group | Login" />
             <SpecialGroupRoute path={PATHS.SIGNUP} component={SignUp} title="Special Group | Sign Up" />
+            <SpecialGroupRoute
+              path={PATHS.LOGIN_SECURITY}
+              component={LoginAndSecurity}
+              title="Special Group | Login and Security"
+            />
             <SpecialGroupRoute
               path={PATHS.FORGET_PASSWORD}
               component={ForgetPassword}

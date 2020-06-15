@@ -656,7 +656,7 @@ label {
 
 .settings-container {
   & .greetings {
-    border-bottom: 1px solid grey;
+    border-bottom: 1px solid #c3c3c3b8;
     margin: 15px;
     font-size: 22px;
     font-weight: bold;
@@ -723,5 +723,42 @@ label {
 .slick-prev:before,
 .slick-next:before {
   color: $theme-color;
+}
+
+// Login and Security
+
+.login-and-security {
+  width: 80%;
+  & .container {
+    background: $white;
+    padding: 15px;
+    & .small-grey {
+      color: grey;
+      font-weight: unset;
+      font-size: 14px;
+    }
+    & .security {
+      padding: 10px;
+      display: table;
+      & .head,
+      & .tail {
+        display: table-cell;
+      }
+      & .head {
+        width: 100%;
+      }
+      & h5 {
+        padding-top: 5px;
+      }
+    }
+  }
+}
+
+.change-password {
+  & #transition-modal-description {
+    & .form-group {
+      margin-top: 10px;
+    }
+  }
 }
 @import 'base/responsive';

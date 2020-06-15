@@ -32,7 +32,7 @@ const ForgetPassword = () => {
         <div className="container">
           <div className="left">
             <div className="img-container">
-              <img src={getImageUrl('images/forgetPassword.svg')} />
+              <img src={getImageUrl('images/forgetPassword.svg')} alt="Forget Password" />
             </div>
           </div>
           <div className="right" id="right">
