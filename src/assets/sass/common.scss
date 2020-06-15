@@ -492,7 +492,7 @@ label {
 .sign-up-container {
   background: $white;
   padding: 20px;
-  width: 68%;
+  width: 75%;
 
   & .grid2 {
     display: grid;
@@ -507,12 +507,16 @@ label {
   & .group {
     padding: 10px;
     & input[type='email'] {
-      width: 310px;
+      width: 385px;
+      display: block;
     }
+  }
+  & .error-group{
+    padding: 0 10px;
   }
   & input {
     padding: 5px 5px;
-    width: 150px;
+    width: 100%;
     height: 4vh;
     border: 1px solid #a6a6a6;
     border-top-color: #949494;

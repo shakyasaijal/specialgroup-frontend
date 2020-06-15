@@ -34,27 +34,31 @@ const SignUp = () => {
                 <div className="group">
                   <label>First Name *</label>
                   <input type="text" name="first_name" required />
-                  <span className="error">First Name is required.</span>
+                  <span className="error">Please provide your first name.</span>
                 </div>
                 <div className="group">
                   <label>Last Name *</label>
                   <input type="text" name="last_name" required />
+                  <span className="error">Please provide your last name.</span>
                 </div>
               </div>
               <div className="group">
                 <label>Email Address *</label>
                 <input type="email" name="email" required />
+                <span className="error">Please provide your email address.</span>
               </div>
               <div className="sign-up-group">
                 <div className="group">
                   <label>Password *</label>
                   <input type="password" name="password" required />
-                  <span className="error">Password don't matched.</span>
                 </div>
                 <div className="group">
                   <label>Confirm Password *</label>
                   <input type="password" name="confirm_password" required />
                 </div>
+              </div>
+              <div className="error-group">
+                <span className="error">Those password didn't matched. Try again.</span>
               </div>
               <div className="group">
                 <ColorButton

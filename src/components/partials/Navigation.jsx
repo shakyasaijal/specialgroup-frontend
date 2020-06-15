@@ -9,7 +9,7 @@ import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 
 const Navigation = () => {
-  const logged_in = true;
+  const logged_in = false;
   return (
     <>
       <header className="page-header">

@@ -3,7 +3,7 @@ import FeaturedCategory from '../Category/FeaturedCategory';
 import SignedOutRow from './SignedOutRow';
 
 const TopRow = () => {
-  const login = true;
+  const login = false;
 
   return (
     <>
