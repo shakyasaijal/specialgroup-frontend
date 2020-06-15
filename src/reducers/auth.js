@@ -1,9 +1,9 @@
 import { AUTH_INFO_UPDATE } from 'actions/auth';
 
 const defaultState = {
-  userId: null,
-  accessToken: null,
-  refreshToken: null,
+  userId: '',
+  accessToken: '',
+  refreshToken: '',
 };
 
 export const auth = (state = defaultState, action) => {

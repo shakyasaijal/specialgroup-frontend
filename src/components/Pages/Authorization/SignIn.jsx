@@ -7,7 +7,6 @@ import { makeStyles, withStyles } from '@material-ui/core/styles';
 
 import Form from '../../Form';
 import SocialAuth from './SocialAuth';
-import { getCSRFToken } from 'config/Config';
 import { ValidateEmail } from 'util/Validator';
 
 import { ERROR_EMPTY_EMAIL, ERROR_EMAIL, ERROR_EMPTY_PASSWORD } from 'constants/ErrorMessages';
@@ -41,7 +40,6 @@ const SignIn = (props) => {
   const onClick = (e) => {
     if (e) e.preventDefault();
     const { authLoginRequest } = props;
-    const csrfmiddlewaretoken = getCSRFToken();
     const err = getFormErrors();
 
     if (err.email || err.password) {
@@ -51,7 +49,7 @@ const SignIn = (props) => {
     }
 
     const { email, password } = state;
-    authLoginRequest(email, password, csrfmiddlewaretoken, callbackSuccess);
+    authLoginRequest(email, password, callbackSuccess);
   };
 
   function callbackSuccess() {

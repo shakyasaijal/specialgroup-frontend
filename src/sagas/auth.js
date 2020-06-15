@@ -3,16 +3,16 @@ import { login } from 'api/auth';
 import { authInfoUpdate, AUTH_LOGIN_REQUEST } from 'actions/auth';
 
 function* handleAuthLoginRequest(action) {
-  const { email, password, csrfmiddlewaretoken, callbackSuccess, callbackError } = action;
+  const { email, password, callbackSuccess, callbackError } = action;
 
   try {
-    const res = yield call(login, email, password, csrfmiddlewaretoken);
+    const res = yield call(login, email, password);
 
     if (!res) throw new Error('connection error');
 
     const { userId, accessToken, refreshToken } = res.data;
 
-    if (!userId || !accessToken || refreshToken) {
+    if (!userId || !accessToken || !refreshToken) {
       throw new Error('missing required information');
     }
 

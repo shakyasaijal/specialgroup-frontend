@@ -19,12 +19,11 @@ export function authResetStore() {
   };
 }
 
-export function authLoginRequest(email, password, csrfmiddlewaretoken, callbackSuccess = null, callbackError = null) {
+export function authLoginRequest(email, password, callbackSuccess = null, callbackError = null) {
   return {
     type: AUTH_LOGIN_REQUEST,
     email,
     password,
-    csrfmiddlewaretoken,
     callbackSuccess,
     callbackError,
   };

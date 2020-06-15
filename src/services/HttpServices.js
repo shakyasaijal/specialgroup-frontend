@@ -1,6 +1,5 @@
 import { dispatchFromStore } from 'services/ReduxService';
 import { authLogoutRequest } from 'actions/auth';
-import { getCSRFToken } from 'config/Config';
 
 const BASE_HEADERS = {
   Accept: 'application/json',
@@ -42,31 +41,20 @@ class HttpService {
       return response;
     }
 
-    if (response.status === 400) {
-      throw new Error('Bad Request');
-    }
-
     if (response.status === 401) {
       window.stop();
       dispatchFromStore(authLogoutRequest());
-
-      throw new Error('Request Unauthorized');
     }
 
-    if (response.status === 403) {
-      throw new Error('Forbidden');
-    }
-
-    throw new Error(`Response Not OK, HTTP Code: ${response.status}`);
+    throw new Error(`${response.statusText}, HTTP Code: ${response.status}`);
   }
 
   async request(method = 'get', headers, url, query = null, data = null) {
     let options = {};
-    console.log(url);
 
     headers = { ...BASE_HEADERS, ...headers };
     if (method === 'post') {
-      headers = { ...headers, 'X-CSRFToken': getCSRFToken() };
+      headers = { ...headers };
     }
 
     try {
@@ -100,7 +88,7 @@ class HttpService {
 
     const response = fetch(url, options)
       .then((res) => this.validateResponse(res))
-      .then((res) => res.JSON())
+      .then((res) => res.json())
       .catch((err) => {
         const errPayload = {
           method,
