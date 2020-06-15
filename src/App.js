@@ -13,6 +13,7 @@ import AccountSettings from './components/Pages/Authorization/AccountSettings';
 import SignUp from './components/Pages/Authorization/SignUp';
 import QuickNavigation from './components/partials/QuickNavigation';
 import Footer from './components/partials/Footer';
+import ChangeAddress from './components/Pages/Authorization/ChangeAddress';
 import OrderHistory from './components/Pages/Order/OrderHistory';
 import LoginAndSecurity from './components/Pages/Authorization/LoginAndSecurity';
 
@@ -40,6 +41,7 @@ function App() {
             <SpecialGroupRoute exact path={PATHS.HOME} component={Home} />
             <SpecialGroupRoute path={PATHS.SIGNIN} component={SignIn} title="Special Group | Login" />
             <SpecialGroupRoute path={PATHS.SIGNUP} component={SignUp} title="Special Group | Sign Up" />
+            <SpecialGroupRoute path={PATHS.CHANGE_ADDRESS} component={ChangeAddress} title="Special Group | Change Address" />
             <SpecialGroupRoute
               path={PATHS.LOGIN_SECURITY}
               component={LoginAndSecurity}

@@ -1,6 +1,6 @@
 import React from 'react';
-import ChangePassword from './ChangePassword';
-import ChangePhone from './ChangePhone';
+import ChangePassword from './Modules/ChangePassword';
+import ChangePhone from './Modules/ChangePhone';
 
 const LoginAndSecurity = () => {
   const [state, setState] = React.useState({ passwordStatus: '', phoneChange: '', currentPhone: '+977 9843935344' });

@@ -217,7 +217,7 @@ export const accountSettings = () => {
       title: 'Address',
       icon: getImageUrl('images/address.png'),
       subtitle: 'Edit city, address',
-      link: '',
+      link: '/change-address',
     },
   ];
 };

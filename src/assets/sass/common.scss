@@ -727,21 +727,39 @@ label {
 
 // Login and Security
 
-.login-and-security {
+.login-and-security, .change-address {
   width: 80%;
+  & .small{
+    font-size: 12px;
+  }
   & .container {
     background: $white;
     padding: 15px;
     & .small-grey {
       color: grey;
       font-weight: unset;
-      font-size: 14px;
+      font-size: 13px;
     }
     & .security {
       padding: 10px;
       display: table;
       & .head,
       & .tail {
+        display: table-cell;
+      }
+      & .head {
+        width: 100%;
+      }
+      & h5 {
+        padding-top: 5px;
+      }
+    }
+  }
+  & .address-container{
+    & .container{
+      display: table;
+      width: 100%;
+      & .head, & .tail{
         display: table-cell;
       }
       & .head {
@@ -761,4 +779,5 @@ label {
     }
   }
 }
+
 @import 'base/responsive';
