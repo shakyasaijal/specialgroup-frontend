@@ -81,6 +81,44 @@ export const categoriesForChips = () => {
   ];
 };
 
+export const featuredCategory = () => {
+  return [
+    {
+      id: 1,
+      name: 'Summer Dresses',
+      img: 'https://sites.create-cdn.net/siteimages/28/4/9/284928/15/7/9/15798435/919x1208.jpg?1505296014',
+    },
+    {
+      id: 2,
+      name: 'American Perfumes',
+      img: 'https://images-na.ssl-images-amazon.com/images/I/41x7CvkglUL._AC_SY400_.jpg',
+    },
+    {
+      id: 3,
+      name: 'Leather Bags',
+      img:
+        'https://i0.wp.com/redhotfactory.com/wp-content/uploads/2019/07/Leather-Laptop-Bag-men-women.jpg?fit=1500%2C1500&ssl=1',
+    },
+    {
+      id: 4,
+      name: 'Medicals',
+      img:
+        'https://cdn.medisave.co.uk/media/catalog/product/cache/1/image/3288x/9df78eab33525d08d6e5fb8d27136e95/s/u/surgical-mask-fn-01a-type-ii-certified_1.jpg',
+    },
+    {
+      id: 5,
+      name: 'Covid19 Special Discounts',
+      img:
+        'https://www.gooplayer.co.uk/32902-large_default/anti-infection-kn95-masks-n90-5-layers-mask-particulate-respirator-pm25-protective-safety-like-kf94-ffp2-blue-masks.jpg',
+    },
+    {
+      id: 6,
+      name: 'House Holds',
+      img: 'https://www.jaxgoods.com/prodimages/52489-DEFAULT-l.jpg',
+    },
+  ];
+};
+
 export const productsList = () => {
   return [
     {
@@ -157,6 +195,29 @@ export const productsList = () => {
         'https://previews.123rf.com/images/monticello/monticello1904/monticello190400090/122640065-poznan-pol-mar-28-2019-bottles-of-tuborg-beer-produced-by-a-danish-brewing-company-founded-in-1873-n.jpg',
       price: 'NRs. 350',
       wishlist: true,
+    },
+  ];
+};
+
+export const accountSettings = () => {
+  return [
+    {
+      title: 'Order History',
+      icon: getImageUrl('images/order.png'),
+      subtitle: 'View order histories',
+      link: '/order-history',
+    },
+    {
+      title: 'Login & Security',
+      icon: getImageUrl('images/security.png'),
+      subtitle: 'Edit phone, password',
+      link: '/login-and-security',
+    },
+    {
+      title: 'Address',
+      icon: getImageUrl('images/address.png'),
+      subtitle: 'Edit city, address',
+      link: '/change-address',
     },
   ];
 };

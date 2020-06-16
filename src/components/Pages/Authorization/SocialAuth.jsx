@@ -6,16 +6,16 @@ const SocialAuth = (props) => {
   return (
     <div className="grid2">
       <div className="google-login">
-        <div className="google-icon-wrapper">
-          <img className="google-icon-svg" src={getImageUrl('/images/Google__G__Logo.svg')} />
+        <div class="google-icon-wrapper">
+          <img class="google-icon-svg" alt="Google" src={getImageUrl('/images/Google__G__Logo.svg')} />
         </div>
         <p className="btn-text">
           <b>Sign {auth_for} with Google</b>
         </p>
       </div>
       <div className="facebook-login">
-        <div className="facebook-icon-wrapper">
-          <img className="facebook-icon-svg" src={getImageUrl('/images/square-facebook-512.webp')} />
+        <div class="facebook-icon-wrapper">
+          <img class="facebook-icon-svg" alt="Facebook" src={getImageUrl('/images/square-facebook-512.webp')} />
         </div>
         <p className="btn-text">
           <b>Sign {auth_for} with Facebook</b>

@@ -152,6 +152,9 @@ const SignUp = (props) => {
                   />
                 </div>
               </div>
+              <div className="error-group">
+                <span className="error">Those password didn't matched. Try again.</span>
+              </div>
               <div className="group">
                 <ColorButton
                   variant="contained"

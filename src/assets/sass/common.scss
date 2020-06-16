@@ -503,7 +503,7 @@ label {
 .sign-up-container {
   background: $white;
   padding: 20px;
-  width: 68%;
+  width: 75%;
 
   & .grid2 {
     display: grid;
@@ -518,12 +518,16 @@ label {
   & .group {
     padding: 10px;
     & input[type='email'] {
-      width: 310px;
+      width: 385px;
+      display: block;
     }
+  }
+  & .error-group{
+    padding: 0 10px;
   }
   & input {
     padding: 5px 5px;
-    width: 150px;
+    width: 100%;
     height: 4vh;
     border: 1px solid #a6a6a6;
     border-top-color: #949494;
@@ -577,11 +581,220 @@ label {
   flex-direction: row;
   justify-content: flex-start;
   align-items: flex-start;
+  cursor: pointer;
   flex-wrap: wrap;
 
-  & > div {
+  & > * {
     flex: 1 1 auto;
     margin: 5px;
+  }
+}
+
+.featured-category {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  & > .feat-categories {
+    flex: 1 1 auto;
+    margin: 30px 15px;
+    width: 30%;
+    overflow: hidden;
+  }
+  & .feat-categories {
+    & .category-name {
+      padding: 15px;
+      font-size: 20px;
+      color: $black;
+      overflow: hidden;
+    }
+    & .links {
+      padding: 15px;
+      font-size: 16px;
+      color: $secondary-color;
+    }
+    & .image-container {
+      height: 200px;
+      & img {
+        height: 100%;
+        object-fit: scale-down;
+        width: 100%;
+      }
+    }
+  }
+}
+
+.forget-password {
+  width: 60%;
+  padding: 25px;
+  & .img-container {
+    height: 250px;
+    width: 250px;
+    justify-content: left;
+    align-items: left;
+    & img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  & .container {
+    display: flex;
+    padding: 25px;
+    flex-wrap: wrap;
+    & > div {
+      flex: 1 1;
+      margin: 0 5px;
+      width: 100%;
+    }
+    & input {
+      border: 1px solid #a6a6a6;
+      border-top-color: #949494;
+      border-radius: 3px;
+      box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5), 0 1px 0 rgba(0, 0, 0, 0.07) inset;
+      outline: 0;
+      line-height: 0;
+      padding: 8px;
+      width: 100%;
+    }
+    & span {
+      display: block;
+    }
+    & button {
+      display: block;
+      flex: 1;
+    }
+  }
+  & .emailSend {
+    display: none;
+  }
+  & .registered-email {
+    font-size: 12px;
+  }
+}
+
+.settings-container {
+  & .greetings {
+    border-bottom: 1px solid #c3c3c3b8;
+    margin: 15px;
+    font-size: 22px;
+    font-weight: bold;
+    padding-bottom: 8px;
+  }
+  & .account-wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    & > div {
+      flex: 1 1 auto;
+      margin: 15px;
+    }
+    & .img-container {
+      height: 100px;
+      width: 100px;
+      & img {
+        height: 100%;
+        object-fit: scale-down;
+      }
+    }
+    & .settings {
+      display: flex;
+      background: $white;
+      align-items: center;
+      padding: 10px;
+      & > div {
+        flex: 1;
+        margin: 5px;
+      }
+    }
+  }
+}
+
+.order-history {
+  width: 60%;
+}
+
+.product-slider-container {
+  padding: 25px;
+  & .column-flex {
+    display: flex;
+    flex-direction: column;
+  }
+  & .product-container {
+    padding: 10px;
+    overflow: hidden;
+  }
+  & .image-container {
+    height: 200px;
+    width: 160px;
+    & img {
+      height: 100%;
+      width: 100%;
+      object-fit: scale-down;
+    }
+  }
+  & .padding {
+    padding: 10px;
+    overflow: hidden;
+  }
+}
+
+.slick-prev:before,
+.slick-next:before {
+  color: $theme-color;
+}
+
+// Login and Security
+
+.login-and-security, .change-address {
+  width: 80%;
+  & .small{
+    font-size: 12px;
+  }
+  & .container {
+    background: $white;
+    padding: 15px;
+    & .small-grey {
+      color: grey;
+      font-weight: unset;
+      font-size: 13px;
+    }
+    & .security {
+      padding: 10px;
+      display: table;
+      & .head,
+      & .tail {
+        display: table-cell;
+      }
+      & .head {
+        width: 100%;
+      }
+      & h5 {
+        padding-top: 5px;
+      }
+    }
+  }
+  & .address-container{
+    & .container{
+      display: table;
+      width: 100%;
+      & .head, & .tail{
+        display: table-cell;
+      }
+      & .head {
+        width: 100%;
+      }
+      & h5 {
+        padding-top: 5px;
+      }
+    }
+  }
+}
+
+.change-password {
+  & #transition-modal-description {
+    & .form-group {
+      margin-top: 10px;
+    }
   }
 }
 

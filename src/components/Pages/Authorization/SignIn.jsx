@@ -105,7 +105,7 @@ const SignIn = (props) => {
                 <div className="form-group">
                   <label className="small-font">
                     Password{' '}
-                    <Link to="/" className="float-right small">
+                    <Link to="/forget-password" className="float-right small">
                       Forget Password?
                     </Link>
                   </label>
