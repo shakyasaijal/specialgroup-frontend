@@ -489,6 +489,17 @@ label {
   background: #3b5390;
 }
 
+.sign-in-form {
+  .error-input {
+    border-color: #ff1818;
+  }
+
+  .error {
+    font-size: 13px;
+    color: #ff1818;
+  }
+}
+
 .sign-up-container {
   background: $white;
   padding: 20px;
@@ -511,7 +522,7 @@ label {
       display: block;
     }
   }
-  & .error-group{
+  & .error-group {
     padding: 0 10px;
   }
   & input {
@@ -555,6 +566,9 @@ label {
   .error {
     font-size: 13px;
     color: #ff1818;
+  }
+  .error-input {
+    border-color: #ff1818;
   }
 }
 
@@ -731,9 +745,10 @@ label {
 
 // Login and Security
 
-.login-and-security, .change-address {
+.login-and-security,
+.change-address {
   width: 80%;
-  & .small{
+  & .small {
     font-size: 12px;
   }
   & .container {
@@ -759,11 +774,12 @@ label {
       }
     }
   }
-  & .address-container{
-    & .container{
+  & .address-container {
+    & .container {
       display: table;
       width: 100%;
-      & .head, & .tail{
+      & .head,
+      & .tail {
         display: table-cell;
       }
       & .head {
@@ -785,3 +801,4 @@ label {
 }
 
 @import 'base/responsive';
+@import 'base/helpers';

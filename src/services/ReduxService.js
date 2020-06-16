@@ -1,78 +1,65 @@
 import { createStore, applyMiddleware, compose } from 'redux';
-import { persistStore, persistReducer } from 'redux-persist';
+import { createLogger } from 'redux-logger';
 import createSagaMiddleware from 'redux-saga';
+import { persistStore, persistReducer } from 'redux-persist';
 
 import rootReducer, { persistConfig } from 'reducers/root';
 import rootSaga from 'sagas/root';
 
-class ReduxService {
-  constructor() {
-    this.sagaMiddleware = createSagaMiddleware();
-    const middlewares = [this.sagaMiddleware];
-    const composeEnhancers = compose;
+const LOGGER = createLogger({
+  collapsed: true,
+});
 
-    const persistedReducer = persistReducer(persistConfig, rootReducer);
+const SAGA_MIDDLEWARE = createSagaMiddleware();
+const middlewares = [SAGA_MIDDLEWARE];
 
-    this.store = createStore(persistedReducer, composeEnhancers(applyMiddleware(...middlewares)));
+// for debugging purpose - should only be enabled for local and dev
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+middlewares.push(LOGGER);
+
+const persistedReducer = persistReducer(persistConfig, rootReducer);
+const STORE = createStore(persistedReducer, composeEnhancers(applyMiddleware(...middlewares)));
+
+export const runMiddlewares = (callback) => {
+  persistStore(STORE, null, () => {
+    SAGA_MIDDLEWARE.run(rootSaga);
+    callback();
+  });
+};
+
+export const getStore = () => {
+  return STORE;
+};
+
+export const getState = () => {
+  return STORE.getState();
+};
+
+export const dispatchFromStore = (action) => {
+  STORE.dispatch(action);
+};
+
+export const dispatchFromAction = (dispatch, actionFunc) => {
+  return (...args) => {
+    dispatch(actionFunc(...args));
+  };
+};
+
+export const dispatchesFromActions = (dispatch, actionFuncMap) => {
+  const dispatchFuncMap = {};
+
+  for (const funcName in actionFuncMap) {
+    const func = actionFuncMap[funcName];
+
+    dispatchFuncMap[funcName] = dispatchFromAction(dispatch, func);
   }
 
-  runMiddlewares(callback) {
-    persistStore(this.store, null, () => {
-      this.sagaMiddleware.run(rootSaga);
-      callback();
-    });
-  }
+  return dispatchFuncMap;
+};
 
-  getState() {
-    return this.store.getState();
-  }
-
-  dispatch(action) {
-    this.store.dispatch(action);
-  }
-
-  dispatchFromAction(dispatch, actionFunc) {
-    /**
-     * This is to create dispatch functions from action functions, where the
-     * action function has the exact same parameters as the dispatch function.
-     *
-     * @param args
-     */
-    /* eslint-disable */
-    return (...args) => {
-      dispatch(actionFunc(...args));
-    };
-  }
-
-  dispatchesFromActions(dispatch, actionFuncMap) {
-    /**
-     * This takes a map of action names to action functions, and returns a map
-     * of dispatch names to dispatch functions.
-     */
-    const dispatchFuncMap = {};
-
-    for (const funcName in actionFuncMap) {
-      const func = actionFuncMap[funcName];
-
-      dispatchFuncMap[funcName] = this.dispatchFromAction(dispatch, func);
-    }
-
-    return dispatchFuncMap;
-  }
-
-  mapDispatchToPropsFromActions(actionFuncMap) {
-    /**
-     * This takes a map of action names to action functions, and returns a
-     * mapDispatchToProps function which can be used by redux's connect().
-     *
-     * @param dispatch
-     */
-    return (dispatch) => {
-      return this.dispatchesFromActions(dispatch, actionFuncMap);
-    };
-  }
-}
-
-const reduxService = new ReduxService();
-
-export default reduxService;
+export const mapDispatchToPropsFromActions = (actionFuncMap) => {
+  return (dispatch) => {
+    return dispatchesFromActions(dispatch, actionFuncMap);
+  };
+};

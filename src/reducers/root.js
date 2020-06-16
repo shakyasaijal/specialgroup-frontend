@@ -1,7 +1,8 @@
 import { combineReducers } from 'redux';
-import storage from 'redux-persist/lib/storage'; // defaults to localStorage for web and AsyncStorage for react-native
+import storage from 'redux-persist/lib/storage';
 
-import auth from './auth';
+import { auth } from 'reducers/auth';
+import { AUTH_CLEAR_STORE } from 'actions/auth';
 
 const persistWhitelist = ['auth'];
 
@@ -14,6 +15,10 @@ export const persistConfig = {
 const appReducer = combineReducers({ auth });
 
 const rootReducer = (state, action) => {
+  if (action.type === AUTH_CLEAR_STORE) {
+    state = null;
+  }
+
   return appReducer(state, action);
 };
 

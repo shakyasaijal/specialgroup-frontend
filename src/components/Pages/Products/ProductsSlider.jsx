@@ -50,10 +50,10 @@ const ProductsSlider = () => {
       <div className="product-slider">
         <Slider {...settings}>
           {products.map((product, index) => (
-            <div className="product-container">
+            <div className="product-container" key={index}>
               <Paper className="padding">
                 <Link to="/">
-                  <div key={index} className="column-flex">
+                  <div className="column-flex">
                     <div className="image-container">
                       <img src={product.img} alt={product.name} />
                     </div>

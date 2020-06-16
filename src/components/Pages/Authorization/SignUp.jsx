@@ -1,9 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+
 import SocialAuth from './SocialAuth';
 import Button from '@material-ui/core/Button';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
 import LockOpenIcon from '@material-ui/icons/LockOpen';
+
+import Form from '../../Form/Form';
+
+import PATHS from 'routes';
+
+import { ValidateEmail } from 'util/Validator';
+
+import {
+  ERROR_FIRST_NAME,
+  ERROR_LAST_NAME,
+  ERROR_EMPTY_EMAIL,
+  ERROR_EMAIL,
+  ERROR_EMPTY_PASSWORD,
+  ERROR_CONFIRM_PASSWORD_ERROR,
+  ERROR_USER_ALREADY_EXIST,
+} from 'constants/ErrorMessages';
 
 const useStyles = makeStyles((theme) => ({
   button: {
@@ -21,52 +38,153 @@ const ColorButton = withStyles((theme) => ({
   },
 }))(Button);
 
-const SignUp = () => {
+const SignUp = (props) => {
+  const initialState = {
+    firstName: '',
+    lastName: '',
+    email: '',
+    password: '',
+    confirmPassword: '',
+    registerError: '',
+  };
+
   const classes = useStyles();
+  const [state, setForm] = useState(initialState);
+  const [errors, setErrors] = useState(initialState);
+
+  const onSubmit = (e) => {
+    if (e) e.preventDefault();
+    const { authRegisterRequest } = props;
+
+    clearFormErrors();
+    const err = getFormErrors();
+
+    if (err.firstName || err.lastName || err.email || err.password) {
+      setErrors(err);
+      return;
+    }
+
+    const { firstName, lastName, email, password } = state;
+    authRegisterRequest(firstName, lastName, email, password, callbackSuccess, callbackError);
+  };
+
+  const getFormErrors = () => {
+    const err = {};
+    const { firstName, lastName, email, password, confirmPassword } = state;
+
+    if (!firstName) err.firstName = ERROR_FIRST_NAME;
+    if (!lastName) err.lastName = ERROR_LAST_NAME;
+    if (!ValidateEmail(email)) err.email = ERROR_EMAIL;
+    if (!email) err.email = ERROR_EMPTY_EMAIL;
+    if (!password) err.password = ERROR_EMPTY_PASSWORD;
+    if (password !== confirmPassword) err.password = ERROR_CONFIRM_PASSWORD_ERROR;
+
+    return err;
+  };
+
+  const handleOnChange = (event) => {
+    let { name, value } = event.target;
+    setForm({ ...state, [name]: value });
+  };
+
+  const callbackSuccess = () => {
+    const { history } = props;
+    history.push(PATHS.HOME);
+  };
+
+  const callbackError = (error) => {
+    let message = 'Can not register your account this moment. Please try again later.';
+    if (error == 'Email already exists') {
+      message = ERROR_USER_ALREADY_EXIST;
+    }
+    setErrors({ ...errors, registerError: message });
+    clearForm();
+  };
+
+  const clearForm = () => {
+    setForm(initialState);
+  };
+
+  const clearFormErrors = () => {
+    setErrors(initialState);
+  };
   return (
     <div className="sign-up-container center mt30">
       <h2 className="paddingLeft-5">Create Account</h2>
       <div className="sign-up mt10">
         <div className="grid2">
           <div className="sign-up-form">
-            <form method="POST">
+            <Form onSubmit={onSubmit}>
               <div className="sign-up-group">
                 <div className="group">
                   <label>First Name *</label>
-                  <input type="text" name="first_name" required />
-                  <span className="error">Please provide your first name.</span>
+                  <input
+                    type="text"
+                    className={errors.firstName ? 'error-input' : ''}
+                    name="firstName"
+                    autoComplete="off"
+                    onChange={handleOnChange}
+                    value={state.firstName}
+                  />
+                  {errors.firstName && <span className="error">{errors.firstName}</span>}
                 </div>
                 <div className="group">
                   <label>Last Name *</label>
-                  <input type="text" name="last_name" required />
-                  <span className="error">Please provide your last name.</span>
+                  <input
+                    type="text"
+                    className={errors.lastName ? 'error-input' : ''}
+                    name="lastName"
+                    autoComplete="off"
+                    onChange={handleOnChange}
+                    value={state.lastName}
+                  />
+                  {errors.lastName && <span className="error">{errors.lastName}</span>}
                 </div>
               </div>
               <div className="group">
                 <label>Email Address *</label>
-                <input type="email" name="email" required />
-                <span className="error">Please provide your email address.</span>
+                <input
+                  type="email"
+                  className={errors.lastName ? 'error-input' : ''}
+                  name="email"
+                  autoComplete="off"
+                  onChange={handleOnChange}
+                  value={state.email}
+                />
+                {errors.email && <span className="error">{errors.email}</span>}
               </div>
               <div className="sign-up-group">
                 <div className="group">
                   <label>Password *</label>
-                  <input type="password" name="password" required />
+                  <input
+                    type="password"
+                    className={errors.password ? 'error-input' : ''}
+                    name="password"
+                    autoComplete="off"
+                    onChange={handleOnChange}
+                    value={state.password}
+                  />
                 </div>
                 <div className="group">
                   <label>Confirm Password *</label>
-                  <input type="password" name="confirm_password" required />
+                  <input
+                    type="password"
+                    className={errors.password ? 'error-input' : ''}
+                    name="confirmPassword"
+                    autoComplete="off"
+                    onChange={handleOnChange}
+                    value={state.confirmPassword}
+                  />
                 </div>
               </div>
-              <div className="error-group">
-                <span className="error">Those password didn't matched. Try again.</span>
-              </div>
+              <div className="error-group">{errors.password && <span className="error">{errors.password}</span>}</div>
               <div className="group">
                 <ColorButton
                   variant="contained"
-                  color="red"
                   size="small"
                   className={classes.button}
                   startIcon={<LockOpenIcon />}
+                  onClick={onSubmit}
                 >
                   SIGN Up
                 </ColorButton>
@@ -74,7 +192,10 @@ const SignUp = () => {
                   Already have an account? <Link to="/sign-in">Sign In</Link>
                 </div>
               </div>
-            </form>
+              <div className="error-group">
+                {errors.registerError && <span className="error">{errors.registerError}</span>}
+              </div>
+            </Form>
           </div>
           <div className="sign-up-options medium-dark">
             <div className="text-center">

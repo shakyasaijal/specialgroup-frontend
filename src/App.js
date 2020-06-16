@@ -1,16 +1,19 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { Provider } from 'react-redux';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import Container from '@material-ui/core/Container';
+
+import { runMiddlewares, getStore } from 'services/ReduxService';
 
 import PATHS from 'routes';
 
 import Header from './components/partials/Header';
 import Home from './components/Pages/Home/Home';
-import SignIn from './components/Pages/Authorization/SignIn';
+import ReduxSignIn from './components/Pages/Authorization/ReduxSignIn';
+import ReduxSignUp from './components/Pages/Authorization/ReduxSignUp';
 import ForgetPassword from './components/Pages/Authorization/ForgetPassword';
 import AccountSettings from './components/Pages/Authorization/AccountSettings';
-import SignUp from './components/Pages/Authorization/SignUp';
 import QuickNavigation from './components/partials/QuickNavigation';
 import Footer from './components/partials/Footer';
 import ChangeAddress from './components/Pages/Authorization/ChangeAddress';
@@ -31,43 +34,61 @@ const SpecialGroupRoute = (props) => {
 };
 
 function App() {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    runMiddlewares(() => {
+      setIsLoading(false);
+    });
+  }, []);
+
+  if (isLoading) return <div className="App">Loading...</div>;
+
+  const reduxStore = getStore();
+
   return (
-    <Router>
-      <Header />
-      <QuickNavigation />
-      <div className="page-wrapper">
-        <Container maxWidth="lg">
-          <Switch>
-            <SpecialGroupRoute exact path={PATHS.HOME} component={Home} />
-            <SpecialGroupRoute path={PATHS.SIGNIN} component={SignIn} title="Special Group | Login" />
-            <SpecialGroupRoute path={PATHS.SIGNUP} component={SignUp} title="Special Group | Sign Up" />
-            <SpecialGroupRoute path={PATHS.CHANGE_ADDRESS} component={ChangeAddress} title="Special Group | Change Address" />
-            <SpecialGroupRoute
-              path={PATHS.LOGIN_SECURITY}
-              component={LoginAndSecurity}
-              title="Special Group | Login and Security"
-            />
-            <SpecialGroupRoute
-              path={PATHS.FORGET_PASSWORD}
-              component={ForgetPassword}
-              title="Special Group | FORGET PASSWORD"
-            />
-            <SpecialGroupRoute
-              path={PATHS.ACCOUNT_SETTINGS}
-              component={AccountSettings}
-              title="Special Group | Account Settings"
-            />
-            <SpecialGroupRoute
-              path={PATHS.ORDER_HISTORY}
-              component={OrderHistory}
-              title="Special Group | Order History"
-            />
-            <SpecialGroupRoute path={PATHS.NOT_FOUND} component={Home} />
-          </Switch>
-        </Container>
-      </div>
-      <Footer />
-    </Router>
+    <Provider store={reduxStore}>
+      <Router>
+        <Header />
+        <QuickNavigation />
+        <div className="page-wrapper">
+          <Container maxWidth="lg">
+            <Switch>
+              <SpecialGroupRoute exact path={PATHS.HOME} component={Home} />
+              <SpecialGroupRoute path={PATHS.SIGNIN} component={ReduxSignIn} title="Special Group | Login" />
+              <SpecialGroupRoute path={PATHS.SIGNUP} component={ReduxSignUp} title="Special Group | Sign Up" />
+              <SpecialGroupRoute
+                path={PATHS.CHANGE_ADDRESS}
+                component={ChangeAddress}
+                title="Special Group | Change Address"
+              />
+              <SpecialGroupRoute
+                path={PATHS.LOGIN_SECURITY}
+                component={LoginAndSecurity}
+                title="Special Group | Login and Security"
+              />
+              <SpecialGroupRoute
+                path={PATHS.FORGET_PASSWORD}
+                component={ForgetPassword}
+                title="Special Group | FORGET PASSWORD"
+              />
+              <SpecialGroupRoute
+                path={PATHS.ACCOUNT_SETTINGS}
+                component={AccountSettings}
+                title="Special Group | Account Settings"
+              />
+              <SpecialGroupRoute
+                path={PATHS.ORDER_HISTORY}
+                component={OrderHistory}
+                title="Special Group | Order History"
+              />
+              <SpecialGroupRoute path={PATHS.NOT_FOUND} component={Home} />
+            </Switch>
+          </Container>
+        </div>
+        <Footer />
+      </Router>
+    </Provider>
   );
 }
 

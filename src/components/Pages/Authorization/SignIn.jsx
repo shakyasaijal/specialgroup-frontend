@@ -1,9 +1,17 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+
 import Button from '@material-ui/core/Button';
 import LockOpenIcon from '@material-ui/icons/LockOpen';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
+
+import Form from '../../Form/Form';
 import SocialAuth from './SocialAuth';
+import { ValidateEmail } from 'util/Validator';
+
+import PATHS from 'routes';
+
+import { ERROR_EMPTY_EMAIL, ERROR_EMAIL, ERROR_EMPTY_PASSWORD } from 'constants/ErrorMessages';
 
 const useStyles = makeStyles((theme) => ({
   button: {
@@ -21,9 +29,50 @@ const ColorButton = withStyles((theme) => ({
   },
 }))(Button);
 
-const SignIn = () => {
+const SignIn = (props) => {
+  const initialState = {
+    email: '',
+    password: '',
+  };
+
   const classes = useStyles();
-  const [form, setForm] = useState({ email: '', password: '' });
+  const [state, setForm] = useState(initialState);
+  const [errors, setErrors] = useState(initialState);
+
+  const onSubmit = (e) => {
+    if (e) e.preventDefault();
+    const { authLoginRequest } = props;
+    const err = getFormErrors();
+
+    if (err.email || err.password) {
+      setErrors(err);
+      return;
+    }
+
+    const { email, password } = state;
+    authLoginRequest(email, password, callbackSuccess);
+  };
+
+  function callbackSuccess() {
+    const { history } = props;
+    history.push(PATHS.HOME);
+  }
+
+  const getFormErrors = () => {
+    const err = {};
+    const { email, password } = state;
+
+    if (!ValidateEmail(email)) err.email = ERROR_EMAIL;
+    if (!email) err.email = ERROR_EMPTY_EMAIL;
+    if (!password) err.password = ERROR_EMPTY_PASSWORD;
+
+    return err;
+  };
+
+  const handleOnChange = (event) => {
+    let { name, value } = event.target;
+    setForm({ ...state, [name]: value });
+  };
 
   return (
     <div className="sign center mt10">
@@ -40,16 +89,18 @@ const SignIn = () => {
               </h2>
             </div>
             <div className="sign-in-form">
-              <form method="POST">
+              <Form onSubmit={onSubmit}>
                 <div className="form-group">
                   <label className="small-font">Email</label>
                   <input
                     type="email"
+                    className={errors.email ? 'error-input' : ''}
                     autoComplete="off"
-                    onChange={(e) => setForm({ ...form, email: e.target.value })}
+                    onChange={handleOnChange}
                     name="email"
-                    value={form.email}
+                    value={state.email}
                   />
+                  {errors.email && <span className="error">{errors.email}</span>}
                 </div>
                 <div className="form-group">
                   <label className="small-font">
@@ -60,24 +111,26 @@ const SignIn = () => {
                   </label>
                   <input
                     type="password"
+                    className={errors.password ? 'error-input' : ''}
                     autoComplete="off"
-                    onChange={(e) => setForm({ ...form, password: e.target.value })}
+                    onChange={handleOnChange}
                     name="password"
-                    value={form.password}
+                    value={state.password}
                   />
+                  {errors.password && <span className="error">{errors.password}</span>}
                 </div>
                 <div className="form-group">
                   <ColorButton
                     variant="contained"
-                    color="red"
                     size="small"
                     className={classes.button}
                     startIcon={<LockOpenIcon />}
+                    onClick={onSubmit}
                   >
                     SIGN IN
                   </ColorButton>
                 </div>
-              </form>
+              </Form>
             </div>
             <div className="sign-up-info">
               <span>
