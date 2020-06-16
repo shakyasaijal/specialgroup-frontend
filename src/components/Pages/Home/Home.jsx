@@ -5,6 +5,7 @@ import Box from '@material-ui/core/Box';
 import TopRow from './TopRow';
 import Chips from '../Category/Chips';
 import PopularProducts from './PopularProducts';
+import ProductsSlider from '../Products/ProductsSlider';
 
 const Home = () => {
   return (
@@ -14,6 +15,7 @@ const Home = () => {
       <Chips />
       <PopularProducts />
       <HalfWidthAd />
+      <ProductsSlider />
     </Box>
   );
 };
