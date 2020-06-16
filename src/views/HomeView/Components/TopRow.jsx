@@ -1,5 +1,6 @@
 import React from 'react';
-import FeaturedCategory from '../Category/FeaturedCategory';
+
+import FeaturedCategory from './FeaturedCategory';
 import SignedOutRow from './SignedOutRow';
 
 const TopRow = () => {

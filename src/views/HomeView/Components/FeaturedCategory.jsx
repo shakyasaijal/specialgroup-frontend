@@ -1,7 +1,9 @@
 import React from 'react';
-import Paper from '@material-ui/core/Paper';
 import { Link } from 'react-router-dom';
-import { featuredCategory } from '../../../constants/constants';
+
+import Paper from '@material-ui/core/Paper';
+
+import { featuredCategory } from 'constants/constants';
 
 const FeaturedCategory = () => {
   const featured = featuredCategory();

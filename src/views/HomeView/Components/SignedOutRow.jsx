@@ -1,7 +1,9 @@
 import React from 'react';
-import Paper from '@material-ui/core/Paper';
 import { Link } from 'react-router-dom';
-import { categories } from '../../../constants/constants';
+
+import Paper from '@material-ui/core/Paper';
+
+import { categories } from 'constants/constants';
 
 const SignedOutRow = (props) => {
   const four_categories = categories();

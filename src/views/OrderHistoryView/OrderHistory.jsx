@@ -1,9 +1,12 @@
 import React from 'react';
-import MaterialTable from 'material-table';
 import { Link } from 'react-router-dom';
+
+import MaterialTable from 'material-table';
+
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
-import ProductsSlider from '../Products/ProductsSlider';
+
+import ProductsSlider from 'components/Products/ProductsSlider';
 
 const useStyles = makeStyles((theme) => ({
   button: {

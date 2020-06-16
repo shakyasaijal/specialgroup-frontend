@@ -1,8 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+
 import Avatar from '@material-ui/core/Avatar';
 import Chip from '@material-ui/core/Chip';
-import { categoriesForChips } from '../../../constants/constants';
+
+import { categoriesForChips } from 'constants/constants';
 
 const Chips = () => {
   const _categories = categoriesForChips();

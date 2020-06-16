@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { accountSettings } from '../../../constants/constants';
+
+import { accountSettings } from 'constants/constants';
 
 const AccountSettings = () => {
   const settings = accountSettings();

@@ -4,6 +4,7 @@ import createSagaMiddleware from 'redux-saga';
 import { persistStore, persistReducer } from 'redux-persist';
 
 import rootReducer, { persistConfig } from 'reducers/root';
+
 import rootSaga from 'sagas/root';
 
 const LOGGER = createLogger({

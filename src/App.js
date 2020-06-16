@@ -9,16 +9,16 @@ import { runMiddlewares, getStore } from 'services/ReduxService';
 import PATHS from 'routes';
 
 import Header from './components/partials/Header';
-import Home from './components/Pages/Home/Home';
-import ReduxSignIn from './components/Pages/Authorization/ReduxSignIn';
-import ReduxSignUp from './components/Pages/Authorization/ReduxSignUp';
-import ForgetPassword from './components/Pages/Authorization/ForgetPassword';
-import AccountSettings from './components/Pages/Authorization/AccountSettings';
+import Home from './views/HomeView/Home';
+import ReduxSignIn from './views/SignInView/ReduxSignIn';
+import ReduxSignUp from './views/SignUpView/ReduxSignUp';
+import ForgetPassword from './views/ForgetPasswordView/ForgetPassword';
+import AccountSettings from './views/AccountSettingsView/AccountSettings';
 import QuickNavigation from './components/partials/QuickNavigation';
 import Footer from './components/partials/Footer';
-import ChangeAddress from './components/Pages/Authorization/ChangeAddress';
-import OrderHistory from './components/Pages/Order/OrderHistory';
-import LoginAndSecurity from './components/Pages/Authorization/LoginAndSecurity';
+import ChangeAddress from './views/ChangeAddressView/ChangeAddress';
+import OrderHistory from './views/OrderHistoryView/OrderHistory';
+import LoginAndSecurity from './views/LoginAndSecurityView/LoginAndSecurity';
 
 import './assets/sass/common.css';
 
