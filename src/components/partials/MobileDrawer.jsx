@@ -1,5 +1,6 @@
 import React from 'react';
 import clsx from 'clsx';
+
 import { makeStyles, useTheme, fade } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -23,7 +24,6 @@ const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    // display: 'flex',
     height: '3vh',
   },
   appBar: {

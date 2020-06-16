@@ -2,8 +2,9 @@ import { connect } from 'react-redux';
 
 import { authLoginRequest } from 'actions/auth';
 
-import SignIn from './SignIn';
 import { isLoggedIn } from 'selectors/auth';
+
+import SignIn from './SignIn';
 
 const mapStateToProps = (state) => {
   return {

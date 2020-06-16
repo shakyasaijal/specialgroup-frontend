@@ -1,4 +1,5 @@
 import { dispatchFromStore } from 'services/ReduxService';
+
 import { authLogoutRequest } from 'actions/auth';
 
 const BASE_HEADERS = {

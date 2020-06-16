@@ -1,6 +1,6 @@
 import React from 'react';
-import ChangeCity from './Modules/ChangeCity';
-import AddressChange from './Modules/AddressChange';
+import ChangeCity from './Components/ChangeCity';
+import AddressChange from './Components/AddressChange';
 
 const ChangeAddress = () => {
   const [state, setState] = React.useState({

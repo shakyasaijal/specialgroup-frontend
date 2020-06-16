@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import SocialAuth from './SocialAuth';
 import Button from '@material-ui/core/Button';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
 import LockOpenIcon from '@material-ui/icons/LockOpen';
 
-import Form from '../../Form/Form';
+import SocialAuth from 'components/SocialAuth/SocialAuth';
+import Form from 'components/Form/Form';
 
 import PATHS from 'routes';
 
@@ -94,7 +94,7 @@ const SignUp = (props) => {
 
   const callbackError = (error) => {
     let message = 'Can not register your account this moment. Please try again later.';
-    if (error == 'Email already exists') {
+    if (error === 'Email already exists') {
       message = ERROR_USER_ALREADY_EXIST;
     }
     setErrors({ ...errors, registerError: message });

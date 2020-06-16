@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
@@ -32,10 +33,10 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const ChangePhone = (props) => {
+const AddressChange = (props) => {
   const classes = useStyles();
-  const [state, setState] = React.useState({ newNumber: '' });
   const [open, setOpen] = React.useState(false);
+  const [state, setState] = React.useState({ new_address: '' });
 
   const handleOpen = () => {
     setOpen(true);
@@ -47,7 +48,7 @@ const ChangePhone = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    props.callback('Phone successfully changed.', state.newNumber);
+    props.callback('Address successfully changed.', state.new_address);
     handleClose();
   };
 
@@ -70,20 +71,20 @@ const ChangePhone = (props) => {
       >
         <Fade in={open}>
           <div className={classes.paper}>
-            <h2 id="transition-modal-title">Change Phone</h2>
+            <h2 id="transition-modal-title">Change Address</h2>
             <div id="transition-modal-description" className={classes.marginTop}>
               <form method="POST" onSubmit={(e) => handleSubmit(e)}>
-                <small>{props.currentPhone}</small>
+                <small>{props.currentAddress}</small>
                 <div className={classes.formGroup}>
-                  <label className={classes.label}>New Phone Number</label>
+                  <label className={classes.label}>New Address</label>
                   <input
                     placeholder="Enter Here"
                     autoFocus
-                    onChange={(e) => setState({ newNumber: e.target.value })}
-                    value={state.newNumber}
+                    onChange={(e) => setState({ new_address: e.target.value })}
+                    value={state.new_address}
                     className={classes.input}
                     type="text"
-                    name="phone"
+                    name="address"
                     required
                   />
                 </div>
@@ -101,4 +102,4 @@ const ChangePhone = (props) => {
   );
 };
 
-export default ChangePhone;
+export default AddressChange;

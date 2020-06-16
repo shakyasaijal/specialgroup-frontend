@@ -1,10 +1,13 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Slider from 'react-slick';
+
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import { productsList } from '../../../constants/constants';
-import { Link } from 'react-router-dom';
+
 import Paper from '@material-ui/core/Paper';
+
+import { productsList } from 'constants/constants';
 
 const ProductsSlider = () => {
   const products = productsList();

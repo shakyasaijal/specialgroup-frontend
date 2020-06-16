@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
@@ -32,10 +33,10 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const AddressChange = (props) => {
+const ChangeCity = (props) => {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
-  const [state, setState] = React.useState({ new_address: '' });
+  const [state, setState] = React.useState({ new_city: '' });
 
   const handleOpen = () => {
     setOpen(true);
@@ -47,7 +48,7 @@ const AddressChange = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    props.callback('Address successfully changed.', state.new_address);
+    props.callback('City successfully changed.', state.new_city);
     handleClose();
   };
 
@@ -70,20 +71,20 @@ const AddressChange = (props) => {
       >
         <Fade in={open}>
           <div className={classes.paper}>
-            <h2 id="transition-modal-title">Change Address</h2>
+            <h2 id="transition-modal-title">Change City</h2>
             <div id="transition-modal-description" className={classes.marginTop}>
               <form method="POST" onSubmit={(e) => handleSubmit(e)}>
-                <small>{props.currentAddress}</small>
+                <small>{props.currentCity}</small>
                 <div className={classes.formGroup}>
-                  <label className={classes.label}>New Address</label>
+                  <label className={classes.label}>New City</label>
                   <input
                     placeholder="Enter Here"
                     autoFocus
-                    onChange={(e) => setState({ new_address: e.target.value })}
-                    value={state.new_address}
+                    onChange={(e) => setState({ new_city: e.target.value })}
+                    value={state.new_city}
                     className={classes.input}
                     type="text"
-                    name="address"
+                    name="city"
                     required
                   />
                 </div>
@@ -101,4 +102,4 @@ const AddressChange = (props) => {
   );
 };
 
-export default AddressChange;
+export default ChangeCity;

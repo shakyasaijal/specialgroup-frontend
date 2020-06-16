@@ -1,12 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import MobileNavigation from './MobileNavigation';
+
 import FacebookIcon from '@material-ui/icons/Facebook';
 import InstagramIcon from '@material-ui/icons/Instagram';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import SearchIcon from '@material-ui/icons/Search';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
+
+import MobileNavigation from './MobileNavigation';
 
 const Navigation = () => {
   const logged_in = false;

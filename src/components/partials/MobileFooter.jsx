@@ -9,13 +9,13 @@ const MobileFooter = () => {
           <div className="grid-item">
             <h4 className="medium white-color">Our Special Group</h4>
             <div className="content mt10">
-              Lorem Ipsum is simply dummy text of the  printing and typesetting industry. Lorem  Ipsum has been the
-              industry's standard  dummy text ever since the 1500s, when  an unknown printer took a galley of type  and
+              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+              industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
               scrambled it to make a type specimen book.
               <br />
               <br />
-              Lorem Ipsum is simply dummy text of the  printing and typesetting industry. Lorem  Ipsum has been the
-              industry's standard  dummy text ever since the 1500s, when  an unknown printer took a galley of type  and
+              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+              industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
               scrambled it to make a type specimen book.
             </div>
           </div>

@@ -5,8 +5,9 @@ import Button from '@material-ui/core/Button';
 import LockOpenIcon from '@material-ui/icons/LockOpen';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
 
-import Form from '../../Form/Form';
-import SocialAuth from './SocialAuth';
+import Form from 'components/Form/Form';
+import SocialAuth from 'components/SocialAuth/SocialAuth';
+
 import { ValidateEmail } from 'util/Validator';
 
 import PATHS from 'routes';

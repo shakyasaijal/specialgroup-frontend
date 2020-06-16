@@ -1,4 +1,5 @@
 import React from 'react';
+
 import MobileFooter from './MobileFooter';
 
 const Footer = () => {

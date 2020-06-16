@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
@@ -32,8 +33,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const ChangePassword = (props) => {
+const ChangePhone = (props) => {
   const classes = useStyles();
+  const [state, setState] = React.useState({ newNumber: '' });
   const [open, setOpen] = React.useState(false);
 
   const handleOpen = () => {
@@ -46,7 +48,7 @@ const ChangePassword = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    props.callback('Password successfully changed.');
+    props.callback('Phone successfully changed.', state.newNumber);
     handleClose();
   };
 
@@ -69,20 +71,22 @@ const ChangePassword = (props) => {
       >
         <Fade in={open}>
           <div className={classes.paper}>
-            <h2 id="transition-modal-title">Change Password</h2>
+            <h2 id="transition-modal-title">Change Phone</h2>
             <div id="transition-modal-description" className={classes.marginTop}>
               <form method="POST" onSubmit={(e) => handleSubmit(e)}>
+                <small>{props.currentPhone}</small>
                 <div className={classes.formGroup}>
-                  <label className={classes.label}>Old Password</label>
-                  <input className={classes.input} autoFocus type="password" name="password" required />
-                </div>
-                <div className={classes.formGroup}>
-                  <label className={classes.label}>New Password</label>
-                  <input className={classes.input} type="password" name="password" required />
-                </div>
-                <div className={classes.formGroup}>
-                  <label className={classes.label}>Confirm Password</label>
-                  <input className={classes.input} type="password" name="password" required />
+                  <label className={classes.label}>New Phone Number</label>
+                  <input
+                    placeholder="Enter Here"
+                    autoFocus
+                    onChange={(e) => setState({ newNumber: e.target.value })}
+                    value={state.newNumber}
+                    className={classes.input}
+                    type="text"
+                    name="phone"
+                    required
+                  />
                 </div>
                 <div className={classes.formGroup}>
                   <Button type="submit" variant="contained" color="primary" size="small">
@@ -98,4 +102,4 @@ const ChangePassword = (props) => {
   );
 };
 
-export default ChangePassword;
+export default ChangePhone;
