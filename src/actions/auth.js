@@ -58,10 +58,11 @@ export function authLogoutRequest(callbackSuccess = null, callbackError = null) 
   };
 }
 
-export function authInfoUpdate(userId, accessToken, refreshToken) {
+export function authInfoUpdate(userId, isVerified, accessToken, refreshToken) {
   return {
     type: AUTH_INFO_UPDATE,
     userId,
+    isVerified,
     accessToken,
     refreshToken,
   };

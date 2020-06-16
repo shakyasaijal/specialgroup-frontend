@@ -37,16 +37,12 @@ class HttpService {
   }
 
   validateResponse(response) {
-    if (response.status === 200 || response.status === 201) {
-      return response;
-    }
-
     if (response.status === 401) {
       window.stop();
       dispatchFromStore(authLogoutRequest());
     }
 
-    throw new Error(`${response.statusText}, HTTP Code: ${response.status}`);
+    return response;
   }
 
   async request(method = 'get', headers, url, query = null, data = null) {

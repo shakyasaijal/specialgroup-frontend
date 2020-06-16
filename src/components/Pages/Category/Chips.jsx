@@ -12,12 +12,7 @@ const Chips = () => {
       <div className="grid-chips">
         {_categories.map((category, index) => (
           <Link to="/" key={index}>
-            <Chip
-              color="secondary"
-              clickable={true}
-              avatar={<Avatar src={category.img} />}
-              label={category.name}
-            />
+            <Chip color="secondary" clickable={true} avatar={<Avatar src={category.img} />} label={category.name} />
           </Link>
         ))}
       </div>

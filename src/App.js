@@ -57,7 +57,11 @@ function App() {
               <SpecialGroupRoute exact path={PATHS.HOME} component={Home} />
               <SpecialGroupRoute path={PATHS.SIGNIN} component={ReduxSignIn} title="Special Group | Login" />
               <SpecialGroupRoute path={PATHS.SIGNUP} component={ReduxSignUp} title="Special Group | Sign Up" />
-              <SpecialGroupRoute path={PATHS.CHANGE_ADDRESS} component={ChangeAddress} title="Special Group | Change Address" />
+              <SpecialGroupRoute
+                path={PATHS.CHANGE_ADDRESS}
+                component={ChangeAddress}
+                title="Special Group | Change Address"
+              />
               <SpecialGroupRoute
                 path={PATHS.LOGIN_SECURITY}
                 component={LoginAndSecurity}

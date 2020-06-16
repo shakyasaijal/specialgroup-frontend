@@ -2,6 +2,7 @@ import { AUTH_INFO_UPDATE } from 'actions/auth';
 
 const defaultState = {
   userId: '',
+  isVerified: false,
   accessToken: '',
   refreshToken: '',
 };
@@ -9,9 +10,9 @@ const defaultState = {
 export const auth = (state = defaultState, action) => {
   switch (action.type) {
     case AUTH_INFO_UPDATE: {
-      const { userId, accessToken, refreshToken } = action;
+      const { userId, isVerified, accessToken, refreshToken } = action;
 
-      return { ...state, userId, accessToken, refreshToken };
+      return { ...state, userId, isVerified, accessToken, refreshToken };
     }
     default:
       return state;

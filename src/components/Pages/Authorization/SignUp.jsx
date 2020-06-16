@@ -8,6 +8,8 @@ import LockOpenIcon from '@material-ui/icons/LockOpen';
 
 import Form from '../../Form/Form';
 
+import PATHS from 'routes';
+
 import { ValidateEmail } from 'util/Validator';
 
 import {
@@ -17,6 +19,7 @@ import {
   ERROR_EMAIL,
   ERROR_EMPTY_PASSWORD,
   ERROR_CONFIRM_PASSWORD_ERROR,
+  ERROR_USER_ALREADY_EXIST,
 } from 'constants/ErrorMessages';
 
 const useStyles = makeStyles((theme) => ({
@@ -42,6 +45,7 @@ const SignUp = (props) => {
     email: '',
     password: '',
     confirmPassword: '',
+    registerError: '',
   };
 
   const classes = useStyles();
@@ -52,6 +56,7 @@ const SignUp = (props) => {
     if (e) e.preventDefault();
     const { authRegisterRequest } = props;
 
+    clearFormErrors();
     const err = getFormErrors();
 
     if (err.firstName || err.lastName || err.email || err.password) {
@@ -60,7 +65,7 @@ const SignUp = (props) => {
     }
 
     const { firstName, lastName, email, password } = state;
-    authRegisterRequest(firstName, lastName, email, password);
+    authRegisterRequest(firstName, lastName, email, password, callbackSuccess, callbackError);
   };
 
   const getFormErrors = () => {
@@ -82,6 +87,27 @@ const SignUp = (props) => {
     setForm({ ...state, [name]: value });
   };
 
+  const callbackSuccess = () => {
+    const { history } = props;
+    history.push(PATHS.HOME);
+  };
+
+  const callbackError = (error) => {
+    let message = 'Can not register your account this moment. Please try again later.';
+    if (error == 'Email already exists') {
+      message = ERROR_USER_ALREADY_EXIST;
+    }
+    setErrors({ ...errors, registerError: message });
+    clearForm();
+  };
+
+  const clearForm = () => {
+    setForm(initialState);
+  };
+
+  const clearFormErrors = () => {
+    setErrors(initialState);
+  };
   return (
     <div className="sign-up-container center mt30">
       <h2 className="paddingLeft-5">Create Account</h2>
@@ -138,7 +164,6 @@ const SignUp = (props) => {
                     onChange={handleOnChange}
                     value={state.password}
                   />
-                  {errors.password && <span className="error">{errors.password}</span>}
                 </div>
                 <div className="group">
                   <label>Confirm Password *</label>
@@ -152,9 +177,7 @@ const SignUp = (props) => {
                   />
                 </div>
               </div>
-              <div className="error-group">
-                <span className="error">Those password didn't matched. Try again.</span>
-              </div>
+              <div className="error-group">{errors.password && <span className="error">{errors.password}</span>}</div>
               <div className="group">
                 <ColorButton
                   variant="contained"
@@ -168,6 +191,9 @@ const SignUp = (props) => {
                 <div className="mobile-display">
                   Already have an account? <Link to="/sign-in">Sign In</Link>
                 </div>
+              </div>
+              <div className="error-group">
+                {errors.registerError && <span className="error">{errors.registerError}</span>}
               </div>
             </Form>
           </div>

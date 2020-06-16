@@ -13,7 +13,6 @@ export const signUp = (firstName, lastName, email, password) => {
 export const getAccountInfo = (userId) => {
   const path = `/v1/api/register/${userId}`;
 
-  
   return specialGroupHttpService.get(path);
 };
 

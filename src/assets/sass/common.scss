@@ -522,7 +522,7 @@ label {
       display: block;
     }
   }
-  & .error-group{
+  & .error-group {
     padding: 0 10px;
   }
   & input {
@@ -745,9 +745,10 @@ label {
 
 // Login and Security
 
-.login-and-security, .change-address {
+.login-and-security,
+.change-address {
   width: 80%;
-  & .small{
+  & .small {
     font-size: 12px;
   }
   & .container {
@@ -773,11 +774,12 @@ label {
       }
     }
   }
-  & .address-container{
-    & .container{
+  & .address-container {
+    & .container {
       display: table;
       width: 100%;
-      & .head, & .tail{
+      & .head,
+      & .tail {
         display: table-cell;
       }
       & .head {

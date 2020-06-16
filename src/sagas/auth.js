@@ -2,7 +2,7 @@ import { takeLatest, call, all, put } from 'redux-saga/effects';
 
 import { login, signUp } from 'api/auth';
 
-import { authInfoUpdate, authLoginRequest, AUTH_LOGIN_REQUEST, AUTH_REGISTER_REQUEST } from 'actions/auth';
+import { authInfoUpdate, AUTH_LOGIN_REQUEST, AUTH_REGISTER_REQUEST } from 'actions/auth';
 
 function* handleAuthRegisterRequest(action) {
   const { firstName, lastName, email, password, callbackSuccess, callbackError } = action;
@@ -12,10 +12,14 @@ function* handleAuthRegisterRequest(action) {
 
     if (!res) throw new Error('connection error');
 
-    yield put(authLoginRequest(email, password, callbackSuccess, callbackError));
+    if (!res.status) throw new Error(res.message);
+
+    const { userId, isVerified, accessToken, refreshToken } = res.data;
+
+    yield put(authInfoUpdate(userId, isVerified, accessToken, refreshToken));
     if (callbackSuccess) callbackSuccess();
   } catch (e) {
-    if (callbackError) callbackError();
+    if (callbackError) callbackError(e.message);
   }
 }
 
@@ -31,13 +35,13 @@ function* handleAuthLoginRequest(action) {
 
     if (!res) throw new Error('connection error');
 
-    const { userId, accessToken, refreshToken } = res.data;
+    const { userId, isVerified, accessToken, refreshToken } = res.data;
 
     if (!userId || !accessToken || !refreshToken) {
       throw new Error('missing required information');
     }
 
-    yield put(authInfoUpdate(userId, accessToken, refreshToken));
+    yield put(authInfoUpdate(userId, isVerified, accessToken, refreshToken));
     // yield put(accountInfoRequest(id, callbackSuccess, callbackError));
     if (callbackSuccess) callbackSuccess();
   } catch (e) {

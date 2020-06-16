@@ -1,3 +1,6 @@
+export const ERROR_REGISTRATION = 'Can not register your account this moment. Please try again later.';
+export const ERROR_USER_ALREADY_EXIST = 'You already have signed up. Please try sign in.';
+
 export const ERROR_FIRST_NAME = 'Please provide your first name.';
 export const ERROR_LAST_NAME = 'Please provide your last name.';
 

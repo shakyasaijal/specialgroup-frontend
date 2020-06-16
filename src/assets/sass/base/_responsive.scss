@@ -197,7 +197,8 @@
       padding: 0 25px;
     }
   }
-  .login-and-security, .change-address{
+  .login-and-security,
+  .change-address {
     width: 100%;
   }
 }
@@ -280,7 +281,7 @@
   .sign {
     width: 50%;
   }
-  .sign-up-container {  
+  .sign-up-container {
     width: 70%;
     & .grid2 {
       display: grid;
