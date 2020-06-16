@@ -34,6 +34,7 @@ const SignIn = (props) => {
   const initialState = {
     email: '',
     password: '',
+    loginError: '',
   };
 
   const classes = useStyles();
@@ -43,6 +44,8 @@ const SignIn = (props) => {
   const onSubmit = (e) => {
     if (e) e.preventDefault();
     const { authLoginRequest } = props;
+
+    clearFormErrors();
     const err = getFormErrors();
 
     if (err.email || err.password) {
@@ -51,7 +54,7 @@ const SignIn = (props) => {
     }
 
     const { email, password } = state;
-    authLoginRequest(email, password, callbackSuccess);
+    authLoginRequest(email, password, callbackSuccess, callbackError);
   };
 
   function callbackSuccess() {
@@ -75,6 +78,19 @@ const SignIn = (props) => {
     setForm({ ...state, [name]: value });
   };
 
+  const callbackError = (error) => {
+    setErrors({ ...errors, loginError: error });
+    clearForm();
+  };
+
+  const clearForm = () => {
+    setForm(initialState);
+  };
+
+  const clearFormErrors = () => {
+    setErrors(initialState);
+  };
+
   return (
     <div className="sign center mt10">
       <div className="panel radius8 ads">
@@ -82,7 +98,13 @@ const SignIn = (props) => {
           <div className="sign-in">
             <div className="social-auth">
               <h4 className="title text-center">Sign In</h4>
-              <SocialAuth for="sign-in" />
+              <SocialAuth
+                label="sign-in"
+                authGoogleLoginRequest={props.authGoogleLoginRequest}
+                authFacebookLoginRequest={props.authFacebookLoginRequest}
+                callbackSuccess={callbackSuccess}
+                callbackError={callbackError}
+              />
             </div>
             <div className="options">
               <h2 className="options-for">
@@ -120,6 +142,11 @@ const SignIn = (props) => {
                   />
                   {errors.password && <span className="error">{errors.password}</span>}
                 </div>
+                {errors.loginError && (
+                  <div className="error-group">
+                    <span className="error">{errors.loginError}</span>
+                  </div>
+                )}
                 <div className="form-group">
                   <ColorButton
                     variant="contained"

@@ -4,6 +4,8 @@ export const AUTH_CLEAR_STORE = 'AUTH_CLEAR_STORE';
 export const AUTH_RESET_STORE = 'AUTH_RESET_STORE';
 
 export const AUTH_LOGIN_REQUEST = 'AUTH_LOGIN_REQUEST';
+export const AUTH_GOOGLE_LOGIN_REQUEST = 'AUTH_GOOGLE_LOGIN_REQUEST';
+export const AUTH_FACEBOOK_LOGIN_REQUEST = 'AUTH_FACEBOOK_LOGIN_REQUEST';
 export const AUTH_LOGOUT_REQUEST = 'AUTH_LOGOUT_REQUEST';
 
 export const AUTH_INFO_UPDATE = 'AUTH_INFO_UPDATE';
@@ -45,6 +47,24 @@ export function authLoginRequest(email, password, callbackSuccess = null, callba
     type: AUTH_LOGIN_REQUEST,
     email,
     password,
+    callbackSuccess,
+    callbackError,
+  };
+}
+
+export function authGoogleLoginRequest(idToken, callbackSuccess = null, callbackError = null) {
+  return {
+    type: AUTH_GOOGLE_LOGIN_REQUEST,
+    idToken,
+    callbackSuccess,
+    callbackError,
+  };
+}
+
+export function authFacebookLoginRequest(facebookToken, callbackSuccess = null, callbackError = null) {
+  return {
+    type: AUTH_FACEBOOK_LOGIN_REQUEST,
+    facebookToken,
     callbackSuccess,
     callbackError,
   };
