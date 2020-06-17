@@ -222,6 +222,27 @@ export const accountSettings = () => {
   ];
 };
 
+export const mobileDrawerItems = () => {
+  return [
+    {
+      name: 'Inbox',
+      route: '/',
+    },
+    {
+      name: 'Starred',
+      route: '/',
+    },
+    {
+      name: 'Categories',
+      route: '/',
+    },
+    {
+      name: 'Logout',
+      route: '/',
+    },
+  ];
+};
+
 export const getImageUrl = (uri) => {
   return process.env.PUBLIC_URL + uri;
 };

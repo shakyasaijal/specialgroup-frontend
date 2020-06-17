@@ -1,15 +1,12 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import Slider from 'react-slick';
-
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-
+import { productsList } from '../../constants/constants';
+import { Link } from 'react-router-dom';
 import Paper from '@material-ui/core/Paper';
 
-import { productsList } from 'constants/constants';
-
-const ProductsSlider = () => {
+const RecommendedSlider = () => {
   const products = productsList();
 
   const settings = {
@@ -56,7 +53,7 @@ const ProductsSlider = () => {
             <div className="product-container" key={index}>
               <Paper className="padding">
                 <Link to="/">
-                  <div className="column-flex">
+                  <div key={index} className="column-flex">
                     <div className="image-container">
                       <img src={product.img} alt={product.name} />
                     </div>
@@ -73,4 +70,4 @@ const ProductsSlider = () => {
   );
 };
 
-export default ProductsSlider;
+export default RecommendedSlider;

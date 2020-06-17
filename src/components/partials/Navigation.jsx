@@ -11,7 +11,7 @@ import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 import MobileNavigation from './MobileNavigation';
 
 const Navigation = () => {
-  const logged_in = false;
+  const logged_in = true;
   return (
     <>
       <header className="page-header">
@@ -82,7 +82,13 @@ const Navigation = () => {
                 <div className="info grid-template grid-row-account float-right paddingLeft-5">
                   <small className="anchor">Welcome, Sign In</small>
                   <span className="my-account anchor">
-                    <Link to={logged_in ? '/account-settings' : '/sign-in'}>My Account</Link>
+                    <div class="dropdown">
+                      Account
+                      <div class="dropdown-content">
+                        <Link to={logged_in ? '/account-settings' : '/sign-in'}>My Account</Link>
+                        {logged_in ? <Link to="/">Logout</Link> : ''}
+                      </div>
+                    </div>
                   </span>
                 </div>
               </div>

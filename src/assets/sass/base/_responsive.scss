@@ -201,6 +201,24 @@
   .change-address {
     width: 100%;
   }
+
+  .settings-container {
+    & .account-wrapper {
+      & .settings {
+        & > div {
+          margin: 0;
+        }
+      }
+    }
+  }
+  .warning-wrapper {
+    .warning {
+      width: 100%;
+      background: yellow;
+      position: relative;
+      top: 9vh;
+    }
+  }
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
