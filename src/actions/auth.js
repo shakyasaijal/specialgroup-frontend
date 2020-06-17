@@ -11,9 +11,6 @@ export const AUTH_LOGOUT_REQUEST = 'AUTH_LOGOUT_REQUEST';
 export const AUTH_INFO_UPDATE = 'AUTH_INFO_UPDATE';
 export const AUTH_TOKENS_UPDATE = 'AUTH_TOKENS_UPDATE';
 
-export const ACCOUNT_INFO_REQUEST = 'ACCOUNT_INFO_REQUEST';
-export const ACCOUNT_INFO_UPDATE = 'ACCOUNT_INFO_UPDATE';
-
 export function authClearStore() {
   return {
     type: AUTH_CLEAR_STORE,
@@ -70,22 +67,6 @@ export function authFacebookRequest(facebookToken, callbackSuccess = null, callb
     facebookToken,
     callbackSuccess,
     callbackError,
-  };
-}
-
-export function accountInfoRequest(userId, callbackSuccess = null, callbackError = null) {
-  return {
-    type: ACCOUNT_INFO_REQUEST,
-    userId,
-    callbackSuccess,
-    callbackError,
-  };
-}
-
-export function accountInfoUpdate(account) {
-  return {
-    type: ACCOUNT_INFO_UPDATE,
-    account,
   };
 }
 

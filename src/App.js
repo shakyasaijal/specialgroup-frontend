@@ -16,7 +16,7 @@ import AuthContainer from 'components/AuthContainer/AuthContainer';
 import Home from './views/HomeView/ReduxHome';
 import ReduxSignIn from './views/SignInView/ReduxSignIn';
 import ReduxSignUp from './views/SignUpView/ReduxSignUp';
-import ForgetPassword from './views/ForgetPasswordView/ForgetPassword';
+import ForgetPassword from 'views/ForgetPasswordView/ReduxForgetPassword';
 import AccountSettings from './views/AccountSettingsView/AccountSettings';
 import ChangeAddress from './views/ChangeAddressView/ChangeAddress';
 import OrderHistory from './views/OrderHistoryView/OrderHistory';

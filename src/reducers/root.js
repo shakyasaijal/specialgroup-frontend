@@ -1,7 +1,8 @@
 import { combineReducers } from 'redux';
 import storage from 'redux-persist/lib/storage';
 
-import { auth, account } from 'reducers/auth';
+import { auth } from 'reducers/auth';
+import { account } from 'reducers/account';
 import { AUTH_CLEAR_STORE } from 'actions/auth';
 
 const persistWhitelist = ['auth', 'account'];
