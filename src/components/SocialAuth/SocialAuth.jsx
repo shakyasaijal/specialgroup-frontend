@@ -32,11 +32,11 @@ const FacebookAuthButton = ({ onClick, authFor }) => {
 
 const SocialAuth = (props) => {
   const { authFailure, setAuthFailure } = useState('');
-  const { label, authGoogleLoginRequest, authFacebookLoginRequest, callbackSuccess, callbackError } = props;
+  const { label, authGoogleRequest, authFacebookRequest, callbackSuccess, callbackError } = props;
   const authFor = label === 'sign-in' ? 'in' : 'up';
 
   const onSuccessGoogleAuth = (response) => {
-    authGoogleLoginRequest(response.tokenId, callbackSuccess, callbackError);
+    authGoogleRequest(response.tokenId, callbackSuccess, callbackError);
   };
 
   const onFailureGoogleAuth = () => {
@@ -44,7 +44,7 @@ const SocialAuth = (props) => {
   };
 
   const onSuccessFacebookAuth = (response) => {
-    authFacebookLoginRequest(response.accessToken, callbackSuccess, callbackError);
+    authFacebookRequest(response.accessToken, callbackSuccess, callbackError);
   };
 
   const onFailureFacebookAuth = () => {

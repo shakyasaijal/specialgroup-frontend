@@ -100,8 +100,8 @@ const SignIn = (props) => {
               <h4 className="title text-center">Sign In</h4>
               <SocialAuth
                 label="sign-in"
-                authGoogleLoginRequest={props.authGoogleLoginRequest}
-                authFacebookLoginRequest={props.authFacebookLoginRequest}
+                authGoogleRequest={props.authGoogleRequest}
+                authFacebookRequest={props.authFacebookRequest}
                 callbackSuccess={callbackSuccess}
                 callbackError={callbackError}
               />

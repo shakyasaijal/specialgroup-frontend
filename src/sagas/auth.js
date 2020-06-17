@@ -6,8 +6,8 @@ import {
   authInfoUpdate,
   AUTH_LOGIN_REQUEST,
   AUTH_REGISTER_REQUEST,
-  AUTH_GOOGLE_LOGIN_REQUEST,
-  AUTH_FACEBOOK_LOGIN_REQUEST,
+  AUTH_GOOGLE_REQUEST,
+  AUTH_FACEBOOK_REQUEST,
 } from 'actions/auth';
 
 function* handleAuthRegisterRequest(action) {
@@ -61,7 +61,7 @@ function* watchAuthLoginRequest() {
   yield takeLatest(AUTH_LOGIN_REQUEST, handleAuthLoginRequest);
 }
 
-function* handleAuthGoogleLoginRequest(action) {
+function* handleAuthGoogleRequest(action) {
   const { idToken, callbackSuccess, callbackError } = action;
 
   try {
@@ -84,11 +84,11 @@ function* handleAuthGoogleLoginRequest(action) {
   }
 }
 
-function* watchAuthGoogleLoginRequest() {
-  yield takeLatest(AUTH_GOOGLE_LOGIN_REQUEST, handleAuthGoogleLoginRequest);
+function* watchAuthGoogleRequest() {
+  yield takeLatest(AUTH_GOOGLE_REQUEST, handleAuthGoogleRequest);
 }
 
-function* handleAuthFacebookLoginRequest(action) {
+function* handleAuthFacebookRequest(action) {
   const { facebookToken, callbackSuccess, callbackError } = action;
 
   try {
@@ -111,15 +111,15 @@ function* handleAuthFacebookLoginRequest(action) {
   }
 }
 
-function* watchAuthFacebookLoginRequest() {
-  yield takeLatest(AUTH_FACEBOOK_LOGIN_REQUEST, handleAuthFacebookLoginRequest);
+function* watchAuthFacebookRequest() {
+  yield takeLatest(AUTH_FACEBOOK_REQUEST, handleAuthFacebookRequest);
 }
 
 export default function* authSaga() {
   yield all([
     watchAuthRegisterRequest(),
     watchAuthLoginRequest(),
-    watchAuthGoogleLoginRequest(),
-    watchAuthFacebookLoginRequest(),
+    watchAuthGoogleRequest(),
+    watchAuthFacebookRequest(),
   ]);
 }
