@@ -4,10 +4,10 @@ import { httpService } from 'services/HttpServices';
 import specialGroupHttpService from 'services/SpecialGroupHttpService';
 
 export const signUp = (firstName, lastName, email, password) => {
-  const path = '/v1/api/register/';
+  const path = `${getEndPoint()}/v1/api/register/`;
   const payload = { firstName, lastName, email, password };
 
-  return specialGroupHttpService.post(path, payload);
+  return httpService.request('post', null, path, null, payload);
 };
 
 export const getAccountInfo = (userId) => {
