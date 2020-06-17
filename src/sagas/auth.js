@@ -1,13 +1,16 @@
 import { takeLatest, call, all, put } from 'redux-saga/effects';
 
-import { login, signUp, googleLogin, facebookLogin } from 'api/auth';
+import { login, signUp, googleLogin, facebookLogin, getAccountInfo } from 'api/auth';
 
 import {
-  authInfoUpdate,
   AUTH_LOGIN_REQUEST,
   AUTH_REGISTER_REQUEST,
   AUTH_GOOGLE_REQUEST,
   AUTH_FACEBOOK_REQUEST,
+  ACCOUNT_INFO_REQUEST,
+  authInfoUpdate,
+  accountInfoRequest,
+  accountInfoUpdate,
 } from 'actions/auth';
 
 function* handleAuthRegisterRequest(action) {
@@ -50,8 +53,7 @@ function* handleAuthLoginRequest(action) {
     }
 
     yield put(authInfoUpdate(userId, isVerified, accessToken, refreshToken));
-    // yield put(accountInfoRequest(id, callbackSuccess, callbackError));
-    if (callbackSuccess) callbackSuccess();
+    yield put(accountInfoRequest(userId, callbackSuccess, callbackError));
   } catch (e) {
     if (callbackError) callbackError(e.message);
   }
@@ -78,7 +80,7 @@ function* handleAuthGoogleRequest(action) {
     }
 
     yield put(authInfoUpdate(userId, isVerified, accessToken, refreshToken));
-    if (callbackSuccess) callbackSuccess();
+    yield put(accountInfoRequest(userId, callbackSuccess, callbackError));
   } catch (e) {
     if (callbackError) callbackError(e.message);
   }
@@ -105,7 +107,7 @@ function* handleAuthFacebookRequest(action) {
     }
 
     yield put(authInfoUpdate(userId, isVerified, accessToken, refreshToken));
-    if (callbackSuccess) callbackSuccess();
+    yield put(accountInfoRequest(userId, callbackSuccess, callbackError));
   } catch (e) {
     if (callbackError) callbackError(e.message);
   }
@@ -115,11 +117,34 @@ function* watchAuthFacebookRequest() {
   yield takeLatest(AUTH_FACEBOOK_REQUEST, handleAuthFacebookRequest);
 }
 
+function* handleAccountInfoRequest(action) {
+  const { userId, callbackSuccess, callbackError } = action;
+
+  try {
+    const res = yield call(getAccountInfo, userId);
+
+    if (!res) throw new Error('connection error');
+
+    const account = res;
+
+    yield put(accountInfoUpdate(account));
+
+    if (callbackSuccess) callbackSuccess();
+  } catch (e) {
+    if (callbackError) callbackError();
+  }
+}
+
+function* watchAccountInfoRequest() {
+  yield takeLatest(ACCOUNT_INFO_REQUEST, handleAccountInfoRequest);
+}
+
 export default function* authSaga() {
   yield all([
     watchAuthRegisterRequest(),
     watchAuthLoginRequest(),
     watchAuthGoogleRequest(),
     watchAuthFacebookRequest(),
+    watchAccountInfoRequest(),
   ]);
 }

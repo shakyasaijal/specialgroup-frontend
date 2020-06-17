@@ -10,10 +10,10 @@ import Chips from 'components/Chips/Chips';
 import TopRow from './Components/TopRow';
 import PopularProducts from './Components/PopularProducts';
 
-const Home = () => {
+const Home = (props) => {
   return (
     <Box>
-      <TopRow />
+      <TopRow isLoggedIn={props.isLoggedIn} />
       <FullWidthAd />
       <Chips />
       <PopularProducts />

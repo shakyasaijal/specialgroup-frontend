@@ -46,7 +46,7 @@ const SignedOutRow = (props) => {
         </div>
       </Paper>
       <Paper elevation={3}>
-        {!props.login ? (
+        {!props.isLoggedIn && (
           <div className="grid-item">
             <div className="verticle-center text-center full-width">
               <h4 className="medium capitalize width-60 center">sign up for better experience</h4>
@@ -55,8 +55,6 @@ const SignedOutRow = (props) => {
               </Link>
             </div>
           </div>
-        ) : (
-          ''
         )}
       </Paper>
     </div>

@@ -3,14 +3,10 @@ import React from 'react';
 import FeaturedCategory from './FeaturedCategory';
 import SignedOutRow from './SignedOutRow';
 
-const TopRow = () => {
-  const login = false;
+const TopRow = (props) => {
+  const { isLoggedIn } = props;
 
-  return (
-    <>
-      <div className="row mt30">{login ? <FeaturedCategory /> : <SignedOutRow login={login} />}</div>
-    </>
-  );
+  return <div className="row mt30">{isLoggedIn ? <FeaturedCategory /> : <SignedOutRow isLoggedIn={isLoggedIn} />}</div>;
 };
 
 export default TopRow;
