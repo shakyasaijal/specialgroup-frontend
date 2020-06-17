@@ -5,8 +5,7 @@ import MaterialTable from 'material-table';
 
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
-
-import ProductsSlider from 'components/Products/ProductsSlider';
+import RecommendedSlider from '../../components/Products/RecommendedSlider';
 
 const useStyles = makeStyles((theme) => ({
   button: {
@@ -54,7 +53,7 @@ const OrderHistory = () => {
           </div>
         </div>
       </div>
-      <ProductsSlider />
+      <RecommendedSlider />
     </>
   );
 };
