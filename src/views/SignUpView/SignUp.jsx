@@ -201,7 +201,13 @@ const SignUp = (props) => {
             <div className="text-center">
               <span className="text-center mobile-hide">OR, Simply Sign Up With</span>
             </div>
-            <SocialAuth for="sign-up" />
+            <SocialAuth
+              label="sign-up"
+              authGoogleRequest={props.authGoogleRequest}
+              authFacebookRequest={props.authFacebookRequest}
+              callbackSuccess={callbackSuccess}
+              callbackError={callbackError}
+            />
             <div className="mobile-hide divider"></div>
             <span className="mobile-display">
               <div className="options">

@@ -1,27 +1,71 @@
-import React from 'react';
+import React, { useState } from 'react';
+import FacebookLogin from 'react-facebook-login//dist/facebook-login-render-props';
+import GoogleLogin from 'react-google-login';
 
 import { getImageUrl } from 'constants/constants';
 
+const GoogleAuthButton = ({ onClick, authFor }) => {
+  return (
+    <div className="google-login" onClick={onClick}>
+      <div className="google-icon-wrapper">
+        <img className="google-icon-svg" alt="Google" src={getImageUrl('/images/Google__G__Logo.svg')} />
+      </div>
+      <p className="btn-text">
+        <b>Sign {authFor} with Google</b>
+      </p>
+    </div>
+  );
+};
+
+const FacebookAuthButton = ({ onClick, authFor }) => {
+  return (
+    <div className="facebook-login" onClick={onClick}>
+      <div className="facebook-icon-wrapper">
+        <img className="facebook-icon-svg" alt="Facebook" src={getImageUrl('/images/square-facebook-512.webp')} />
+      </div>
+      <p className="btn-text">
+        <b>Sign {authFor} with Facebook</b>
+      </p>
+    </div>
+  );
+};
+
 const SocialAuth = (props) => {
-  let auth_for = props.for === 'sign-in' ? 'in' : 'up';
+  const { authFailure, setAuthFailure } = useState('');
+  const { label, authGoogleRequest, authFacebookRequest, callbackSuccess, callbackError } = props;
+  const authFor = label === 'sign-in' ? 'in' : 'up';
+
+  const onSuccessGoogleAuth = (response) => {
+    authGoogleRequest(response.tokenId, callbackSuccess, callbackError);
+  };
+
+  const onFailureGoogleAuth = () => {
+    setAuthFailure('Your Google account rejected this request. Please Try again later.');
+  };
+
+  const onSuccessFacebookAuth = (response) => {
+    authFacebookRequest(response.accessToken, callbackSuccess, callbackError);
+  };
+
+  const onFailureFacebookAuth = () => {
+    setAuthFailure('Your Facebook account rejected this request. Please Try again later.');
+  };
+
   return (
     <div className="grid2">
-      <div className="google-login">
-        <div className="google-icon-wrapper">
-          <img className="google-icon-svg" alt="Google" src={getImageUrl('/images/Google__G__Logo.svg')} />
-        </div>
-        <p className="btn-text">
-          <b>Sign {auth_for} with Google</b>
-        </p>
-      </div>
-      <div className="facebook-login">
-        <div className="facebook-icon-wrapper">
-          <img className="facebook-icon-svg" alt="Facebook" src={getImageUrl('/images/square-facebook-512.webp')} />
-        </div>
-        <p className="btn-text">
-          <b>Sign {auth_for} with Facebook</b>
-        </p>
-      </div>
+      <GoogleLogin
+        clientId="242138548144-jl9madoqvbrcdv9tphqjk06a49h74j5i.apps.googleusercontent.com"
+        render={(renderProps) => <GoogleAuthButton onClick={renderProps.onClick} authFor={authFor} />}
+        onSuccess={onSuccessGoogleAuth}
+        onFailure={onFailureGoogleAuth}
+      />
+      <FacebookLogin
+        appId="318504315811628"
+        render={(renderProps) => <FacebookAuthButton onClick={renderProps.onClick} authFor={authFor} />}
+        callback={onSuccessFacebookAuth}
+        onFailure={onFailureFacebookAuth}
+      />
+      {authFailure && <div className="error">{authFailure}</div>}
     </div>
   );
 };

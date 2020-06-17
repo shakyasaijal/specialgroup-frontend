@@ -22,3 +22,17 @@ export const login = (email, password) => {
 
   return httpService.request('post', null, path, null, payload);
 };
+
+export const googleLogin = (idToken) => {
+  const path = `${getEndPoint()}/v1/api/google-login/`;
+  const payload = { idToken };
+
+  return httpService.request('post', null, path, null, payload);
+};
+
+export const facebookLogin = (idToken) => {
+  const path = `${getEndPoint()}/v1/api/facebook-login/`;
+  const payload = { idToken };
+
+  return httpService.request('post', null, path, null, payload);
+};

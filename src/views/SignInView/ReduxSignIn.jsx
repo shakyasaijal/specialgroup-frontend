@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import { authLoginRequest } from 'actions/auth';
+import { authLoginRequest, authGoogleRequest, authFacebookRequest } from 'actions/auth';
 
 import { isLoggedIn } from 'selectors/auth';
 
@@ -12,7 +12,7 @@ const mapStateToProps = (state) => {
   };
 };
 
-const dispatchProps = { authLoginRequest };
+const dispatchProps = { authLoginRequest, authGoogleRequest, authFacebookRequest };
 
 const ReduxSignIn = connect(mapStateToProps, dispatchProps)(SignIn);
 
