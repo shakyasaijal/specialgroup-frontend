@@ -70,14 +70,6 @@ export function authFacebookRequest(facebookToken, callbackSuccess = null, callb
   };
 }
 
-export function authLogoutRequest(callbackSuccess = null, callbackError = null) {
-  return {
-    type: AUTH_LOGOUT_REQUEST,
-    callbackSuccess,
-    callbackError,
-  };
-}
-
 export function authInfoUpdate(userId, isVerified, accessToken, refreshToken) {
   return {
     type: AUTH_INFO_UPDATE,
@@ -93,5 +85,13 @@ export function authTokensUpdate(accessToken, refreshToken) {
     type: AUTH_TOKENS_UPDATE,
     accessToken,
     refreshToken,
+  };
+}
+
+export function authLogoutRequest(callbackSuccess = null, callbackError = null) {
+  return {
+    type: AUTH_LOGOUT_REQUEST,
+    callbackSuccess,
+    callbackError,
   };
 }

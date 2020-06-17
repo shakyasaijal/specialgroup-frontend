@@ -3,12 +3,14 @@ import { takeLatest, call, all, put } from 'redux-saga/effects';
 import { login, signUp, googleLogin, facebookLogin } from 'api/auth';
 
 import {
-  authInfoUpdate,
   AUTH_LOGIN_REQUEST,
   AUTH_REGISTER_REQUEST,
   AUTH_GOOGLE_REQUEST,
   AUTH_FACEBOOK_REQUEST,
+  authInfoUpdate,
 } from 'actions/auth';
+
+import { accountInfoRequest } from 'actions/account';
 
 function* handleAuthRegisterRequest(action) {
   const { firstName, lastName, email, password, callbackSuccess, callbackError } = action;
@@ -50,8 +52,7 @@ function* handleAuthLoginRequest(action) {
     }
 
     yield put(authInfoUpdate(userId, isVerified, accessToken, refreshToken));
-    // yield put(accountInfoRequest(id, callbackSuccess, callbackError));
-    if (callbackSuccess) callbackSuccess();
+    yield put(accountInfoRequest(userId, callbackSuccess, callbackError));
   } catch (e) {
     if (callbackError) callbackError(e.message);
   }
@@ -78,7 +79,7 @@ function* handleAuthGoogleRequest(action) {
     }
 
     yield put(authInfoUpdate(userId, isVerified, accessToken, refreshToken));
-    if (callbackSuccess) callbackSuccess();
+    yield put(accountInfoRequest(userId, callbackSuccess, callbackError));
   } catch (e) {
     if (callbackError) callbackError(e.message);
   }
@@ -105,7 +106,7 @@ function* handleAuthFacebookRequest(action) {
     }
 
     yield put(authInfoUpdate(userId, isVerified, accessToken, refreshToken));
-    if (callbackSuccess) callbackSuccess();
+    yield put(accountInfoRequest(userId, callbackSuccess, callbackError));
   } catch (e) {
     if (callbackError) callbackError(e.message);
   }

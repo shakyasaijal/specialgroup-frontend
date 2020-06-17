@@ -1,13 +1,13 @@
 import { AUTH_INFO_UPDATE } from 'actions/auth';
 
-const defaultState = {
+const defaultAuthState = {
   userId: '',
   isVerified: false,
   accessToken: '',
   refreshToken: '',
 };
 
-export const auth = (state = defaultState, action) => {
+export const auth = (state = defaultAuthState, action) => {
   switch (action.type) {
     case AUTH_INFO_UPDATE: {
       const { userId, isVerified, accessToken, refreshToken } = action;
