@@ -50,7 +50,7 @@ const SignedOutRow = (props) => {
           <div className="grid-item">
             <div className="verticle-center text-center full-width">
               <h4 className="medium capitalize width-60 center">sign up for better experience</h4>
-              <Link to="/">
+              <Link to="/sign-up">
                 <button className="button mt10 capitalize">sign up now</button>
               </Link>
             </div>

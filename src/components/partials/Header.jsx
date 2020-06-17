@@ -87,9 +87,17 @@ const Header = (props) => {
                 </div>
                 <div className="info grid-template grid-row-account float-right paddingLeft-5">
                   {account.firstName && <small className="anchor">Welcome, {account.firstName}</small>}
+                  {!isLoggedIn && <Link to={PATHS.SIGNIN}>LogIn</Link>}
                   <span className="my-account anchor">
-                    {isLoggedIn && <Link to={PATHS.ACCOUNT_SETTINGS}>My Account</Link>}
-                    {!isLoggedIn && <Link to={PATHS.SIGNIN}>LogIn</Link>}
+                    {isLoggedIn &&
+                      <div class="dropdown">
+                        Account
+                        <div class="dropdown-content">
+                          <Link to={PATHS.ACCOUNT_SETTINGS}>My Account</Link>
+                          <Link to="/">Logout</Link>
+                        </div>
+                      </div>
+                    }
                   </span>
                 </div>
               </div>
@@ -102,6 +110,18 @@ const Header = (props) => {
         </div>
       </header>
       <MobileNavigation />
+      {!isLoggedIn &&
+        <div className="warning-wrapper">
+          <div className="warning">
+            Please verify your account.
+            <div className="float-right">
+              <Link to="/" className="warning-button">
+                Resend Verification Link
+              </Link>
+            </div>
+          </div>
+        </div>
+      }
     </>
   );
 };

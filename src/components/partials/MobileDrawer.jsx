@@ -13,12 +13,11 @@ import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import MailIcon from '@material-ui/icons/Mail';
 import SearchIcon from '@material-ui/icons/Search';
 import InputBase from '@material-ui/core/InputBase';
+import { mobileDrawerItems } from '../../constants/constants';
+import { Link } from 'react-router-dom';
 
 const drawerWidth = 240;
 
@@ -103,6 +102,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const MobileDrawer = () => {
+  const drawersData = mobileDrawerItems();
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
@@ -167,11 +167,12 @@ const MobileDrawer = () => {
           </div>
           <Divider />
           <List>
-            {['Inbox', 'Starred'].map((text, index) => (
-              <ListItem button key={text}>
-                <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-                <ListItemText primary={text} />
-              </ListItem>
+            {drawersData.map((data, index) => (
+              <Link to={data.route}>
+                <ListItem button key={index}>
+                  <ListItemText primary={data.name} />
+                </ListItem>
+              </Link>
             ))}
           </List>
           <Divider />
