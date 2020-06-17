@@ -8,7 +8,7 @@ const Header = () => {
   return (
     <>
       <Navigation />
-      {!verified ? (
+      {!verified &&
         <div className="warning-wrapper">
           <div className="warning">
             Please verify your account.
@@ -19,9 +19,7 @@ const Header = () => {
             </div>
           </div>
         </div>
-      ) : (
-        ''
-      )}
+      }
     </>
   );
 };

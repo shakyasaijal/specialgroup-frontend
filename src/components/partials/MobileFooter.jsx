@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PATHS from 'routes';
 
 const MobileFooter = () => {
   return (
@@ -35,8 +36,8 @@ const MobileFooter = () => {
               <Link to="/">About Us</Link>
               <Link to="/">Opportunity</Link>
               <Link to="/">Contact Us</Link>
-              <Link to="/login-and-security">Login and Security</Link>
-              <Link to="/order-history">Order History</Link>
+              <Link to={PATHS.LOGIN_SECURITY}>Login and Security</Link>
+              <Link to={PATHS.ORDER_HISTORY}>Order History</Link>
             </div>
           </div>
         </div>

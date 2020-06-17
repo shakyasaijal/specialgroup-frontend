@@ -9,9 +9,10 @@ import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 
 import MobileNavigation from './MobileNavigation';
+import PATHS from 'routes';
 
 const Navigation = () => {
-  const logged_in = true;
+  const loggedIn = true;
   return (
     <>
       <header className="page-header">
@@ -85,8 +86,8 @@ const Navigation = () => {
                     <div class="dropdown">
                       Account
                       <div class="dropdown-content">
-                        <Link to={logged_in ? '/account-settings' : '/sign-in'}>My Account</Link>
-                        {logged_in ? <Link to="/">Logout</Link> : ''}
+                        <Link to={loggedIn ? PATHS.ACCOUNT_SETTINGS : PATHS.SIGNIN}>My Account</Link>
+                        {loggedIn ? <Link to="/">Logout</Link> : ''}
                       </div>
                     </div>
                   </span>
