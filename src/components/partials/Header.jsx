@@ -11,12 +11,12 @@ import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 
 import MobileNavigation from './MobileNavigation';
 
-import { isLoggedIn, getAccountInfo } from 'selectors/auth';
+import { isLoggedIn, isAccountVerified, getAccountInfo } from 'selectors/auth';
 
 import PATHS from 'routes';
 
 const Header = (props) => {
-  const { isLoggedIn, account } = props;
+  const { isLoggedIn, isAccountVerified, account } = props;
 
   return (
     <>
@@ -89,7 +89,7 @@ const Header = (props) => {
                   {account.firstName && <small className="anchor">Welcome, {account.firstName}</small>}
                   {!isLoggedIn && <Link to={PATHS.SIGNIN}>LogIn</Link>}
                   <span className="my-account anchor">
-                    {isLoggedIn &&
+                    {isLoggedIn && (
                       <div class="dropdown">
                         Account
                         <div class="dropdown-content">
@@ -97,7 +97,7 @@ const Header = (props) => {
                           <Link to="/">Logout</Link>
                         </div>
                       </div>
-                    }
+                    )}
                   </span>
                 </div>
               </div>
@@ -110,7 +110,7 @@ const Header = (props) => {
         </div>
       </header>
       <MobileNavigation />
-      {!isLoggedIn &&
+      {isLoggedIn && !isAccountVerified && (
         <div className="warning-wrapper">
           <div className="warning">
             Please verify your account.
@@ -121,7 +121,7 @@ const Header = (props) => {
             </div>
           </div>
         </div>
-      }
+      )}
     </>
   );
 };
@@ -129,6 +129,7 @@ const Header = (props) => {
 const mapStateToProps = (state) => {
   return {
     isLoggedIn: isLoggedIn(state),
+    isAccountVerified: isAccountVerified(state),
     account: getAccountInfo(state),
   };
 };
