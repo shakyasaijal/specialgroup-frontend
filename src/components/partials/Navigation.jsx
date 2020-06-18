@@ -83,10 +83,10 @@ const Navigation = () => {
                 <div className="info grid-template grid-row-account float-right paddingLeft-5">
                   <small className="anchor">Welcome, Sign In</small>
                   <span className="my-account anchor">
-                    <div class="dropdown">
+                    <div className="dropdown">
                       Account
-                      <div class="dropdown-content">
-                        <Link to={loggedIn ? PATHS.ACCOUNT_SETTINGS : PATHS.SIGNIN}>My Account</Link>
+                      <div className="dropdown-content">
+                        <Link to={loggedIn ? PATHS.ACCOUNT_SETTINGS : PATHS.SIGNIN  }>My Account</Link>
                         {loggedIn ? <Link to="/">Logout</Link> : ''}
                       </div>
                     </div>

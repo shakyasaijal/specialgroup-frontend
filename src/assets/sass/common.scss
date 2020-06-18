@@ -856,5 +856,25 @@ label {
   background-color: #3e8e41;
 }
 
+.not-verified {
+  .reason {
+    width: 50%;
+  }
+  button {
+    padding: 15px;
+    margin-top: 25px;
+    border: 2px solid black;
+    cursor: pointer;
+  }
+  .later{
+    margin-top: 15px;
+    .maybe-later{
+      cursor: pointer;
+      color: $theme-color;
+      font-size: 10px;
+    }
+  }
+}
+
 @import 'base/responsive';
 @import 'base/helpers';
