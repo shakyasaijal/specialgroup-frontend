@@ -23,3 +23,19 @@ export const isLoggedIn = (state) => {
 
   return !!auth.userId && !!auth.accessToken;
 };
+
+export const isAccountVerified = (state) => {
+  const auth = getAuth(state);
+
+  if (!auth) return false;
+
+  return auth.isVerified;
+};
+
+export const getAccountInfo = (state) => {
+  const account = state.account;
+
+  if (!account) return '';
+
+  return account;
+};

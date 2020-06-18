@@ -1,91 +1,139 @@
-import React, { useEffect } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Modal from '@material-ui/core/Modal';
-import Backdrop from '@material-ui/core/Backdrop';
-import Navigation from './Navigation';
-import Fade from '@material-ui/core/Fade';
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
-const useStyles = makeStyles((theme) => ({
-  modal: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  paper: {
-    backgroundColor: theme.palette.background.paper,
-    boxShadow: theme.shadows[5],
-    padding: theme.spacing(2, 4, 3),
-  },
-  gridPaper: {
-    padding: theme.spacing(2),
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
-  },
-}));
+import FacebookIcon from '@material-ui/icons/Facebook';
+import InstagramIcon from '@material-ui/icons/Instagram';
+import TwitterIcon from '@material-ui/icons/Twitter';
+import SearchIcon from '@material-ui/icons/Search';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 
-const Header = () => {
-  const verified = false;
-  const classes = useStyles();
-  const [open, setOpen] = React.useState(false);
+import MobileNavigation from './MobileNavigation';
 
-  const handleOpen = () => {
-    setOpen(true);
-  };
+import { isLoggedIn, isAccountVerified, getAccountInfo } from 'selectors/auth';
 
-  const handleClose = () => {
-    setOpen(false);
-  };
+import PATHS from 'routes';
+import NotVerifiedModal from './NotVerifiedModal';
 
-  useEffect(() => {
-    if (!verified) {
-      handleOpen()
-    }
-  }, [verified])
-
-  const handleClick = () => {
-    console.log("Clicked");
-    handleClose();
-  }
+const Header = (props) => {
+  const { isLoggedIn, isAccountVerified, account } = props;
 
   return (
     <>
-      <Navigation />
-      <Modal
-        aria-labelledby="transition-modal-title"
-        aria-describedby="transition-modal-description"
-        className={classes.modal}
-        open={open}
-        onClose={handleClose}
-        closeAfterTransition
-        BackdropComponent={Backdrop}
-        BackdropProps={{
-          timeout: 500,
-        }}
-      >
-        <div className="not-verified">
-          <Fade in={open}>
-            <div className={classes.paper}>
-              <div className="container center text-center">
-                <div className="description">
-                  <div className="reason center">
-                    You have <b>not verified</b> your account yet. If you have missed it, please press the button below.
-                  </div>
-                  <div className="btn">
-                    <button onClick={handleClick}>Resend Verification Link</button>
-                  </div>
+      <header className="page-header">
+        <div className="top-panel-wrapper border-bottom">
+          <div className="top-panel">
+            <div className="grid-template grid-top-panel">
+              <div className="social-media flex">
+                <small>Connect with us</small>
+                <div className="social-media-icons paddingLeft-5">
+                  <Link to="/">
+                    <FacebookIcon fontSize="small" />
+                  </Link>
+                  <Link to="/">
+                    <InstagramIcon fontSize="small" />
+                  </Link>
+                  <Link to="/">
+                    <TwitterIcon fontSize="small" />
+                  </Link>
                 </div>
               </div>
-              <div className="later">
-                <div className="float-right">
-                  <span onClick={handleClose} className="maybe-later">Maybe Later</span>
+              <div className=""></div>
+              <div className="short-navbar">
+                <Link to="/" className="float-right">
+                  Wishlist
+                </Link>
+                <Link to="/" className="float-right">
+                  Opportunity
+                </Link>
+                <Link to="/" className="float-right">
+                  About Us
+                </Link>
+                <Link to="/" className="float-right customer-care">
+                  Customer Care
+                </Link>
+                <Link to="/" className="float-right">
+                  Home
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="bottom-panel grid-template grid-bottom-panel">
+          <div className="logo">
+            <div className="img-container">
+              <img
+                src="https://www.chaudharygroup.com/templates/cg/images/logo.png"
+                className="verticle-center"
+                alt="Special Group"
+              />
+            </div>
+          </div>
+          <div className="verticle-center">
+            <div className="search-engine">
+              <form className="search-form" method="POST">
+                <input type="text" placeholder="Search.." name="search" autoComplete="off" />
+                <button type="submit">
+                  <SearchIcon fontSize="small" />
+                </button>
+              </form>
+            </div>
+          </div>
+          <div className="auth flex">
+            <div className="auth-provider">
+              <div className="login-signup flex">
+                <div className="icon-container">
+                  <AccountCircleIcon fontSize="large" />
+                </div>
+                <div className="info grid-template grid-row-account float-right paddingLeft-5">
+                  {account.firstName && <small className="anchor">Welcome, {account.firstName}</small>}
+                  {!isLoggedIn && <Link to={PATHS.SIGNIN}>LogIn</Link>}
+                  <span className="my-account anchor">
+                    {isLoggedIn && (
+                      <div class="dropdown">
+                        Account
+                        <div class="dropdown-content">
+                          <Link to={PATHS.ACCOUNT_SETTINGS}>My Account</Link>
+                          <Link to="/">Logout</Link>
+                        </div>
+                      </div>
+                    )}
+                  </span>
                 </div>
               </div>
             </div>
-          </Fade>
+            <div className="cart">
+              <AddShoppingCartIcon fontSize="large" />
+              <span className="anchor paddingLeft-5">Cart</span>
+            </div>
+          </div>
         </div>
-      </Modal>
+      </header>
+      <MobileNavigation />
+      {isLoggedIn && !isAccountVerified && (
+        <div className="warning-wrapper">
+          <div className="warning">
+            Please verify your account.
+            <div className="float-right">
+              <Link to="/" className="warning-button">
+                Resend Verification Link
+              </Link>
+            </div>
+          </div>
+        </div>
+      )}
+      <NotVerifiedModal/>
     </>
   );
 };
 
-export default Header;
+const mapStateToProps = (state) => {
+  return {
+    isLoggedIn: isLoggedIn(state),
+    isAccountVerified: isAccountVerified(state),
+    account: getAccountInfo(state),
+  };
+};
+
+export default connect(mapStateToProps, {})(Header);
