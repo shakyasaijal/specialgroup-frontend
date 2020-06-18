@@ -31,7 +31,7 @@ const FacebookAuthButton = ({ onClick, authFor }) => {
 };
 
 const SocialAuth = (props) => {
-  const { authFailure, setAuthFailure } = useState('');
+  const [authFailure, setAuthFailure] = useState('');
   const { label, authGoogleRequest, authFacebookRequest, callbackSuccess, callbackError } = props;
   const authFor = label === 'sign-in' ? 'in' : 'up';
 
