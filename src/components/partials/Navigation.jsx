@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
 
 import FacebookIcon from '@material-ui/icons/Facebook';
 import InstagramIcon from '@material-ui/icons/Instagram';
@@ -10,15 +9,10 @@ import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 
 import MobileNavigation from './MobileNavigation';
-
-import { isLoggedIn, isAccountVerified, getAccountInfo } from 'selectors/auth';
-
 import PATHS from 'routes';
-import NotVerifiedModal from './NotVerifiedModal';
 
-const Header = (props) => {
-  const { isLoggedIn, isAccountVerified, account } = props;
-
+const Navigation = () => {
+  const loggedIn = true;
   return (
     <>
       <header className="page-header">
@@ -87,18 +81,15 @@ const Header = (props) => {
                   <AccountCircleIcon fontSize="large" />
                 </div>
                 <div className="info grid-template grid-row-account float-right paddingLeft-5">
-                  {account.firstName && <small className="anchor">Welcome, {account.firstName}</small>}
-                  {!isLoggedIn && <Link to={PATHS.SIGNIN}>LogIn</Link>}
+                  <small className="anchor">Welcome, Sign In</small>
                   <span className="my-account anchor">
-                    {isLoggedIn && (
-                      <div class="dropdown">
-                        Account
-                        <div class="dropdown-content">
-                          <Link to={PATHS.ACCOUNT_SETTINGS}>My Account</Link>
-                          <Link to="/">Logout</Link>
-                        </div>
+                    <div className="dropdown">
+                      Account
+                      <div className="dropdown-content">
+                        <Link to={loggedIn ? PATHS.ACCOUNT_SETTINGS : PATHS.SIGNIN  }>My Account</Link>
+                        {loggedIn ? <Link to="/">Logout</Link> : ''}
                       </div>
-                    )}
+                    </div>
                   </span>
                 </div>
               </div>
@@ -111,20 +102,8 @@ const Header = (props) => {
         </div>
       </header>
       <MobileNavigation />
-      {isLoggedIn && !isAccountVerified && (
-        <NotVerifiedModal />
-      )}
-
     </>
   );
 };
 
-const mapStateToProps = (state) => {
-  return {
-    isLoggedIn: isLoggedIn(state),
-    isAccountVerified: isAccountVerified(state),
-    account: getAccountInfo(state),
-  };
-};
-
-export default connect(mapStateToProps, {})(Header);
+export default Navigation;
