@@ -17,7 +17,7 @@ const appReducer = combineReducers({ auth, account });
 
 const rootReducer = (state, action) => {
   if (action.type === AUTH_CLEAR_STORE) {
-    state = null;
+    state = undefined;
   }
 
   return appReducer(state, action);
