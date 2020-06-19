@@ -7,7 +7,7 @@ import Button from '@material-ui/core/Button';
 
 import { ValidateEmail } from 'util/Validator';
 
-import { ERROR_EMPTY_EMAIL, ERROR_EMAIL, ERROR_EMPTY_PASSWORD } from 'constants/ErrorMessages';
+import { ERROR_EMPTY_EMAIL, ERROR_EMAIL } from 'constants/ErrorMessages';
 
 import { getImageUrl } from 'constants/constants';
 

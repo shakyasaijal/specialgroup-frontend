@@ -91,9 +91,9 @@ const Header = (props) => {
                   {!isLoggedIn && <Link to={PATHS.SIGNIN}>LogIn</Link>}
                   <span className="my-account anchor">
                     {isLoggedIn && (
-                      <div class="dropdown">
+                      <div className="dropdown">
                         Account
-                        <div class="dropdown-content">
+                        <div className="dropdown-content">
                           <Link to={PATHS.ACCOUNT_SETTINGS}>My Account</Link>
                           <Link to="/">Logout</Link>
                         </div>
@@ -111,10 +111,7 @@ const Header = (props) => {
         </div>
       </header>
       <MobileNavigation />
-      {isLoggedIn && !isAccountVerified && (
-        <NotVerifiedModal />
-      )}
-
+      {isLoggedIn && !isAccountVerified && <NotVerifiedModal />}
     </>
   );
 };
