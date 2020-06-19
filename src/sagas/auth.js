@@ -1,6 +1,6 @@
 import { takeLatest, call, all, put } from 'redux-saga/effects';
 
-import { login, signUp, googleLogin, facebookLogin } from 'api/auth';
+import { login, signUp, googleLogin, facebookLogin, logout } from 'api/auth';
 
 import {
   AUTH_LOGIN_REQUEST,
@@ -8,6 +8,8 @@ import {
   AUTH_GOOGLE_REQUEST,
   AUTH_FACEBOOK_REQUEST,
   authInfoUpdate,
+  authClearStore,
+  AUTH_LOGOUT_REQUEST,
 } from 'actions/auth';
 
 import { accountInfoRequest } from 'actions/account';
@@ -116,11 +118,31 @@ function* watchAuthFacebookRequest() {
   yield takeLatest(AUTH_FACEBOOK_REQUEST, handleAuthFacebookRequest);
 }
 
+function* handleAuthLogoutRequest(action) {
+  const { refreshToken, callbackSuccess, callbackError } = action;
+
+  try {
+    yield put(authClearStore());
+    const res = yield call(logout, refreshToken);
+
+    if (!res.status) throw new Error(res.data.message);
+
+    if (callbackSuccess) callbackSuccess();
+  } catch (e) {
+    if (callbackError) callbackError();
+  }
+}
+
+function* WatchHandleAuthLogoutRequest() {
+  yield takeLatest(AUTH_LOGOUT_REQUEST, handleAuthLogoutRequest);
+}
+
 export default function* authSaga() {
   yield all([
     watchAuthRegisterRequest(),
     watchAuthLoginRequest(),
     watchAuthGoogleRequest(),
     watchAuthFacebookRequest(),
+    WatchHandleAuthLogoutRequest(),
   ]);
 }

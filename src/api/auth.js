@@ -1,6 +1,7 @@
 import { getEndPoint } from 'config/Config';
 
 import { httpService } from 'services/HttpServices';
+import specialGroupHttpService from 'services/SpecialGroupHttpService';
 
 export const signUp = (firstName, lastName, email, password) => {
   const path = `${getEndPoint()}/v1/api/register/`;
@@ -28,4 +29,11 @@ export const facebookLogin = (idToken) => {
   const payload = { idToken };
 
   return httpService.request('post', null, path, null, payload);
+};
+
+export const logout = (refreshToken) => {
+  const path = '/v1/api/logout/';
+  const payload = { refreshToken };
+
+  return specialGroupHttpService.post(path, payload);
 };
