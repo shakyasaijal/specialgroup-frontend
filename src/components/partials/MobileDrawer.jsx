@@ -168,7 +168,7 @@ const MobileDrawer = () => {
           <Divider />
           <List>
             {drawersData.map((data, index) => (
-              <Link to={data.route}>
+              <Link to={data.route} key={index}>
                 <ListItem button key={index}>
                   <ListItemText primary={data.name} />
                 </ListItem>

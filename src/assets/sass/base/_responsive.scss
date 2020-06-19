@@ -219,6 +219,12 @@
       top: 9vh;
     }
   }
+  .not-verified{
+    width: 80%;
+    .reason{
+      width: 100%;
+    }
+  }
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
@@ -328,27 +334,21 @@
   .sign {
     width: 30%;
   }
-}
-
-/* Large devices (laptops/desktops, 992px and up) */
-@media only screen and (min-width: 993px) {
-  .img-container {
-    height: 100%;
-  }
-  .auth .auth-provider {
-    padding: 25px 0px;
-  }
-  .anchor {
-    font-size: 10px;
-  }
-  .mobile-header {
-    display: none;
-  }
-  .quick-navigation {
-    display: none;
-  }
-  .sign {
-    width: 30%;
+  .not-verified {
+    .reason {
+      width: 50%;
+    }
+    button {
+      padding: 15px;
+      margin-top: 25px;
+      border: 2px solid black;
+      cursor: pointer;
+    }
+    .maybe-later{
+      cursor: pointer;
+      color: $theme-color;
+      font-size: 10px;
+    }
   }
 }
 
