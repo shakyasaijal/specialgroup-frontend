@@ -216,7 +216,7 @@ section {
   grid-template-rows: 100%;
 }
 .grid-row-account {
-  grid-template-rows: 50% 50%;
+  grid-template-rows: 32% 33%;
 }
 .my-account {
   color: $primary-color;
@@ -837,14 +837,14 @@ label {
   z-index: 1;
 }
 
-.dropdown-content a {
+.dropdown-content a, .dropdown-content span {
   color: black;
   padding: 12px 16px;
   text-decoration: none;
   display: block;
 }
 
-.dropdown-content a:hover {
+.dropdown-content a:hover, .dropdown-content span:hover {
   background-color: #ddd;
 }
 

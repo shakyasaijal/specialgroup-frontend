@@ -100,6 +100,7 @@ const Header = (props) => {
                 </div>
                 <div className="info grid-template grid-row-account float-right paddingLeft-5">
                   {account.firstName && <small className="anchor">Welcome, {account.firstName}</small>}
+                  {!isLoggedIn && <small className="anchor">Welcome</small>}
                   {!isLoggedIn && <Link to={PATHS.SIGNIN}>LogIn</Link>}
                   <span className="my-account anchor">
                     {isLoggedIn && (
