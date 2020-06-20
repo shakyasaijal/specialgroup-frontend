@@ -12,7 +12,7 @@ function* handleAccountInfoRequest(action) {
 
     if (!res) throw new Error('connection error');
 
-    const account = res;
+    const account = res.data;
 
     yield put(accountInfoUpdate(account));
     if (callbackSuccess) callbackSuccess();

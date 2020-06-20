@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import clsx from 'clsx';
 
 import { makeStyles, useTheme, fade } from '@material-ui/core/styles';
@@ -16,8 +17,8 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import SearchIcon from '@material-ui/icons/Search';
 import InputBase from '@material-ui/core/InputBase';
-import { mobileDrawerItems } from '../../constants/constants';
-import { Link } from 'react-router-dom';
+
+import { mobileDrawerItems } from 'constants/constants';
 
 const drawerWidth = 240;
 

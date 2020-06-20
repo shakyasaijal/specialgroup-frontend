@@ -866,9 +866,9 @@ label {
     border: 2px solid black;
     cursor: pointer;
   }
-  & .later {
+  .later {
     margin-top: 15px;
-    & .maybe-later {
+    .maybe-later {
       cursor: pointer;
       color: $theme-color;
       font-size: 10px;
@@ -937,29 +937,29 @@ label {
       }
     }
     & .subCategory-container {
-      & .subcategory-product{
+      & .subcategory-product {
         display: grid;
         grid-template-columns: 16% 16% 16% 16% 16% 16%;
         grid-gap: 1%;
         margin: 10px 0;
         flex-direction: row;
         flex-wrap: wrap;
-        & .subcategory{
+        & .subcategory {
           background: $theme-color;
           color: $contrast-font-color;
-          & .img-container{
+          & .img-container {
             height: 165px;
             width: 90%;
-            & img{
+            & img {
               height: 100%;
               object-fit: scale-down;
             }
           }
-          & .name{
+          & .name {
             font-size: 20px;
           }
-          & .see-more{
-            & button{
+          & .see-more {
+            & button {
               border: 0;
               outline: 0;
               padding: 8px 15px;
@@ -970,19 +970,19 @@ label {
             }
           }
         }
-        & li{
+        & li {
           max-width: 188px;
           list-style: none;
         }
-        & .product{
-          & .productName{
+        & .product {
+          & .productName {
             color: $ternary-color;
             font-size: 18px;
           }
-          & .productPrice{
+          & .productPrice {
             color: $theme-color;
           }
-          & .oldPrice{
+          & .oldPrice {
             text-decoration: line-through;
           }
         }

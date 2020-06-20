@@ -86,7 +86,7 @@ const Navigation = () => {
                     <div className="dropdown">
                       Account
                       <div className="dropdown-content">
-                        <Link to={loggedIn ? PATHS.ACCOUNT_SETTINGS : PATHS.SIGNIN  }>My Account</Link>
+                        <Link to={loggedIn ? PATHS.ACCOUNT_SETTINGS : PATHS.SIGNIN}>My Account</Link>
                         {loggedIn ? <Link to="/">Logout</Link> : ''}
                       </div>
                     </div>

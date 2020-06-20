@@ -1,4 +1,5 @@
 import React from 'react';
+import { Redirect } from 'react-router';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
@@ -11,13 +12,24 @@ import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 
 import MobileNavigation from './MobileNavigation';
 
-import { isLoggedIn, isAccountVerified, getAccountInfo } from 'selectors/auth';
+import { authLogoutRequest } from 'actions/auth';
+
+import { isLoggedIn, isAccountVerified, getAccountInfo, getRefreshToken } from 'selectors/auth';
 
 import PATHS from 'routes';
 import NotVerifiedModal from './NotVerifiedModal';
 
 const Header = (props) => {
   const { isLoggedIn, isAccountVerified, account } = props;
+
+  const logout = () => {
+    const { refreshToken, authLogoutRequest } = props;
+    authLogoutRequest(refreshToken, logoutSuccess);
+  };
+
+  const logoutSuccess = () => {
+    return <Redirect to={PATHS.HOME} />;
+  };
 
   return (
     <>
@@ -91,11 +103,12 @@ const Header = (props) => {
                   {!isLoggedIn && <Link to={PATHS.SIGNIN}>LogIn</Link>}
                   <span className="my-account anchor">
                     {isLoggedIn && (
-                      <div class="dropdown">
+                      <div className="dropdown">
                         Account
-                        <div class="dropdown-content">
+                        <div className="dropdown-content">
                           <Link to={PATHS.ACCOUNT_SETTINGS}>My Account</Link>
-                          <Link to="/">Logout</Link>
+                          {/* <Link to="/">Logout</Link> */}
+                          <span onClick={logout}>Logout</span>
                         </div>
                       </div>
                     )}
@@ -111,20 +124,20 @@ const Header = (props) => {
         </div>
       </header>
       <MobileNavigation />
-      {isLoggedIn && !isAccountVerified && (
-        <NotVerifiedModal />
-      )}
-
+      {isLoggedIn && !isAccountVerified && <NotVerifiedModal />}
     </>
   );
 };
 
 const mapStateToProps = (state) => {
   return {
+    refreshToken: getRefreshToken(state),
     isLoggedIn: isLoggedIn(state),
     isAccountVerified: isAccountVerified(state),
     account: getAccountInfo(state),
   };
 };
 
-export default connect(mapStateToProps, {})(Header);
+const dispatchProps = { authLogoutRequest };
+
+export default connect(mapStateToProps, dispatchProps)(Header);

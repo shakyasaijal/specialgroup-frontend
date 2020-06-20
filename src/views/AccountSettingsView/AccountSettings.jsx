@@ -12,7 +12,7 @@ const AccountSettings = () => {
         <div className="greetings">Hello Saijal</div>
         <div className="account-wrapper">
           {settings.map((setting, index) => (
-            <div className="container">
+            <div className="container" key={index}>
               <Link to={setting.link}>
                 <div className="settings">
                   <div className="img-container">

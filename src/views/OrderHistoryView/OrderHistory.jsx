@@ -5,7 +5,7 @@ import MaterialTable from 'material-table';
 
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
-import RecommendedSlider from '../../components/Products/RecommendedSlider';
+import RecommendedSlider from 'components/Products/RecommendedSlider';
 
 const useStyles = makeStyles((theme) => ({
   button: {
@@ -25,7 +25,7 @@ const OrderHistory = () => {
       </Link>
     );
   };
-  const [state, setState] = React.useState({
+  const state = {
     columns: [
       { title: 'Coupon', field: 'coupon' },
       { title: 'Date', field: 'date' },
@@ -42,7 +42,7 @@ const OrderHistory = () => {
       { coupon: '9d9iwe', date: '10/02/2020', total: 4, action: getLink(3) },
       { coupon: '55d5we', date: '10/02/2020', total: 1, action: getLink(4) },
     ],
-  });
+  };
 
   return (
     <>
