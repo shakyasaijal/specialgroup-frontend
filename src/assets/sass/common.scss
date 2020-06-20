@@ -837,14 +837,16 @@ label {
   z-index: 1;
 }
 
-.dropdown-content a, .dropdown-content span {
+.dropdown-content a,
+.dropdown-content span {
   color: black;
   padding: 12px 16px;
   text-decoration: none;
   display: block;
 }
 
-.dropdown-content a:hover, .dropdown-content span:hover {
+.dropdown-content a:hover,
+.dropdown-content span:hover {
   background-color: #ddd;
 }
 
@@ -978,6 +980,9 @@ label {
           & .productName {
             color: $ternary-color;
             font-size: 18px;
+            word-break: break-all;
+            overflow: hidden;
+            max-height: 20px;
           }
           & .productPrice {
             color: $theme-color;

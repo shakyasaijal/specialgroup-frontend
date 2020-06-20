@@ -483,7 +483,7 @@ export const productsWithBanner = () => {
               id: 4,
               name: 'Flexible Hair Brushes | Balon',
               image: getImageUrl('images/faker/products/balon.jpg'),
-              price: '',
+              price: '450',
               wishlist: true,
               oldPrice: '',
             },
