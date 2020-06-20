@@ -7,6 +7,7 @@ const PATHS = {
   ORDER_HISTORY: '/order-history',
   LOGIN_SECURITY: '/login-and-security',
   CHANGE_ADDRESS: '/change-address',
+  WISHLIST: '/wishlist',
   NOT_FOUND: '*',
 };
 

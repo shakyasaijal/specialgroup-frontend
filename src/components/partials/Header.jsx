@@ -41,7 +41,7 @@ const Header = (props) => {
               </div>
               <div className=""></div>
               <div className="short-navbar">
-                <Link to="/" className="float-right">
+                <Link to={PATHS.WISHLIST} className="float-right">
                   Wishlist
                 </Link>
                 <Link to="/" className="float-right">
