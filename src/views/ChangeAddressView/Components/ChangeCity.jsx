@@ -1,10 +1,17 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { connect } from 'react-redux';
 
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
 import Button from '@material-ui/core/Button';
+
+import { locationMapRequest } from 'actions/publicAction';
+
+import Form from 'components/Form/Form';
+
+import { parseLocationData } from 'selectors/publicSelector';
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -35,8 +42,14 @@ const useStyles = makeStyles((theme) => ({
 
 const ChangeCity = (props) => {
   const classes = useStyles();
-  const [open, setOpen] = React.useState(false);
-  const [state, setState] = React.useState({ newCity: '' });
+  const [locationMapSuccess, setLocationMapSuccess] = useState(true);
+  const [open, setOpen] = useState(false);
+  // const [state, setState] = useState({ new_city: '' });
+
+  useEffect(() => {
+    props.locationMapRequest(callbackSuccess);
+    // eslint-disable-next-line
+  }, []);
 
   const handleOpen = () => {
     setOpen(true);
@@ -48,8 +61,24 @@ const ChangeCity = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    props.callback('City successfully changed.', state.new_city);
+    // props.callback('City successfully changed.', state.new_city);
     handleClose();
+  };
+
+  const fetchingLocationContent = <span> Please wait...</span>;
+
+  const callbackSuccess = () => {
+    setLocationMapSuccess(true);
+  };
+
+  const locationDropdownData = () => {
+    const d = parseLocationData(props.locations);
+
+    return d.map((i, k) => (
+      <option value={i.id} key={k}>
+        {i.district}
+      </option>
+    ));
   };
 
   return (
@@ -71,13 +100,17 @@ const ChangeCity = (props) => {
       >
         <Fade in={open}>
           <div className={classes.paper}>
-            <h2 id="transition-modal-title">Change City</h2>
-            <div id="transition-modal-description" className={classes.marginTop}>
-              <form method="POST" onSubmit={(e) => handleSubmit(e)}>
-                <small>{props.currentCity}</small>
-                <div className={classes.formGroup}>
-                  <label className={classes.label}>New City</label>
-                  <input
+            {!locationMapSuccess ? (
+              fetchingLocationContent
+            ) : (
+              <>
+                <h2 id="transition-modal-title">Change City</h2>
+                <div id="transition-modal-description" className={classes.marginTop}>
+                  <Form onSubmit={handleSubmit}>
+                    <small>{props.currentCity}</small>
+                    <div className={classes.formGroup}>
+                      <label className={classes.label}>New City</label>
+                      {/* <input
                     placeholder="Enter Here"
                     autoFocus
                     onChange={(e) => setState({ newCity: e.target.value })}
@@ -86,15 +119,18 @@ const ChangeCity = (props) => {
                     type="text"
                     name="city"
                     required
-                  />
+                    /> */}
+                      <select className={classes.input}>{locationDropdownData()}</select>
+                    </div>
+                    <div className={classes.formGroup}>
+                      <Button type="submit" variant="contained" color="primary" size="small">
+                        Change
+                      </Button>
+                    </div>
+                  </Form>
                 </div>
-                <div className={classes.formGroup}>
-                  <Button type="submit" variant="contained" color="primary" size="small">
-                    Change
-                  </Button>
-                </div>
-              </form>
-            </div>
+              </>
+            )}
           </div>
         </Fade>
       </Modal>
@@ -102,4 +138,12 @@ const ChangeCity = (props) => {
   );
 };
 
-export default ChangeCity;
+const mapStateToProps = (state) => {
+  return {
+    locations: state.locationMap || [],
+  };
+};
+
+const dispatchProps = { locationMapRequest };
+
+export default connect(mapStateToProps, dispatchProps)(ChangeCity);

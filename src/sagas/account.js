@@ -43,6 +43,11 @@ function* watchPasswordResetRequest() {
   yield takeLatest(PASSWORD_RESET_REQUEST, handlePasswordResetRequest);
 }
 
+// function* handleChangeAccountInfoRequest(action) {
+//   const { phone, address, firstName, lastName, location, callbackSuccess, callbackError } = action;
+
+// }
+
 export default function* accountSaga() {
   yield all([watchAccountInfoRequest(), watchPasswordResetRequest()]);
 }

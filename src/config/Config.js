@@ -1,10 +1,10 @@
 const CONFIG_SETTINGS = {
   local: {
-    endpoint: 'http://localhost:8000'
+    endpoint: 'http://localhost:8000',
   },
   dev: {
-    endpoint: 'http://admin.cosmoconcepts.com.np'
-  }
+    endpoint: 'http://admin.cosmoconcepts.com.np',
+  },
 };
 
 export const getEnv = () => {
@@ -15,8 +15,8 @@ export const getEndPoint = () => {
   const env = getEnv();
 
   const configSetting = CONFIG_SETTINGS[env];
+
   if (!configSetting || !configSetting.endpoint) return 'http://localhost:8000';
 
   return configSetting.endpoint;
 };
-

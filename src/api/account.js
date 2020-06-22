@@ -16,3 +16,10 @@ export const resetPassword = (email) => {
 
   return httpService.request('post', null, path, null, payload);
 };
+
+export const changeAccountInfo = (phone, address, firstName, lastName, location) => {
+  const path = '/v1/api/update-info/';
+  const payload = { phone, address, firstName, lastName, location };
+
+  return specialGroupHttpService.post(path, payload);
+};
