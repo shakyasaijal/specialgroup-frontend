@@ -11,6 +11,8 @@ export const AUTH_LOGOUT_REQUEST = 'AUTH_LOGOUT_REQUEST';
 export const AUTH_INFO_UPDATE = 'AUTH_INFO_UPDATE';
 export const AUTH_TOKENS_UPDATE = 'AUTH_TOKENS_UPDATE';
 
+export const RESEND_VERIFICATION_EMAIL_REQUEST = 'RESEND_VERIFICATION_EMAIL_REQUEST';
+
 export function authClearStore() {
   return {
     type: AUTH_CLEAR_STORE,
@@ -92,6 +94,15 @@ export function authLogoutRequest(refreshToken, callbackSuccess = null, callback
   return {
     type: AUTH_LOGOUT_REQUEST,
     refreshToken,
+    callbackSuccess,
+    callbackError,
+  };
+}
+
+export function resendVerificationEmailRequest(email, callbackSuccess = null, callbackError = null) {
+  return {
+    type: RESEND_VERIFICATION_EMAIL_REQUEST,
+    email,
     callbackSuccess,
     callbackError,
   };

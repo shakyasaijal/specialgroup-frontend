@@ -1,6 +1,6 @@
 import { takeLatest, call, all, put } from 'redux-saga/effects';
 
-import { login, signUp, googleLogin, facebookLogin, logout } from 'api/auth';
+import { login, signUp, googleLogin, facebookLogin, logout, resendVerificationEmail } from 'api/auth';
 
 import {
   AUTH_LOGIN_REQUEST,
@@ -10,6 +10,7 @@ import {
   authInfoUpdate,
   authClearStore,
   AUTH_LOGOUT_REQUEST,
+  RESEND_VERIFICATION_EMAIL_REQUEST,
 } from 'actions/auth';
 
 import { accountInfoRequest } from 'actions/account';
@@ -45,7 +46,7 @@ function* handleAuthLoginRequest(action) {
 
     if (!res) throw new Error('connection error');
 
-    if (!res.status) throw new Error(res.message);
+    if (!res.status) throw new Error(res.data.message);
 
     const { userId, isVerified, accessToken, refreshToken } = res.data;
 
@@ -122,11 +123,11 @@ function* handleAuthLogoutRequest(action) {
   const { refreshToken, callbackSuccess, callbackError } = action;
 
   try {
-    yield put(authClearStore());
     const res = yield call(logout, refreshToken);
 
     if (!res.status) throw new Error(res.data.message);
 
+    yield put(authClearStore());
     if (callbackSuccess) callbackSuccess();
   } catch (e) {
     if (callbackError) callbackError();
@@ -137,6 +138,24 @@ function* WatchHandleAuthLogoutRequest() {
   yield takeLatest(AUTH_LOGOUT_REQUEST, handleAuthLogoutRequest);
 }
 
+function* handleResendVerificationEmailRequest(action) {
+  const { email, callbackSuccess, callbackError } = action;
+
+  try {
+    const res = yield call(resendVerificationEmail, email);
+
+    if (!res.status) throw new Error(res.data.message);
+
+    if (callbackSuccess) callbackSuccess();
+  } catch (e) {
+    if (callbackError) callbackError(e);
+  }
+}
+
+function* watchHandleResendVerificationEmail() {
+  yield takeLatest(RESEND_VERIFICATION_EMAIL_REQUEST, handleResendVerificationEmailRequest);
+}
+
 export default function* authSaga() {
   yield all([
     watchAuthRegisterRequest(),
@@ -144,5 +163,6 @@ export default function* authSaga() {
     watchAuthGoogleRequest(),
     watchAuthFacebookRequest(),
     WatchHandleAuthLogoutRequest(),
+    watchHandleResendVerificationEmail(),
   ]);
 }

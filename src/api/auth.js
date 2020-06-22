@@ -37,3 +37,10 @@ export const logout = (refreshToken) => {
 
   return specialGroupHttpService.post(path, payload);
 };
+
+export const resendVerificationEmail = (email) => {
+  const path = '/v1/api/resend-email/';
+  const payload = { email };
+
+  return specialGroupHttpService.post(path, payload);
+};
