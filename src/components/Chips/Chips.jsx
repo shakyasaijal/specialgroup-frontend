@@ -8,6 +8,7 @@ import { categoriesForChips } from 'constants/constants';
 
 const Chips = () => {
   const _categories = categoriesForChips();
+
   // Max 8 categories having text length of average 8 will be ok
   return (
     <div className="row">

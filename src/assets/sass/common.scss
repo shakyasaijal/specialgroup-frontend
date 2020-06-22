@@ -103,10 +103,10 @@ header {
   & .grid2 {
     grid-template-columns: 49% 49%;
     grid-gap: 2%;
-    & .ad-container{
+    & .ad-container {
       height: 100%;
       max-width: 100%;
-      & img{
+      & img {
         height: 100%;
         width: 100%;
         object-fit: cover;
@@ -115,7 +115,7 @@ header {
   }
 }
 
-.clearfix{
+.clearfix {
   height: 10vh;
   width: 100%;
 }
@@ -186,7 +186,7 @@ a:hover {
     border-radius: 0px 20px 20px 0px;
     border: 0;
     cursor: pointer;
-    svg{
+    svg {
       font-size: 22px;
     }
   }

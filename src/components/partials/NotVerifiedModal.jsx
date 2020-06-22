@@ -51,6 +51,7 @@ const NotVerifiedModal = (props) => {
 
   const handleClick = () => {
     const { email, resendVerificationEmailRequest } = props;
+
     resendVerificationEmailRequest(email, callbackSuccess);
   };
 
@@ -126,4 +127,5 @@ const mapStateToProps = (state) => {
 };
 
 const dispatchProps = { resendVerificationEmailRequest };
+
 export default connect(mapStateToProps, dispatchProps)(NotVerifiedModal);

@@ -13,6 +13,7 @@ import PATHS from 'routes';
 
 const Navigation = () => {
   const loggedIn = true;
+
   return (
     <>
       <header className="page-header">

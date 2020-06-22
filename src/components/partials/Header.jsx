@@ -24,6 +24,7 @@ const Header = (props) => {
 
   const logout = () => {
     const { refreshToken, authLogoutRequest } = props;
+
     authLogoutRequest(refreshToken, logoutSuccess);
   };
 

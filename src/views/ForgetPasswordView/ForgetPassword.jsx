@@ -15,7 +15,7 @@ import './ForgetPassword.css';
 import Form from 'components/Form/Form';
 import PATHS from 'routes';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   button: {
     padding: '5px 5px',
     margin: '10px 0',
@@ -58,6 +58,7 @@ const ForgetPassword = (props) => {
 
     if (err) {
       setError(err);
+
       return;
     }
 

@@ -61,6 +61,7 @@ const useStyles = makeStyles((theme) => ({
 
 const MobileNavigation = () => {
   const classes = useStyles();
+
   return (
     <div className="mobile-header" id="mobile-header">
       <div className={classes.root}>

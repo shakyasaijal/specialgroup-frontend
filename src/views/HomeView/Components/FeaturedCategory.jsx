@@ -8,6 +8,7 @@ import { featuredCategory } from 'constants/constants';
 const FeaturedCategory = () => {
   const featured = featuredCategory();
   const types = ['Shop Now', 'See All', 'Explore Now', 'See More'];
+
   return (
     <div className="featured-category">
       {featured.map((category, index) => (

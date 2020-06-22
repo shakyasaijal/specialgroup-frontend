@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const ColorButton = withStyles((theme) => ({
+const ColorButton = withStyles(() => ({
   root: {
     color: '#fff',
     backgroundColor: '#4a68b4',
@@ -50,15 +50,18 @@ const SignIn = (props) => {
 
     if (err.email || err.password) {
       setErrors(err);
+
       return;
     }
 
     const { email, password } = state;
+
     authLoginRequest(email, password, callbackSuccess, callbackError);
   };
 
   function callbackSuccess() {
     const { history } = props;
+
     history.push(PATHS.HOME);
   }
 
@@ -74,7 +77,8 @@ const SignIn = (props) => {
   };
 
   const handleOnChange = (event) => {
-    let { name, value } = event.target;
+    const { name, value } = event.target;
+
     setForm({ ...state, [name]: value });
   };
 

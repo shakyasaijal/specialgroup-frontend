@@ -36,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
 const ChangeCity = (props) => {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
-  const [state, setState] = React.useState({ new_city: '' });
+  const [state, setState] = React.useState({ newCity: '' });
 
   const handleOpen = () => {
     setOpen(true);
@@ -80,8 +80,8 @@ const ChangeCity = (props) => {
                   <input
                     placeholder="Enter Here"
                     autoFocus
-                    onChange={(e) => setState({ new_city: e.target.value })}
-                    value={state.new_city}
+                    onChange={(e) => setState({ newCity: e.target.value })}
+                    value={state.newCity}
                     className={classes.input}
                     type="text"
                     name="city"

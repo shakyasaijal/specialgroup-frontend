@@ -15,6 +15,7 @@ const LoginAndSecurity = () => {
       setState({ ...state, phoneChange: status, currentPhone: newPhone });
     }
   };
+
   return (
     <div className="row">
       <div className="login-and-security center">

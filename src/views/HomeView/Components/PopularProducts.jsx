@@ -41,6 +41,7 @@ const useStyles = makeStyles((theme) => ({
 const PopularProducts = () => {
   const products = productsList();
   const classes = useStyles();
+
   return (
     <div className="row">
       <h4 className="medium-dark mt10">Popular on your area</h4>
@@ -66,7 +67,15 @@ const PopularProducts = () => {
               </Link>
               <CardActions disableSpacing>
                 <IconButton aria-label="add to favorites">
-                  {product.wishlist ? <Link to='/'><FavoriteIcon color="secondary" /></Link> : <Link to='/'><FavoriteIcon /></Link>}
+                  {product.wishlist ? (
+                    <Link to="/">
+                      <FavoriteIcon color="secondary" />
+                    </Link>
+                  ) : (
+                    <Link to="/">
+                      <FavoriteIcon />
+                    </Link>
+                  )}
                 </IconButton>
                 <IconButton aria-label="share">
                   <AddShoppingCartIcon />

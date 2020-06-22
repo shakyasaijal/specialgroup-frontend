@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const ColorButton = withStyles((theme) => ({
+const ColorButton = withStyles(() => ({
   root: {
     color: '#fff',
     backgroundColor: '#4a68b4',
@@ -61,10 +61,12 @@ const SignUp = (props) => {
 
     if (err.firstName || err.lastName || err.email || err.password) {
       setErrors(err);
+
       return;
     }
 
     const { firstName, lastName, email, password } = state;
+
     authRegisterRequest(firstName, lastName, email, password, callbackSuccess, callbackError);
   };
 
@@ -83,17 +85,20 @@ const SignUp = (props) => {
   };
 
   const handleOnChange = (event) => {
-    let { name, value } = event.target;
+    const { name, value } = event.target;
+
     setForm({ ...state, [name]: value });
   };
 
   const callbackSuccess = () => {
     const { history } = props;
+
     history.push(PATHS.HOME);
   };
 
   const callbackError = (error) => {
     let message = 'Can not register your account this moment. Please try again later.';
+
     if (error === 'Email already exists') {
       message = ERROR_USER_ALREADY_EXIST;
     }
@@ -108,6 +113,7 @@ const SignUp = (props) => {
   const clearFormErrors = () => {
     setErrors(initialState);
   };
+
   return (
     <div className="sign-up-container center mt30">
       <h2 className="paddingLeft-5">Create Account</h2>

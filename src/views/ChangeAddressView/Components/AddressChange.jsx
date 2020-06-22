@@ -36,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
 const AddressChange = (props) => {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
-  const [state, setState] = React.useState({ new_address: '' });
+  const [state, setState] = React.useState({ newAddress: '' });
 
   const handleOpen = () => {
     setOpen(true);
@@ -48,7 +48,7 @@ const AddressChange = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    props.callback('Address successfully changed.', state.new_address);
+    props.callback('Address successfully changed.', state.newAddress);
     handleClose();
   };
 
@@ -80,8 +80,8 @@ const AddressChange = (props) => {
                   <input
                     placeholder="Enter Here"
                     autoFocus
-                    onChange={(e) => setState({ new_address: e.target.value })}
-                    value={state.new_address}
+                    onChange={(e) => setState({ newAddress: e.target.value })}
+                    value={state.newAddress}
                     className={classes.input}
                     type="text"
                     name="address"

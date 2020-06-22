@@ -48,6 +48,7 @@ const RecommendedSlider = () => {
       },
     ],
   };
+
   return (
     <div className="product-slider-container mt30">
       <h2 className="medium-dark">Recommended for you</h2>

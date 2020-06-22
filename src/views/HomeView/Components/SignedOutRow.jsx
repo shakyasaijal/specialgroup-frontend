@@ -6,14 +6,15 @@ import Paper from '@material-ui/core/Paper';
 import { categories } from 'constants/constants';
 
 const SignedOutRow = (props) => {
-  const four_categories = categories();
+  const fourCategories = categories();
+
   return (
     <div className="grid">
       <Paper elevation={3}>
         <div className="grid-item">
           <h4 className="medium-dark">Shop by Category</h4>
           <div className="head grid2 mt10">
-            {four_categories.map((category, index) => (
+            {fourCategories.map((category, index) => (
               <div className="head-item" key={index}>
                 <div className="image-contain">
                   <img src={category.img} alt={category.name} />
@@ -31,7 +32,7 @@ const SignedOutRow = (props) => {
         <div className="grid-item">
           <h4 className="medium-dark">New Arrivals</h4>
           <div className="head grid2 mt10">
-            {four_categories.map((category, index) => (
+            {fourCategories.map((category, index) => (
               <div className="head-item" key={index}>
                 <div className="image-contain">
                   <img src={category.img} alt={category.name} />
