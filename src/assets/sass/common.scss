@@ -27,7 +27,7 @@
 }
 
 header {
-  height: 18vh;
+  height: 110px;
   background: $navigation-background;
   width: 100%;
 }
@@ -68,7 +68,7 @@ header {
   width: 100%;
   color: $contrast-font-color;
   background: $secondary-color;
-  height: 5vh;
+  height: 30px;
 
   & a {
     color: $contrast-font-color;
@@ -103,7 +103,21 @@ header {
   & .grid2 {
     grid-template-columns: 49% 49%;
     grid-gap: 2%;
+    & .ad-container{
+      height: 100%;
+      max-width: 100%;
+      & img{
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+      }
+    }
   }
+}
+
+.clearfix{
+  height: 10vh;
+  width: 100%;
 }
 
 .grid-template {
@@ -168,10 +182,13 @@ a:hover {
     background: $theme-color;
     color: white;
     font-size: 17px;
-    height: 6vh;
+    height: 40px;
     border-radius: 0px 20px 20px 0px;
     border: 0;
     cursor: pointer;
+    svg{
+      font-size: 22px;
+    }
   }
 
   .search-form button:hover {
@@ -216,7 +233,7 @@ section {
   grid-template-rows: 100%;
 }
 .grid-row-account {
-  grid-template-rows: 50% 50%;
+  grid-template-rows: 32% 33%;
 }
 .my-account {
   color: $primary-color;
@@ -837,14 +854,16 @@ label {
   z-index: 1;
 }
 
-.dropdown-content a {
+.dropdown-content a,
+.dropdown-content span {
   color: black;
   padding: 12px 16px;
   text-decoration: none;
   display: block;
 }
 
-.dropdown-content a:hover {
+.dropdown-content a:hover,
+.dropdown-content span:hover {
   background-color: #ddd;
 }
 
@@ -857,10 +876,10 @@ label {
 }
 
 .not-verified {
-  .reason {
+  & .reason {
     width: 50%;
   }
-  button {
+  & button {
     padding: 15px;
     margin-top: 25px;
     border: 2px solid black;
@@ -872,6 +891,135 @@ label {
       cursor: pointer;
       color: $theme-color;
       font-size: 10px;
+    }
+  }
+}
+
+.wishlist-container {
+  & .page-title {
+    font-size: 24px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  & .wishlists {
+    & .img-container {
+      height: 100px;
+      width: 100px;
+      & img {
+        height: 100%;
+        object-fit: scale-down;
+      }
+    }
+  }
+}
+
+.marts {
+  & .mart-container {
+    // width: 80%;
+    margin: 40px 0;
+    & .category-banner {
+      position: relative;
+      width: 100%;
+      margin-bottom: 10px;
+      & .img-container {
+        width: 100%;
+        height: 150px;
+        & img {
+          height: auto;
+          width: 100%;
+        }
+      }
+      & .category-name {
+        position: absolute;
+        color: $white;
+        text-shadow: 2px 2px $black;
+        font-size: 60px;
+      }
+      & .top {
+        top: 50%;
+        transform: translate(-50%, -50%);
+      }
+      & .verticle-center {
+        left: 50%;
+      }
+      & .category-seeMore {
+        position: absolute;
+        right: 1%;
+        & .see-more {
+          border: 0;
+          background: #ffffff59;
+          cursor: pointer;
+          font-size: 15px;
+          color: $white;
+          padding: 12px 16px;
+        }
+      }
+    }
+    & .subCategory-container {
+      & .subcategory-product {
+        display: grid;
+        grid-template-columns: 16% 16% 16% 16% 16% 16%;
+        grid-gap: 1%;
+        margin: 10px 0;
+        flex-direction: row;
+        flex-wrap: wrap;
+        & .subcategory {
+          background: $theme-color;
+          color: $contrast-font-color;
+          & .img-container {
+            height: 165px;
+            width: 90%;
+            & img {
+              height: 100%;
+              object-fit: scale-down;
+            }
+          }
+          & .name {
+            font-size: 20px;
+          }
+          & .see-more {
+            & button {
+              border: 0;
+              outline: 0;
+              padding: 8px 15px;
+              background: $ternary-color;
+              color: $white;
+              cursor: pointer;
+              margin-top: 5px;
+            }
+          }
+        }
+        & li {
+          max-width: 188px;
+          list-style: none;
+        }
+        & .product {
+          & .productName {
+            color: $ternary-color;
+            font-size: 18px;
+            word-break: break-all;
+            overflow: hidden;
+            max-height: 20px;
+          }
+          & .productPrice {
+            color: $theme-color;
+          }
+          & .oldPrice {
+            text-decoration: line-through;
+          }
+        }
+      }
+    }
+  }
+}
+
+.advertisement {
+  & .ad-container {
+    height: 100%;
+    max-width: 100%;
+    & img {
+      width: 100%;
+      height: 100%;
     }
   }
 }

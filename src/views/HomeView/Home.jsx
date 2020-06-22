@@ -9,15 +9,17 @@ import Chips from 'components/Chips/Chips';
 
 import TopRow from './Components/TopRow';
 import PopularProducts from './Components/PopularProducts';
+import { getImageUrl } from 'constants/constants';
 
 const Home = (props) => {
+  const smallAds = [getImageUrl('images/faker/ads/nepatop.gif'), getImageUrl('images/faker/ads/marutiMobile.gif')]
   return (
     <Box>
       <TopRow isLoggedIn={props.isLoggedIn} />
-      <FullWidthAd />
+      <FullWidthAd large={getImageUrl('images/faker/ads/nepatop.gif')} small={getImageUrl('images/faker/ads/nepatopMobile.jpg')} />
       <Chips />
       <PopularProducts />
-      <HalfWidthAd />
+      <HalfWidthAd small={smallAds} />
       <RecommendedSlider />
     </Box>
   );
