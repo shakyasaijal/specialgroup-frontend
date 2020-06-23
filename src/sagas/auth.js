@@ -1,4 +1,4 @@
-import { takeLatest, call, all, put } from 'redux-saga/effects';
+import { takeLatest, call, all, put, select } from 'redux-saga/effects';
 
 import { login, signUp, googleLogin, facebookLogin, logout, resendVerificationEmail } from 'api/auth';
 
@@ -14,6 +14,7 @@ import {
 } from 'actions/auth';
 
 import { accountInfoRequest } from 'actions/account';
+import { getAccessToken, getRefreshToken } from 'selectors/auth';
 
 function* handleAuthRegisterRequest(action) {
   const { firstName, lastName, email, password, callbackSuccess, callbackError } = action;
@@ -120,12 +121,13 @@ function* watchAuthFacebookRequest() {
 }
 
 function* handleAuthLogoutRequest(action) {
-  const { accessToken, refreshToken, callbackSuccess, callbackError } = action;
+  const { callbackSuccess, callbackError } = action;
 
   try {
-    const res = yield call(logout, accessToken, refreshToken);
+    const accessToken = yield select(getAccessToken);
+    const refreshToken = yield select(getRefreshToken);
 
-    if (!res.status) throw new Error(res.data.message);
+    yield call(logout, accessToken, refreshToken);
 
     yield put(authClearStore());
     if (callbackSuccess) callbackSuccess();

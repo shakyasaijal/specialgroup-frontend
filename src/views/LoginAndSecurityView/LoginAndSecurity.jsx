@@ -81,7 +81,6 @@ const LoginAndSecurity = (props) => {
 const mapStateToProps = (state) => {
   const { account } = state;
 
-  
   return {
     phone: account.phone || '',
   };

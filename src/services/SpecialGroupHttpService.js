@@ -1,8 +1,6 @@
-import { getAccessToken } from 'selectors/auth';
-
 import { getEndPoint } from 'config/Config';
 
-import { getState } from 'services/ReduxService';
+import { accessToken } from 'services/authService';
 
 import { httpService } from './HttpServices';
 
@@ -13,10 +11,8 @@ const deleteMethod = 'delete';
 
 class SpecialGroupHttpService {
   async getAuthenticatedHeaders() {
-    const state = getState();
-
-    const accessToken = await getAccessToken(state);
-    const authToken = `Bearer ${accessToken}`;
+    const token = await accessToken();
+    const authToken = `Bearer ${token}`;
 
     return {
       Authorization: authToken,

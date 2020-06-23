@@ -70,7 +70,6 @@ const Address = (props) => {
 const mapStateToProps = (state) => {
   const { account } = state;
 
-  
   return {
     province: account.province || '',
     district: account.district || '',

@@ -93,8 +93,6 @@ export function authTokensUpdate(accessToken, refreshToken) {
 export function authLogoutRequest(accessToken, refreshToken, callbackSuccess = null, callbackError = null) {
   return {
     type: AUTH_LOGOUT_REQUEST,
-    accessToken,
-    refreshToken,
     callbackSuccess,
     callbackError,
   };

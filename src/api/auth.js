@@ -44,3 +44,10 @@ export const resendVerificationEmail = (email) => {
 
   return specialGroupHttpService.post(path, payload);
 };
+
+export const refreshAccessToken = (refreshToken) => {
+  const path = `${getEndPoint()}/v1/api/refresh/token/`;
+  const payload = { refreshToken };
+
+  return httpService.request('post', null, path, null, payload);
+};
