@@ -1,10 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { connect } from 'react-redux';
 
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
 import Button from '@material-ui/core/Button';
+
+import { updateAccountInfo } from 'actions/account';
+
+import Form from 'components/Form/Form';
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -35,8 +40,8 @@ const useStyles = makeStyles((theme) => ({
 
 const ChangePhone = (props) => {
   const classes = useStyles();
-  const [state, setState] = React.useState({ newNumber: '' });
-  const [open, setOpen] = React.useState(false);
+  const [phone, setPhone] = useState(props.phone);
+  const [open, setOpen] = useState(false);
 
   const handleOpen = () => {
     setOpen(true);
@@ -48,7 +53,16 @@ const ChangePhone = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    props.callback('Phone successfully changed.', state.newNumber);
+    if (props.phone !== phone) {
+      props.updateAccountInfo(
+        phone,
+        '',
+        '',
+        '',
+        '',
+        props.callback(`Phone number successfully changed to ${phone}.`, phone)
+      );
+    }
     handleClose();
   };
 
@@ -73,27 +87,26 @@ const ChangePhone = (props) => {
           <div className={classes.paper}>
             <h2 id="transition-modal-title">Change Phone</h2>
             <div id="transition-modal-description" className={classes.marginTop}>
-              <form method="POST" onSubmit={(e) => handleSubmit(e)}>
+              <Form onSubmit={handleSubmit}>
                 <small>{props.currentPhone}</small>
                 <div className={classes.formGroup}>
                   <label className={classes.label}>New Phone Number</label>
                   <input
                     placeholder="Enter Here"
                     autoFocus
-                    onChange={(e) => setState({ newNumber: e.target.value })}
-                    value={state.newNumber}
+                    onChange={(e) => setPhone(e.target.value)}
+                    value={phone}
                     className={classes.input}
                     type="text"
-                    name="phone"
                     required
                   />
                 </div>
                 <div className={classes.formGroup}>
-                  <Button type="submit" variant="contained" color="primary" size="small">
+                  <Button onClick={handleSubmit} variant="contained" color="primary" size="small">
                     Change
                   </Button>
                 </div>
-              </form>
+              </Form>
             </div>
           </div>
         </Fade>
@@ -102,4 +115,6 @@ const ChangePhone = (props) => {
   );
 };
 
-export default ChangePhone;
+const dispatchProps = { updateAccountInfo };
+
+export default connect(null, dispatchProps)(ChangePhone);

@@ -1,3 +1,5 @@
+import PATHS from 'routes';
+
 export const categories = () => {
   return [
     {
@@ -609,19 +611,19 @@ export const accountSettings = () => {
       title: 'Order History',
       icon: getImageUrl('images/order.png'),
       subtitle: 'View order histories',
-      link: '/order-history',
+      link: PATHS.ORDER_HISTORY,
     },
     {
       title: 'Login & Security',
       icon: getImageUrl('images/security.png'),
       subtitle: 'Edit phone, password',
-      link: '/login-and-security',
+      link: PATHS.LOGIN_SECURITY,
     },
     {
       title: 'Address',
       icon: getImageUrl('images/address.png'),
       subtitle: 'Edit city, address',
-      link: '/change-address',
+      link: PATHS.ADDRESS,
     },
   ];
 };

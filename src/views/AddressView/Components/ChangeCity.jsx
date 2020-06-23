@@ -8,10 +8,9 @@ import Fade from '@material-ui/core/Fade';
 import Button from '@material-ui/core/Button';
 
 import { locationMapRequest } from 'actions/publicAction';
+import { updateAccountInfo } from 'actions/account';
 
 import Form from 'components/Form/Form';
-
-import { parseLocationData } from 'selectors/publicSelector';
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -44,7 +43,7 @@ const ChangeCity = (props) => {
   const classes = useStyles();
   const [locationMapSuccess, setLocationMapSuccess] = useState(true);
   const [open, setOpen] = useState(false);
-  // const [state, setState] = useState({ new_city: '' });
+  const [district, setDistrict] = useState(props.city);
 
   useEffect(() => {
     props.locationMapRequest(callbackSuccess);
@@ -61,7 +60,18 @@ const ChangeCity = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // props.callback('City successfully changed.', state.new_city);
+
+    if (props.city !== district) {
+      props.updateAccountInfo(
+        '',
+        '',
+        '',
+        '',
+        district,
+        props.callback(`City successfully changed to ${district}.`, district)
+      );
+    }
+
     handleClose();
   };
 
@@ -71,15 +81,11 @@ const ChangeCity = (props) => {
     setLocationMapSuccess(true);
   };
 
-  const locationDropdownData = () => {
-    const d = parseLocationData(props.locations);
-
-    return d.map((i, k) => (
-      <option value={i.id} key={k}>
-        {i.district}
-      </option>
-    ));
-  };
+  const locationDropdownData = props.locations.map((i, k) => (
+    <option value={i} key={k}>
+      {i}
+    </option>
+  ));
 
   return (
     <div className="change-password">
@@ -107,23 +113,15 @@ const ChangeCity = (props) => {
                 <h2 id="transition-modal-title">Change City</h2>
                 <div id="transition-modal-description" className={classes.marginTop}>
                   <Form onSubmit={handleSubmit}>
-                    <small>{props.currentCity}</small>
+                    <small>Current City: {props.city}</small>
                     <div className={classes.formGroup}>
                       <label className={classes.label}>New City</label>
-                      {/* <input
-                    placeholder="Enter Here"
-                    autoFocus
-                    onChange={(e) => setState({ newCity: e.target.value })}
-                    value={state.newCity}
-                    className={classes.input}
-                    type="text"
-                    name="city"
-                    required
-                    /> */}
-                      <select className={classes.input}>{locationDropdownData()}</select>
+                      <select className={classes.input} onChange={(e) => setDistrict(e.target.value)} value={district}>
+                        {locationDropdownData}
+                      </select>
                     </div>
                     <div className={classes.formGroup}>
-                      <Button type="submit" variant="contained" color="primary" size="small">
+                      <Button variant="contained" color="primary" size="small" onClick={handleSubmit}>
                         Change
                       </Button>
                     </div>
@@ -144,6 +142,6 @@ const mapStateToProps = (state) => {
   };
 };
 
-const dispatchProps = { locationMapRequest };
+const dispatchProps = { locationMapRequest, updateAccountInfo };
 
 export default connect(mapStateToProps, dispatchProps)(ChangeCity);

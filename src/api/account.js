@@ -17,9 +17,25 @@ export const resetPassword = (email) => {
   return httpService.request('post', null, path, null, payload);
 };
 
-export const changeAccountInfo = (phone, address, firstName, lastName, location) => {
+export const updateAccountInfo = (phone, address, firstName, lastName, district) => {
   const path = '/v1/api/update-info/';
-  const payload = { phone, address, firstName, lastName, location };
+  let payload = {};
+
+  if (phone) {
+    payload = { ...payload, phone };
+  }
+  if (address) {
+    payload = { ...payload, address };
+  }
+  if (firstName) {
+    payload = { ...payload, firstName };
+  }
+  if (lastName) {
+    payload = { ...payload, lastName };
+  }
+  if (district) {
+    payload = { ...payload, district };
+  }
 
   return specialGroupHttpService.post(path, payload);
 };

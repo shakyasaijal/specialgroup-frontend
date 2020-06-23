@@ -120,10 +120,10 @@ function* watchAuthFacebookRequest() {
 }
 
 function* handleAuthLogoutRequest(action) {
-  const { refreshToken, callbackSuccess, callbackError } = action;
+  const { accessToken, refreshToken, callbackSuccess, callbackError } = action;
 
   try {
-    const res = yield call(logout, refreshToken);
+    const res = yield call(logout, accessToken, refreshToken);
 
     if (!res.status) throw new Error(res.data.message);
 

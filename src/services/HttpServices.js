@@ -1,6 +1,6 @@
 import { dispatchFromStore } from 'services/ReduxService';
 
-import { authClearStore } from 'actions/auth';
+import { authLogoutRequest } from 'actions/auth';
 
 const BASE_HEADERS = {
   Accept: 'application/json',
@@ -40,7 +40,7 @@ class HttpService {
   validateResponse(response) {
     if (response.status === 401) {
       window.stop();
-      dispatchFromStore(authClearStore());
+      dispatchFromStore(authLogoutRequest());
     }
 
     return response;

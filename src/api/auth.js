@@ -31,11 +31,11 @@ export const facebookLogin = (idToken) => {
   return httpService.request('post', null, path, null, payload);
 };
 
-export const logout = (refreshToken) => {
-  const path = '/v1/api/logout/';
-  const payload = { refreshToken };
+export const logout = (accessToken, refreshToken) => {
+  const path = `${getEndPoint()}/v1/api/logout/`;
+  const payload = { accessToken, refreshToken };
 
-  return specialGroupHttpService.post(path, payload);
+  return httpService.request('post', null, path, null, payload);
 };
 
 export const resendVerificationEmail = (email) => {

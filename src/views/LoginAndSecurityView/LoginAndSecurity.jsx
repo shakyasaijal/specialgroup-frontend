@@ -1,10 +1,11 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 import ChangePassword from './Components/ChangePassword';
 import ChangePhone from './Components/ChangePhone';
 
-const LoginAndSecurity = () => {
-  const [state, setState] = React.useState({ passwordStatus: '', phoneChange: '', currentPhone: '+977 9843935344' });
+const LoginAndSecurity = (props) => {
+  const [state, setState] = React.useState({ passwordStatus: '', phoneChange: '', currentPhone: props.phone });
   const passwordChanged = (status) => {
     if (status) {
       setState({ ...state, passwordStatus: status });
@@ -52,7 +53,7 @@ const LoginAndSecurity = () => {
               <h5 className="small-grey">{state.currentPhone}</h5>
             </div>
             <div className="tail">
-              <ChangePhone currentPhone={state.currentPhone} callback={phoneChanged} />
+              <ChangePhone phone={state.currentPhone} callback={phoneChanged} />
             </div>
           </div>
           <div className="security">
@@ -77,4 +78,13 @@ const LoginAndSecurity = () => {
   );
 };
 
-export default LoginAndSecurity;
+const mapStateToProps = (state) => {
+  const { account } = state;
+
+  
+  return {
+    phone: account.phone || '',
+  };
+};
+
+export default connect(mapStateToProps, {})(LoginAndSecurity);

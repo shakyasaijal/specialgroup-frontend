@@ -1,7 +1,7 @@
 export const ACCOUNT_INFO_REQUEST = 'ACCOUNT_INFO_REQUEST';
 export const ACCOUNT_INFO_UPDATE = 'ACCOUNT_INFO_UPDATE';
 
-export const ACCOUNT_INFO_CHANGE_REQUEST = 'ACCOUNT_INFO_CHANGE_REQUEST';
+export const UPDATE_ACCOUNT_INFO_REQUEST = 'UPDATE_ACCOUNT_INFO_REQUEST';
 
 export const PASSWORD_RESET_REQUEST = 'PASSWORD_RESET_REQUEST';
 
@@ -30,22 +30,22 @@ export function passwordResetRequest(email, callbackSuccess = null, callbackErro
   };
 }
 
-export function changeAccountInfo(
-  phone,
-  address,
-  firstName,
-  lastName,
-  location,
+export function updateAccountInfo(
+  phone = '',
+  address = '',
+  firstName = '',
+  lastName = '',
+  district = '',
   callbackSuccess = null,
   callbackError = null
 ) {
   return {
-    type: ACCOUNT_INFO_CHANGE_REQUEST,
+    type: UPDATE_ACCOUNT_INFO_REQUEST,
     phone,
     address,
     firstName,
     lastName,
-    location,
+    district,
     callbackSuccess,
     callbackError,
   };

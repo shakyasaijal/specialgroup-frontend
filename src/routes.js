@@ -6,7 +6,7 @@ const PATHS = {
   ACCOUNT_SETTINGS: '/account-settings',
   ORDER_HISTORY: '/order-history',
   LOGIN_SECURITY: '/login-and-security',
-  CHANGE_ADDRESS: '/change-address',
+  ADDRESS: '/address',
   WISHLIST: '/wishlist',
   NOT_FOUND: '*',
 };
