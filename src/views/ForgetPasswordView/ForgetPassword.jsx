@@ -51,7 +51,7 @@ const ForgetPassword = (props) => {
 
   const onSubmit = (e) => {
     if (e) e.preventDefault();
-    const { passwordResetRequest } = props;
+    const { resetPasswordRequest } = props;
 
     clearFormError();
     const err = getEmailError();
@@ -62,7 +62,7 @@ const ForgetPassword = (props) => {
       return;
     }
 
-    passwordResetRequest(email, callbackSuccess, callbackError);
+    resetPasswordRequest(email, callbackSuccess, callbackError);
   };
 
   const callbackSuccess = () => {

@@ -3,7 +3,8 @@ export const ACCOUNT_INFO_UPDATE = 'ACCOUNT_INFO_UPDATE';
 
 export const UPDATE_ACCOUNT_INFO_REQUEST = 'UPDATE_ACCOUNT_INFO_REQUEST';
 
-export const PASSWORD_RESET_REQUEST = 'PASSWORD_RESET_REQUEST';
+export const RESET_PASSWORD_REQUEST = 'RESET_PASSWORD_REQUEST';
+export const CHANGE_PASSWORD_REQUEST = 'CHANGE_PASSWORD_REQUEST';
 
 export function accountInfoRequest(userId, callbackSuccess = null, callbackError = null) {
   return {
@@ -21,10 +22,27 @@ export function accountInfoUpdate(account) {
   };
 }
 
-export function passwordResetRequest(email, callbackSuccess = null, callbackError = null) {
+export function resetPasswordRequest(email, callbackSuccess = null, callbackError = null) {
   return {
-    type: PASSWORD_RESET_REQUEST,
+    type: RESET_PASSWORD_REQUEST,
     email,
+    callbackSuccess,
+    callbackError,
+  };
+}
+
+export function changePasswordRequest(
+  oldPassword,
+  newPassword,
+  confirmPassword,
+  callbackSuccess = null,
+  callbackError = null
+) {
+  return {
+    type: CHANGE_PASSWORD_REQUEST,
+    oldPassword,
+    newPassword,
+    confirmPassword,
     callbackSuccess,
     callbackError,
   };
