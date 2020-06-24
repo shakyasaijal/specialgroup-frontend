@@ -11,7 +11,6 @@ import { changePasswordRequest } from 'actions/account';
 
 import Form from 'components/Form/Form';
 
-import './ChangePassword.css';
 import { ERROR_PASSWORD_LENGTH, ERROR_CONFIRM_PASSWORD, ERROR_EMPTY_PASSWORD } from 'constants/ErrorMessages';
 
 const useStyles = makeStyles((theme) => ({

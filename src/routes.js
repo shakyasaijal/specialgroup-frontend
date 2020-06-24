@@ -8,6 +8,7 @@ const PATHS = {
   LOGIN_SECURITY: '/login-and-security',
   ADDRESS: '/address',
   WISHLIST: '/wishlist',
+  COMPLETE_PROFILE: '/complete-profile',
   NOT_FOUND: '*',
 };
 

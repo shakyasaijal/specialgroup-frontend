@@ -22,6 +22,12 @@ const useStyles = makeStyles((theme) => ({
   table: {
     minWidth: 650,
   },
+  root: {
+    maxWidth: 345,
+  },
+  media: {
+    height: 140,
+  },
 }));
 
 const Wishlist = () => {

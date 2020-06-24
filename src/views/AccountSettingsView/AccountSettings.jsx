@@ -1,10 +1,27 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
+import PATHS from 'routes';
 import { accountSettings } from 'constants/constants';
 
 const AccountSettings = () => {
   const settings = accountSettings();
+  const completeProfile = false;
+
+  React.useEffect(() => {
+    if (!completeProfile && window.innerWidth <= 575) {
+      window.scroll({
+        top: 100,
+        left: 100,
+        behavior: 'smooth',
+      });
+    } else {
+      window.scroll({
+        top: 0,
+        left: 0,
+        behavior: 'smooth',
+      });
+    }
+  }, []);
 
   return (
     <div className="row">
@@ -29,6 +46,11 @@ const AccountSettings = () => {
               </Link>
             </div>
           ))}
+        </div>
+        <div className="complete-profile center text-center">
+          <Link className="complete" to={PATHS.COMPLETE_PROFILE}>
+            <button>Complete Profile</button>
+          </Link>
         </div>
       </div>
     </div>
