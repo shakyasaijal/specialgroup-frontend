@@ -18,8 +18,9 @@ import {
   ERROR_EMPTY_EMAIL,
   ERROR_EMAIL,
   ERROR_EMPTY_PASSWORD,
-  ERROR_CONFIRM_PASSWORD_ERROR,
+  ERROR_CONFIRM_PASSWORD,
   ERROR_USER_ALREADY_EXIST,
+  ERROR_PASSWORD_LENGTH,
 } from 'constants/ErrorMessages';
 
 const useStyles = makeStyles((theme) => ({
@@ -79,7 +80,8 @@ const SignUp = (props) => {
     if (!ValidateEmail(email)) err.email = ERROR_EMAIL;
     if (!email) err.email = ERROR_EMPTY_EMAIL;
     if (!password) err.password = ERROR_EMPTY_PASSWORD;
-    if (password !== confirmPassword) err.password = ERROR_CONFIRM_PASSWORD_ERROR;
+    if (password.length < 8) err.password = ERROR_PASSWORD_LENGTH;
+    if (password !== confirmPassword) err.password = ERROR_CONFIRM_PASSWORD;
 
     return err;
   };

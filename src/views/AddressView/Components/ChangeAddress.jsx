@@ -1,10 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { connect } from 'react-redux';
 
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
 import Button from '@material-ui/core/Button';
+
+import { updateAccountInfo } from 'actions/account';
+
+import Form from 'components/Form/Form';
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -33,10 +38,10 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const AddressChange = (props) => {
+const ChangeAddress = (props) => {
   const classes = useStyles();
-  const [open, setOpen] = React.useState(false);
-  const [state, setState] = React.useState({ newAddress: '' });
+  const [open, setOpen] = useState(false);
+  const [address, setAddress] = useState(props.address);
 
   const handleOpen = () => {
     setOpen(true);
@@ -48,7 +53,19 @@ const AddressChange = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    props.callback('Address successfully changed.', state.newAddress);
+
+    if (props.address !== address) {
+      props.updateAccountInfo(
+        '',
+        address,
+        '',
+        '',
+        '',
+        '',
+        props.callback(`Address successfully changed to ${address}.`, address)
+      );
+    }
+
     handleClose();
   };
 
@@ -73,27 +90,25 @@ const AddressChange = (props) => {
           <div className={classes.paper}>
             <h2 id="transition-modal-title">Change Address</h2>
             <div id="transition-modal-description" className={classes.marginTop}>
-              <form method="POST" onSubmit={(e) => handleSubmit(e)}>
-                <small>{props.currentAddress}</small>
+              <Form onSubmit={handleSubmit}>
+                <small>Current Address: {props.address}</small>
                 <div className={classes.formGroup}>
                   <label className={classes.label}>New Address</label>
                   <input
                     placeholder="Enter Here"
                     autoFocus
-                    onChange={(e) => setState({ newAddress: e.target.value })}
-                    value={state.newAddress}
+                    onChange={(e) => setAddress(e.target.value)}
+                    value={address}
                     className={classes.input}
                     type="text"
-                    name="address"
-                    required
                   />
                 </div>
                 <div className={classes.formGroup}>
-                  <Button type="submit" variant="contained" color="primary" size="small">
+                  <Button variant="contained" color="primary" size="small" onClick={handleSubmit}>
                     Change
                   </Button>
                 </div>
-              </form>
+              </Form>
             </div>
           </div>
         </Fade>
@@ -102,4 +117,6 @@ const AddressChange = (props) => {
   );
 };
 
-export default AddressChange;
+const dispatchProps = { updateAccountInfo };
+
+export default connect(null, dispatchProps)(ChangeAddress);

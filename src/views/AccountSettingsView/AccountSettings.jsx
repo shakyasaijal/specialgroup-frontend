@@ -9,7 +9,6 @@ const AccountSettings = () => {
   return (
     <div className="row">
       <div className="settings-container center">
-        <div className="greetings">Hello Saijal</div>
         <div className="account-wrapper">
           {settings.map((setting, index) => (
             <div className="container" key={index}>

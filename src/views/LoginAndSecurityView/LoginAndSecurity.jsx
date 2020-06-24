@@ -1,13 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { connect } from 'react-redux';
 
 import ChangePassword from './Components/ChangePassword';
 import ChangePhone from './Components/ChangePhone';
 
-const LoginAndSecurity = () => {
-  const [state, setState] = React.useState({ passwordStatus: '', phoneChange: '', currentPhone: '+977 9843935344' });
+const LoginAndSecurity = (props) => {
+  const [state, setState] = useState({
+    fullName: props.fullName,
+    email: props.email,
+    passwordStatus: '',
+    passwordFailedStatus: '',
+    phoneChange: '',
+    currentPhone: props.phone,
+  });
   const passwordChanged = (status) => {
     if (status) {
       setState({ ...state, passwordStatus: status });
+    }
+  };
+  const passwordChangeFailed = (status) => {
+    if (status) {
+      setState({ ...state, passwordFailedStatus: status });
     }
   };
   const phoneChanged = (status, newPhone) => {
@@ -21,28 +34,19 @@ const LoginAndSecurity = () => {
       <div className="login-and-security center">
         <div className="page-title">
           <h3 className="medium-dark">Login and Security</h3>
-          {state.passwordStatus ? state.passwordStatus : ''}
-          {state.phoneChange ? state.phoneChange : ''}
         </div>
         <div className="container mt10">
           <div className="security">
             <div className="head">
               <h4>Full Name</h4>
-              <h5 className="small-grey">Saijal Shakya</h5>
-            </div>
-            <div className="tail"></div>
-          </div>
-          <div className="security">
-            <div className="head">
-              <h4>Username</h4>
-              <h5 className="small-grey">saijalshakya</h5>
+              <h5 className="small-grey">{state.fullName}</h5>
             </div>
             <div className="tail"></div>
           </div>
           <div className="security">
             <div className="head">
               <h4>Email</h4>
-              <h5 className="small-grey">saijalshakya@gmail.com</h5>
+              <h5 className="small-grey">{state.email}</h5>
             </div>
             <div className="tail"></div>
           </div>
@@ -52,18 +56,21 @@ const LoginAndSecurity = () => {
               <h5 className="small-grey">{state.currentPhone}</h5>
             </div>
             <div className="tail">
-              <ChangePhone currentPhone={state.currentPhone} callback={phoneChanged} />
+              <ChangePhone phone={state.currentPhone} callback={phoneChanged} />
             </div>
           </div>
+          {state.phoneChange ? state.phoneChange : ''}
           <div className="security">
             <div className="head">
               <h4>Password</h4>
               <h5 className="small-grey">********</h5>
             </div>
             <div className="tail">
-              <ChangePassword callback={passwordChanged} />
+              <ChangePassword callbackSuccess={passwordChanged} callbackError={passwordChangeFailed} />
             </div>
           </div>
+          {state.passwordStatus ? state.passwordStatus : ''}
+          {state.passwordFailedStatus ? state.passwordFailedStatus : ''}
           <div className="security">
             <div className="head">
               <h4>Registered On</h4>
@@ -77,4 +84,14 @@ const LoginAndSecurity = () => {
   );
 };
 
-export default LoginAndSecurity;
+const mapStateToProps = (state) => {
+  const { account } = state;
+
+  return {
+    phone: account.phone || '',
+    fullName: account.firstName + ' ' + account.lastName || '',
+    email: account.email || '',
+  };
+};
+
+export default connect(mapStateToProps, {})(LoginAndSecurity);

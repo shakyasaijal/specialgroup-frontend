@@ -14,7 +14,7 @@ import MobileNavigation from './MobileNavigation';
 
 import { authLogoutRequest } from 'actions/auth';
 
-import { isLoggedIn, isAccountVerified, getAccountInfo, getRefreshToken } from 'selectors/auth';
+import { isLoggedIn, isAccountVerified, getAccountInfo } from 'selectors/auth';
 
 import PATHS from 'routes';
 import NotVerifiedModal from './NotVerifiedModal';
@@ -23,9 +23,9 @@ const Header = (props) => {
   const { isLoggedIn, isAccountVerified, account } = props;
 
   const logout = () => {
-    const { refreshToken, authLogoutRequest } = props;
+    const { authLogoutRequest } = props;
 
-    authLogoutRequest(refreshToken, logoutSuccess);
+    authLogoutRequest(logoutSuccess);
   };
 
   const logoutSuccess = () => {
@@ -133,7 +133,6 @@ const Header = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    refreshToken: getRefreshToken(state),
     isLoggedIn: isLoggedIn(state),
     isAccountVerified: isAccountVerified(state),
     account: getAccountInfo(state),

@@ -1,12 +1,15 @@
-import React from 'react';
-import ChangeCity from './Components/ChangeCity';
-import AddressChange from './Components/AddressChange';
+import React, { useState } from 'react';
+import { connect } from 'react-redux';
 
-const ChangeAddress = () => {
-  const [state, setState] = React.useState({
-    hasAddress: true,
-    city: 'Lalitpur',
-    address: 'Civil Homes - VI, dhapakhel',
+import ChangeCity from './Components/ChangeCity';
+import ChangeAddress from './Components/ChangeAddress';
+
+const Address = (props) => {
+  const { province, district, address } = props;
+  const [state, setState] = useState({
+    hasAddress: !!province && !!district,
+    city: district,
+    address: address,
     msg: '',
   });
 
@@ -39,7 +42,7 @@ const ChangeAddress = () => {
               <h5 className="small-grey">{state.address}</h5>
             </div>
             <div className="tail">
-              <AddressChange callback={addressChanged} currentAddress={state.address} />
+              <ChangeAddress callback={addressChanged} address={state.address} />
             </div>
           </div>
           <div className="container">
@@ -48,7 +51,7 @@ const ChangeAddress = () => {
               <h5 className="small-grey">{state.city}</h5>
             </div>
             <div className="tail">
-              <ChangeCity callback={cityChanged} currentCity={state.city} />
+              <ChangeCity callback={cityChanged} city={state.city} />
             </div>
           </div>
           <div className="container">
@@ -64,4 +67,14 @@ const ChangeAddress = () => {
   );
 };
 
-export default ChangeAddress;
+const mapStateToProps = (state) => {
+  const { account } = state;
+
+  return {
+    province: account.province || '',
+    district: account.district || '',
+    address: account.address || '',
+  };
+};
+
+export default connect(mapStateToProps, {})(Address);

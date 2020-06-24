@@ -1,9 +1,9 @@
 import { connect } from 'react-redux';
 
-import { passwordResetRequest } from 'actions/account';
+import { resetPasswordRequest } from 'actions/account';
 
 import ForgetPassword from './ForgetPassword';
 
-const dispatchProps = { passwordResetRequest };
+const dispatchProps = { resetPasswordRequest };
 
 export default connect(null, dispatchProps)(ForgetPassword);

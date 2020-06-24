@@ -18,7 +18,7 @@ import ReduxSignIn from './views/SignInView/ReduxSignIn';
 import ReduxSignUp from './views/SignUpView/ReduxSignUp';
 import ForgetPassword from 'views/ForgetPasswordView/ReduxForgetPassword';
 import AccountSettings from './views/AccountSettingsView/AccountSettings';
-import ChangeAddress from './views/ChangeAddressView/ChangeAddress';
+import Address from './views/AddressView/Address';
 import OrderHistory from './views/OrderHistoryView/OrderHistory';
 import LoginAndSecurity from './views/LoginAndSecurityView/LoginAndSecurity';
 import Wishlist from 'views/WislistView/Wishlist';
@@ -70,8 +70,8 @@ function App() {
               <AuthContainer>
                 <SpecialGroupRoute
                   exact
-                  path={PATHS.CHANGE_ADDRESS}
-                  component={ChangeAddress}
+                  path={PATHS.ADDRESS}
+                  component={Address}
                   title="Special Group | Change Address"
                 />
                 <SpecialGroupRoute

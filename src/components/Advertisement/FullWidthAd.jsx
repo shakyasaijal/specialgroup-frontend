@@ -16,7 +16,7 @@ const FullWidthAd = (props) => {
       <div className="advertisement">
         {hasAd ? (
           <div className="ad-container">
-            <img src={image} alt=''/>
+            <img src={image} alt="" />
           </div>
         ) : (
           <div className="panel ad">
