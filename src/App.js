@@ -22,6 +22,7 @@ import Address from './views/AddressView/Address';
 import OrderHistory from './views/OrderHistoryView/OrderHistory';
 import LoginAndSecurity from './views/LoginAndSecurityView/LoginAndSecurity';
 import Wishlist from 'views/WislistView/Wishlist';
+import ProfileData from 'views/SignUpView/ProfileData';
 
 import './assets/sass/common.css';
 
@@ -61,6 +62,12 @@ function App() {
               <SpecialGroupRoute exact path={PATHS.SIGNIN} component={ReduxSignIn} title="Special Group | Login" />
               <SpecialGroupRoute exact path={PATHS.SIGNUP} component={ReduxSignUp} title="Special Group | Sign Up" />
               <SpecialGroupRoute exact path={PATHS.WISHLIST} component={Wishlist} title="Special Group | Wishlist" />
+              <SpecialGroupRoute
+                exact
+                path={PATHS.COMPLETE_PROFILE}
+                component={ProfileData}
+                title="Special Group | Complete your profile"
+              />
               <SpecialGroupRoute
                 exact
                 path={PATHS.FORGET_PASSWORD}

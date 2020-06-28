@@ -286,6 +286,80 @@
       }
     }
   }
+
+  .complete-profile-container {
+    .page-title {
+      font-size: 18px;
+      padding-top: 10px;
+    }
+
+    .complete-profile {
+      width: 100%;
+      & .btn {
+        width: 60%;
+      }
+    }
+    .bo {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    & .complete-later {
+      text-align: center;
+      padding-top: 25px;
+    }
+  }
+
+  .personal-profile {
+    & .profile-form {
+      width: 90%;
+      & .form {
+        padding: 0 15px 15px 15px;
+        & input {
+          padding: 8px;
+          width: 100%;
+        }
+        & .form-group {
+          padding-top: 15px;
+          & label {
+            font-size: 14px;
+            font-weight: 700;
+          }
+        }
+        & .title {
+          padding-top: 10px;
+          font-size: 14px;
+          font-weight: 700;
+        }
+        & .radio {
+          width: 30px;
+          height: 15px;
+        }
+        & .content {
+          padding-top: 10px;
+        }
+      }
+      & .others {
+        width: 90% !important;
+        left: 10%;
+        position: relative;
+      }
+
+      & .tags {
+        margin: 0;
+        padding: 0;
+        & .tag {
+          display: inline-block;
+          height: 26px;
+          line-height: 26px;
+          padding: 0 20px 0 23px;
+          position: relative;
+          margin: 0 10px 10px 0;
+        }
+      }
+    }
+  }
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
