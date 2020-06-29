@@ -1,13 +1,18 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+
 import PATHS from 'routes';
+
+import { isProfileCompleted } from 'selectors/account';
+
 import { accountSettings } from 'constants/constants';
 
-const AccountSettings = () => {
+const AccountSettings = (props) => {
   const settings = accountSettings();
   const completeProfile = false;
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (!completeProfile && window.innerWidth <= 575) {
       window.scroll({
         top: 100,
@@ -21,6 +26,7 @@ const AccountSettings = () => {
         behavior: 'smooth',
       });
     }
+    // eslint-disable-next-line
   }, []);
 
   return (
@@ -47,14 +53,23 @@ const AccountSettings = () => {
             </div>
           ))}
         </div>
-        <div className="complete-profile center text-center">
-          <Link className="complete" to={PATHS.COMPLETE_PROFILE}>
-            <button>Complete Profile</button>
-          </Link>
-        </div>
+
+        {!props.isProfileCompleted && (
+          <div className="complete-profile center text-center">
+            <Link className="complete" to={PATHS.COMPLETE_PROFILE}>
+              <button>Complete Profile</button>
+            </Link>
+          </div>
+        )}
       </div>
     </div>
   );
 };
 
-export default AccountSettings;
+const mapStateToProps = (state) => {
+  return {
+    isProfileCompleted: isProfileCompleted(state),
+  };
+};
+
+export default connect(mapStateToProps, {})(AccountSettings);

@@ -16,6 +16,14 @@ export const getRefreshToken = (state) => {
   return auth.refreshToken;
 };
 
+export const getUserId = (state) => {
+  const auth = getAuth(state);
+
+  if (!auth) return '';
+
+  return auth.userId;
+};
+
 export const isLoggedIn = (state) => {
   const auth = getAuth(state);
 

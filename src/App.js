@@ -22,7 +22,7 @@ import Address from './views/AddressView/Address';
 import OrderHistory from './views/OrderHistoryView/OrderHistory';
 import LoginAndSecurity from './views/LoginAndSecurityView/LoginAndSecurity';
 import Wishlist from 'views/WislistView/Wishlist';
-import ProfileData from 'views/SignUpView/ProfileData';
+import CompleteProfile from 'views/CompleteProfileView/CompleteProfile';
 
 import './assets/sass/common.css';
 
@@ -64,17 +64,17 @@ function App() {
               <SpecialGroupRoute exact path={PATHS.WISHLIST} component={Wishlist} title="Special Group | Wishlist" />
               <SpecialGroupRoute
                 exact
-                path={PATHS.COMPLETE_PROFILE}
-                component={ProfileData}
-                title="Special Group | Complete your profile"
-              />
-              <SpecialGroupRoute
-                exact
                 path={PATHS.FORGET_PASSWORD}
                 component={ForgetPassword}
                 title="Special Group | FORGET PASSWORD"
               />
               <AuthContainer>
+                <SpecialGroupRoute
+                  exact
+                  path={PATHS.COMPLETE_PROFILE}
+                  component={CompleteProfile}
+                  title="Special Group | Complete your profile"
+                />
                 <SpecialGroupRoute
                   exact
                   path={PATHS.ADDRESS}
