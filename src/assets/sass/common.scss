@@ -1143,5 +1143,47 @@ label {
   }
 }
 
+.shop-by-category {
+  & .grid2 {
+    width: 80%;
+    grid-gap: 6px;
+    margin: 10px auto;
+    & .image-contain {
+      background: unset;
+    }
+  }
+  & .head-item {
+    background: rgba(0, 164, 180, 0.05);
+  }
+}
+
+.main-title {
+  font-size: 21px;
+  font-weight: 400;
+}
+
+.product-title {
+  font-size: 18px;
+}
+
+.popular {
+  & .grid3 {
+    width: 100%;
+    grid-gap: 2%;
+    grid-template-columns: 15% 15% 15% 15% 15% 15%;
+  }
+}
+
+.sign-up-now {
+  background: $theme-color !important;
+  color: $white;
+  & .white {
+    color: $white;
+  }
+  & button {
+    background: $ternary-color;
+  }
+}
+
 @import 'base/responsive';
 @import 'base/helpers';

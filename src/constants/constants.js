@@ -5,23 +5,23 @@ export const categories = () => {
     {
       id: 1,
       name: 'Dress',
-      img: 'https://sites.create-cdn.net/siteimages/28/4/9/284928/15/7/9/15798435/919x1208.jpg?1505296014',
+      img: 'https://i.pinimg.com/originals/6d/b2/cf/6db2cfd78fae829ff7de7f20a9891fd0.png',
     },
     {
       id: 2,
       name: 'Home Appliance',
-      img: 'https://www.fewabazar.com/images/thumbs/000/0008918_baltra-shine-mixer-grinder-bmg-146_415.jpeg',
+      img: 'https://i.ya-webdesign.com/images/home-appliances-png-1.png',
     },
     {
       id: 3,
       name: 'Kitchen Appliance',
-      img: 'https://www.fewabazar.com/images/thumbs/000/0008918_baltra-shine-mixer-grinder-bmg-146_415.jpeg',
+      img:
+        'https://www.smeg.com/binaries/content/gallery/smeg/content-elements/cards/smf02pbeu_stand_mixer_2500x1783px_2.png/smf02pbeu_stand_mixer_2500x1783px_2.png/brx%3ApostcardDeskLarge',
     },
     {
       id: 4,
       name: 'Shoes',
-      img:
-        'https://rukminim1.flixcart.com/image/714/857/jmwch3k0/shoe/j/y/n/dg-292-white-blue-patti-10-digitrendzz-white-original-imaf9p36fkykfjqt.jpeg?q=50',
+      img: 'https://pluspng.com/img-png/shoes-png-sneaker-png-transparent-image-2500.png',
     },
   ];
 };
@@ -206,6 +206,22 @@ export const productsList = () => {
         'https://previews.123rf.com/images/monticello/monticello1904/monticello190400090/122640065-poznan-pol-mar-28-2019-bottles-of-tuborg-beer-produced-by-a-danish-brewing-company-founded-in-1873-n.jpg',
       price: 'NRs. 350',
       wishlist: true,
+      inStock: true,
+    },
+    {
+      id: 11,
+      name: "Chief's Choice",
+      img: getImageUrl('images/faker/products/chief.jpg'),
+      price: '220',
+      wishlist: false,
+      inStock: false,
+    },
+    {
+      id: 12,
+      name: 'Johnson Baby Powder',
+      img: getImageUrl('images/faker/products/johnson.jpeg'),
+      price: '225',
+      wishlist: false,
       inStock: true,
     },
   ];
