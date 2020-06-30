@@ -8,6 +8,8 @@ import Select from '@material-ui/core/Select';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 
+import { ERROR_EMPTY_PHONE, ERROR_EMPTY_LOCATION, ERROR_EMPTY_ADDRESS } from 'constants/ErrorMessages';
+
 import { locationMapRequest } from 'actions/publicAction';
 
 import PATHS from 'routes';
@@ -27,7 +29,7 @@ const PersonalProfile = (props) => {
   const classes = useStyles();
   const { phone, district, address } = props.account;
   const [state, setState] = useState({ phone, district, address });
-  const { handleNext } = props;
+  const [errors, setErrors] = useState({ phone: '', district: '', address: '' });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -39,6 +41,28 @@ const PersonalProfile = (props) => {
     props.locationMapRequest();
     // eslint-disable-next-line
   }, []);
+
+  const handleNext = () => {
+    const err = getErrors();
+
+    if (err.phone || err.district || err.address) {
+      setErrors({ ...err });
+      
+      return;
+    }
+
+    props.handleNext(state);
+  };
+
+  const getErrors = () => {
+    const err = {};
+
+    if (!state.phone) err.phone = ERROR_EMPTY_PHONE;
+    if (!state.district) err.district = ERROR_EMPTY_LOCATION;
+    if (!state.address) err.address = ERROR_EMPTY_ADDRESS;
+
+    return err;
+  };
 
   const locationDropdownData = props.locations.map((i, k) => (
     <option value={i} key={k}>
@@ -55,25 +79,34 @@ const PersonalProfile = (props) => {
               <div className="form-group">
                 <label>Phone Number *</label>
                 <input type="text" name="phone" value={state.phone} onChange={handleChange} autoComplete="off" />
+                {errors.phone && <small className="error">{errors.phone}</small>}
               </div>
               <div className="form-group">
                 <label>Location *</label>
                 <FormControl className={classes.formControl}>
-                  <Select native defaultValue={state.district} onChange={handleChange} id="grouped-native-select">
+                  <Select
+                    native
+                    name="district"
+                    defaultValue={state.district}
+                    onChange={handleChange}
+                    id="grouped-native-select"
+                  >
                     {locationDropdownData}
                   </Select>
                 </FormControl>
+                {errors.district && <small className="error">{errors.district}</small>}
               </div>
               <div className="form-group">
                 <label>Address *</label>
-                <input type="text" name="phone" value={state.address} onChange={handleChange} autoComplete="off" />
+                <input type="text" name="address" value={state.address} onChange={handleChange} autoComplete="off" />
+                {errors.address && <small className="error">{errors.address}</small>}
               </div>
             </form>
           </div>
         </div>
       </Typography>
       <div className="btn center">
-        <Button variant="contained" color="primary" size="small" onClick={() => handleNext(state)}>
+        <Button variant="contained" color="primary" size="small" onClick={handleNext}>
           Next
         </Button>
         <Link to={PATHS.HOME} className="float-right complete-later">

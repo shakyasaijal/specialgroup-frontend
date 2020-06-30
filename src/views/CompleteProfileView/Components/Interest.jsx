@@ -21,9 +21,11 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Interest = (props) => {
+  const defaultErrorState = { interests: '' };
   const classes = useStyles();
-  const { handleBack, handleFinish } = props;
+  const { handleBack } = props;
   const [state, setState] = useState({ interests: props.account.interest });
+  const [errors, setErrors] = useState(defaultErrorState);
 
   const handleClick = (e) => {
     e.preventDefault();
@@ -45,6 +47,16 @@ const Interest = (props) => {
     props.popularCategoryRequest();
     // eslint-disable-next-line
   }, []);
+
+  const handleFinish = () => {
+    if (!state.interests.length) {
+      setErrors({ interests: 'Please select at least one interest.' });
+
+      return;
+    }
+
+    props.handleFinish(state.interests);
+  };
 
   const isAlreadyOnList = (item) => {
     return state.interests.length && state.interests.includes(item);
@@ -72,13 +84,14 @@ const Interest = (props) => {
               </form>
             </div>
           </div>
+          {errors.interests && <small className="error">{errors.interests}</small>}
         </div>
       </Typography>
       <div className="btn center">
         <Button onClick={handleBack} size="small" className={classes.backButton}>
           Back
         </Button>
-        <Button variant="contained" color="primary" size="small" onClick={() => handleFinish(state.interests)}>
+        <Button variant="contained" color="primary" size="small" onClick={handleFinish}>
           Finish
         </Button>
         <Link to={PATHS.HOME} className="float-right complete-later">

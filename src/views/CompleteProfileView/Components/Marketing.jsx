@@ -22,21 +22,40 @@ const useStyles = makeStyles((theme) => ({
 
 const Marketing = (props) => {
   const classes = useStyles();
-  const { handleBack, handleNext } = props;
+  const { handleBack } = props;
   const [state, setState] = useState({ marketing: props.account.marketing });
+  const [isOthersSelected, setIsOthersSelected] = useState();
+  const [error, setError] = useState('');
+
+  const handleNext = () => {
+    if (!state.marketing) {
+      setError('Choose one among the options.');
+      
+      return;
+    }
+
+    if (state.marketing === 'Others' && !state.others) {
+      setError('Please mention how you know about us.');
+      
+      return;
+    }
+
+    props.handleNext(state);
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
 
+    setIsOthersSelected(false);
+    if (value === 'Others') {
+      setIsOthersSelected(true);
+    }
+
     setState({ ...state, [name]: value });
   };
 
-  const handleToggle = () => {
-    setState({ ...state, others: !state.others, placeholder: state.others ? 'Mention Here' : '' });
-  };
-
   const handleInput = (event) => {
-    setState({ ...state, othersValue: event.target.value });
+    setState({ ...state, marketing: event.target.value });
   };
 
   useEffect(() => {
@@ -69,18 +88,18 @@ const Marketing = (props) => {
                 <div className="form-group">
                   {radioData}
                   <div className="content">
-                    <input type="radio" name="marketing" className="radio" onChange={handleToggle} value="others" />
+                    <input type="radio" name="marketing" className="radio" value="Others" onChange={handleChange} />
                     <span className="verticle-center">Others</span>
                   </div>
                   <input
                     type="text"
                     className="others"
-                    value={state.othersValue}
-                    placeholder={state.placeholder}
-                    onChange={(e) => handleInput(e)}
-                    name="othersValue"
-                    disabled={state.others ? 'disabled' : ''}
+                    value={state.others}
+                    onChange={handleInput}
+                    name="others"
+                    disabled={!isOthersSelected}
                   />
+                  {error && <small className="error">{error}</small>}
                 </div>
               </form>
             </div>
@@ -91,7 +110,7 @@ const Marketing = (props) => {
         <Button onClick={handleBack} size="small" className={classes.backButton}>
           Back
         </Button>
-        <Button variant="contained" color="primary" size="small" onClick={() => handleNext(state)}>
+        <Button variant="contained" color="primary" size="small" onClick={handleNext}>
           Next
         </Button>
         <Link to={PATHS.HOME} className="float-right complete-later">
