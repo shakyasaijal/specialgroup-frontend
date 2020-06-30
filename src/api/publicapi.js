@@ -5,3 +5,15 @@ export const getLocationMap = () => {
 
   return specialGroupHttpService.get(path);
 };
+
+export const getMarketingPlatforms = () => {
+  const path = `/v1/api/marketing/`;
+
+  return specialGroupHttpService.get(path);
+};
+
+export const getPopularCategories = () => {
+  const path = `/v1/api/interest/`;
+
+  return specialGroupHttpService.get(path);
+};

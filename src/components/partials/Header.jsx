@@ -32,6 +32,12 @@ const Header = (props) => {
     return <Redirect to={PATHS.HOME} />;
   };
 
+  const userName = () => {
+    const { email } = props.account;
+
+    return email.split('@')[0];
+  };
+
   return (
     <>
       <header className="page-header">
@@ -101,6 +107,7 @@ const Header = (props) => {
                 </div>
                 <div className="info grid-template grid-row-account float-right paddingLeft-5">
                   {account.firstName && <small className="anchor">Welcome, {account.firstName}</small>}
+                  {isLoggedIn && !account.firstName && <small className="anchor">Welcome, {userName()}</small>}
                   {!isLoggedIn && <small className="anchor">Welcome</small>}
                   {!isLoggedIn && <Link to={PATHS.SIGNIN}>LogIn</Link>}
                   <span className="my-account anchor">
@@ -109,7 +116,6 @@ const Header = (props) => {
                         Account
                         <div className="dropdown-content">
                           <Link to={PATHS.ACCOUNT_SETTINGS}>My Account</Link>
-                          {/* <Link to="/">Logout</Link> */}
                           <span onClick={logout}>Logout</span>
                         </div>
                       </div>

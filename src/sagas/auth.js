@@ -29,7 +29,7 @@ function* handleAuthRegisterRequest(action) {
     const { userId, isVerified, accessToken, refreshToken } = res.data;
 
     yield put(authInfoUpdate(userId, isVerified, accessToken, refreshToken));
-    if (callbackSuccess) callbackSuccess();
+    yield put(accountInfoRequest(userId, callbackSuccess, callbackError));
   } catch (e) {
     if (callbackError) callbackError(e.message);
   }
