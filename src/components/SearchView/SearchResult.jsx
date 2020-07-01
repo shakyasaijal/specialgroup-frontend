@@ -6,8 +6,31 @@ import { productsList } from 'constants/constants';
 import PATHS from 'routes';
 import Pagination from './Components/Pagination';
 import Filters from './Components/Filters';
+import { makeStyles } from '@material-ui/core/styles';
+import Accordion from '@material-ui/core/Accordion';
+import AccordionDetails from '@material-ui/core/AccordionDetails';
+import AccordionSummary from '@material-ui/core/AccordionSummary';
+import Typography from '@material-ui/core/Typography';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    width: '100%',
+  },
+  heading: {
+    fontSize: theme.typography.pxToRem(15),
+    flexBasis: '33.33%',
+    flexShrink: 0,
+  },
+  secondaryHeading: {
+    fontSize: theme.typography.pxToRem(15),
+    color: theme.palette.text.secondary,
+  },
+}));
 
 const SearchResult = () => {
+  const classes = useStyles();
+
   const [state, setState] = useState({
     grid: true,
     seller: [],
@@ -86,7 +109,20 @@ const SearchResult = () => {
       <div className="search-container">
         <div className="grid-view">
           <div className="grid-item">
-            <Filters seller={seller} brand={brand} filter={state.filter} />
+            {state.filter ? (
+              <Filters seller={seller} brand={brand} />
+            ) : (
+              <div className={classes.root}>
+                <Accordion>
+                  <AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel1a-content" id="panel1a-header">
+                    <Typography className={classes.heading}>Accordion 1</Typography>
+                  </AccordionSummary>
+                  <AccordionDetails>
+                    <Filters seller={seller} brand={brand} />
+                  </AccordionDetails>
+                </Accordion>
+              </div>
+            )}
           </div>
           <div className="grid-item white-back search-results">
             <div className="sortable">
