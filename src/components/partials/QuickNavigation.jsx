@@ -7,6 +7,7 @@ import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import ViewModuleIcon from '@material-ui/icons/ViewModule';
+import PATHS from 'routes';
 
 const useStyles = makeStyles({
   root: {
@@ -33,7 +34,7 @@ const QuickNavigation = () => {
       >
         <BottomNavigationAction component={Link} to="/" label="Home" icon={<ShoppingCartIcon />} />
         <BottomNavigationAction component={Link} to="/" label="Cart" icon={<ShoppingCartIcon />} />
-        <BottomNavigationAction component={Link} to="/" label="Wishlist" icon={<FavoriteIcon />} />
+        <BottomNavigationAction component={Link} to={PATHS.WISHLIST} label="Wishlist" icon={<FavoriteIcon />} />
         <BottomNavigationAction component={Link} to="/" label="Categories" icon={<ViewModuleIcon />} />
       </BottomNavigation>
     </div>

@@ -63,7 +63,7 @@ const RecommendedSlider = () => {
                     <div className="image-container">
                       <img src={product.img} alt={product.name} />
                     </div>
-                    <h3 className="text-center">{product.name}</h3>
+                    <h3 className="text-center product-title">{product.name}</h3>
                     <small className="text-center">{product.price}</small>
                   </div>
                 </Link>

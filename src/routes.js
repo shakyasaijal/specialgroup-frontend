@@ -9,6 +9,9 @@ const PATHS = {
   ADDRESS: '/address',
   WISHLIST: '/wishlist',
   COMPLETE_PROFILE: '/complete-profile',
+  PRODUCT_DETAILS: '/product/:id',
+  SEARCH_RESULT: '/search',
+  ADD_TO_CART: '/add-to-cart',
   NOT_FOUND: '*',
 };
 

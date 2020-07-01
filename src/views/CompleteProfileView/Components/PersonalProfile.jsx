@@ -47,7 +47,7 @@ const PersonalProfile = (props) => {
 
     if (err.phone || err.district || err.address) {
       setErrors({ ...err });
-      
+
       return;
     }
 

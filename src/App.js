@@ -23,6 +23,9 @@ import OrderHistory from './views/OrderHistoryView/OrderHistory';
 import LoginAndSecurity from './views/LoginAndSecurityView/LoginAndSecurity';
 import Wishlist from 'views/WislistView/Wishlist';
 import CompleteProfile from 'views/CompleteProfileView/CompleteProfile';
+// import ProfileData from 'views/SignUpView/ProfileData';
+import ProductsDetail from 'views/ProductsView/ProductsDetail';
+import SearchResult from 'components/SearchView/SearchResult';
 
 import './assets/sass/common.css';
 
@@ -64,11 +67,29 @@ function App() {
               <SpecialGroupRoute exact path={PATHS.WISHLIST} component={Wishlist} title="Special Group | Wishlist" />
               <SpecialGroupRoute
                 exact
+                path={PATHS.PRODUCT_DETAILS}
+                component={ProductsDetail}
+                title="Special Group | Details"
+              />
+              <SpecialGroupRoute
+                exact
                 path={PATHS.FORGET_PASSWORD}
                 component={ForgetPassword}
                 title="Special Group | FORGET PASSWORD"
               />
+              <SpecialGroupRoute
+                exact
+                path={PATHS.SEARCH_RESULT}
+                component={SearchResult}
+                title="Special Group | Search"
+              />
               <AuthContainer>
+                <SpecialGroupRoute
+                  exact
+                  path={PATHS.ADD_TO_CART}
+                  component={ProductsDetail}
+                  title="Special Group | Details"
+                />
                 <SpecialGroupRoute
                   exact
                   path={PATHS.COMPLETE_PROFILE}

@@ -50,7 +50,7 @@ const PopularProducts = () => {
         <div className="grid3 center full-width">
           {products.map((product, index) => (
             <Card className={classes.root} key={index}>
-              <Link to="/">
+              <Link to={`/product/${product.id}`}>
                 <CardActionArea>
                   <div className="image-container">
                     <CardMedia className={classes.media} image={product.img} title={product.name} />
