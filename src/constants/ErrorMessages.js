@@ -10,3 +10,7 @@ export const ERROR_EMAIL = 'Please enter a valid email format.';
 export const ERROR_EMPTY_PASSWORD = 'Please provide a password.';
 export const ERROR_CONFIRM_PASSWORD = "Those passwords didn't match. Try again.";
 export const ERROR_PASSWORD_LENGTH = 'Your password must be at least 8 characters long.';
+
+export const ERROR_EMPTY_PHONE = 'Please provide your phone number.';
+export const ERROR_EMPTY_LOCATION = 'Please select your location';
+export const ERROR_EMPTY_ADDRESS = 'Please provide your address.';

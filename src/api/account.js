@@ -46,3 +46,10 @@ export const updateAccountInfo = (phone, address, firstName, lastName, district)
 
   return specialGroupHttpService.post(path, payload);
 };
+
+export const completeProfile = (phone, address, district, referedBy, interests) => {
+  const path = '/v1/api/complete-profile/';
+  const payload = { phone, address, district, referedBy, interests };
+
+  return specialGroupHttpService.post(path, payload);
+};

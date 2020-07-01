@@ -6,6 +6,8 @@ export const UPDATE_ACCOUNT_INFO_REQUEST = 'UPDATE_ACCOUNT_INFO_REQUEST';
 export const RESET_PASSWORD_REQUEST = 'RESET_PASSWORD_REQUEST';
 export const CHANGE_PASSWORD_REQUEST = 'CHANGE_PASSWORD_REQUEST';
 
+export const COMPLETE_PROFILE_REQUEST = 'COMPLETE_PROFILE_REQUEST';
+
 export function accountInfoRequest(userId, callbackSuccess = null, callbackError = null) {
   return {
     type: ACCOUNT_INFO_REQUEST,
@@ -64,6 +66,27 @@ export function updateAccountInfo(
     firstName,
     lastName,
     district,
+    callbackSuccess,
+    callbackError,
+  };
+}
+
+export function completeProfileRequest(
+  phone,
+  address,
+  district,
+  referedBy,
+  interests,
+  callbackSuccess = null,
+  callbackError = null
+) {
+  return {
+    type: COMPLETE_PROFILE_REQUEST,
+    phone,
+    address,
+    district,
+    referedBy,
+    interests,
     callbackSuccess,
     callbackError,
   };

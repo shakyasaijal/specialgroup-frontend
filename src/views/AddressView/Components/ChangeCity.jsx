@@ -41,7 +41,7 @@ const useStyles = makeStyles((theme) => ({
 
 const ChangeCity = (props) => {
   const classes = useStyles();
-  const [locationMapSuccess, setLocationMapSuccess] = useState(true);
+  const [locationMapSuccess, setLocationMapSuccess] = useState(false);
   const [open, setOpen] = useState(false);
   const [district, setDistrict] = useState(props.city);
 
