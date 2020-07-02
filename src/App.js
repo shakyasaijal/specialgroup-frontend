@@ -12,6 +12,7 @@ import Header from './components/partials/Header';
 import QuickNavigation from './components/partials/QuickNavigation';
 import Footer from './components/partials/Footer';
 import AuthContainer from 'components/AuthContainer/AuthContainer';
+import SearchResult from 'components/SearchView/SearchResult';
 
 import Home from './views/HomeView/ReduxHome';
 import ReduxSignIn from './views/SignInView/ReduxSignIn';
@@ -23,11 +24,10 @@ import OrderHistory from './views/OrderHistoryView/OrderHistory';
 import LoginAndSecurity from './views/LoginAndSecurityView/LoginAndSecurity';
 import Wishlist from 'views/WislistView/Wishlist';
 import CompleteProfile from 'views/CompleteProfileView/CompleteProfile';
-// import ProfileData from 'views/SignUpView/ProfileData';
 import ProductsDetail from 'views/ProductsView/ProductsDetail';
-import SearchResult from 'components/SearchView/SearchResult';
 
 import './assets/sass/common.css';
+import NonAuthContainer from 'components/AuthContainer/NonAuthContainer';
 
 const DEFAULT_TITLE = 'Special Group | e-commerce';
 
@@ -62,8 +62,6 @@ function App() {
           <Container maxWidth="lg">
             <Switch>
               <SpecialGroupRoute exact path={PATHS.HOME} component={Home} />
-              <SpecialGroupRoute exact path={PATHS.SIGNIN} component={ReduxSignIn} title="Special Group | Login" />
-              <SpecialGroupRoute exact path={PATHS.SIGNUP} component={ReduxSignUp} title="Special Group | Sign Up" />
               <SpecialGroupRoute exact path={PATHS.WISHLIST} component={Wishlist} title="Special Group | Wishlist" />
               <SpecialGroupRoute
                 exact
@@ -83,6 +81,14 @@ function App() {
                 component={SearchResult}
                 title="Special Group | Search"
               />
+
+              {/* Pages that Authorized user can't access goes inside NonAuthContainer */}
+              <NonAuthContainer>
+                <SpecialGroupRoute exact path={PATHS.SIGNIN} component={ReduxSignIn} title="Special Group | Login" />
+                <SpecialGroupRoute exact path={PATHS.SIGNUP} component={ReduxSignUp} title="Special Group | Sign Up" />
+              </NonAuthContainer>
+
+              {/* Pages that Non Authorized user can't access goes inside AuthContainer */}
               <AuthContainer>
                 <SpecialGroupRoute
                   exact
