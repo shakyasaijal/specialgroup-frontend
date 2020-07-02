@@ -30,13 +30,13 @@ const Marketing = (props) => {
   const handleNext = () => {
     if (!state.marketing) {
       setError('Choose one among the options.');
-      
+
       return;
     }
 
     if (state.marketing === 'Others' && !state.others) {
       setError('Please mention how you know about us.');
-      
+
       return;
     }
 
