@@ -1,17 +1,22 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+
 import GridOnIcon from '@material-ui/icons/GridOn';
 import GridOffIcon from '@material-ui/icons/GridOff';
-import { Link } from 'react-router-dom';
-import { productsList } from 'constants/constants';
-import PATHS from 'routes';
-import Pagination from './Components/Pagination';
-import Filters from './Components/Filters';
+
 import { makeStyles } from '@material-ui/core/styles';
 import Accordion from '@material-ui/core/Accordion';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
 import AccordionSummary from '@material-ui/core/AccordionSummary';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+
+import Pagination from './Components/Pagination';
+import Filters from './Components/Filters';
+
+import { productsList } from 'constants/constants';
+
+import PATHS from 'routes';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -66,14 +71,6 @@ const SearchResult = () => {
   const toggleView = () => {
     setState({ ...state, grid: !state.grid });
   };
-
-  useEffect(() => {
-    if (state.isLoggedIn) {
-      setState({ ...state, addToCartLink: PATHS.ADD_TO_CART });
-    } else {
-      setState({ ...state, addToCartLink: PATHS.SIGNIN });
-    }
-  }, [state.isLoggedIn, state]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -157,7 +154,7 @@ const SearchResult = () => {
                       <div className="currentPrice">Price: {product.price}</div>
                       <span className="line-through">5500</span>
                       <div className="add-to-cart">
-                        <Link to={state.addToCartLink}>
+                        <Link to={state.isLoggedIn ? PATHS.ADD_TO_CART : PATHS.SIGNIN}>
                           <button className="btn">Add to cart</button>
                         </Link>
                       </div>
