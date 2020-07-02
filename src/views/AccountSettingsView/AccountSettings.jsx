@@ -10,10 +10,9 @@ import { accountSettings } from 'constants/constants';
 
 const AccountSettings = (props) => {
   const settings = accountSettings();
-  const completeProfile = false;
 
   useEffect(() => {
-    if (!completeProfile && window.innerWidth <= 575) {
+    if (!props.isProfileCompleted && window.innerWidth <= 575) {
       window.scroll({
         top: 100,
         left: 100,

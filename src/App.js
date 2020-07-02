@@ -26,8 +26,8 @@ import Wishlist from 'views/WislistView/Wishlist';
 import CompleteProfile from 'views/CompleteProfileView/CompleteProfile';
 import ProductsDetail from 'views/ProductsView/ProductsDetail';
 
+
 import './assets/sass/common.css';
-import NonAuthContainer from 'components/AuthContainer/NonAuthContainer';
 
 const DEFAULT_TITLE = 'Special Group | e-commerce';
 
@@ -82,11 +82,8 @@ function App() {
                 title="Special Group | Search"
               />
 
-              {/* Pages that Authorized user can't access goes inside NonAuthContainer */}
-              <NonAuthContainer>
-                <SpecialGroupRoute exact path={PATHS.SIGNIN} component={ReduxSignIn} title="Special Group | Login" />
-                <SpecialGroupRoute exact path={PATHS.SIGNUP} component={ReduxSignUp} title="Special Group | Sign Up" />
-              </NonAuthContainer>
+              <SpecialGroupRoute exact path={PATHS.SIGNIN} component={ReduxSignIn} title="Special Group | Login" />
+              <SpecialGroupRoute exact path={PATHS.SIGNUP} component={ReduxSignUp} title="Special Group | Sign Up" />
 
               {/* Pages that Non Authorized user can't access goes inside AuthContainer */}
               <AuthContainer>
@@ -127,6 +124,7 @@ function App() {
                   title="Special Group | Order History"
                 />
               </AuthContainer>
+
               <SpecialGroupRoute path={PATHS.NOT_FOUND} component={Home} />
             </Switch>
           </Container>
