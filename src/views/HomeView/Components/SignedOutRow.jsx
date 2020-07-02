@@ -3,10 +3,8 @@ import { Link } from 'react-router-dom';
 
 import Paper from '@material-ui/core/Paper';
 
-import { categories } from 'constants/constants';
-
 const SignedOutRow = (props) => {
-  const fourCategories = categories();
+  const fourCategories = props.products.shopByCategories;
 
   return (
     <div className="grid">
@@ -17,7 +15,7 @@ const SignedOutRow = (props) => {
             {fourCategories.map((category, index) => (
               <div className="head-item" key={index}>
                 <div className="image-contain">
-                  <img src={category.img} alt={category.name} />
+                  <img src={category.image} alt={category.name} />
                 </div>
                 <div className="category-name text-center">{category.name}</div>
               </div>

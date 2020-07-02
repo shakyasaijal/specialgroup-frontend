@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import Box from '@material-ui/core/Box';
 
@@ -14,9 +14,13 @@ import { getImageUrl } from 'constants/constants';
 const Home = (props) => {
   const smallAds = [getImageUrl('images/faker/ads/nepatop.gif'), getImageUrl('images/faker/ads/marutiMobile.gif')];
 
+  useEffect(() => {
+    props.productListRequest();
+  }, [props.isLoggedIn]);
+
   return (
     <Box>
-      <TopRow isLoggedIn={props.isLoggedIn} />
+      <TopRow isLoggedIn={props.isLoggedIn} products={props.products} />
       <FullWidthAd
         large={getImageUrl('images/faker/ads/nepatop.gif')}
         small={getImageUrl('images/faker/ads/nepatopMobile.jpg')}

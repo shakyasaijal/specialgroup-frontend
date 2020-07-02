@@ -4,6 +4,7 @@ import storage from 'redux-persist/lib/storage';
 import { auth } from 'reducers/auth';
 import { account } from 'reducers/account';
 import { locationMap, marketingPlatforms, popularCategories } from 'reducers/publicReducer';
+import { products } from 'reducers/product';
 
 import { AUTH_CLEAR_STORE } from 'actions/auth';
 
@@ -15,7 +16,7 @@ export const persistConfig = {
   whitelist: persistWhitelist,
 };
 
-const appReducer = combineReducers({ auth, account, locationMap, marketingPlatforms, popularCategories });
+const appReducer = combineReducers({ auth, account, locationMap, marketingPlatforms, popularCategories, products });
 
 const rootReducer = (state, action) => {
   if (action.type === AUTH_CLEAR_STORE) {
