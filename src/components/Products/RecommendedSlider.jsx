@@ -51,7 +51,8 @@ const RecommendedSlider = () => {
 
   return (
     <div className="product-slider-container mt30">
-      <h2 className="medium-dark">Recommended for you</h2>
+      <h2 className="medium-dark main-title">Recommended for you</h2>
+      <hr />
       <div className="product-slider">
         <Slider {...settings}>
           {products.map((product, index) => (
@@ -62,7 +63,7 @@ const RecommendedSlider = () => {
                     <div className="image-container">
                       <img src={product.img} alt={product.name} />
                     </div>
-                    <h3 className="text-center">{product.name}</h3>
+                    <h3 className="text-center product-title">{product.name}</h3>
                     <small className="text-center">{product.price}</small>
                   </div>
                 </Link>
