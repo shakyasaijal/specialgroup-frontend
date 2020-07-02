@@ -12,7 +12,7 @@ import PopularProducts from './Components/PopularProducts';
 import { getImageUrl } from 'constants/constants';
 
 const Home = (props) => {
-  const smallAds = [getImageUrl('images/faker/ads/nepatop.gif'), getImageUrl('images/faker/ads/marutiMobile.gif')];
+  const smallAds = [getImageUrl('images/faker/ads/marutiMobile.gif'), getImageUrl('images/faker/ads/marutiMobile.gif')];
 
   useEffect(() => {
     props.productListRequest();

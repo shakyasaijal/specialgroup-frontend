@@ -44,21 +44,19 @@ const PopularProducts = () => {
 
   return (
     <div className="row">
-      <h4 className="medium-dark mt10">Popular on your area</h4>
+      <h4 className="medium-dark mt10 main-title">Popular on your area</h4>
       <hr />
-      <div className="sep mt30">
+      <div className="sep mt30 popular">
         <div className="grid3 center full-width">
           {products.map((product, index) => (
             <Card className={classes.root} key={index}>
-              <Link to="/">
+              <Link to={`/product/${product.id}`}>
                 <CardActionArea>
                   <div className="image-container">
                     <CardMedia className={classes.media} image={product.img} title={product.name} />
                   </div>
                   <CardContent>
-                    <Typography gutterBottom variant="h5" component="h2">
-                      {product.name}
-                    </Typography>
+                    <div className="product-title">{product.name}</div>
                     <Typography variant="body2" color="textSecondary" component="p">
                       {product.price}
                     </Typography>
