@@ -12,18 +12,19 @@ const ProductsDetails = () => {
     <div className="row">
       <div className="product-details-container">
         <Paper>
-          <div className="grid-">
-            <div className="grid-item">
+          <div className="grid-wrapper">
+            <div className="left">
               <div className="container">
                 <SlickMagnifier product={product} />
               </div>
             </div>
-            <div className="grid-item">
-              <div className="fluid__instructions" style={{ position: '' }}>
-                <div id="portal" className="portal" />
-                <div style={{ height: '1000px' }} />
+            <div className="content">
+              <div className="product-info">
+                <h4 className="brand-name">gucci</h4>
+                <p className="product-name">Cotton jersey shorts</p>
               </div>
             </div>
+            <div className="right"></div>
           </div>
         </Paper>
       </div>
