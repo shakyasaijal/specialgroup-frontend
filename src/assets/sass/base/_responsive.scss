@@ -1,5 +1,12 @@
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
+  .engine {
+    & .search-container {
+      & .grid-view {
+        grid-template-columns: 100%;
+      }
+    }
+  }
   .mobile-header {
     height: 9vh;
     width: 100%;
@@ -361,7 +368,6 @@
     }
   }
 }
-
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
   .mobile-header {
