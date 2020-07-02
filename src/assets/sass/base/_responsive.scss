@@ -4,6 +4,96 @@
     & .search-container {
       & .grid-view {
         grid-template-columns: 100%;
+        & .grid-item {
+          & .block {
+            & .title {
+              font-size: 14px;
+              font-weight: 400;
+            }
+            & ul {
+              & li {
+                font-size: 13px;
+              }
+            }
+            & .checkbox {
+              display: flex;
+              max-height: 150px;
+              flex-direction: column;
+            }
+          }
+          & .block-content,
+          & .ups {
+            margin-top: 14px;
+          }
+          & .min,
+          & .max {
+            width: 65px;
+            padding: 4px;
+          }
+          & .btn {
+            font-size: 14px;
+            padding: 5px;
+          }
+          & .max {
+            margin: 0 5px;
+          }
+        }
+        & .search-results {
+          padding: 10px;
+          & .sortable {
+            height: 8vh;
+            & .flex {
+              grid-template-columns: 80% 20%;
+            }
+            & .select {
+              padding: 6px 3px;
+            }
+            & .listing {
+              display: inline-grid;
+              margin-left: 5px;
+              margin-top: 5px;
+            }
+          }
+          & .results {
+            & .search-card {
+              & .search-content-list {
+                grid-template-columns: 30% 50% 20%;
+              }
+              width: 20%;
+              padding: 4px;
+              & .image-container {
+                height: 150px;
+                width: 150px;
+              }
+              & .product-name {
+                max-height: 6vh;
+                padding: 8px 0 0 10px;
+                font-size: 16px;
+              }
+              & .price-and-cart {
+                padding: 0 10px;
+                & .currentPrice {
+                  font-size: 14px;
+                }
+                & .line-through {
+                  font-size: 12px;
+                }
+              }
+              & .add-to-cart {
+                width: 100%;
+                & .btn {
+                  width: 100%;
+                  padding: 8px 0;
+                  margin-top: 20px;
+                  margin-bottom: 10px;
+                }
+              }
+            }
+            .search-card-list {
+              width: 100%;
+            }
+          }
+        }
       }
     }
   }
