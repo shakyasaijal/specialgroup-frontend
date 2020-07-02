@@ -11,7 +11,7 @@ import Paper from '@material-ui/core/Paper';
 import { productsList } from 'constants/constants';
 
 const RecommendedSlider = () => {
-  const products = productsList();
+  const products = [productsList()];
 
   const settings = {
     dots: false,

@@ -20,3 +20,7 @@ export const getEndPoint = () => {
 
   return configSetting.endpoint;
 };
+
+export const getImage = (uri) => {
+  return getEndPoint() + uri;
+};

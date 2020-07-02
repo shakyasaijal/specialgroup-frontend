@@ -1,23 +1,36 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import Paper from '@material-ui/core/Paper';
+import { getImage } from 'config/Config';
+
+import { productListRequest } from 'actions/product';
 
 const SignedOutRow = (props) => {
-  const fourCategories = props.products.shopByCategories;
+  const [productsLoaded, setProductsLoaded] = useState(false);
 
-  return (
+  useEffect(() => {
+    props.productListRequest(callbackSuccess);
+    // eslint-disable-next-line
+  }, []);
+
+  const callbackSuccess = () => {
+    setProductsLoaded(true);
+  };
+
+  return productsLoaded ? (
     <div className="grid shop-by-category">
       <Paper elevation={3}>
         <div className="grid-item">
           <h4 className="medium-dark">Shop by Category</h4>
           <div className="head grid2">
-            {fourCategories.map((category, index) => (
+            {props.products.shopByCategories.map((category, index) => (
               <div className="head-item" key={index}>
-                <div className="image-contain">
-                  <img src={category.image} alt={category.name} />
-                </div>
                 <Link to="/">
+                  <div className="image-contain">
+                    <img src={getImage(category.image)} alt={category.name} />
+                  </div>
                   <div className="category-name text-center">{category.name}</div>
                 </Link>
               </div>
@@ -32,12 +45,14 @@ const SignedOutRow = (props) => {
         <div className="grid-item">
           <h4 className="medium-dark">New Arrivals</h4>
           <div className="head grid2 mt10">
-            {fourCategories.map((category, index) => (
+            {props.products.recentArrivals.map((category, index) => (
               <div className="head-item" key={index}>
-                <div className="image-contain">
-                  <img src={category.img} alt={category.name} />
-                </div>
-                <div className="category-name text-center">{category.name}</div>
+                <Link to="/">
+                  <div className="image-contain">
+                    <img src={getImage(category.image)} alt={category.name} />
+                  </div>
+                  <div className="category-name text-center">{category.name}</div>
+                </Link>
               </div>
             ))}
           </div>
@@ -59,7 +74,17 @@ const SignedOutRow = (props) => {
         )}
       </Paper>
     </div>
+  ) : (
+    <></>
   );
 };
 
-export default SignedOutRow;
+const mapStateToProps = (state) => {
+  return {
+    products: state.products,
+  };
+};
+
+const dispatchProps = { productListRequest };
+
+export default connect(mapStateToProps, dispatchProps)(SignedOutRow);
