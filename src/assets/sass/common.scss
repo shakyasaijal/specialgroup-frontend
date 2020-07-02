@@ -1206,12 +1206,43 @@ label {
 }
 
 .product-details-container {
-  & .grid-view {
+  & .grid-wrapper {
     padding: 25px;
     display: grid;
-    grid-template-columns: 25% 40% 20%;
-    grid-gap: 1%;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-areas: 'left content right';
+    grid-gap: 10px;
+
+    .left {
+      grid-area: left;
+      height: 300px;
+      overflow: hidden;
+      background: red;
+    }
+    .content {
+      grid-area: content;
+      height: auto;
+      & .product-info {
+        & .brand-name {
+          text-transform: uppercase;
+        }
+        padding: 0 25px;
+        line-height: 1.2rem;
+        word-break: break-all;
+        & .product-name {
+          padding: 0;
+          line-height: 1.25rem;
+        }
+      }
+    }
+
+    .right {
+      grid-area: right;
+      background: blue;
+      height: 500px;
+    }
   }
+
   & .slick-active {
     color: $theme-color !important;
     & > * {

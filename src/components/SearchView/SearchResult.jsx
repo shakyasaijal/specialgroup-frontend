@@ -42,9 +42,16 @@ const SearchResult = () => {
     brand: [],
     isLoggedIn: false,
     addToCartLink: '',
-    filter: false,
+    filter: true,
   });
-  const [pagination, setPagination] = useState({ currentPage: 1, productPerPage: 5 });
+
+  useEffect(() => {
+    if (window.innerWidth <= 492) {
+      setState({ ...state, filter: false });
+    }
+  }, [state.filter]);
+
+  const [pagination, setPagination] = useState({ currentPage: 1, productPerPage: 20 });
   const seller = [];
   const brand = [];
   const uniqueSeller = [];
@@ -112,10 +119,12 @@ const SearchResult = () => {
               <div className={classes.root}>
                 <Accordion>
                   <AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel1a-content" id="panel1a-header">
-                    <Typography className={classes.heading}>Accordion 1</Typography>
+                    <Typography className={classes.heading}>Filters</Typography>
                   </AccordionSummary>
                   <AccordionDetails>
-                    <Filters seller={seller} brand={brand} />
+                    <div className="col">
+                      <Filters seller={seller} brand={brand} />
+                    </div>
                   </AccordionDetails>
                 </Accordion>
               </div>

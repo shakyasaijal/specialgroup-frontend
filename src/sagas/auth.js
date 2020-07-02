@@ -24,7 +24,7 @@ function* handleAuthRegisterRequest(action) {
 
     if (!res) throw new Error('connection error');
 
-    if (!res.status) throw new Error(res.message);
+    if (!res.status) throw new Error(res.data.message);
 
     const { userId, isVerified, accessToken, refreshToken } = res.data;
 
@@ -74,7 +74,7 @@ function* handleAuthGoogleRequest(action) {
 
     if (!res) throw new Error('connection error');
 
-    if (!res.status) throw new Error(res.message);
+    if (!res.status) throw new Error(res.data.message);
 
     const { userId, isVerified, accessToken, refreshToken } = res.data;
 
@@ -101,7 +101,7 @@ function* handleAuthFacebookRequest(action) {
 
     if (!res) throw new Error('connection error');
 
-    if (!res.status) throw new Error(res.message);
+    if (!res.status) throw new Error(res.data.message);
 
     const { userId, isVerified, accessToken, refreshToken } = res.data;
 
