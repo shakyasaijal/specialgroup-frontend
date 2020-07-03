@@ -132,6 +132,7 @@ export const productsList = () => {
       inStock: true,
       seller: { name: 'Namaste Super Market', id: 1 },
       brand: 'Gucci',
+      oldPrice: '5500',
     },
     {
       id: 2,
@@ -142,6 +143,7 @@ export const productsList = () => {
       inStock: false,
       seller: { name: 'Namaste Super Market', id: 1 },
       brand: 'Gucci',
+      oldPrice: '',
     },
     {
       id: 3,
@@ -153,6 +155,7 @@ export const productsList = () => {
       inStock: false,
       seller: { name: 'Sales Berry', id: 2 },
       brand: 'Gucci',
+      oldPrice: '5200',
     },
     {
       id: 4,
@@ -164,6 +167,7 @@ export const productsList = () => {
       inStock: true,
       seller: { name: 'Sales Berry', id: 2 },
       brand: 'Sincere',
+      oldPrice: '',
     },
     {
       id: 5,
@@ -175,6 +179,7 @@ export const productsList = () => {
       inStock: true,
       seller: { name: 'Sales Berry', id: 2 },
       brand: 'Sincere',
+      oldPrice: '',
     },
     {
       id: 6,
@@ -185,6 +190,7 @@ export const productsList = () => {
       inStock: true,
       seller: { name: 'Saleways', id: 3 },
       brand: 'Polo',
+      oldPrice: '',
     },
     {
       id: 7,
@@ -196,6 +202,7 @@ export const productsList = () => {
       inStock: true,
       seller: { name: 'Bhatbhateni', id: 4 },
       brand: 'HP',
+      oldPrice: '65000',
     },
     {
       id: 8,
@@ -206,6 +213,7 @@ export const productsList = () => {
       inStock: true,
       seller: { name: 'Bhatbhateni', id: 4 },
       brand: 'HP',
+      oldPrice: '',
     },
     {
       id: 9,
@@ -216,6 +224,7 @@ export const productsList = () => {
       inStock: false,
       seller: { name: 'Bhatbhateni', id: 4 },
       brand: 'Gucci',
+      oldPrice: '',
     },
     {
       id: 10,
@@ -227,6 +236,7 @@ export const productsList = () => {
       inStock: true,
       seller: { name: 'Bhatbhateni', id: 4 },
       brand: 'HP',
+      oldPrice: '',
     },
     {
       id: 11,
@@ -237,6 +247,7 @@ export const productsList = () => {
       inStock: false,
       seller: { name: 'Bhatbhateni', id: 4 },
       brand: 'Gucci',
+      oldPrice: '230',
     },
     {
       id: 12,
@@ -247,6 +258,7 @@ export const productsList = () => {
       inStock: true,
       seller: { name: 'Bhatbhateni', id: 4 },
       brand: 'Gucci',
+      oldPrice: '230',
     },
   ];
 };
@@ -737,4 +749,10 @@ export const productDetails = () => {
 
 export const getImageUrl = (uri) => {
   return process.env.PUBLIC_URL + uri;
+};
+
+export const getPercentage = (oldPrice, currentPrice) => {
+  const per = Math.round(((oldPrice - currentPrice) / oldPrice) * 100);
+
+  return -1 * per;
 };

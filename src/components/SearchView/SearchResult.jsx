@@ -11,7 +11,7 @@ import AccordionSummary from '@material-ui/core/AccordionSummary';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
-import Pagination from './Components/Pagination';
+import Paginations from './Components/Pagination';
 import Filters from './Components/Filters';
 
 import { productsList } from 'constants/constants';
@@ -51,7 +51,7 @@ const SearchResult = () => {
     }
   }, [state.filter]);
 
-  const [pagination, setPagination] = useState({ currentPage: 1, productPerPage: 20 });
+  const [pagination, setPagination] = useState({ currentPage: 1, productPerPage: 1 });
   const seller = [];
   const brand = [];
   const uniqueSeller = [];
@@ -172,7 +172,7 @@ const SearchResult = () => {
                 </Link>
               ))}
             </div>
-            <Pagination
+            <Paginations
               productsPerPage={pagination.productPerPage}
               totalProducts={products.length}
               paginate={paginate}

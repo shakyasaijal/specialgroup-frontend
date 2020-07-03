@@ -10,6 +10,7 @@ import Chips from 'components/Chips/Chips';
 import TopRow from './Components/TopRow';
 import PopularProducts from './Components/PopularProducts';
 import { getImageUrl } from 'constants/constants';
+import JustForYou from './Components/JustForYou';
 
 const Home = (props) => {
   const smallAds = [getImageUrl('images/faker/ads/marutiMobile.gif'), getImageUrl('images/faker/ads/marutiMobile.gif')];
@@ -22,6 +23,7 @@ const Home = (props) => {
         small={getImageUrl('images/faker/ads/nepatopMobile.jpg')}
       />
       <Chips />
+      <JustForYou />
       <PopularProducts />
       <HalfWidthAd small={smallAds} />
       <RecommendedSlider />
