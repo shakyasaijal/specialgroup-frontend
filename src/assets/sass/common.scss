@@ -1370,6 +1370,12 @@ label {
     }
   }
 
+  & .grid-view {
+    padding: 25px;
+    display: grid;
+    grid-template-columns: 25% 40% 20%;
+    grid-gap: 1%;
+  }
   & .slick-active {
     color: $theme-color !important;
     & > * {
