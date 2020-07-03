@@ -41,6 +41,10 @@ const SignIn = (props) => {
   const [state, setForm] = useState(initialState);
   const [errors, setErrors] = useState(initialState);
 
+  if (props.isLoggedIn) {
+    props.history.push(PATHS.HOME);
+  }
+
   const onSubmit = (e) => {
     if (e) e.preventDefault();
     const { authLoginRequest } = props;
