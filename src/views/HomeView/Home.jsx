@@ -9,8 +9,9 @@ import Chips from 'components/Chips/Chips';
 
 import TopRow from './Components/TopRow';
 import PopularProducts from './Components/PopularProducts';
-import { getImageUrl, settingsForSix } from 'constants/constants';
 import JustForYou from './Components/JustForYou';
+
+import { getImageUrl, settingsForSix } from 'constants/constants';
 
 const Home = (props) => {
   const smallAds = [getImageUrl('images/faker/ads/marutiMobile.gif'), getImageUrl('images/faker/ads/marutiMobile.gif')];

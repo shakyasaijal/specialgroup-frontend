@@ -1,4 +1,4 @@
-import { takeLatest, call, all, put, select } from 'redux-saga/effects';
+import { takeEvery, call, all, put, select } from 'redux-saga/effects';
 
 import { isLoggedIn } from 'selectors/auth';
 
@@ -16,7 +16,7 @@ function* handleProductListRequest(action) {
 
     if (!res) throw new Error('connection error');
 
-    if (!res.status) throw new Error(res.message);
+    if (!res.status) throw new Error(res.data.message);
 
     const products = res.data;
 
@@ -28,7 +28,7 @@ function* handleProductListRequest(action) {
 }
 
 function* watchProductListRequest() {
-  yield takeLatest(PRODUCT_LIST_REQUEST, handleProductListRequest);
+  yield takeEvery(PRODUCT_LIST_REQUEST, handleProductListRequest);
 }
 
 export default function* productSaga() {

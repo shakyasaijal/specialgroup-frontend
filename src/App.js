@@ -27,7 +27,6 @@ import CompleteProfile from 'views/CompleteProfileView/CompleteProfile';
 import ProductsDetail from 'views/ProductsView/ProductsDetail';
 import ResetPassword from 'views/ForgetPasswordView/ResetView';
 
-
 import './assets/sass/common.css';
 
 const DEFAULT_TITLE = 'Special Group | e-commerce';
