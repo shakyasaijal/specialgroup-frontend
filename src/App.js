@@ -25,6 +25,7 @@ import LoginAndSecurity from './views/LoginAndSecurityView/LoginAndSecurity';
 import Wishlist from 'views/WislistView/Wishlist';
 import CompleteProfile from 'views/CompleteProfileView/CompleteProfile';
 import ProductsDetail from 'views/ProductsView/ProductsDetail';
+import ResetPassword from 'views/ForgetPasswordView/ResetView';
 
 
 import './assets/sass/common.css';
@@ -90,6 +91,12 @@ function App() {
 
               <SpecialGroupRoute exact path={PATHS.SIGNIN} component={ReduxSignIn} title="Special Group | Login" />
               <SpecialGroupRoute exact path={PATHS.SIGNUP} component={ReduxSignUp} title="Special Group | Sign Up" />
+              <SpecialGroupRoute
+                exact
+                path={PATHS.RESET_PASSWORD}
+                component={ResetPassword}
+                title="Special Group | Reset Password"
+              />
 
               {/* Pages that Non Authorized user can'
 import NonAuthContainer from 'components/AuthContainer/NonAuthContainer';t access goes inside AuthContainer */}

@@ -3,6 +3,7 @@ const PATHS = {
   SIGNIN: '/sign-in',
   SIGNUP: '/sign-up',
   FORGET_PASSWORD: '/forget-password',
+  RESET_PASSWORD: '/reset-password',
   ACCOUNT_SETTINGS: '/account-settings',
   ORDER_HISTORY: '/order-history',
   LOGIN_SECURITY: '/login-and-security',
