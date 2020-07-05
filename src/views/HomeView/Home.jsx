@@ -9,7 +9,7 @@ import Chips from 'components/Chips/Chips';
 
 import TopRow from './Components/TopRow';
 import PopularProducts from './Components/PopularProducts';
-import { getImageUrl } from 'constants/constants';
+import { getImageUrl, settingsForSix } from 'constants/constants';
 import JustForYou from './Components/JustForYou';
 
 const Home = (props) => {
@@ -26,7 +26,7 @@ const Home = (props) => {
       <JustForYou />
       <PopularProducts />
       <HalfWidthAd small={smallAds} />
-      <RecommendedSlider />
+      <RecommendedSlider settings={settingsForSix} />
     </Box>
   );
 };

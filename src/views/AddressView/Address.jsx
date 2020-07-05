@@ -47,7 +47,7 @@ const Address = (props) => {
           </div>
           <div className="container">
             <div className="head">
-              <h4>City</h4>
+              <h4>Location</h4>
               <h5 className="small-grey">{state.city}</h5>
             </div>
             <div className="tail">
