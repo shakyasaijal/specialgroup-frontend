@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props';
 import GoogleLogin from 'react-google-login';
 
+import { googleToken, facebookToken } from 'config/Config';
+
 import { getImageUrl } from 'constants/constants';
 
 const GoogleAuthButton = ({ onClick, authFor }) => {
@@ -54,13 +56,13 @@ const SocialAuth = (props) => {
   return (
     <div className="grid2">
       <GoogleLogin
-        clientId="242138548144-jl9madoqvbrcdv9tphqjk06a49h74j5i.apps.googleusercontent.com"
+        clientId={googleToken()}
         render={(renderProps) => <GoogleAuthButton onClick={renderProps.onClick} authFor={authFor} />}
         onSuccess={onSuccessGoogleAuth}
         onFailure={onFailureGoogleAuth}
       />
       <FacebookLogin
-        appId="318504315811628"
+        appId={facebookToken()}
         render={(renderProps) => <FacebookAuthButton onClick={renderProps.onClick} authFor={authFor} />}
         callback={onSuccessFacebookAuth}
         onFailure={onFailureFacebookAuth}

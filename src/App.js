@@ -71,6 +71,12 @@ function App() {
               />
               <SpecialGroupRoute
                 exact
+                path={PATHS.PRODUCT_DETAILS}
+                component={ProductsDetail}
+                title="Special Group | Details"
+              />
+              <SpecialGroupRoute
+                exact
                 path={PATHS.FORGET_PASSWORD}
                 component={ForgetPassword}
                 title="Special Group | FORGET PASSWORD"
@@ -85,8 +91,15 @@ function App() {
               <SpecialGroupRoute exact path={PATHS.SIGNIN} component={ReduxSignIn} title="Special Group | Login" />
               <SpecialGroupRoute exact path={PATHS.SIGNUP} component={ReduxSignUp} title="Special Group | Sign Up" />
 
-              {/* Pages that Non Authorized user can't access goes inside AuthContainer */}
+              {/* Pages that Non Authorized user can'
+import NonAuthContainer from 'components/AuthContainer/NonAuthContainer';t access goes inside AuthContainer */}
               <AuthContainer>
+                <SpecialGroupRoute
+                  exact
+                  path={PATHS.ADD_TO_CART}
+                  component={ProductsDetail}
+                  title="Special Group | Details"
+                />
                 <SpecialGroupRoute
                   exact
                   path={PATHS.ADD_TO_CART}

@@ -1,24 +1,17 @@
-const CONFIG_SETTINGS = {
-  local: {
-    endpoint: 'http://localhost:8000',
-  },
-  dev: {
-    endpoint: 'http://admin.cosmoconcepts.com.np',
-  },
-};
-
 export const getEnv = () => {
-  return window.REACT_APP_ENV || process.env.REACT_APP_ENV || 'local';
+  return process.env.REACT_APP_ENV || 'local';
 };
 
 export const getEndPoint = () => {
-  const env = getEnv();
+  return process.env.REACT_APP_API_URL;
+};
 
-  const configSetting = CONFIG_SETTINGS[env];
+export const googleToken = () => {
+  return process.env.REACT_APP_GOOGLE_TOKEN;
+};
 
-  if (!configSetting || !configSetting.endpoint) return 'http://localhost:8000';
-
-  return configSetting.endpoint;
+export const facebookToken = () => {
+  return process.env.REACT_APP_FACEBOOK_TOKEN;
 };
 
 export const getImage = (uri) => {

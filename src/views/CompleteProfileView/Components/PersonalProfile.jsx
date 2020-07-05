@@ -87,10 +87,13 @@ const PersonalProfile = (props) => {
                   <Select
                     native
                     name="district"
-                    defaultValue={state.district}
+                    value={state.district ? state.district : ''}
                     onChange={handleChange}
                     id="grouped-native-select"
                   >
+                    <option disabled value="">
+                      --location--
+                    </option>
                     {locationDropdownData}
                   </Select>
                 </FormControl>

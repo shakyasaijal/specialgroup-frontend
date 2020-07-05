@@ -22,9 +22,9 @@ const SlickMagnifier = () => {
   // };
 
   return (
-    <>
-      {/* <img src="http://media.gucci.com/style/DarkGray_Center_0_0_490x490/1590421508/630715_XJBUW_3806_001_100_0000_Light-Cotton-jersey-shorts.jpg" alt="asd"/> */}
-    </>
+    <div className="img-container">
+      <img src="https://m.media-amazon.com/images/I/71BCZLfIzVL._SR500,500_.jpg" alt="asd" />
+    </div>
   );
 };
 

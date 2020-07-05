@@ -38,13 +38,13 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const PopularProducts = () => {
+const JustForYou = () => {
   const products = productsList();
   const classes = useStyles();
 
   return (
     <div className="row">
-      <h4 className="medium-dark mt10 main-title">Popular on your area</h4>
+      <h4 className="medium-dark mt10 main-title">Just for you</h4>
       <hr />
       <div className="sep mt30 popular">
         <div className="grid3 center full-width">
@@ -89,4 +89,4 @@ const PopularProducts = () => {
   );
 };
 
-export default PopularProducts;
+export default JustForYou;

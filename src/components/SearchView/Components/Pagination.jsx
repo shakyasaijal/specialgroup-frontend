@@ -1,7 +1,18 @@
 import React from 'react';
+// import { makeStyles } from '@material-ui/core/styles';
+import Pagination from '@material-ui/lab/Pagination';
 
-const Pagination = ({ productsPerPage, totalProducts, paginate, currentPage, prev, next }) => {
+// const useStyles = makeStyles((theme) => ({
+//   root: {
+//     '& > *': {
+//       marginTop: theme.spacing(2),
+//     },
+//   },
+// }));
+
+const Paginations = ({ productsPerPage, totalProducts, paginate, currentPage, prev, next }) => {
   const pageNumbers = [];
+  // const classes = useStyles();
 
   for (let i = 1; i <= Math.ceil(totalProducts / productsPerPage); i++) {
     pageNumbers.push(i);
@@ -29,8 +40,9 @@ const Pagination = ({ productsPerPage, totalProducts, paginate, currentPage, pre
           <li>{'>>'}</li>
         </div>
       </ul>
+      <Pagination count={pageNumbers.length} color="primary" />
     </nav>
   );
 };
 
-export default Pagination;
+export default Paginations;
