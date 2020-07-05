@@ -51,7 +51,7 @@ const SearchResult = () => {
     }
   }, [state.filter]);
 
-  const [pagination, setPagination] = useState({ currentPage: 1, productPerPage: 1 });
+  const [pagination, setPagination] = useState({ currentPage: 1, productPerPage: 25 });
   const seller = [];
   const brand = [];
   const uniqueSeller = [];
@@ -83,29 +83,8 @@ const SearchResult = () => {
     window.scrollTo(0, 0);
   }, [pagination.currentPage]);
 
-  const paginate = (pageNumber) => {
-    setPagination({ ...pagination, currentPage: pageNumber });
-  };
-
-  const nextInitial = 20;
-  const prev = (totalPage) => {
-    if (pagination.currentPage !== 1) {
-      setPagination({ ...pagination, currentPage: pagination.currentPage - 1 });
-      if (pagination.currentPage > 5) {
-        if (pagination.currentPage % 3 === 0) {
-          document.getElementsByClassName('pp')[0].style.marginLeft = totalPage / pagination.currentPage + 'px';
-        }
-      }
-    }
-  };
-
-  const next = (totalPage) => {
-    if (pagination.currentPage !== totalPage) {
-      setPagination({ ...pagination, currentPage: pagination.currentPage + 1 });
-      if (pagination.currentPage % 6 === 0) {
-        document.getElementsByClassName('pp')[0].style.marginLeft = '-' + nextInitial * pagination.currentPage + 'px';
-      }
-    }
+  const handleChange = (event, value) => {
+    setPagination({ ...pagination, currentPage: value });
   };
 
   return (
@@ -156,8 +135,11 @@ const SearchResult = () => {
                     <div className="image-container center">
                       <img src={product.img} alt="Big Apple" />
                     </div>
-                    <div className="product-name">
+                    <div className={`product-name ${state.grid ? '' : 'remove-'}`}>
                       <p>{product.name}</p>
+                      <div className={`product-bio ${state.grid ? 'hidden' : ''}`}>
+                        {product.shortBio ? <div dangerouslySetInnerHTML={{ __html: product.shortBio }} /> : ''}
+                      </div>
                     </div>
                     <div className="price-and-cart">
                       <div className="currentPrice">Price: {product.price}</div>
@@ -175,10 +157,8 @@ const SearchResult = () => {
             <Paginations
               productsPerPage={pagination.productPerPage}
               totalProducts={products.length}
-              paginate={paginate}
               currentPage={pagination.currentPage}
-              prev={prev}
-              next={next}
+              handleChange={handleChange}
             />
           </div>
         </div>

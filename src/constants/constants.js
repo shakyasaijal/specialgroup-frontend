@@ -133,6 +133,12 @@ export const productsList = () => {
       seller: { name: 'Namaste Super Market', id: 1 },
       brand: 'Gucci',
       oldPrice: '5500',
+      shortBio: `<ul>
+        <li>100% Pure Cotton</li>
+        <li>Stainless</li>
+        <li>Machine Washable</li>
+        <li>Use and Throw</li>
+      </ul>`,
     },
     {
       id: 2,
@@ -144,6 +150,12 @@ export const productsList = () => {
       seller: { name: 'Namaste Super Market', id: 1 },
       brand: 'Gucci',
       oldPrice: '',
+      shortBio: `<ul>
+        <li>100% Pure Cotton</li>
+        <li>Stainless</li>
+        <li>Machine Washable</li>
+        <li>Use and Throw</li>
+      </ul>`,
     },
     {
       id: 3,
@@ -156,6 +168,12 @@ export const productsList = () => {
       seller: { name: 'Sales Berry', id: 2 },
       brand: 'Gucci',
       oldPrice: '5200',
+      shortBio: `<ul>
+        <li>100% Pure Cotton</li>
+        <li>Stainless</li>
+        <li>Machine Washable</li>
+        <li>Use and Throw</li>
+      </ul>`,
     },
     {
       id: 4,
@@ -168,6 +186,12 @@ export const productsList = () => {
       seller: { name: 'Sales Berry', id: 2 },
       brand: 'Sincere',
       oldPrice: '',
+      shortBio: `<ul>
+        <li>100% Pure Cotton</li>
+        <li>Stainless</li>
+        <li>Machine Washable</li>
+        <li>Use and Throw</li>
+      </ul>`,
     },
     {
       id: 5,
@@ -180,6 +204,12 @@ export const productsList = () => {
       seller: { name: 'Sales Berry', id: 2 },
       brand: 'Sincere',
       oldPrice: '',
+      shortBio: `<ul>
+        <li>100% Pure Cotton</li>
+        <li>Stainless</li>
+        <li>Machine Washable</li>
+        <li>Use and Throw</li>
+      </ul>`,
     },
     {
       id: 6,
@@ -191,6 +221,12 @@ export const productsList = () => {
       seller: { name: 'Saleways', id: 3 },
       brand: 'Polo',
       oldPrice: '',
+      shortBio: `<ul>
+        <li>100% Pure Cotton</li>
+        <li>Stainless</li>
+        <li>Machine Washable</li>
+        <li>Use and Throw</li>
+      </ul>`,
     },
     {
       id: 7,
@@ -203,6 +239,12 @@ export const productsList = () => {
       seller: { name: 'Bhatbhateni', id: 4 },
       brand: 'HP',
       oldPrice: '65000',
+      shortBio: `<ul>
+        <li>100% Pure Cotton</li>
+        <li>Stainless</li>
+        <li>Machine Washable</li>
+        <li>Use and Throw</li>
+      </ul>`,
     },
     {
       id: 8,
@@ -214,6 +256,12 @@ export const productsList = () => {
       seller: { name: 'Bhatbhateni', id: 4 },
       brand: 'HP',
       oldPrice: '',
+      shortBio: `<ul>
+        <li>100% Pure Cotton</li>
+        <li>Stainless</li>
+        <li>Machine Washable</li>
+        <li>Use and Throw</li>
+      </ul>`,
     },
     {
       id: 9,
@@ -225,6 +273,12 @@ export const productsList = () => {
       seller: { name: 'Bhatbhateni', id: 4 },
       brand: 'Gucci',
       oldPrice: '',
+      shortBio: `<ul>
+        <li>100% Pure Cotton</li>
+        <li>Stainless</li>
+        <li>Machine Washable</li>
+        <li>Use and Throw</li>
+      </ul>`,
     },
     {
       id: 10,
@@ -237,6 +291,12 @@ export const productsList = () => {
       seller: { name: 'Bhatbhateni', id: 4 },
       brand: 'HP',
       oldPrice: '',
+      shortBio: `<ul>
+        <li>100% Pure Cotton</li>
+        <li>Stainless</li>
+        <li>Machine Washable</li>
+        <li>Use and Throw</li>
+      </ul>`,
     },
     {
       id: 11,
@@ -248,6 +308,12 @@ export const productsList = () => {
       seller: { name: 'Bhatbhateni', id: 4 },
       brand: 'Gucci',
       oldPrice: '230',
+      shortBio: `<ul>
+        <li>100% Pure Cotton</li>
+        <li>Stainless</li>
+        <li>Machine Washable</li>
+        <li>Use and Throw</li>
+      </ul>`,
     },
     {
       id: 12,
@@ -259,6 +325,15 @@ export const productsList = () => {
       seller: { name: 'Bhatbhateni', id: 4 },
       brand: 'Gucci',
       oldPrice: '230',
+      shortBio: `
+      <p>
+        Lorem ipsum doler sit amet. Lorem ipsum doler sit amet.
+        Lorem ipsum doler sit amet. Lorem ipsum doler sit amet.
+        Lorem ipsum doler sit amet. Lorem ipsum doler sit amet.
+        Lorem ipsum doler sit amet. Lorem ipsum doler sit amet.
+        Lorem ipsum doler sit amet. Lorem ipsum doler sit amet.
+      </p>
+      `,
     },
   ];
 };
@@ -704,44 +779,153 @@ export const mobileDrawerItems = () => {
 export const productDetails = () => {
   return {
     name: 'Fabric Finest Dress',
+    id: 4,
     brand: 'Milanoo',
-    color: ['red', 'blue'],
-    sizes: ['S', 'L', 'Xl'],
+    sizes: ['S', 'L', 'XL'],
     vendor: 'Sincere Super Market',
-    price: '5000',
     oldPrice: '5500',
-    warranty: false,
+    currentPrice: '5000',
+    warranty: '5 years warranty',
     materialType: 'Fabric',
     images: [
       'https://m.media-amazon.com/images/I/71BCZLfIzVL._SR500,500_.jpg',
       'https://www-s.mlo.me/upen/v/201710/20171027/46909f73-1519-49cd-9c24-8036ab50bcb2.jpg',
       'https://www.lulus.com/images/product/xlarge/1125602_176698.jpg',
     ],
-    description: '<ul><li>Imported</li><li>Machine Wash</li><li>No color fade</li></ul>',
+    bio: `<ul>
+      <li>Color: red, green, blue</li>
+      <li>Material Type: Fabric</li>
+      <li>Machine Washable: Yes</li>
+      <li>Color Fade: No</li>
+    </ul>`,
+    description: `<b>Dress</b><p>Lorem ipsum doler sit amet. Lorem ipsum doler sit amet. Lorem ipsum doler sit amet. 
+    Lorem ipsum doler sit amet.
+    </p><br/>
+    <ul>
+      <li>Deliver within 2 days.</li>
+      <li>Perfect with all sizes.</li>
+    </ul>
+    `,
     comments: [
       {
         question: 'Is it delivered to New Road as well?',
+        questionBy: 'Saijal Shakya',
+        questionOn: 'July 04, 2020',
         answer: 'Yes we deliver all over Nepal.',
       },
       {
         question: 'Is it any discounts?',
-        answer: 'No, it is fixed price.',
+        questionBy: 'Rohin Awale',
+        questionOn: 'July 03, 2020',
+        answer: '',
+      },
+      {
+        question: 'No warranty?',
+        questionBy: 'Ram Bhandari',
+        questionOn: 'July 03, 2020',
+        answer: 'Yes. 5 years warranty xa.',
+      },
+      {
+        question: 'Aru thau ma bhanda kina sasto?',
+        questionBy: 'Saijal Shakya',
+        questionOn: 'July 02, 2020',
+        answer: 'Aile offer chalirakoxa.',
+      },
+      {
+        question: 'Discount available xa ki nai?',
+        questionBy: 'Rohin Awale',
+        questionOn: 'July 02, 2020',
+        answer: 'Yes we deliver all over Nepal.',
+      },
+      {
+        question: 'Lalitpur ma deliver hunxa?',
+        questionBy: 'Ram Bhandari',
+        questionOn: 'July 01, 2020',
+        answer: 'We deliver all over the Nepal.',
       },
       {
         question: 'Is it delivered to New Road as well?',
+        questionBy: 'Saijal Shakya',
+        questionOn: 'July 04, 2020',
         answer: 'Yes we deliver all over Nepal.',
       },
       {
         question: 'Is it any discounts?',
+        questionBy: 'Rohin Awale',
+        questionOn: 'July 03, 2020',
         answer: 'No, it is fixed price.',
+      },
+      {
+        question: 'No warranty?',
+        questionBy: 'Ram Bhandari',
+        questionOn: 'July 03, 2020',
+        answer: 'Yes. 5 years warranty xa.',
+      },
+      {
+        question: 'Aru thau ma bhanda kina sasto?',
+        questionBy: 'Saijal Shakya',
+        questionOn: 'July 02, 2020',
+        answer: 'Aile offer chalirakoxa.',
+      },
+      {
+        question: 'Discount available xa ki nai?',
+        questionBy: 'Rohin Awale',
+        questionOn: 'July 02, 2020',
+        answer: 'Yes we deliver all over Nepal.',
+      },
+      {
+        question: 'Lalitpur ma deliver hunxa?',
+        questionBy: 'Ram Bhandari',
+        questionOn: 'July 01, 2020',
+        answer: 'We deliver all over the Nepal.',
       },
       {
         question: 'Is it delivered to New Road as well?',
+        questionBy: 'Saijal Shakya',
+        questionOn: 'July 04, 2020',
         answer: 'Yes we deliver all over Nepal.',
       },
       {
         question: 'Is it any discounts?',
+        questionBy: 'Rohin Awale',
+        questionOn: 'July 03, 2020',
         answer: 'No, it is fixed price.',
+      },
+      {
+        question: 'No warranty?',
+        questionBy: 'Ram Bhandari',
+        questionOn: 'July 03, 2020',
+        answer: 'Yes. 5 years warranty xa.',
+      },
+      {
+        question: 'Aru thau ma bhanda kina sasto?',
+        questionBy: 'Saijal Shakya',
+        questionOn: 'July 02, 2020',
+        answer: 'Aile offer chalirakoxa.',
+      },
+      {
+        question: 'Discount available xa ki nai?',
+        questionBy: 'Rohin Awale',
+        questionOn: 'July 02, 2020',
+        answer: 'Yes we deliver all over Nepal.',
+      },
+      {
+        question: 'Lalitpur ma deliver hunxa?',
+        questionBy: 'Ram Bhandari',
+        questionOn: 'July 01, 2020',
+        answer: 'We deliver all over the Nepal.',
+      },
+    ],
+    currentUserComments: [
+      {
+        question: 'My goods are damaged.',
+        answer: '',
+        questionOn: 'July 03, 2020',
+      },
+      {
+        question: 'If damaged will it be exchanged?',
+        answer: "We won't deliver damaged goods. If mistakely such incidents happen, then we will exchanged it.",
+        questionOn: 'July 02, 2020',
       },
     ],
   };
@@ -755,4 +939,50 @@ export const getPercentage = (oldPrice, currentPrice) => {
   const per = Math.round(((oldPrice - currentPrice) / oldPrice) * 100);
 
   return -1 * per;
+};
+
+export const settingsForSix = {
+  dots: false,
+  infinite: true,
+  speed: 500,
+  autoplay: true,
+  slidesToShow: 6,
+  slidesToScroll: 1,
+  swipeToSlide: true,
+  responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 3,
+        infinite: true,
+        dots: false,
+      },
+    },
+    {
+      breakpoint: 600,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2,
+        initialSlide: 2,
+      },
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+      },
+    },
+  ],
+};
+
+export const settingsForOne = {
+  dots: false,
+  infinite: true,
+  speed: 200,
+  autoplay: true,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  swipeToSlide: true,
 };

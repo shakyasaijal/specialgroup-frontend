@@ -110,12 +110,12 @@ const ChangeCity = (props) => {
               fetchingLocationContent
             ) : (
               <>
-                <h2 id="transition-modal-title">Change City</h2>
+                <h2 id="transition-modal-title">Change Location</h2>
                 <div id="transition-modal-description" className={classes.marginTop}>
                   <Form onSubmit={handleSubmit}>
                     <small>Current City: {props.city}</small>
                     <div className={classes.formGroup}>
-                      <label className={classes.label}>New City</label>
+                      <label className={classes.label}>New locationDropdownData</label>
                       <select className={classes.input} onChange={(e) => setDistrict(e.target.value)} value={district}>
                         {locationDropdownData}
                       </select>
