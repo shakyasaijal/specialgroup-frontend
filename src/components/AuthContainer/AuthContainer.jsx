@@ -10,7 +10,7 @@ const AuthContainer = (props) => {
   const { isLoggedIn, children } = props;
 
   if (!isLoggedIn) {
-    return <Redirect push to={PATHS.HOME} />;
+    return <Redirect push to={PATHS.SIGNIN} />;
   }
 
   return <div>{children}</div>;

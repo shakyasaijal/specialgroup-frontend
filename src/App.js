@@ -97,8 +97,7 @@ function App() {
                 title="Special Group | Reset Password"
               />
 
-              {/* Pages that Non Authorized user can'
-import NonAuthContainer from 'components/AuthContainer/NonAuthContainer';t access goes inside AuthContainer */}
+              {/* Pages that Non Authorized user can't access goes inside AuthContainer */}
               <AuthContainer>
                 <SpecialGroupRoute
                   exact
