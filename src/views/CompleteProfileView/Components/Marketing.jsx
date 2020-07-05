@@ -1,14 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 
 import { marketingPlatformRequest } from 'actions/publicAction';
-
-import PATHS from 'routes';
 
 const useStyles = makeStyles((theme) => ({
   backButton: {
@@ -113,9 +110,6 @@ const Marketing = (props) => {
         <Button variant="contained" color="primary" size="small" onClick={handleNext}>
           Next
         </Button>
-        <Link to={PATHS.HOME} className="float-right complete-later">
-          Complete Later
-        </Link>
       </div>
     </div>
   );

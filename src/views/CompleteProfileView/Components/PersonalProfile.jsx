@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 
 import { makeStyles } from '@material-ui/core/styles';
 import FormControl from '@material-ui/core/FormControl';
@@ -11,8 +10,6 @@ import Typography from '@material-ui/core/Typography';
 import { ERROR_EMPTY_PHONE, ERROR_EMPTY_LOCATION, ERROR_EMPTY_ADDRESS } from 'constants/ErrorMessages';
 
 import { locationMapRequest } from 'actions/publicAction';
-
-import PATHS from 'routes';
 
 const useStyles = makeStyles((theme) => ({
   instructions: {
@@ -112,9 +109,6 @@ const PersonalProfile = (props) => {
         <Button variant="contained" color="primary" size="small" onClick={handleNext}>
           Next
         </Button>
-        <Link to={PATHS.HOME} className="float-right complete-later">
-          Complete Later
-        </Link>
       </div>
     </div>
   );

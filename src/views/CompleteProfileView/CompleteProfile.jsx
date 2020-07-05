@@ -11,8 +11,7 @@ import Marketing from './Components/Marketing';
 import Interest from './Components/Interest';
 
 import { completeProfileRequest } from 'actions/account';
-
-import { isProfileCompleted } from 'selectors/account';
+import { notificationTSRequest } from 'actions/notificationTimeStamp';
 
 import PATHS from 'routes';
 
@@ -51,6 +50,10 @@ const CompleteProfile = (props) => {
     props.history.push(PATHS.HOME);
   };
 
+  const handleCompleteLater = () => {
+    props.notificationTSRequest('completeLaterClickedAt', () => props.history.push(PATHS.HOME));
+  };
+
   const getStepContent = (stepIndex) => {
     switch (stepIndex) {
       case 0:
@@ -63,10 +66,6 @@ const CompleteProfile = (props) => {
         return 'Unknown stepIndex';
     }
   };
-
-  if (props.isProfileCompleted) {
-    callbackSuccess();
-  }
 
   return (
     <div className="row">
@@ -85,6 +84,11 @@ const CompleteProfile = (props) => {
               ))}
             </Stepper>
             <div>{getStepContent(activeStep)}</div>
+            <div className="btn center">
+              <span className="float-right complete-later" onClick={handleCompleteLater}>
+                Complete Later
+              </span>
+            </div>
           </div>
         </div>
       </div>
@@ -97,10 +101,9 @@ const mapStateToProps = (state) => {
 
   return {
     account,
-    isProfileCompleted: isProfileCompleted(state),
   };
 };
 
-const dispatchProps = { completeProfileRequest };
+const dispatchProps = { completeProfileRequest, notificationTSRequest };
 
 export default connect(mapStateToProps, dispatchProps)(CompleteProfile);

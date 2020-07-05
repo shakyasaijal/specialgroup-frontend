@@ -7,8 +7,10 @@ import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
 
 import { resendVerificationEmailRequest } from 'actions/auth';
+import { notificationTSRequest } from 'actions/notificationTimeStamp';
 
 import { isAccountVerified } from 'selectors/auth';
+import { emailVerifyLaterClickedBefore1Day } from 'selectors/notificationTS';
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -35,19 +37,17 @@ const NotVerifiedModal = (props) => {
   const [emailSent, setEmailSent] = useState(false);
   const [response, setResponse] = useState('Sorry, Email has not been sent. Please check your email and try again');
 
-  const handleOpen = () => {
-    setOpen(true);
-  };
+  useEffect(() => {
+    if (!isVerified && props.emailVerifyLaterClickedBefore1Day) {
+      setOpen(true);
+    } else {
+      setOpen(false);
+    }
+  });
 
   const handleClose = () => {
-    setOpen(false);
+    props.notificationTSRequest('emailVerifyLaterClickedAt', () => setOpen(false));
   };
-
-  useEffect(() => {
-    if (!isVerified) {
-      handleOpen();
-    }
-  }, [isVerified]);
 
   const handleClick = () => {
     const { email, resendVerificationEmailRequest } = props;
@@ -123,9 +123,10 @@ const mapStateToProps = (state) => {
   return {
     email: state.account.email || '',
     isVerified: isAccountVerified(state),
+    emailVerifyLaterClickedBefore1Day: emailVerifyLaterClickedBefore1Day(state),
   };
 };
 
-const dispatchProps = { resendVerificationEmailRequest };
+const dispatchProps = { resendVerificationEmailRequest, notificationTSRequest };
 
 export default connect(mapStateToProps, dispatchProps)(NotVerifiedModal);
