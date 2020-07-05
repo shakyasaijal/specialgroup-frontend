@@ -1,5 +1,26 @@
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
+  .reset-view {
+    width: 100%;
+    & .page-title {
+      font-size: 18px;
+    }
+    & .black-out {
+      height: 100vh;
+      width: 100%;
+    }
+    & .container {
+      & .logo-container {
+        height: auto;
+        width: 200px;
+        & img {
+          height: 100%;
+          width: 100%;
+        }
+      }
+    }
+  }
+
   .questions-and-recommendations {
     grid-template-columns: 100%;
     & .login-register {
