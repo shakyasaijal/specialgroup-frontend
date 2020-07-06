@@ -1,5 +1,4 @@
 import React from 'react';
-import { Redirect } from 'react-router';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
@@ -29,7 +28,7 @@ const Header = (props) => {
   };
 
   const logoutSuccess = () => {
-    return <Redirect to={PATHS.HOME} />;
+    props.history.push(PATHS.HOME);
   };
 
   const userName = () => {

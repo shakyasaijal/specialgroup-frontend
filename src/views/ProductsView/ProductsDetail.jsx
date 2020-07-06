@@ -8,7 +8,7 @@ import { isLoggedIn } from 'selectors/auth';
 import { Link } from 'react-router-dom';
 import RightBar from './Components/RightBar';
 import QuestionAnswers from './Components/QuestionAnswers';
-import RecommendedSlider from 'components/Products/RecommendedSlider';
+import RecommendedSlider from 'views/HomeView/Components/RecommendedSlider';
 import { settingsForOne } from 'constants/constants';
 
 const ProductsDetails = (props) => {
@@ -120,4 +120,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(ProductsDetails);
+export default connect(mapStateToProps, {})(ProductsDetails);
