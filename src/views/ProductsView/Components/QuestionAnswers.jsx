@@ -93,7 +93,7 @@ const QuestionAnswers = (props) => {
     if (window.innerWidth <= 492) {
       setState({ ...state, expanded: false });
     }
-  }, []);
+  }, [state]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
