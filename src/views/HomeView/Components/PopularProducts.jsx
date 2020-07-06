@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
@@ -13,7 +14,12 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 import CardActionArea from '@material-ui/core/CardActionArea';
 
-import { productsList } from 'constants/constants';
+import { getPopularProduct } from 'selectors/product';
+import { isLoggedIn } from 'selectors/auth';
+
+import { popularProductRequest } from 'actions/product';
+
+import { getImageBasePath } from 'config/Config';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -38,28 +44,37 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const PopularProducts = () => {
-  const products = productsList();
+const PopularProducts = (props) => {
   const classes = useStyles();
+  const [popularProductLoaded, setPopularProductLoaded] = useState(false);
 
-  return (
+  useEffect(() => {
+    setPopularProductLoaded(false);
+    props.popularProductRequest(popularProductSuccess);
+  }, [props.isLoggedIn]);
+
+  const popularProductSuccess = () => {
+    setPopularProductLoaded(true);
+  };
+
+  return popularProductLoaded ? (
     <div className="row">
       <h4 className="medium-dark mt10 main-title">Popular on your area</h4>
       <hr />
       <div className="sep mt30 popular">
         <div className="grid3 center full-width">
-          {products.map((product, index) => (
+          {props.popularProduct.map((product, index) => (
             <Card className={classes.root} key={index}>
               <Link to={`/product/${product.id}`}>
                 <CardActionArea>
                   <div className="image-container">
-                    <CardMedia className={classes.media} image={product.img} title={product.name} />
+                    <CardMedia className={classes.media} image={getImageBasePath(product.image)} title={product.name} />
                   </div>
                   <CardContent>
                     <div className="product-title">{product.name}</div>
                     <Typography variant="body2" color="textSecondary" component="p">
-                      <span className="currentPrice">Rs. {product.price}</span>{' '}
-                      {product.oldPrice ? <span className="oldPrice line-through">{product.oldPrice}</span> : ''}
+                      {product.price && <span className="currentPrice">Rs. {product.price} </span>}
+                      {product.oldPrice && <span className="oldPrice line-through">{product.oldPrice}</span>}
                     </Typography>
                   </CardContent>
                 </CardActionArea>
@@ -86,7 +101,18 @@ const PopularProducts = () => {
       </div>
       <div className="clearfix"></div>
     </div>
+  ) : (
+    <></>
   );
 };
 
-export default PopularProducts;
+const mapStateToProps = (state) => {
+  return {
+    isLoggedIn: isLoggedIn(state),
+    popularProduct: getPopularProduct(state),
+  };
+};
+
+const dispatchProps = { popularProductRequest };
+
+export default connect(mapStateToProps, dispatchProps)(PopularProducts);

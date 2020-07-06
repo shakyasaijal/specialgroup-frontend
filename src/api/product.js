@@ -1,0 +1,53 @@
+import { getState } from 'services/ReduxService';
+
+import { isLoggedIn } from 'selectors/auth';
+import { getEndPoint } from 'config/Config';
+import { httpService } from 'services/HttpServices';
+import specialGroupHttpService from 'services/SpecialGroupHttpService';
+
+class Product {
+  static _get(path) {
+    const state = getState();
+    const authUser = isLoggedIn(state);
+
+    if (!authUser) {
+      path = getEndPoint() + path;
+
+      return httpService.request('get', null, path);
+    }
+
+    return specialGroupHttpService.get(path);
+  }
+
+  static shopByCategory() {
+    const path = '/v1/api/shop-by-category/';
+
+    return Product._get(path);
+  }
+
+  static popular() {
+    const path = '/v1/api/popular-products/';
+
+    return Product._get(path);
+  }
+
+  static recommended() {
+    const path = '/v1/api/recommended-product/';
+
+    return Product._get(path);
+  }
+
+  static recentArrivals() {
+    const path = '/v1/api/recent-arrivals/';
+
+    return Product._get(path);
+  }
+
+  static forYou() {
+    const path = '/v1/api/for-you-product/';
+
+    return Product._get(path);
+  }
+}
+
+export default Product;
