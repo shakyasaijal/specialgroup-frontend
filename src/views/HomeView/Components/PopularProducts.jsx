@@ -20,6 +20,7 @@ import { isLoggedIn } from 'selectors/auth';
 import { popularProductRequest } from 'actions/product';
 
 import { getImageBasePath } from 'config/Config';
+import Skeleton from '@material-ui/lab/Skeleton';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -57,52 +58,69 @@ const PopularProducts = (props) => {
     setPopularProductLoaded(true);
   };
 
-  return popularProductLoaded ? (
+  const skeletons = [];
+
+  for (let i = 0; i < 6; i++) {
+    skeletons.push(
+      <div>
+        <Skeleton variant="rect" height={140} />
+        <Skeleton variant="rect" height={50} className="mt10" />
+      </div>
+    );
+  }
+
+  return (
     <div className="row">
       <h4 className="medium-dark mt10 main-title">Popular on your area</h4>
       <hr />
       <div className="sep mt30 popular">
         <div className="grid3 center full-width">
-          {props.popularProduct.map((product, index) => (
-            <Card className={classes.root} key={index}>
-              <Link to={`/product/${product.id}`}>
-                <CardActionArea>
-                  <div className="image-container">
-                    <CardMedia className={classes.media} image={getImageBasePath(product.image)} title={product.name} />
-                  </div>
-                  <CardContent>
-                    <div className="product-title">{product.name}</div>
-                    <Typography variant="body2" color="textSecondary" component="p">
-                      {product.price && <span className="currentPrice">Rs. {product.price} </span>}
-                      {product.oldPrice && <span className="oldPrice line-through">{product.oldPrice}</span>}
-                    </Typography>
-                  </CardContent>
-                </CardActionArea>
-              </Link>
-              <CardActions disableSpacing>
-                <IconButton aria-label="add to favorites">
-                  {product.wishlist ? (
-                    <Link to="/">
-                      <FavoriteIcon color="secondary" />
-                    </Link>
-                  ) : (
-                    <Link to="/">
-                      <FavoriteIcon />
-                    </Link>
-                  )}
-                </IconButton>
-                <IconButton aria-label="share">
-                  <AddShoppingCartIcon />
-                </IconButton>
-              </CardActions>
-            </Card>
-          ))}
+          {popularProductLoaded ? (
+            props.popularProduct.map((product, index) => (
+              <Card className={classes.root} key={index}>
+                <Link to={`/product/${product.id}`}>
+                  <CardActionArea>
+                    <div className="image-container">
+                      <CardMedia
+                        className={classes.media}
+                        image={getImageBasePath(product.image)}
+                        title={product.name}
+                      />
+                    </div>
+                    <CardContent>
+                      <div className="product-title">{product.name}</div>
+                      <Typography variant="body2" color="textSecondary" component="p">
+                        {product.price && <span className="currentPrice">Rs. {product.price} </span>}
+                        {product.oldPrice && <span className="oldPrice line-through">{product.oldPrice}</span>}
+                      </Typography>
+                    </CardContent>
+                  </CardActionArea>
+                </Link>
+                <CardActions disableSpacing>
+                  <IconButton aria-label="add to favorites">
+                    {product.wishlist ? (
+                      <Link to="/">
+                        <FavoriteIcon color="secondary" />
+                      </Link>
+                    ) : (
+                      <Link to="/">
+                        <FavoriteIcon />
+                      </Link>
+                    )}
+                  </IconButton>
+                  <IconButton aria-label="share">
+                    <AddShoppingCartIcon />
+                  </IconButton>
+                </CardActions>
+              </Card>
+            ))
+          ) : (
+            <>{skeletons}</>
+          )}
         </div>
       </div>
       <div className="clearfix"></div>
     </div>
-  ) : (
-    <></>
   );
 };
 

@@ -10,6 +10,7 @@ import Paper from '@material-ui/core/Paper';
 import { shopByCategoryRequest, recentArrivalsRequest } from 'actions/product';
 
 import { getImageBasePath } from 'config/Config';
+import Skeleton from '@material-ui/lab/Skeleton';
 
 const SignedOutRow = (props) => {
   const [shopByCategoryLoaded, setShopByCategoryLoaded] = useState(false);
@@ -30,7 +31,21 @@ const SignedOutRow = (props) => {
 
   const shopByCategoryPaper = () => {
     if (!shopByCategoryLoaded) {
-      return <></>;
+      return (
+        <>
+          <Paper elevation={3}>
+            <div className="grid-item">
+              <h4 className="medium-dark">Shop by Category</h4>
+              <div className="head grid2">
+                <Skeleton variant="rect" height={130} />
+                <Skeleton variant="rect" height={130} />
+                <Skeleton variant="rect" height={130} />
+                <Skeleton variant="rect" height={130} />
+              </div>
+            </div>
+          </Paper>
+        </>
+      );
     } else {
       return (
         <Paper elevation={3}>
@@ -59,7 +74,21 @@ const SignedOutRow = (props) => {
 
   const recentArrivalsPaper = () => {
     if (!recentArrivalsLoaded) {
-      return <></>;
+      return (
+        <>
+          <Paper elevation={3}>
+            <div className="grid-item">
+              <h4 className="medium-dark">New Arrivals</h4>
+              <div className="head grid2 mt10">
+                <Skeleton variant="rect" height={130} />
+                <Skeleton variant="rect" height={130} />
+                <Skeleton variant="rect" height={130} />
+                <Skeleton variant="rect" height={130} />
+              </div>
+            </div>
+          </Paper>
+        </>
+      );
     } else {
       return (
         <Paper elevation={3}>
