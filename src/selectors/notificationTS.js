@@ -1,19 +1,21 @@
+import { getAuth } from './auth';
+
 export const getNotificationTS = (state) => state.notificationTS;
 
 export const getCompleteLaterClickedAt = (state) => {
-  const nts = getNotificationTS(state);
+  const auth = getAuth(state);
+  const userId = auth.userId;
+  const completeLaterClickedAt = localStorage.getItem('completeLaterClickedAt' + userId) || null;
 
-  if (!nts) return null;
-
-  return nts.completeLaterClickedAt;
+  return completeLaterClickedAt;
 };
 
 export const emailVerifyLaterClickedAt = (state) => {
-  const nts = getNotificationTS(state);
+  const auth = getAuth(state);
+  const userId = auth.userId;
+  const emailVerifyLaterClickedAt = localStorage.getItem('emailVerifyLaterClickedAt' + userId) || null;
 
-  if (!nts) return null;
-
-  return nts.emailVerifyLaterClickedAt;
+  return emailVerifyLaterClickedAt;
 };
 
 export const completeLaterClickedBefore1Day = (state) => {

@@ -3,12 +3,11 @@ import storage from 'redux-persist/lib/storage';
 
 import { auth } from 'reducers/auth';
 import { account } from 'reducers/account';
-import { notificationTS } from 'reducers/notificationTimeStamp';
 import { locationMap, marketingPlatforms, popularCategories } from 'reducers/publicReducer';
 
 import { AUTH_CLEAR_STORE } from 'actions/auth';
 
-const persistWhitelist = ['auth', 'account', 'notificationTS'];
+const persistWhitelist = ['auth', 'account'];
 
 export const persistConfig = {
   key: 'root',
@@ -22,7 +21,6 @@ const appReducer = combineReducers({
   locationMap,
   marketingPlatforms,
   popularCategories,
-  notificationTS,
 });
 
 const rootReducer = (state, action) => {

@@ -32,18 +32,19 @@ const useStyles = makeStyles((theme) => ({
 
 const NotVerifiedModal = (props) => {
   const isVerified = props.isVerified;
+  const emailVerifyLaterClickedBefore1Day = props.emailVerifyLaterClickedBefore1Day;
   const classes = useStyles();
   const [open, setOpen] = useState(false);
   const [emailSent, setEmailSent] = useState(false);
   const [response, setResponse] = useState('Sorry, Email has not been sent. Please check your email and try again');
 
   useEffect(() => {
-    if (!isVerified && props.emailVerifyLaterClickedBefore1Day) {
+    if (!isVerified && emailVerifyLaterClickedBefore1Day) {
       setOpen(true);
     } else {
       setOpen(false);
     }
-  });
+  }, [setOpen, isVerified, emailVerifyLaterClickedBefore1Day]);
 
   const handleClose = () => {
     props.notificationTSRequest('emailVerifyLaterClickedAt', () => setOpen(false));

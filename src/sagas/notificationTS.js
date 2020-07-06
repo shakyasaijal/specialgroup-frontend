@@ -1,16 +1,19 @@
-import { put, takeLatest, all } from 'redux-saga/effects';
+import { takeLatest, all, select } from 'redux-saga/effects';
 
-import { notificationTSUpdate, NOTIFICATION_TIMESTAMP_REQUEST } from 'actions/notificationTimeStamp';
+import { NOTIFICATION_TIMESTAMP_REQUEST } from 'actions/notificationTimeStamp';
+
+import { getAuth } from 'selectors/auth';
 
 function* handleNotificationTSRequest(action) {
   const { field, callbackSuccess, callbackError } = action;
 
   try {
+    const auth = yield select(getAuth);
     const d = new Date();
     const ts = d.getTime();
-    const tsMap = { [field]: ts };
+    const tsVar = field + auth.userId;
 
-    yield put(notificationTSUpdate(tsMap));
+    localStorage.setItem(tsVar, ts);
     if (callbackSuccess) callbackSuccess();
   } catch (e) {
     if (callbackError) callbackError(e.message);
