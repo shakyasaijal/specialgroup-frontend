@@ -64,9 +64,7 @@ const SignIn = (props) => {
   };
 
   function callbackSuccess() {
-    const { history } = props;
-
-    history.push(PATHS.COMPLETE_PROFILE);
+    props.history.push(PATHS.HOME);
   }
 
   const getFormErrors = () => {

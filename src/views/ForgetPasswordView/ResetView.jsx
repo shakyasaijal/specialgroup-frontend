@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ERROR_EMPTY_PASSWORD, ERROR_CONFIRM_PASSWORD, ERROR_PASSWORD_LENGTH } from 'constants/ErrorMessages';
+import { useCallback } from 'react';
 
 const ResetView = () => {
   const initialState = {
@@ -13,7 +14,7 @@ const ResetView = () => {
     setState({ ...state, [prop]: e.target.value });
   };
 
-  const getFormErrors = () => {
+  const getFormErrors = useCallback(() => {
     const err = {};
     const { newPassword, confirmPassword } = state;
 
@@ -22,7 +23,7 @@ const ResetView = () => {
       err.commonError = ERROR_CONFIRM_PASSWORD;
 
     return err;
-  };
+  }, [state]);
 
   useEffect(() => {
     const err = getFormErrors();
@@ -32,7 +33,7 @@ const ResetView = () => {
 
       return;
     }
-  }, [state.newPassword, state.confirmPassword]);
+  }, [getFormErrors]);
 
   const handleSubmit = (e) => {
     e.preventDefault();

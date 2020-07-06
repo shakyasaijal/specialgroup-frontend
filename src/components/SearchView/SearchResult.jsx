@@ -49,7 +49,7 @@ const SearchResult = () => {
     if (window.innerWidth <= 492) {
       setState({ ...state, filter: false });
     }
-  }, [state.filter]);
+  }, [state]);
 
   const [pagination, setPagination] = useState({ currentPage: 1, productPerPage: 25 });
   const seller = [];

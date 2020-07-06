@@ -15,7 +15,13 @@ export const persistConfig = {
   whitelist: persistWhitelist,
 };
 
-const appReducer = combineReducers({ auth, account, locationMap, marketingPlatforms, popularCategories });
+const appReducer = combineReducers({
+  auth,
+  account,
+  locationMap,
+  marketingPlatforms,
+  popularCategories,
+});
 
 const rootReducer = (state, action) => {
   if (action.type === AUTH_CLEAR_STORE) {
