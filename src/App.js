@@ -26,6 +26,7 @@ import Wishlist from 'views/WislistView/Wishlist';
 import CompleteProfile from 'views/CompleteProfileView/CompleteProfile';
 import ProductsDetail from 'views/ProductsView/ProductsDetail';
 import ResetPassword from 'views/ForgetPasswordView/ResetView';
+import Cart from 'views/CartView/Cart';
 
 import './assets/sass/common.css';
 
@@ -90,6 +91,7 @@ function App() {
 
               <SpecialGroupRoute exact path={PATHS.SIGNIN} component={ReduxSignIn} title="Special Group | Login" />
               <SpecialGroupRoute exact path={PATHS.SIGNUP} component={ReduxSignUp} title="Special Group | Sign Up" />
+              <SpecialGroupRoute exact path={PATHS.CART} component={Cart} title="Special Group | My Cart" />
               <SpecialGroupRoute
                 exact
                 path={PATHS.RESET_PASSWORD}

@@ -13,6 +13,7 @@ const PATHS = {
   PRODUCT_DETAILS: '/product/:id',
   SEARCH_RESULT: '/search',
   ADD_TO_CART: '/add-to-cart',
+  CART: '/cart',
   NOT_FOUND: '*',
 };
 
