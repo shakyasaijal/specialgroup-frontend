@@ -4,7 +4,7 @@ import Box from '@material-ui/core/Box';
 
 import FullWidthAd from 'components/Advertisement/FullWidthAd';
 import HalfWidthAd from 'components/Advertisement/HalfWidthAd';
-import RecommendedSlider from 'components/Products/RecommendedSlider';
+import RecommendedSlider from 'views/HomeView/Components/RecommendedSlider';
 import Chips from 'components/Chips/Chips';
 
 import TopRow from './Components/TopRow';
@@ -31,7 +31,7 @@ const Home = (props) => {
         small={getImageUrl('images/faker/ads/nepatopMobile.jpg')}
       />
       <Chips />
-      <JustForYou />
+      {props.isLoggedIn && <JustForYou />}
       <PopularProducts />
       <HalfWidthAd small={smallAds} />
       <RecommendedSlider settings={settingsForSix} />

@@ -4,7 +4,8 @@ import authSaga from './auth';
 import accountSaga from './account';
 import publicSaga from './publicSaga';
 import notificationTSSaga from './notificationTS';
+import productSaga from './product';
 
 export default function* rootSaga() {
-  yield all([authSaga(), accountSaga(), publicSaga(), notificationTSSaga()]);
+  yield all([authSaga(), accountSaga(), publicSaga(), notificationTSSaga(), productSaga()]);
 }

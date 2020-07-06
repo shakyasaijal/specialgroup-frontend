@@ -13,3 +13,7 @@ export const googleToken = () => {
 export const facebookToken = () => {
   return process.env.REACT_APP_FACEBOOK_TOKEN;
 };
+
+export const getImageBasePath = (fileName) => {
+  return getEndPoint() + fileName;
+};
