@@ -24,20 +24,21 @@ const useStyles = makeStyles((theme) => ({
 
 const PersonalProfile = (props) => {
   const classes = useStyles();
-  const { phone, district, address } = props.account;
+  const { phone = '', district = '', address = '' } = props.account;
   const [state, setState] = useState({ phone, district, address });
   const [errors, setErrors] = useState({ phone: '', district: '', address: '' });
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-
-    setState({ ...state, [name]: value });
-  };
 
   useEffect(() => {
     props.locationMapRequest();
     // eslint-disable-next-line
   }, []);
+
+  const handleChange = (e) => {
+    e.preventDefault();
+    const { name, value } = e.target;
+
+    setState({ ...state, [name]: value });
+  };
 
   const handleNext = () => {
     const err = getErrors();
@@ -75,7 +76,7 @@ const PersonalProfile = (props) => {
             <form className="form center">
               <div className="form-group">
                 <label>Phone Number *</label>
-                <input type="text" name="phone" value={state.phone} onChange={handleChange} autoComplete="off" />
+                <input type="text" name="phone" value={state.phone || ''} onChange={handleChange} autoComplete="off" />
                 {errors.phone && <small className="error">{errors.phone}</small>}
               </div>
               <div className="form-group">
@@ -84,7 +85,7 @@ const PersonalProfile = (props) => {
                   <Select
                     native
                     name="district"
-                    value={state.district ? state.district : ''}
+                    value={state.district}
                     onChange={handleChange}
                     id="grouped-native-select"
                   >
@@ -98,7 +99,13 @@ const PersonalProfile = (props) => {
               </div>
               <div className="form-group">
                 <label>Address *</label>
-                <input type="text" name="address" value={state.address} onChange={handleChange} autoComplete="off" />
+                <input
+                  type="text"
+                  name="address"
+                  value={state.address || ''}
+                  onChange={handleChange}
+                  autoComplete="off"
+                />
                 {errors.address && <small className="error">{errors.address}</small>}
               </div>
             </form>
@@ -116,7 +123,7 @@ const PersonalProfile = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    locations: state.locationMap || [],
+    locations: state.locationMap,
   };
 };
 

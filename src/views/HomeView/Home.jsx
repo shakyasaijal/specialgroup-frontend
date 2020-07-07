@@ -21,7 +21,8 @@ const Home = (props) => {
     if (props.isLoggedIn && !props.isProfileCompleted && props.completeLaterClickedBefore1Day) {
       props.history.push(PATHS.COMPLETE_PROFILE);
     }
-  });
+    // eslint-disable-next-line
+  }, []);
 
   return (
     <Box>

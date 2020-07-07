@@ -19,6 +19,7 @@ const SignedOutRow = (props) => {
   useEffect(() => {
     props.shopByCategoryRequest(shopByCategorySuccess);
     props.recentArrivalsRequest(recentArrivalsSuccess);
+    // eslint-disable-next-line
   }, []);
 
   const shopByCategorySuccess = () => {
