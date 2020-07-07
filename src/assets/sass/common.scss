@@ -35,7 +35,6 @@
 .page-wrapper {
   padding-bottom: 11vh;
   background: #f2f3f7;
-  padding-top: 1vh;
 }
 
 .black-color {
@@ -1833,6 +1832,35 @@ textarea:focus {
   overflow-y: hidden;
   z-index: 90000;
 }
+// .slick-track
+// {
+// width: 100% !important;
+// }
 
+.cat-bs-slider {
+  display: grid;
+  grid-template-columns: 20% 78%;
+  grid-gap: 2% 2%;
+  & .categories {
+    background: white;
+    display: grid;
+    padding: 10px 15px;
+  }
+  & .bs-slider {
+    & .bs-img-container {
+      width: auto;
+      height: auto;
+      & img {
+        width: 100%;
+        height: 100%;
+        object-fit: scale-down;
+      }
+    }
+  }
+}
+
+.mb15 {
+  margin-bottom: 15px;
+}
 @import 'base/responsive';
 @import 'base/helpers';
