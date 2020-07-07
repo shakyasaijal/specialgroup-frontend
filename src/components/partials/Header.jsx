@@ -17,6 +17,8 @@ import { isLoggedIn, isAccountVerified, getAccountInfo } from 'selectors/auth';
 
 import PATHS from 'routes';
 import NotVerifiedModal from './NotVerifiedModal';
+import Badge from '@material-ui/core/Badge';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 const Header = (props) => {
   const { isLoggedIn, isAccountVerified, account } = props;
@@ -39,6 +41,14 @@ const Header = (props) => {
 
   return (
     <>
+      <div className="mobile-cover">
+        <div className="cover-img-container verticle-center center text-center">
+          <img src="https://www.chaudharygroup.com/templates/cg/images/logo.png" alt="Special Group" />
+          <div className="welcome">
+            <CircularProgress />
+          </div>
+        </div>
+      </div>
       <header className="page-header">
         <div className="top-panel-wrapper border-bottom">
           <div className="top-panel">
@@ -124,8 +134,12 @@ const Header = (props) => {
               </div>
             </div>
             <div className="cart">
-              <AddShoppingCartIcon fontSize="large" />
-              <span className="anchor paddingLeft-5">Cart</span>
+              <Badge badgeContent={4} color="primary">
+                <AddShoppingCartIcon fontSize="large" />
+              </Badge>
+              <Link to={PATHS.CART} className="cart-name">
+                Cart
+              </Link>
             </div>
           </div>
         </div>

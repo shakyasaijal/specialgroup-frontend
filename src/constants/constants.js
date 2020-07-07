@@ -986,3 +986,42 @@ export const settingsForOne = {
   slidesToScroll: 1,
   swipeToSlide: true,
 };
+
+export const cartItems = () => {
+  return {
+    status: true,
+    grandTotal: 9600,
+    data: [
+      {
+        id: 1,
+        productName: 'Remote Car',
+        productId: 33,
+        price: '200',
+        image: getImageUrl('images/faker/products/remote.jpg'),
+        quantity: 2,
+        status: true,
+        total: 400.0,
+      },
+      {
+        id: 2,
+        productName: 'Helicopter',
+        productId: 31,
+        price: '2250',
+        image: getImageUrl('images/faker/products/helicopter.jpg'),
+        quantity: 4,
+        status: true,
+        total: 9000.0,
+      },
+      {
+        id: 4,
+        productName: 'Barbies Set',
+        productId: 34,
+        price: '200',
+        image: getImageUrl('images/faker/products/barbie.jpg'),
+        quantity: 1,
+        status: false,
+        total: 200.0,
+      },
+    ],
+  };
+};
