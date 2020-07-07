@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import { makeStyles } from '@material-ui/core/styles';
@@ -106,4 +107,4 @@ const mapStateToProps = (state) => {
 
 const dispatchProps = { completeProfileRequest, notificationTSRequest };
 
-export default connect(mapStateToProps, dispatchProps)(CompleteProfile);
+export default connect(mapStateToProps, dispatchProps)(withRouter(CompleteProfile));

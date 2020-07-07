@@ -52,6 +52,7 @@ const PopularProducts = (props) => {
   useEffect(() => {
     setPopularProductLoaded(false);
     props.popularProductRequest(popularProductSuccess);
+    // eslint-disable-next-line
   }, [props.isLoggedIn]);
 
   const popularProductSuccess = () => {

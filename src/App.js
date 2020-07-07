@@ -24,7 +24,7 @@ import OrderHistory from './views/OrderHistoryView/OrderHistory';
 import LoginAndSecurity from './views/LoginAndSecurityView/LoginAndSecurity';
 import Wishlist from 'views/WislistView/Wishlist';
 import CompleteProfile from 'views/CompleteProfileView/CompleteProfile';
-import ProductsDetail from 'views/ProductsView/ProductsDetail';
+import ProductDetails from 'views/ProductsView/ReduxProductDetails';
 import ResetPassword from 'views/ForgetPasswordView/ResetView';
 import Cart from 'views/CartView/Cart';
 
@@ -67,13 +67,7 @@ function App() {
               <SpecialGroupRoute
                 exact
                 path={PATHS.PRODUCT_DETAILS}
-                component={ProductsDetail}
-                title="Special Group | Details"
-              />
-              <SpecialGroupRoute
-                exact
-                path={PATHS.PRODUCT_DETAILS}
-                component={ProductsDetail}
+                component={ProductDetails}
                 title="Special Group | Details"
               />
               <SpecialGroupRoute
@@ -101,18 +95,6 @@ function App() {
 
               {/* Pages that Non Authorized user can't access goes inside AuthContainer */}
               <AuthContainer>
-                <SpecialGroupRoute
-                  exact
-                  path={PATHS.ADD_TO_CART}
-                  component={ProductsDetail}
-                  title="Special Group | Details"
-                />
-                <SpecialGroupRoute
-                  exact
-                  path={PATHS.ADD_TO_CART}
-                  component={ProductsDetail}
-                  title="Special Group | Details"
-                />
                 <SpecialGroupRoute
                   exact
                   path={PATHS.COMPLETE_PROFILE}

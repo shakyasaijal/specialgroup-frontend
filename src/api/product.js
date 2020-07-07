@@ -48,6 +48,12 @@ class Product {
 
     return Product._get(path);
   }
+
+  static productDetails(id) {
+    const path = `/v1/api/products/${id}`;
+
+    return Product._get(path);
+  }
 }
 
 export default Product;
