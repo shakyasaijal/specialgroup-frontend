@@ -19,6 +19,7 @@ const SignedOutRow = (props) => {
   useEffect(() => {
     props.shopByCategoryRequest(shopByCategorySuccess);
     props.recentArrivalsRequest(recentArrivalsSuccess);
+    // eslint-disable-next-line
   }, []);
 
   const shopByCategorySuccess = () => {
@@ -29,23 +30,27 @@ const SignedOutRow = (props) => {
     setRecentArrivalsLoaded(true);
   };
 
+  const skeletonLoader = () => {
+    return (
+      <>
+        <Paper elevation={3}>
+          <div className="grid-item">
+            <h4 className="medium-dark">Shop by Category</h4>
+            <div className="head grid2">
+              <Skeleton variant="rect" height={130} />
+              <Skeleton variant="rect" height={130} />
+              <Skeleton variant="rect" height={130} />
+              <Skeleton variant="rect" height={130} />
+            </div>
+          </div>
+        </Paper>
+      </>
+    );
+  };
+
   const shopByCategoryPaper = () => {
     if (!shopByCategoryLoaded) {
-      return (
-        <>
-          <Paper elevation={3}>
-            <div className="grid-item">
-              <h4 className="medium-dark">Shop by Category</h4>
-              <div className="head grid2">
-                <Skeleton variant="rect" height={130} />
-                <Skeleton variant="rect" height={130} />
-                <Skeleton variant="rect" height={130} />
-                <Skeleton variant="rect" height={130} />
-              </div>
-            </div>
-          </Paper>
-        </>
-      );
+      return skeletonLoader();
     } else {
       return (
         <Paper elevation={3}>
@@ -57,7 +62,7 @@ const SignedOutRow = (props) => {
                   <div className="image-contain">
                     <img src={getImageBasePath(category.image)} alt={category.name} />
                   </div>
-                  <Link to="/">
+                  <Link to={`/products/${category.id}`}>
                     <div className="category-name text-center">{category.name}</div>
                   </Link>
                 </div>
@@ -73,22 +78,8 @@ const SignedOutRow = (props) => {
   };
 
   const recentArrivalsPaper = () => {
-    if (!recentArrivalsLoaded) {
-      return (
-        <>
-          <Paper elevation={3}>
-            <div className="grid-item">
-              <h4 className="medium-dark">New Arrivals</h4>
-              <div className="head grid2 mt10">
-                <Skeleton variant="rect" height={130} />
-                <Skeleton variant="rect" height={130} />
-                <Skeleton variant="rect" height={130} />
-                <Skeleton variant="rect" height={130} />
-              </div>
-            </div>
-          </Paper>
-        </>
-      );
+    if (!recentArrivalsLoaded && !shopByCategoryLoaded) {
+      return skeletonLoader();
     } else {
       return (
         <Paper elevation={3}>
@@ -100,7 +91,9 @@ const SignedOutRow = (props) => {
                   <div className="image-contain">
                     <img src={getImageBasePath(category.image)} alt={category.name} />
                   </div>
-                  <div className="category-name text-center">{category.name}</div>
+                  <Link to={`/products/${category.id}`}>
+                    <div className="category-name text-center">{category.name}</div>
+                  </Link>
                 </div>
               ))}
             </div>

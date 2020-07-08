@@ -16,6 +16,7 @@ const FeaturedCategory = (props) => {
 
   useEffect(() => {
     props.shopByCategoryRequest(shopByCategorySuccess);
+    // eslint-disable-next-line
   }, []);
 
   const shopByCategorySuccess = () => {

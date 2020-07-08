@@ -20,6 +20,7 @@ const RecommendedSlider = (props) => {
 
   useEffect(() => {
     props.recommendedProductRequest(recommendedProductSuccess);
+    // eslint-disable-next-line
   }, []);
 
   const recommendedProductSuccess = () => {

@@ -1,7 +1,8 @@
 import React from 'react';
+
 import Pagination from '@material-ui/lab/Pagination';
 
-const Paginations = (props) => {
+const SpecialGroupPagination = (props) => {
   const pageNumbers = [];
 
   for (let i = 1; i <= Math.ceil(props.totalResponse / props.responsePerPage); i++) {
@@ -10,7 +11,6 @@ const Paginations = (props) => {
 
   return (
     <Pagination
-      variant=""
       shape="rounded"
       color="primary"
       count={pageNumbers.length}
@@ -20,4 +20,4 @@ const Paginations = (props) => {
   );
 };
 
-export default Paginations;
+export default SpecialGroupPagination;

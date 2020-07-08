@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
 import Button from '@material-ui/core/Button';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
@@ -238,4 +238,4 @@ const SignUp = (props) => {
   );
 };
 
-export default SignUp;
+export default withRouter(SignUp);

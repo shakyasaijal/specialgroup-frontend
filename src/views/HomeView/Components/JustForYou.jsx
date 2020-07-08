@@ -49,6 +49,7 @@ const JustForYou = (props) => {
 
   useEffect(() => {
     props.forYouProductRequest(forYouProductSuccess);
+    // eslint-disable-next-line
   }, []);
 
   const forYouProductSuccess = () => {

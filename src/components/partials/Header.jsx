@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import FacebookIcon from '@material-ui/icons/Facebook';
@@ -160,4 +160,4 @@ const mapStateToProps = (state) => {
 
 const dispatchProps = { authLogoutRequest };
 
-export default connect(mapStateToProps, dispatchProps)(Header);
+export default connect(mapStateToProps, dispatchProps)(withRouter(Header));

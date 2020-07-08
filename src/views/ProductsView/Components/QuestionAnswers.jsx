@@ -1,15 +1,18 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+
 import { makeStyles, withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import { Link } from 'react-router-dom';
-import PATHS from 'routes';
 import MuiAccordion from '@material-ui/core/Accordion';
 import MuiAccordionSummary from '@material-ui/core/AccordionSummary';
 import MuiAccordionDetails from '@material-ui/core/AccordionDetails';
 import Backdrop from '@material-ui/core/Backdrop';
 import CircularProgress from '@material-ui/core/CircularProgress';
-import Paginations from './Paginations';
+
+import PATHS from 'routes';
+
+import SpecialGroupPagination from './SpecialGroupPagination';
 
 const Accordion = withStyles({
   root: {
@@ -202,7 +205,7 @@ const QuestionAnswers = (props) => {
                   </div>
                 ))}
                 <div className="pagination">
-                  <Paginations
+                  <SpecialGroupPagination
                     responsePerPage={pagination.responsePerPage}
                     totalResponse={comments.length}
                     currentPage={pagination.currentPage}

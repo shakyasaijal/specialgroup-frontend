@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { withRouter } from 'react-router-dom';
 
 import Box from '@material-ui/core/Box';
 
@@ -21,7 +22,8 @@ const Home = (props) => {
     if (props.isLoggedIn && !props.isProfileCompleted && props.completeLaterClickedBefore1Day) {
       props.history.push(PATHS.COMPLETE_PROFILE);
     }
-  });
+    // eslint-disable-next-line
+  }, []);
 
   return (
     <Box>
@@ -39,4 +41,4 @@ const Home = (props) => {
   );
 };
 
-export default Home;
+export default withRouter(Home);
