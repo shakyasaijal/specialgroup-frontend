@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { withRouter } from 'react-router-dom';
 
 import Box from '@material-ui/core/Box';
 
@@ -40,4 +41,4 @@ const Home = (props) => {
   );
 };
 
-export default Home;
+export default withRouter(Home);

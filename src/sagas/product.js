@@ -13,6 +13,8 @@ import {
   recommendedProductUpdate,
   recentArrivalsUpdate,
   forYouProductUpdate,
+  PRODUCT_DETAILS_REQUEST,
+  productDetailsUpdate,
 } from 'actions/product';
 
 function* handleShopByCategoryRequest(action) {
@@ -110,6 +112,25 @@ function* watchForYouProductRequest() {
   yield takeLatest(FOR_YOU_PRODUCT_REQUEST, handleForYouProductRequest);
 }
 
+function* handleProductDetailsRequest(action) {
+  const { id, callbackSuccess, callbackError } = action;
+
+  try {
+    const res = yield call(Product.productDetails, id);
+
+    if (!res.status) throw new Error(res.data.message);
+
+    yield put(productDetailsUpdate(res.data));
+    if (callbackSuccess) callbackSuccess();
+  } catch (e) {
+    if (callbackError) callbackError(e.message);
+  }
+}
+
+function* watchProductDetailsRequest() {
+  yield takeLatest(PRODUCT_DETAILS_REQUEST, handleProductDetailsRequest);
+}
+
 export default function* productSaga() {
   yield all([
     watchShopByCategoryRequest(),
@@ -117,5 +138,6 @@ export default function* productSaga() {
     watchRecommendedProductRequest(),
     watchRecentArrivalsRequest(),
     watchForYouProductRequest(),
+    watchProductDetailsRequest(),
   ]);
 }

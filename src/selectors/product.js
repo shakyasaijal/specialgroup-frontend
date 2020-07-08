@@ -49,3 +49,11 @@ export const getJustForYouProduct = (state) => {
 
   return products.forYouProduct;
 };
+
+export const getProductDetails = (state) => {
+  const productDetails = state.productDetails;
+
+  if (!productDetails) return null;
+
+  return productDetails;
+};

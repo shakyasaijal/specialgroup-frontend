@@ -3,7 +3,7 @@ import storage from 'redux-persist/lib/storage';
 
 import { auth } from 'reducers/auth';
 import { account } from 'reducers/account';
-import { products } from 'reducers/product';
+import { products, productDetails } from 'reducers/product';
 import { locationMap, marketingPlatforms, popularCategories } from 'reducers/publicReducer';
 
 import { AUTH_CLEAR_STORE } from 'actions/auth';
@@ -23,15 +23,17 @@ const appReducer = combineReducers({
   marketingPlatforms,
   popularCategories,
   products,
+  productDetails,
 });
 
 const rootReducer = (state, action) => {
   if (action.type === AUTH_CLEAR_STORE) {
     let { products } = state;
-    const { popularProduct, recommendedProduct } = products;
+    const { productDetails } = state;
+    const { popularProduct, recommendedProduct, recentArrivals } = products;
 
-    products = { popularProduct, recommendedProduct };
-    state = { products };
+    products = { popularProduct, recommendedProduct, recentArrivals };
+    state = { products, productDetails };
   }
 
   return appReducer(state, action);

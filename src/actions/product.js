@@ -13,6 +13,9 @@ export const RECENT_ARRIVALS_UPDATE = 'RECENT_ARRIVALS_UPDATE';
 export const FOR_YOU_PRODUCT_REQUEST = 'FOR_YOU_PRODUCT_REQUEST';
 export const FOR_YOU_PRODUCT_UPDATE = 'FOR_YOU_PRODUCT_UPDATE';
 
+export const PRODUCT_DETAILS_REQUEST = 'PRODUCT_DETAILS_REQUEST';
+export const PRODUCT_DETAILS_UPDATE = 'PRODUCT_DETAILS_UPDATE';
+
 export function shopByCategoryRequest(callbackSuccess = null, callbackError = null) {
   return {
     type: SHOP_BY_CATEGORY_REQUEST,
@@ -85,5 +88,21 @@ export function forYouProductUpdate(product) {
   return {
     type: FOR_YOU_PRODUCT_UPDATE,
     product,
+  };
+}
+
+export function productDetailsRequest(id, callbackSuccess = null, callbackError = null) {
+  return {
+    type: PRODUCT_DETAILS_REQUEST,
+    id,
+    callbackSuccess,
+    callbackError,
+  };
+}
+
+export function productDetailsUpdate(productDetails) {
+  return {
+    type: PRODUCT_DETAILS_UPDATE,
+    productDetails,
   };
 }
