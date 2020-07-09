@@ -1,5 +1,18 @@
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
+  .shop-by-category {
+    grid-gap: 3% 1% !important;
+  }
+  .cat-bs-slider {
+    grid-template-columns: 100%;
+    width: 100vw;
+    position: relative;
+    left: -5%;
+    & .categories {
+      max-height: 300px;
+      display: none;
+    }
+  }
   .mobile-cover {
     display: unset;
     animation: cssAnimation 0s ease-in 4s forwards;

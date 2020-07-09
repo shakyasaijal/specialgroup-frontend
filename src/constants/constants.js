@@ -943,7 +943,7 @@ export const getPercentage = (oldPrice, currentPrice) => {
 
 export const settingsForSix = {
   dots: false,
-  infinite: true,
+  infinite: false,
   speed: 500,
   autoplay: true,
   slidesToShow: 6,
@@ -1024,4 +1024,27 @@ export const cartItems = () => {
       },
     ],
   };
+};
+
+export const carouselImages = () => {
+  return [
+    {
+      id: 1,
+      small: getImageUrl('images/faker/carousel/martSmall.jpg'),
+      big: getImageUrl('images/faker/carousel/martBig.jpg'),
+      categoryId: 1,
+    },
+    {
+      id: 2,
+      small: getImageUrl('images/faker/carousel/soapSmall.webp'),
+      big: getImageUrl('images/faker/carousel/soapBig.webp'),
+      categoryId: 20,
+    },
+    {
+      id: 3,
+      small: getImageUrl('images/faker/carousel/womenSmall.webp'),
+      big: getImageUrl('images/faker/carousel/womenBig.webp'),
+      categoryId: 15,
+    },
+  ];
 };
