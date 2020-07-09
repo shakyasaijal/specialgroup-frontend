@@ -1048,3 +1048,156 @@ export const carouselImages = () => {
     },
   ];
 };
+
+export const productsByCategory = () => {
+  return [
+    {
+      id: 1,
+      category: 'Groceries',
+      categoryBanner: getImageUrl('images/faker/categories/Groceries.png'),
+      subCategory: [
+        {
+          id: 1,
+          name: 'Vegetables',
+          image: getImageUrl('images/faker/vegetables/vegetables.jpg'),
+          products: [
+            {
+              id: 1,
+              name: 'Celery',
+              image: getImageUrl('images/faker/vegetables/celery.jpg'),
+              price: '100',
+              wishlist: true,
+              oldPrice: '120',
+            },
+            {
+              id: 2,
+              name: 'Asian Greens',
+              image: getImageUrl('images/faker/vegetables/asianGreen.jpg'),
+              price: '220',
+              wishlist: true,
+              oldPrice: '',
+            },
+            {
+              id: 3,
+              name: 'Cauliflower',
+              image: getImageUrl('images/faker/vegetables/cauli.jpg'),
+              price: '150',
+              wishlist: true,
+              oldPrice: '',
+            },
+            {
+              id: 4,
+              name: 'Cucumber',
+              image: getImageUrl('images/faker/vegetables/cucumber.jpg'),
+              price: '125',
+              wishlist: true,
+              oldPrice: '150',
+            },
+            {
+              id: 5,
+              name: 'Celery',
+              image: getImageUrl('images/faker/vegetables/celery.jpg'),
+              price: '100',
+              wishlist: true,
+              oldPrice: '120',
+            },
+          ],
+        },
+        {
+          id: 2,
+          name: 'Cold Drinks',
+          image: getImageUrl('images/faker/subcategories/coldDrinks.png'),
+          products: [
+            {
+              id: 1,
+              name: 'Sprite Lime',
+              image: getImageUrl('images/faker/products/sprite.png'),
+              price: '220',
+              wishlist: true,
+              oldPrice: '',
+            },
+            {
+              id: 2,
+              name: 'Coca Cola Can',
+              image: getImageUrl('images/faker/products/coke.png'),
+              price: '220',
+              wishlist: true,
+              oldPrice: '',
+            },
+            {
+              id: 3,
+              name: 'Tropicana Jar',
+              image: getImageUrl('images/faker/products/tropicana.jpeg'),
+              price: '620',
+              wishlist: true,
+              oldPrice: '700',
+            },
+            {
+              id: 4,
+              name: 'Australian Grown',
+              image: getImageUrl('images/faker/products/american.png'),
+              price: '510',
+              wishlist: true,
+              oldPrice: '550',
+            },
+            {
+              id: 5,
+              name: 'Real Juice',
+              image: getImageUrl('images/faker/products/realJuice.jpg'),
+              price: '210',
+              wishlist: true,
+              oldPrice: '',
+            },
+          ],
+        },
+        {
+          id: 3,
+          name: 'Snacks',
+          image: getImageUrl('images/faker/subcategories/snacks.png'),
+          products: [
+            {
+              id: 1,
+              name: 'Lays',
+              image: getImageUrl('images/faker/products/lays.jpg'),
+              price: '150',
+              wishlist: true,
+              oldPrice: '',
+            },
+            {
+              id: 2,
+              name: "Chief's Choice",
+              image: getImageUrl('images/faker/products/chief.jpg'),
+              price: '220',
+              wishlist: false,
+              oldPrice: '',
+            },
+            {
+              id: 3,
+              name: 'Bikano Dalmoth',
+              image: getImageUrl('images/faker/products/dalmoth.jpg'),
+              price: '110',
+              wishlist: true,
+              oldPrice: '150',
+            },
+            {
+              id: 4,
+              name: 'Birds Eye Fish',
+              image: getImageUrl('images/faker/products/birdsEye.png'),
+              price: '560',
+              wishlist: false,
+              oldPrice: '',
+            },
+            {
+              id: 5,
+              name: 'Agricana Banana Chips',
+              image: getImageUrl('images/faker/products/banana.jpg'),
+              price: '350',
+              wishlist: true,
+              oldPrice: '',
+            },
+          ],
+        },
+      ],
+    },
+  ];
+};

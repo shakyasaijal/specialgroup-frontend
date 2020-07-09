@@ -14,6 +14,7 @@ const PATHS = {
   SEARCH_RESULT: '/search',
   ADD_TO_CART: '/add-to-cart',
   CART: '/cart',
+  CATEGORY_BANNER: '/category/:id',
   NOT_FOUND: '*',
 };
 

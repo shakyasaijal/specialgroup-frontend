@@ -20,12 +20,12 @@ const BannerSlider = () => {
 
   const sliders = carouselImages();
   const settings = {
+    autoplay: true,
     dots: true,
     infinite: true,
     speed: 300,
     arrows: false,
     slidesToShow: 1,
-    autoplay: true,
     slidesToScroll: 1,
   };
 
@@ -59,7 +59,7 @@ const BannerSlider = () => {
       <div className="categories hide-on-mobile">
         {state.categoryLoaded ? (
           cat.map((category, index) => (
-            <Link to="/" key={index}>
+            <Link to={`/category/${category.id}`} key={index}>
               <div className="category">{category.name}</div>
             </Link>
           ))

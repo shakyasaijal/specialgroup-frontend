@@ -27,6 +27,7 @@ import CompleteProfile from 'views/CompleteProfileView/CompleteProfile';
 import ProductDetails from 'views/ProductsView/ReduxProductDetails';
 import ResetPassword from 'views/ForgetPasswordView/ResetView';
 import Cart from 'views/CartView/Cart';
+import ProductsByCategory from 'views/ProductsView/ByCategory/ProductsByCategory';
 
 import './assets/sass/common.css';
 
@@ -70,6 +71,13 @@ function App() {
                 component={ProductDetails}
                 title="Special Group | Details"
               />
+              <SpecialGroupRoute
+                exact
+                path={PATHS.CATEGORY_BANNER}
+                component={ProductsByCategory}
+                title="Special Group"
+              />
+
               <SpecialGroupRoute
                 exact
                 path={PATHS.FORGET_PASSWORD}
