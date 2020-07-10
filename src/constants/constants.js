@@ -1032,19 +1032,22 @@ export const carouselImages = () => {
       id: 1,
       small: getImageUrl('images/faker/carousel/martSmall.jpg'),
       big: getImageUrl('images/faker/carousel/martBig.jpg'),
-      categoryId: 1,
+      title: 'Big Mart Sell',
+      slug: 'big-mart-sell',
     },
     {
       id: 2,
       small: getImageUrl('images/faker/carousel/soapSmall.webp'),
       big: getImageUrl('images/faker/carousel/soapBig.webp'),
-      categoryId: 20,
+      title: 'Mega Soap Sell',
+      slug: 'mega-soap-sell',
     },
     {
       id: 3,
       small: getImageUrl('images/faker/carousel/womenSmall.webp'),
       big: getImageUrl('images/faker/carousel/womenBig.webp'),
-      categoryId: 15,
+      title: 'Womens Day Offer',
+      slug: 'womends-day-offer',
     },
   ];
 };
@@ -1193,6 +1196,587 @@ export const productsByCategory = () => {
               image: getImageUrl('images/faker/products/banana.jpg'),
               price: '350',
               wishlist: true,
+              oldPrice: '',
+            },
+          ],
+        },
+      ],
+    },
+  ];
+};
+
+export const wowData = () => {
+  return [
+    {
+      id: 3,
+      small: getImageUrl('images/faker/carousel/womenSmall.webp'),
+      big: getImageUrl('images/faker/carousel/womenBig.webp'),
+      title: 'Womens Day Offer',
+      subCategories: [
+        {
+          id: 1,
+          name: 'Perfumes',
+          products: [
+            {
+              id: 1,
+              name: 'OH Lola',
+              image: 'https://top5bestdeals.com/wp-content/uploads/2019/01/Best-Perfumes-for-Women.png',
+              price: 3500,
+              oldPrice: '',
+            },
+            {
+              id: 2,
+              name: 'Fragnance',
+              image:
+                'https://img.pngio.com/mon-guerlain-type-perfume-oil-womens-fragrance-oils-fragrance-oil-png-470_600.png',
+              price: 5500,
+              oldPrice: 6500,
+            },
+            {
+              id: 3,
+              name: 'Engime',
+              image:
+                'https://img2.pngio.com/gucci-premiere-perfume-gucci-premiere-eau-de-toilette-tester-gucci-perfume-png-1038_1250.png',
+              price: 3500,
+              oldPrice: 3600,
+            },
+            {
+              id: 4,
+              name: 'Belle Olette',
+              image: 'https://www.kindpng.com/picc/m/292-2924514_perfume-women-perfume-png-transparent-png.png',
+              price: 3500,
+              oldPrice: '',
+            },
+            {
+              id: 5,
+              name: 'Shalimar',
+              image: 'https://img.fragrancex.com/images/products/parent/medium/1187w.jpg',
+              price: 3500,
+              oldPrice: '',
+            },
+            {
+              id: 6,
+              name: 'Flower Bomb',
+              image:
+                'https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1564692259-vkr_002-FlowerBomb-Edp-default.png',
+              price: 3100,
+              oldPrice: 3200,
+            },
+            {
+              id: 7,
+              name: 'Accento',
+              image:
+                'https://www.kindpng.com/picc/m/189-1895292_women-perfume-png-sospiro-collection-eau-de-parfum.png',
+              price: 3500,
+              oldPrice: '',
+            },
+            {
+              id: 8,
+              name: 'Illusion',
+              image: 'https://i.ya-webdesign.com/images/women-perfume-png.png',
+              price: 3500,
+              oldPrice: 4500,
+            },
+            {
+              id: 9,
+              name: 'Tommy Girl',
+              image:
+                'https://w0.pngwave.com/png/284/548/tommy-girl-summer-perfume-3-4-oz-edt-spray-for-women-tommy-hilfiger-tommy-girl-woman-european-style-winds-png-clip-art.png',
+              price: 3500,
+              oldPrice: '',
+            },
+            {
+              id: 1,
+              name: 'OH Lola',
+              image: 'https://top5bestdeals.com/wp-content/uploads/2019/01/Best-Perfumes-for-Women.png',
+              price: 3500,
+              oldPrice: '',
+            },
+            {
+              id: 2,
+              name: 'Fragnance',
+              image:
+                'https://img.pngio.com/mon-guerlain-type-perfume-oil-womens-fragrance-oils-fragrance-oil-png-470_600.png',
+              price: 5500,
+              oldPrice: 6500,
+            },
+            {
+              id: 3,
+              name: 'Engime',
+              image:
+                'https://img2.pngio.com/gucci-premiere-perfume-gucci-premiere-eau-de-toilette-tester-gucci-perfume-png-1038_1250.png',
+              price: 3500,
+              oldPrice: 3600,
+            },
+            {
+              id: 4,
+              name: 'Belle Olette',
+              image: 'https://www.kindpng.com/picc/m/292-2924514_perfume-women-perfume-png-transparent-png.png',
+              price: 3500,
+              oldPrice: '',
+            },
+            {
+              id: 5,
+              name: 'Shalimar',
+              image: 'https://img.fragrancex.com/images/products/parent/medium/1187w.jpg',
+              price: 3500,
+              oldPrice: '',
+            },
+            {
+              id: 6,
+              name: 'Flower Bomb',
+              image:
+                'https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1564692259-vkr_002-FlowerBomb-Edp-default.png',
+              price: 3100,
+              oldPrice: 3200,
+            },
+            {
+              id: 7,
+              name: 'Accento',
+              image:
+                'https://www.kindpng.com/picc/m/189-1895292_women-perfume-png-sospiro-collection-eau-de-parfum.png',
+              price: 3500,
+              oldPrice: '',
+            },
+            {
+              id: 8,
+              name: 'Illusion',
+              image: 'https://i.ya-webdesign.com/images/women-perfume-png.png',
+              price: 3500,
+              oldPrice: 4500,
+            },
+            {
+              id: 8,
+              name: 'Tommy Girl',
+              image:
+                'https://w0.pngwave.com/png/284/548/tommy-girl-summer-perfume-3-4-oz-edt-spray-for-women-tommy-hilfiger-tommy-girl-woman-european-style-winds-png-clip-art.png',
+              price: 3500,
+              oldPrice: '',
+            },
+          ],
+        },
+        {
+          id: 1,
+          name: 'Fragnance',
+          products: [
+            {
+              id: 1,
+              name: 'OH Lola',
+              image: 'https://top5bestdeals.com/wp-content/uploads/2019/01/Best-Perfumes-for-Women.png',
+              price: 3500,
+              oldPrice: '',
+            },
+            {
+              id: 2,
+              name: 'Fragnance',
+              image:
+                'https://img.pngio.com/mon-guerlain-type-perfume-oil-womens-fragrance-oils-fragrance-oil-png-470_600.png',
+              price: 5500,
+              oldPrice: 6500,
+            },
+            {
+              id: 3,
+              name: 'Engime',
+              image:
+                'https://img2.pngio.com/gucci-premiere-perfume-gucci-premiere-eau-de-toilette-tester-gucci-perfume-png-1038_1250.png',
+              price: 3500,
+              oldPrice: 3600,
+            },
+            {
+              id: 4,
+              name: 'Belle Olette',
+              image: 'https://www.kindpng.com/picc/m/292-2924514_perfume-women-perfume-png-transparent-png.png',
+              price: 3500,
+              oldPrice: '',
+            },
+            {
+              id: 5,
+              name: 'Shalimar',
+              image: 'https://img.fragrancex.com/images/products/parent/medium/1187w.jpg',
+              price: 3500,
+              oldPrice: '',
+            },
+            {
+              id: 6,
+              name: 'Flower Bomb',
+              image:
+                'https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1564692259-vkr_002-FlowerBomb-Edp-default.png',
+              price: 3100,
+              oldPrice: 3200,
+            },
+            {
+              id: 7,
+              name: 'Accento',
+              image:
+                'https://www.kindpng.com/picc/m/189-1895292_women-perfume-png-sospiro-collection-eau-de-parfum.png',
+              price: 3500,
+              oldPrice: '',
+            },
+            {
+              id: 8,
+              name: 'Illusion',
+              image: 'https://i.ya-webdesign.com/images/women-perfume-png.png',
+              price: 3500,
+              oldPrice: 4500,
+            },
+            {
+              id: 9,
+              name: 'Tommy Girl',
+              image:
+                'https://w0.pngwave.com/png/284/548/tommy-girl-summer-perfume-3-4-oz-edt-spray-for-women-tommy-hilfiger-tommy-girl-woman-european-style-winds-png-clip-art.png',
+              price: 3500,
+              oldPrice: '',
+            },
+            {
+              id: 1,
+              name: 'OH Lola',
+              image: 'https://top5bestdeals.com/wp-content/uploads/2019/01/Best-Perfumes-for-Women.png',
+              price: 3500,
+              oldPrice: '',
+            },
+            {
+              id: 2,
+              name: 'Fragnance',
+              image:
+                'https://img.pngio.com/mon-guerlain-type-perfume-oil-womens-fragrance-oils-fragrance-oil-png-470_600.png',
+              price: 5500,
+              oldPrice: 6500,
+            },
+            {
+              id: 3,
+              name: 'Engime',
+              image:
+                'https://img2.pngio.com/gucci-premiere-perfume-gucci-premiere-eau-de-toilette-tester-gucci-perfume-png-1038_1250.png',
+              price: 3500,
+              oldPrice: 3600,
+            },
+            {
+              id: 4,
+              name: 'Belle Olette',
+              image: 'https://www.kindpng.com/picc/m/292-2924514_perfume-women-perfume-png-transparent-png.png',
+              price: 3500,
+              oldPrice: '',
+            },
+            {
+              id: 5,
+              name: 'Shalimar',
+              image: 'https://img.fragrancex.com/images/products/parent/medium/1187w.jpg',
+              price: 3500,
+              oldPrice: '',
+            },
+            {
+              id: 6,
+              name: 'Flower Bomb',
+              image:
+                'https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1564692259-vkr_002-FlowerBomb-Edp-default.png',
+              price: 3100,
+              oldPrice: 3200,
+            },
+            {
+              id: 7,
+              name: 'Accento',
+              image:
+                'https://www.kindpng.com/picc/m/189-1895292_women-perfume-png-sospiro-collection-eau-de-parfum.png',
+              price: 3500,
+              oldPrice: '',
+            },
+            {
+              id: 8,
+              name: 'Illusion',
+              image: 'https://i.ya-webdesign.com/images/women-perfume-png.png',
+              price: 3500,
+              oldPrice: 4500,
+            },
+            {
+              id: 8,
+              name: 'Tommy Girl',
+              image:
+                'https://w0.pngwave.com/png/284/548/tommy-girl-summer-perfume-3-4-oz-edt-spray-for-women-tommy-hilfiger-tommy-girl-woman-european-style-winds-png-clip-art.png',
+              price: 3500,
+              oldPrice: '',
+            },
+          ],
+        },
+        {
+          id: 1,
+          name: 'Watches',
+          products: [
+            {
+              id: 1,
+              name: 'OH Lola',
+              image: 'https://top5bestdeals.com/wp-content/uploads/2019/01/Best-Perfumes-for-Women.png',
+              price: 3500,
+              oldPrice: '',
+            },
+            {
+              id: 2,
+              name: 'Fragnance',
+              image:
+                'https://img.pngio.com/mon-guerlain-type-perfume-oil-womens-fragrance-oils-fragrance-oil-png-470_600.png',
+              price: 5500,
+              oldPrice: 6500,
+            },
+            {
+              id: 3,
+              name: 'Engime',
+              image:
+                'https://img2.pngio.com/gucci-premiere-perfume-gucci-premiere-eau-de-toilette-tester-gucci-perfume-png-1038_1250.png',
+              price: 3500,
+              oldPrice: 3600,
+            },
+            {
+              id: 4,
+              name: 'Belle Olette',
+              image: 'https://www.kindpng.com/picc/m/292-2924514_perfume-women-perfume-png-transparent-png.png',
+              price: 3500,
+              oldPrice: '',
+            },
+            {
+              id: 5,
+              name: 'Shalimar',
+              image: 'https://img.fragrancex.com/images/products/parent/medium/1187w.jpg',
+              price: 3500,
+              oldPrice: '',
+            },
+            {
+              id: 6,
+              name: 'Flower Bomb',
+              image:
+                'https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1564692259-vkr_002-FlowerBomb-Edp-default.png',
+              price: 3100,
+              oldPrice: 3200,
+            },
+            {
+              id: 7,
+              name: 'Accento',
+              image:
+                'https://www.kindpng.com/picc/m/189-1895292_women-perfume-png-sospiro-collection-eau-de-parfum.png',
+              price: 3500,
+              oldPrice: '',
+            },
+            {
+              id: 8,
+              name: 'Illusion',
+              image: 'https://i.ya-webdesign.com/images/women-perfume-png.png',
+              price: 3500,
+              oldPrice: 4500,
+            },
+            {
+              id: 9,
+              name: 'Tommy Girl',
+              image:
+                'https://w0.pngwave.com/png/284/548/tommy-girl-summer-perfume-3-4-oz-edt-spray-for-women-tommy-hilfiger-tommy-girl-woman-european-style-winds-png-clip-art.png',
+              price: 3500,
+              oldPrice: '',
+            },
+            {
+              id: 1,
+              name: 'OH Lola',
+              image: 'https://top5bestdeals.com/wp-content/uploads/2019/01/Best-Perfumes-for-Women.png',
+              price: 3500,
+              oldPrice: '',
+            },
+            {
+              id: 2,
+              name: 'Fragnance',
+              image:
+                'https://img.pngio.com/mon-guerlain-type-perfume-oil-womens-fragrance-oils-fragrance-oil-png-470_600.png',
+              price: 5500,
+              oldPrice: 6500,
+            },
+            {
+              id: 3,
+              name: 'Engime',
+              image:
+                'https://img2.pngio.com/gucci-premiere-perfume-gucci-premiere-eau-de-toilette-tester-gucci-perfume-png-1038_1250.png',
+              price: 3500,
+              oldPrice: 3600,
+            },
+            {
+              id: 4,
+              name: 'Belle Olette',
+              image: 'https://www.kindpng.com/picc/m/292-2924514_perfume-women-perfume-png-transparent-png.png',
+              price: 3500,
+              oldPrice: '',
+            },
+            {
+              id: 5,
+              name: 'Shalimar',
+              image: 'https://img.fragrancex.com/images/products/parent/medium/1187w.jpg',
+              price: 3500,
+              oldPrice: '',
+            },
+            {
+              id: 6,
+              name: 'Flower Bomb',
+              image:
+                'https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1564692259-vkr_002-FlowerBomb-Edp-default.png',
+              price: 3100,
+              oldPrice: 3200,
+            },
+            {
+              id: 7,
+              name: 'Accento',
+              image:
+                'https://www.kindpng.com/picc/m/189-1895292_women-perfume-png-sospiro-collection-eau-de-parfum.png',
+              price: 3500,
+              oldPrice: '',
+            },
+            {
+              id: 8,
+              name: 'Illusion',
+              image: 'https://i.ya-webdesign.com/images/women-perfume-png.png',
+              price: 3500,
+              oldPrice: 4500,
+            },
+            {
+              id: 8,
+              name: 'Tommy Girl',
+              image:
+                'https://w0.pngwave.com/png/284/548/tommy-girl-summer-perfume-3-4-oz-edt-spray-for-women-tommy-hilfiger-tommy-girl-woman-european-style-winds-png-clip-art.png',
+              price: 3500,
+              oldPrice: '',
+            },
+          ],
+        },
+        {
+          id: 1,
+          name: 'Fragnant',
+          products: [
+            {
+              id: 1,
+              name: 'OH Lola',
+              image: 'https://top5bestdeals.com/wp-content/uploads/2019/01/Best-Perfumes-for-Women.png',
+              price: 3500,
+              oldPrice: '',
+            },
+            {
+              id: 2,
+              name: 'Fragnance',
+              image:
+                'https://img.pngio.com/mon-guerlain-type-perfume-oil-womens-fragrance-oils-fragrance-oil-png-470_600.png',
+              price: 5500,
+              oldPrice: 6500,
+            },
+            {
+              id: 3,
+              name: 'Engime',
+              image:
+                'https://img2.pngio.com/gucci-premiere-perfume-gucci-premiere-eau-de-toilette-tester-gucci-perfume-png-1038_1250.png',
+              price: 3500,
+              oldPrice: 3600,
+            },
+            {
+              id: 4,
+              name: 'Belle Olette',
+              image: 'https://www.kindpng.com/picc/m/292-2924514_perfume-women-perfume-png-transparent-png.png',
+              price: 3500,
+              oldPrice: '',
+            },
+            {
+              id: 5,
+              name: 'Shalimar',
+              image: 'https://img.fragrancex.com/images/products/parent/medium/1187w.jpg',
+              price: 3500,
+              oldPrice: '',
+            },
+            {
+              id: 6,
+              name: 'Flower Bomb',
+              image:
+                'https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1564692259-vkr_002-FlowerBomb-Edp-default.png',
+              price: 3100,
+              oldPrice: 3200,
+            },
+            {
+              id: 7,
+              name: 'Accento',
+              image:
+                'https://www.kindpng.com/picc/m/189-1895292_women-perfume-png-sospiro-collection-eau-de-parfum.png',
+              price: 3500,
+              oldPrice: '',
+            },
+            {
+              id: 8,
+              name: 'Illusion',
+              image: 'https://i.ya-webdesign.com/images/women-perfume-png.png',
+              price: 3500,
+              oldPrice: 4500,
+            },
+            {
+              id: 9,
+              name: 'Tommy Girl',
+              image:
+                'https://w0.pngwave.com/png/284/548/tommy-girl-summer-perfume-3-4-oz-edt-spray-for-women-tommy-hilfiger-tommy-girl-woman-european-style-winds-png-clip-art.png',
+              price: 3500,
+              oldPrice: '',
+            },
+            {
+              id: 1,
+              name: 'OH Lola',
+              image: 'https://top5bestdeals.com/wp-content/uploads/2019/01/Best-Perfumes-for-Women.png',
+              price: 3500,
+              oldPrice: '',
+            },
+            {
+              id: 2,
+              name: 'Fragnance',
+              image:
+                'https://img.pngio.com/mon-guerlain-type-perfume-oil-womens-fragrance-oils-fragrance-oil-png-470_600.png',
+              price: 5500,
+              oldPrice: 6500,
+            },
+            {
+              id: 3,
+              name: 'Engime',
+              image:
+                'https://img2.pngio.com/gucci-premiere-perfume-gucci-premiere-eau-de-toilette-tester-gucci-perfume-png-1038_1250.png',
+              price: 3500,
+              oldPrice: 3600,
+            },
+            {
+              id: 4,
+              name: 'Belle Olette',
+              image: 'https://www.kindpng.com/picc/m/292-2924514_perfume-women-perfume-png-transparent-png.png',
+              price: 3500,
+              oldPrice: '',
+            },
+            {
+              id: 5,
+              name: 'Shalimar',
+              image: 'https://img.fragrancex.com/images/products/parent/medium/1187w.jpg',
+              price: 3500,
+              oldPrice: '',
+            },
+            {
+              id: 6,
+              name: 'Flower Bomb',
+              image:
+                'https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1564692259-vkr_002-FlowerBomb-Edp-default.png',
+              price: 3100,
+              oldPrice: 3200,
+            },
+            {
+              id: 7,
+              name: 'Accento',
+              image:
+                'https://www.kindpng.com/picc/m/189-1895292_women-perfume-png-sospiro-collection-eau-de-parfum.png',
+              price: 3500,
+              oldPrice: '',
+            },
+            {
+              id: 8,
+              name: 'Illusion',
+              image: 'https://i.ya-webdesign.com/images/women-perfume-png.png',
+              price: 3500,
+              oldPrice: 4500,
+            },
+            {
+              id: 8,
+              name: 'Tommy Girl',
+              image:
+                'https://w0.pngwave.com/png/284/548/tommy-girl-summer-perfume-3-4-oz-edt-spray-for-women-tommy-hilfiger-tommy-girl-woman-european-style-winds-png-clip-art.png',
+              price: 3500,
               oldPrice: '',
             },
           ],
