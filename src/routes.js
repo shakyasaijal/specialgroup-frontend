@@ -16,6 +16,7 @@ const PATHS = {
   CART: '/cart',
   CATEGORY_BANNER: '/category/:id',
   WOW_BANNER: '/wow/:slug',
+  CUSTOMER_CARE: '/customer-care',
   NOT_FOUND: '*',
 };
 

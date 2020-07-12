@@ -1785,3 +1785,104 @@ export const wowData = () => {
     },
   ];
 };
+
+export const contactInfo = () => {
+  return [
+    {
+      info: `
+    <h4>Special Group - eCommerce Platform</h4>
+    <p>Tel: 01-4200505, 01-4200506</p>
+    <p>Email: service@specialgroup.com</p>
+    <p>Feel free to contact us</p>
+    `,
+      services: [
+        {
+          value: '1',
+          label: 'Complaints',
+        },
+        {
+          value: '2',
+          label: 'Review',
+        },
+        {
+          value: '3',
+          label: 'Recommendation',
+        },
+        {
+          value: '4',
+          label: 'Queries',
+        },
+      ],
+    },
+  ];
+};
+
+export const orderHelp = () => {
+  return [
+    {
+      id: 1,
+      question: 'Within how many days we will receive the order?',
+      answer: 'Probably, you will receive within 24hours from business hours.',
+    },
+    {
+      id: 1,
+      question: 'Within how many days we will receive the order?',
+      answer: 'Probably, you will receive within 24hours from business hours.',
+    },
+    {
+      id: 1,
+      question: 'Within how many days we will receive the order?',
+      answer: 'Probably, you will receive within 24hours from business hours.',
+    },
+    {
+      id: 1,
+      question: 'Within how many days we will receive the order?',
+      answer: 'Probably, you will receive within 24hours from business hours.',
+    },
+    {
+      id: 1,
+      question: 'Within how many days we will receive the order?',
+      answer: 'Probably, you will receive within 24hours from business hours.',
+    },
+    {
+      id: 1,
+      question: 'Within how many days we will receive the order?',
+      answer: 'Probably, you will receive within 24hours from business hours.',
+    },
+  ];
+};
+
+export const faqHelp = () => {
+  return [
+    {
+      id: 1,
+      question: 'Within how many days we will receive the order?',
+      answer: 'Probably, you will receive within 24hours from business hours.',
+    },
+    {
+      id: 1,
+      question: 'Within how many days we will receive the order?',
+      answer: 'Probably, you will receive within 24hours from business hours.',
+    },
+    {
+      id: 1,
+      question: 'Within how many days we will receive the order?',
+      answer: 'Probably, you will receive within 24hours from business hours.',
+    },
+    {
+      id: 1,
+      question: 'Within how many days we will receive the order?',
+      answer: 'Probably, you will receive within 24hours from business hours.',
+    },
+    {
+      id: 1,
+      question: 'Within how many days we will receive the order?',
+      answer: 'Probably, you will receive within 24hours from business hours.',
+    },
+    {
+      id: 1,
+      question: 'Within how many days we will receive the order?',
+      answer: 'Probably, you will receive within 24hours from business hours.',
+    },
+  ];
+};

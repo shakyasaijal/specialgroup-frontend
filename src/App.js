@@ -29,6 +29,7 @@ import ResetPassword from 'views/ForgetPasswordView/ResetView';
 import Cart from 'views/CartView/Cart';
 import ProductsByCategory from 'views/ProductsView/ByCategory/ProductsByCategory';
 import Wow from 'components/Wow/Wow';
+import CustomerCare from 'views/CustomerCareView/CustomerCare';
 
 import './assets/sass/common.css';
 
@@ -66,6 +67,12 @@ function App() {
             <Switch>
               <SpecialGroupRoute exact path={PATHS.HOME} component={Home} />
               <SpecialGroupRoute exact path={PATHS.WISHLIST} component={Wishlist} title="Special Group | Wishlist" />
+              <SpecialGroupRoute
+                exact
+                path={PATHS.CUSTOMER_CARE}
+                component={CustomerCare}
+                title="Special Group | Customer Care"
+              />
               <SpecialGroupRoute
                 exact
                 path={PATHS.PRODUCT_DETAILS}
