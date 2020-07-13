@@ -42,8 +42,9 @@ const ProductsByCategory = () => {
       }, 3000);
     }
     fetchProducts();
+    // eslint-disable-next-line
   }, []);
-  
+
   return (
     <div className="row noTop">
       <div className="marts">

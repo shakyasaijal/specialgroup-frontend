@@ -52,6 +52,7 @@ const BannerSlider = () => {
       }, 2500);
     }
     load();
+    // eslint-disable-next-line
   }, []);
 
   return (

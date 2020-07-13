@@ -70,7 +70,7 @@ const ResetView = () => {
               <input
                 type="password"
                 autoFocus
-                value={state.newPassword}
+                value={state.newPassword || ''}
                 onChange={handleChange('newPassword')}
                 name="new_password"
                 required
@@ -88,7 +88,7 @@ const ResetView = () => {
               <label>Confirm Password</label>
               <input
                 type="password"
-                value={state.confirmPassword}
+                value={state.confirmPassword || ''}
                 onChange={handleChange('confirmPassword')}
                 name="confirm_password"
                 required

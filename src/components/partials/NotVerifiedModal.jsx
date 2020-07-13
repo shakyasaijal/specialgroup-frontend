@@ -7,7 +7,7 @@ import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
 
 import { resendVerificationEmailRequest } from 'actions/auth';
-import { notificationTSRequest } from 'actions/notificationTimeStamp';
+import { notificationTSRequest } from 'actions/notificationTS';
 
 import { isAccountVerified } from 'selectors/auth';
 import { emailVerifyLaterClickedBefore1Day } from 'selectors/notificationTS';
