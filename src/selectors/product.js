@@ -57,3 +57,19 @@ export const getProductDetails = (state) => {
 
   return productDetails;
 };
+
+export const getBanners = (state) => {
+  const bannerSlider = state.products.bannerSlider;
+
+  if (!bannerSlider) return null;
+
+  return bannerSlider.banners;
+};
+
+export const getCategories = (state) => {
+  const bannerSlider = state.products.bannerSlider;
+
+  if (!bannerSlider) return null;
+
+  return bannerSlider.categories;
+};

@@ -63,7 +63,7 @@ const PopularProducts = (props) => {
 
   for (let i = 0; i < 6; i++) {
     skeletons.push(
-      <div>
+      <div key={i}>
         <Skeleton variant="rect" height={140} />
         <Skeleton variant="rect" height={50} className="mt10" />
       </div>

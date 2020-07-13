@@ -15,6 +15,8 @@ import {
   forYouProductUpdate,
   PRODUCT_DETAILS_REQUEST,
   productDetailsUpdate,
+  bannerDataUpdate,
+  BANNER_DATA_REQUEST,
 } from 'actions/product';
 
 function* handleShopByCategoryRequest(action) {
@@ -131,6 +133,25 @@ function* watchProductDetailsRequest() {
   yield takeLatest(PRODUCT_DETAILS_REQUEST, handleProductDetailsRequest);
 }
 
+function* handleBannerDataRequest(action) {
+  const { callbackSuccess, callbackError } = action;
+
+  try {
+    const res = yield call(Product.bannerSlider);
+
+    if (!res.status) throw new Error(res.data.message);
+
+    yield put(bannerDataUpdate(res.data));
+    if (callbackSuccess) callbackSuccess();
+  } catch (e) {
+    if (callbackError) callbackError();
+  }
+}
+
+function* watchBannerDataRequest() {
+  yield takeLatest(BANNER_DATA_REQUEST, handleBannerDataRequest);
+}
+
 export default function* productSaga() {
   yield all([
     watchShopByCategoryRequest(),
@@ -139,5 +160,6 @@ export default function* productSaga() {
     watchRecentArrivalsRequest(),
     watchForYouProductRequest(),
     watchProductDetailsRequest(),
+    watchBannerDataRequest(),
   ]);
 }

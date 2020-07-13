@@ -32,9 +32,9 @@ const rootReducer = (state, action) => {
   if (action.type === AUTH_CLEAR_STORE) {
     let { products } = state;
     const { productDetails, notificationTS } = state;
-    const { popularProduct, recommendedProduct, recentArrivals } = products;
+    const { popularProduct, recommendedProduct, recentArrivals, bannerSlider } = products;
 
-    products = { popularProduct, recommendedProduct, recentArrivals };
+    products = { popularProduct, recommendedProduct, recentArrivals, bannerSlider };
     state = { products, productDetails, notificationTS };
   }
 

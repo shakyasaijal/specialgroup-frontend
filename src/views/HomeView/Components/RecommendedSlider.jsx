@@ -39,7 +39,7 @@ const RecommendedSlider = (props) => {
                 <Link to="/">
                   <div key={index} className="column-flex">
                     <div className="image-container">
-                      <img src={getImageBasePath(product.image)} alt={product.name} />
+                      <img src={getImageBasePath(product.mainImage)} alt={product.name} />
                     </div>
                     <h3 className="text-center product-title">{product.name}</h3>
                     <small className="text-center product-price">

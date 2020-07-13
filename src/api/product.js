@@ -54,6 +54,12 @@ class Product {
 
     return Product._get(path);
   }
+
+  static bannerSlider() {
+    const path = '/v1/api/banner-sliders/';
+
+    return Product._get(path);
+  }
 }
 
 export default Product;

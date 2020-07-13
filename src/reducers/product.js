@@ -5,6 +5,7 @@ import {
   RECENT_ARRIVALS_UPDATE,
   FOR_YOU_PRODUCT_UPDATE,
   PRODUCT_DETAILS_UPDATE,
+  BANNER_DATA_UPDATE,
 } from 'actions/product';
 
 const defaultState = {};
@@ -27,6 +28,9 @@ export const products = (state = defaultState, action) => {
     }
     case FOR_YOU_PRODUCT_UPDATE: {
       return { ...state, forYouProduct: product };
+    }
+    case BANNER_DATA_UPDATE: {
+      return { ...state, bannerSlider: product };
     }
     default:
       return state;

@@ -89,7 +89,7 @@ const SignedOutRow = (props) => {
               {props.recentArrivals.map((category, index) => (
                 <div className="head-item" key={index}>
                   <div className="image-contain">
-                    <img src={getImageBasePath(category.image)} alt={category.name} />
+                    <img src={getImageBasePath(category.mainImage)} alt={category.name} />
                   </div>
                   <Link to={`/products/${category.id}`}>
                     <div className="category-name text-center">{category.name}</div>
