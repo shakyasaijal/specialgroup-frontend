@@ -43,7 +43,7 @@ const ProductsByCategory = () => {
     }
     fetchProducts();
   }, []);
-  
+
   return (
     <div className="row noTop">
       <div className="marts">

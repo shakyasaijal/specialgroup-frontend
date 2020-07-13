@@ -72,7 +72,7 @@ const BannerSlider = () => {
           <Slider {...settings}>
             {state.slidersLoaded ? (
               state.slides.map((slide, index) => (
-                <Link to={slide.link} key={`carousel${index}`} className="bs-image">
+                <Link to={`/wow/${slide.slug}`} key={`carousel${index}`} className="bs-image">
                   <img src={slide.image} alt={index} />
                 </Link>
               ))

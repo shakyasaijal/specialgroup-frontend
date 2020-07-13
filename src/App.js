@@ -28,6 +28,7 @@ import ProductDetails from 'views/ProductsView/ReduxProductDetails';
 import ResetPassword from 'views/ForgetPasswordView/ResetView';
 import Cart from 'views/CartView/Cart';
 import ProductsByCategory from 'views/ProductsView/ByCategory/ProductsByCategory';
+import Wow from 'components/Wow/Wow';
 
 import './assets/sass/common.css';
 
@@ -77,7 +78,7 @@ function App() {
                 component={ProductsByCategory}
                 title="Special Group"
               />
-
+              <SpecialGroupRoute exact path={PATHS.WOW_BANNER} component={Wow} title="Special Group" />
               <SpecialGroupRoute
                 exact
                 path={PATHS.FORGET_PASSWORD}

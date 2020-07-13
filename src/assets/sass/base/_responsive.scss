@@ -1,5 +1,66 @@
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
+  .wowjsx {
+    & .title {
+      padding: 20px 0px;
+      font-size: 30px;
+    }
+    & .sub-title {
+      font-size: 25px;
+      padding: 6px;
+    }
+    & .banner-image img {
+      width: 100%;
+    }
+    & .sub-cat {
+      padding: 10px 15px;
+    }
+    & .sub-cat:not(:first-child) {
+      margin-top: 25px;
+    }
+    & .search-results {
+      padding: 10px;
+      & .results {
+        & .search-card {
+          & .search-content-list {
+            grid-template-columns: 35% 65%;
+          }
+          width: 50%;
+          padding: 4px;
+          & .image-container {
+            height: 100px;
+            width: 90px;
+          }
+          & .product-name {
+            max-height: 6vh;
+            padding: 8px 0 0 10px;
+            font-size: 16px;
+          }
+          & .price-and-cart {
+            padding: 0 10px;
+            & .currentPrice {
+              font-size: 14px;
+            }
+            & .line-through {
+              font-size: 12px;
+            }
+          }
+          & .add-to-cart {
+            width: 100%;
+            & .btn {
+              width: 100%;
+              padding: 8px 0;
+              margin-top: 20px;
+              margin-bottom: 10px;
+            }
+          }
+        }
+        .search-card-list {
+          width: 100%;
+        }
+      }
+    }
+  }
   .shop-by-category {
     grid-gap: 3% 1% !important;
   }
