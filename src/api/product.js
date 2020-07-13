@@ -60,6 +60,12 @@ class Product {
 
     return Product._get(path);
   }
+
+  static productsByCategory(id) {
+    const path = `/v1/api/product-by-category/${id}`;
+
+    return Product._get(path);
+  }
 }
 
 export default Product;

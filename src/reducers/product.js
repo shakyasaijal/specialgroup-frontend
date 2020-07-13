@@ -6,6 +6,7 @@ import {
   FOR_YOU_PRODUCT_UPDATE,
   PRODUCT_DETAILS_UPDATE,
   BANNER_DATA_UPDATE,
+  PRODUCTS_BY_CATEGORY_UPDATE,
 } from 'actions/product';
 
 const defaultState = {};
@@ -43,6 +44,20 @@ export const productDetails = (state = defaultState, action) => {
   switch (action.type) {
     case PRODUCT_DETAILS_UPDATE: {
       return { ...state, ...productDetails };
+    }
+    default:
+      return state;
+  }
+};
+
+export const productsByCategory = (state = defaultState, action) => {
+  const { products, categoryId } = action;
+
+  switch (action.type) {
+    case PRODUCTS_BY_CATEGORY_UPDATE: {
+      const productByCategory = { [categoryId]: products };
+
+      return { ...state, ...productByCategory };
     }
     default:
       return state;

@@ -62,7 +62,7 @@ const SignedOutRow = (props) => {
                   <div className="image-contain">
                     <img src={getImageBasePath(category.image)} alt={category.name} />
                   </div>
-                  <Link to={`/products/${category.id}`}>
+                  <Link to={`/category/${category.id}`}>
                     <div className="category-name text-center">{category.name}</div>
                   </Link>
                 </div>
@@ -91,7 +91,7 @@ const SignedOutRow = (props) => {
                   <div className="image-contain">
                     <img src={getImageBasePath(category.mainImage)} alt={category.name} />
                   </div>
-                  <Link to={`/products/${category.id}`}>
+                  <Link to={`/product/${category.id}`}>
                     <div className="category-name text-center">{category.name}</div>
                   </Link>
                 </div>

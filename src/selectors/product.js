@@ -73,3 +73,11 @@ export const getCategories = (state) => {
 
   return bannerSlider.categories;
 };
+
+export const getProductsByCategory = (state) => {
+  const ProductsByCategoryId = state.productsByCategory;
+
+  if (!ProductsByCategoryId) return null;
+
+  return ProductsByCategoryId;
+};
