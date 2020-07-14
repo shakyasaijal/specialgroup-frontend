@@ -84,7 +84,7 @@ const PopularProducts = (props) => {
                     <div className="image-container">
                       <CardMedia
                         className={classes.media}
-                        image={getImageBasePath(product.image)}
+                        image={getImageBasePath(product.mainImage)}
                         title={product.name}
                       />
                     </div>
