@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
 import Paper from '@material-ui/core/Paper';
 
@@ -11,8 +11,11 @@ import RightBar from './Components/RightBar';
 
 import RecommendedSlider from 'views/HomeView/Components/RecommendedSlider';
 
+import PATHS from 'routes';
+
 const ProductDetails = (props) => {
   const { isLoggedIn } = props;
+  const [productQuantity, setProductQuantity] = useState(0);
   const [productDetailsLoaded, setProductDetailsLoaded] = useState(false);
   const comments = useRef(null);
 
@@ -25,6 +28,18 @@ const ProductDetails = (props) => {
 
   const productDetailsSuccess = () => {
     setProductDetailsLoaded(true);
+  };
+
+  const addToCart = () => {
+    props.addToCartRequest(props.productDetails.id, productQuantity, addToCartSuccess);
+  };
+
+  const addToCartSuccess = () => {
+    props.history.push(PATHS.CART);
+  };
+
+  const handleChange = (e) => {
+    setProductQuantity(e.target.value);
   };
 
   const getProductIdParam = () => {
@@ -99,9 +114,17 @@ const ProductDetails = (props) => {
                   <div className="flex">
                     <div className="count">
                       <label>Quantity</label>
-                      <input type="number" name="count" min="1" placeholder="1" required className="quantity" />
+                      <input
+                        type="number"
+                        name="count"
+                        min="1"
+                        value={productQuantity}
+                        onChange={handleChange}
+                        required
+                        className="quantity"
+                      />
                       <Link to="/">
-                        <button type="submit" className="button">
+                        <button onClick={addToCart} className="button">
                           Add to cart
                         </button>
                       </Link>
@@ -148,4 +171,4 @@ const ProductDetails = (props) => {
   );
 };
 
-export default ProductDetails;
+export default withRouter(ProductDetails);

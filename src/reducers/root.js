@@ -4,12 +4,13 @@ import storage from 'redux-persist/lib/storage';
 import { auth } from 'reducers/auth';
 import { account } from 'reducers/account';
 import { products, productDetails, productsByCategory } from 'reducers/product';
+import { cart } from 'reducers/cart';
 import { locationMap, marketingPlatforms, popularCategories } from 'reducers/publicReducer';
 import { notificationTS } from 'reducers/notificationTS';
 
 import { AUTH_CLEAR_STORE } from 'actions/auth';
 
-const persistWhitelist = ['auth', 'account', 'products', 'notificationTS'];
+const persistWhitelist = ['auth', 'account', 'products', 'cart', 'notificationTS'];
 
 export const persistConfig = {
   key: 'root',
@@ -26,6 +27,7 @@ const appReducer = combineReducers({
   products,
   productDetails,
   productsByCategory,
+  cart,
   notificationTS,
 });
 

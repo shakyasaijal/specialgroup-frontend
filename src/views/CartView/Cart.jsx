@@ -1,5 +1,7 @@
-import React from 'react';
-import { cartItems } from 'constants/constants';
+import React, { useState, useEffect } from 'react';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+
 import { makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -9,8 +11,15 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
-import { Link } from 'react-router-dom';
+
 import Marts from 'components/partials/Marts';
+
+import { cartDataRequest } from 'actions/cart';
+
+import { getCart } from 'selectors/cart';
+import { isAccountVerified } from 'selectors/auth';
+
+import { cartItems } from 'constants/constants';
 
 const useStyles = makeStyles({
   table: {
@@ -18,12 +27,21 @@ const useStyles = makeStyles({
   },
 });
 
-const Cart = () => {
+const Cart = (props) => {
   const carts = cartItems();
   const classes = useStyles();
-  const isVerified = true;
+  const isVerified = props.isVerified;
+  const [cartDataLoaded, setCartDataLoaded] = useState(false);
 
-  return (
+  useEffect(() => {
+    props.cartDataRequest(callbackSuccess);
+  }, []);
+
+  const callbackSuccess = () => {
+    setCartDataLoaded(true);
+  };
+
+  return cartDataLoaded ? (
     <>
       <div className="row carts">
         <div className="page-title">My Cart</div>
@@ -66,7 +84,7 @@ const Cart = () => {
                       </TableCell>
                       <TableCell align="right">{cart.price}</TableCell>
                       <TableCell align="right">
-                        <input className="quantity" type="number" value={cart.quantity} />
+                        <input className="quantity" value={cart.quantity || ''} disabled={true} />
                       </TableCell>
                       <TableCell align="right">{cart.total}</TableCell>
                     </TableRow>
@@ -78,7 +96,7 @@ const Cart = () => {
                           Check Out
                         </Link>
                       ) : (
-                        'Please verify your account to checkout.'
+                        'We are unable to proceed checkout unless you verify your email. verify here'
                       )}
                     </TableCell>
                     <TableCell>
@@ -107,7 +125,19 @@ const Cart = () => {
       </div>
       <Marts />
     </>
+  ) : (
+    // should add skeleton design
+    <></>
   );
 };
 
-export default Cart;
+const mapStateToProps = (state) => {
+  return {
+    isVerified: isAccountVerified(state),
+    cart: getCart(state),
+  };
+};
+
+const dispatchProps = { cartDataRequest };
+
+export default connect(mapStateToProps, dispatchProps)(Cart);
