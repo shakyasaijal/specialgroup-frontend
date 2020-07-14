@@ -23,16 +23,6 @@ const BannerSlider = (props) => {
     setBannerSliderLoaded(true);
   };
 
-  // React.useEffect(() => {
-  //   if (state.slides && cat) {
-  //     setInterval(() => {
-  //       setState({ ...state, categoryLoaded: true, slidersLoaded: true });
-  //     }, 2500);
-  //   }
-  //   load();
-  //   // eslint-disable-next-line
-  // }, []);
-
   const settings = {
     autoplay: true,
     dots: true,
