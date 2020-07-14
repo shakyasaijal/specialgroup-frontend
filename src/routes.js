@@ -17,6 +17,7 @@ const PATHS = {
   CATEGORY_BANNER: '/category/:id',
   WOW_BANNER: '/wow/:slug',
   CUSTOMER_CARE: '/customer-care',
+  ABOUT_US: '/about-us',
   NOT_FOUND: '*',
 };
 

@@ -75,7 +75,7 @@ const Header = (props) => {
                 <Link to="/" className="float-right">
                   Opportunity
                 </Link>
-                <Link to="/" className="float-right">
+                <Link to={PATHS.ABOUT_US} className="float-right">
                   About Us
                 </Link>
                 <Link to={PATHS.CUSTOMER_CARE} className="float-right">

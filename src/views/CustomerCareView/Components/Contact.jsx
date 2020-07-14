@@ -44,7 +44,7 @@ const Contact = (props) => {
             value={state.fullName}
             variant="outlined"
           />
-          <span className="error">Full Name is required.</span>
+          <div className="error">Full Name is required.</div>
         </div>
         <div className="form-group">
           <TextField
@@ -56,7 +56,7 @@ const Contact = (props) => {
             value={state.contact}
             variant="outlined"
           />
-          <span className="error">Contact Number is invalid.</span>
+          <div className="error">Contact Number is invalid.</div>
         </div>
         <div className="form-group">
           <TextField
@@ -86,11 +86,11 @@ const Contact = (props) => {
             value={state.note}
             variant="outlined"
           />
-          <span className="error">Note is required.</span>
+          <div className="error">Note is required.</div>
         </div>
         <div className="captcha-form">
           <ReCAPTCHA sitekey={process.env.REACT_APP_CAPTCHA_KEY} onChange={verifyCallback} theme="" />
-          <span className="error">Error will receive after form submission only.</span>
+          <div className="error">Error will receive after form submission only.</div>
         </div>
         <div className="form-group">
           {captcha.captcha_ && !state.error.length ? (

@@ -30,6 +30,7 @@ import Cart from 'views/CartView/Cart';
 import ProductsByCategory from 'views/ProductsView/ByCategory/ProductsByCategory';
 import Wow from 'components/Wow/Wow';
 import CustomerCare from 'views/CustomerCareView/CustomerCare';
+import About from 'views/AboutView/About';
 
 import './assets/sass/common.css';
 
@@ -67,6 +68,7 @@ function App() {
             <Switch>
               <SpecialGroupRoute exact path={PATHS.HOME} component={Home} />
               <SpecialGroupRoute exact path={PATHS.WISHLIST} component={Wishlist} title="Special Group | Wishlist" />
+              <SpecialGroupRoute exact path={PATHS.ABOUT_US} component={About} title="Special Group | About Us" />
               <SpecialGroupRoute
                 exact
                 path={PATHS.CUSTOMER_CARE}

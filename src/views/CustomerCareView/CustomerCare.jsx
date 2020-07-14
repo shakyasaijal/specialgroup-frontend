@@ -100,7 +100,7 @@ const CustomerCare = () => {
           <TabPanel value={value} index={0} dir={theme.direction}>
             <div className="contact-container">
               <div className="info">
-                <div dangerouslySetInnerHTML={{ __html: state.companyInfo }} />
+                <div className="lh" dangerouslySetInnerHTML={{ __html: state.companyInfo }} />
               </div>
               <div className="form-container">
                 <Contact allServices={state.allServices} />

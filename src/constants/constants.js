@@ -1886,3 +1886,161 @@ export const faqHelp = () => {
     },
   ];
 };
+
+export const aboutData = () => {
+  return [
+    {
+      video: 'https://www.youtube.com/embed/oqzHV7TedZk',
+      videoBanner: getImageUrl('images/faker/video/bg.png'),
+      info: `<h4>Special Group - eCommerce Platform</h4>
+      <p>Tel: 01-4200505, 01-4200506</p>
+      <p>Email: service@specialgroup.com</p>
+      <p>Feel free to contact us</p>`,
+      description: `
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed placerat nisl aliquam 
+      est molestie fermentum non quis odio. Fusce id ante justo. In interdum condimentum 
+      bibendum. Orci varius natoque penatibus et magnis dis parturient montes, nascetur 
+      ridiculus mus. Mauris quis mi a enim maximus scelerisque. Suspendisse potenti. </p>
+
+      <p>Praesent convallis eros euismod ipsum ultricies rhoncus. Nulla suscipit vitae 
+      risus mollis molestie. Aliquam vitae velit mollis, ultrices sapien id, ultricies 
+      lectus. Quisque augue orci, luctus a mattis non, lacinia quis augue. 
+      Fusce pellentesque, massa eget maximus tincidunt, tortor nunc pretium augue, 
+      accumsan egestas purus nisl eget sem. Aliquam a lacinia purus, id vulputate metus.</p>
+      `,
+    },
+  ];
+};
+
+export const ourTeam = () => {
+  return [
+    {
+      image: 'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
+      fullName: 'Saijal Shakya',
+      designation: 'Alu',
+      facebook: '//facebook.com/saijalshakya',
+      twitter: '//twitter.com/saijalshakya',
+      linkedin: '//linkedin.com/saijalshakya',
+    },
+    {
+      image: 'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
+      fullName: 'Saijal Shakya',
+      designation: 'Alu',
+      facebook: '//facebook.com/saijalshakya',
+      twitter: '',
+      linkedin: '//linkedin.com/saijalshakya',
+    },
+    {
+      image: 'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
+      fullName: 'Saijal Shakya',
+      designation: 'Alu',
+      facebook: '',
+      twitter: '//twitter.com/saijalshakya',
+      linkedin: '//linkedin.com/saijalshakya',
+    },
+    {
+      image: 'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
+      fullName: 'Saijal Shakya',
+      designation: 'Alu',
+      facebook: '//facebook.com/saijalshakya',
+      twitter: '//twitter.com/saijalshakya',
+      linkedin: '',
+    },
+    {
+      image: 'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
+      fullName: 'Saijal Shakya',
+      designation: 'Alu',
+      facebook: '//facebook.com/saijalshakya',
+      twitter: '//twitter.com/saijalshakya',
+      linkedin: '//linkedin.com/saijalshakya',
+    },
+    {
+      image: 'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
+      fullName: 'Saijal Shakya',
+      designation: 'Alu',
+      facebook: '//facebook.com/saijalshakya',
+      twitter: '//twitter.com/saijalshakya',
+      linkedin: '//linkedin.com/saijalshakya',
+    },
+    {
+      image: 'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
+      fullName: 'Saijal Shakya',
+      designation: 'Alu',
+      facebook: '//facebook.com/saijalshakya',
+      twitter: '//twitter.com/saijalshakya',
+      linkedin: '//linkedin.com/saijalshakya',
+    },
+    {
+      image: 'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
+      fullName: 'Saijal Shakya',
+      designation: 'Alu',
+      facebook: '//facebook.com/saijalshakya',
+      twitter: '//twitter.com/saijalshakya',
+      linkedin: '//linkedin.com/saijalshakya',
+    },
+    {
+      image: 'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
+      fullName: 'Saijal Shakya',
+      designation: 'Alu',
+      facebook: '//facebook.com/saijalshakya',
+      twitter: '//twitter.com/saijalshakya',
+      linkedin: '//linkedin.com/saijalshakya',
+    },
+    {
+      image: 'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
+      fullName: 'Saijal Shakya',
+      designation: 'Alu',
+      facebook: '//facebook.com/saijalshakya',
+      twitter: '',
+      linkedin: '//linkedin.com/saijalshakya',
+    },
+    {
+      image: 'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
+      fullName: 'Saijal Shakya',
+      designation: 'Alu',
+      facebook: '',
+      twitter: '//twitter.com/saijalshakya',
+      linkedin: '//linkedin.com/saijalshakya',
+    },
+    {
+      image: 'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
+      fullName: 'Saijal Shakya',
+      designation: 'Alu',
+      facebook: '//facebook.com/saijalshakya',
+      twitter: '//twitter.com/saijalshakya',
+      linkedin: '',
+    },
+    {
+      image: 'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
+      fullName: 'Saijal Shakya',
+      designation: 'Alu',
+      facebook: '//facebook.com/saijalshakya',
+      twitter: '//twitter.com/saijalshakya',
+      linkedin: '//linkedin.com/saijalshakya',
+    },
+    {
+      image: 'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
+      fullName: 'Saijal Shakya',
+      designation: 'Alu',
+      facebook: '//facebook.com/saijalshakya',
+      twitter: '//twitter.com/saijalshakya',
+      linkedin: '//linkedin.com/saijalshakya',
+    },
+    {
+      image: 'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
+      fullName: 'Saijal Shakya',
+      designation: 'Alu',
+      facebook: '//facebook.com/saijalshakya',
+      twitter: '//twitter.com/saijalshakya',
+      linkedin: '//linkedin.com/saijalshakya',
+    },
+    {
+      image: 'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
+      fullName: 'Shakya Saijal',
+      designation: 'Alu',
+      facebook: '//facebook.com/saijalshakya',
+      twitter: '//twitter.com/saijalshakya',
+      linkedin: '//linkedin.com/saijalshakya',
+    },
+  ];
+};
