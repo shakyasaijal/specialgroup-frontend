@@ -63,7 +63,7 @@ const PopularProducts = (props) => {
 
   for (let i = 0; i < 6; i++) {
     skeletons.push(
-      <div>
+      <div key={i}>
         <Skeleton variant="rect" height={140} />
         <Skeleton variant="rect" height={50} className="mt10" />
       </div>
@@ -84,7 +84,7 @@ const PopularProducts = (props) => {
                     <div className="image-container">
                       <CardMedia
                         className={classes.media}
-                        image={getImageBasePath(product.image)}
+                        image={getImageBasePath(product.mainImage)}
                         title={product.name}
                       />
                     </div>

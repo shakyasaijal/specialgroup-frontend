@@ -3,17 +3,19 @@ import { getAuth } from './auth';
 export const getNotificationTS = (state) => state.notificationTS;
 
 export const getCompleteLaterClickedAt = (state) => {
+  const notificationTS = getNotificationTS(state);
   const auth = getAuth(state);
   const userId = auth.userId;
-  const completeLaterClickedAt = localStorage.getItem('completeLaterClickedAt' + userId) || null;
+  const completeLaterClickedAt = notificationTS['completeLaterClickedAt' + userId] || null;
 
   return completeLaterClickedAt;
 };
 
 export const emailVerifyLaterClickedAt = (state) => {
+  const notificationTS = getNotificationTS(state);
   const auth = getAuth(state);
   const userId = auth.userId;
-  const emailVerifyLaterClickedAt = localStorage.getItem('emailVerifyLaterClickedAt' + userId) || null;
+  const emailVerifyLaterClickedAt = notificationTS['emailVerifyLaterClickedAt' + userId] || null;
 
   return emailVerifyLaterClickedAt;
 };

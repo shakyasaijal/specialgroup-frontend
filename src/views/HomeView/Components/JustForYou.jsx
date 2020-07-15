@@ -67,7 +67,7 @@ const JustForYou = (props) => {
               <Link to={`/product/${product.id}`}>
                 <CardActionArea>
                   <div className="image-container">
-                    <CardMedia className={classes.media} image={getImageBasePath(product.image)} title={product.name} />
+                    <CardMedia className={classes.media} image={getImageBasePath(product.mainImage)} title={product.name} />
                   </div>
                   <CardContent>
                     <div className="product-title">{product.name}</div>

@@ -127,7 +127,7 @@ const SignIn = (props) => {
                     autoComplete="off"
                     onChange={handleOnChange}
                     name="email"
-                    value={state.email}
+                    value={state.email || ''}
                   />
                   {errors.email && <span className="error">{errors.email}</span>}
                 </div>
@@ -144,7 +144,7 @@ const SignIn = (props) => {
                     autoComplete="off"
                     onChange={handleOnChange}
                     name="password"
-                    value={state.password}
+                    value={state.password || ''}
                   />
                   {errors.password && <span className="error">{errors.password}</span>}
                 </div>

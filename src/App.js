@@ -27,7 +27,7 @@ import CompleteProfile from 'views/CompleteProfileView/CompleteProfile';
 import ProductDetails from 'views/ProductsView/ReduxProductDetails';
 import ResetPassword from 'views/ForgetPasswordView/ResetView';
 import Cart from 'views/CartView/Cart';
-import ProductsByCategory from 'views/ProductsView/ByCategory/ProductsByCategory';
+import ProductsByCategory from 'views/ProductsView/Components/ProductsByCategory';
 import Wow from 'components/Wow/Wow';
 import CustomerCare from 'views/CustomerCareView/CustomerCare';
 import About from 'views/AboutView/About';

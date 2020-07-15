@@ -17,6 +17,7 @@ const Wow = () => {
       bannerImage: window.innerWidth <= 800 ? small : big,
       title: title,
     });
+    // eslint-disable-next-line
   }, []);
 
   return (

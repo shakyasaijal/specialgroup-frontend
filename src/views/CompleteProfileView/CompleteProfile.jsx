@@ -12,7 +12,7 @@ import Marketing from './Components/Marketing';
 import Interest from './Components/Interest';
 
 import { completeProfileRequest } from 'actions/account';
-import { notificationTSRequest } from 'actions/notificationTimeStamp';
+import { notificationTSRequest } from 'actions/notificationTS';
 
 import PATHS from 'routes';
 

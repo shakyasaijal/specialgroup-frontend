@@ -85,7 +85,7 @@ const PersonalProfile = (props) => {
                   <Select
                     native
                     name="district"
-                    value={state.district}
+                    value={state.district || ''}
                     onChange={handleChange}
                     id="grouped-native-select"
                   >

@@ -16,6 +16,12 @@ export const FOR_YOU_PRODUCT_UPDATE = 'FOR_YOU_PRODUCT_UPDATE';
 export const PRODUCT_DETAILS_REQUEST = 'PRODUCT_DETAILS_REQUEST';
 export const PRODUCT_DETAILS_UPDATE = 'PRODUCT_DETAILS_UPDATE';
 
+export const BANNER_DATA_REQUEST = 'BANNER_DATA_REQUEST';
+export const BANNER_DATA_UPDATE = 'BANNER_DATA_UPDATE';
+
+export const PRODUCTS_BY_CATEGORY_REQUEST = 'PRODUCT_BY_CATEGORY_REQUEST';
+export const PRODUCTS_BY_CATEGORY_UPDATE = 'PRODUCT_BY_CATEGORY_UPDATE';
+
 export function shopByCategoryRequest(callbackSuccess = null, callbackError = null) {
   return {
     type: SHOP_BY_CATEGORY_REQUEST,
@@ -104,5 +110,37 @@ export function productDetailsUpdate(productDetails) {
   return {
     type: PRODUCT_DETAILS_UPDATE,
     productDetails,
+  };
+}
+
+export function bannerDataRequest(callbackSuccess = null, callbackError = null) {
+  return {
+    type: BANNER_DATA_REQUEST,
+    callbackSuccess,
+    callbackError,
+  };
+}
+
+export function bannerDataUpdate(product) {
+  return {
+    type: BANNER_DATA_UPDATE,
+    product,
+  };
+}
+
+export function productsByCategoryRequest(id, callbackSuccess = null, callbackError = null) {
+  return {
+    type: PRODUCTS_BY_CATEGORY_REQUEST,
+    id,
+    callbackSuccess,
+    callbackError,
+  };
+}
+
+export function productsByCategoryUpdate(products, categoryId) {
+  return {
+    type: PRODUCTS_BY_CATEGORY_UPDATE,
+    products,
+    categoryId,
   };
 }
