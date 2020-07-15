@@ -129,7 +129,10 @@ const ProductDetails = (props) => {
         </Paper>
       </div>
 
-      {props.productDetails.comments && props.productDetails.comments.length > 0 && props.productDetails.currentUserComments && props.productDetails.currentUserComments.length > 0 && (
+      {props.productDetails.comments &&
+        props.productDetails.comments.length > 0 &&
+        props.productDetails.currentUserComments &&
+        props.productDetails.currentUserComments.length > 0 && (
         <div className="questions-and-recommendations">
           <div className="q-a" ref={comments}>
             <QuestionAnswers
