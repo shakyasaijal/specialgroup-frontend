@@ -2044,3 +2044,88 @@ export const ourTeam = () => {
     },
   ];
 };
+
+export const subCategories = () => {
+  return [
+    {
+      id: 1,
+      name: 'Chocolate Donuts',
+      image: getImageUrl('images/faker/vegetables/celery.jpg'),
+    },
+    {
+      id: 1,
+      name: 'Chocolate Donuts',
+      image: getImageUrl('images/faker/vegetables/celery.jpg'),
+    },
+    {
+      id: 1,
+      name: 'Chocolate Donuts',
+      image: getImageUrl('images/faker/vegetables/celery.jpg'),
+    },
+    {
+      id: 1,
+      name: 'Chocolate Donuts',
+      image: getImageUrl('images/faker/vegetables/celery.jpg'),
+    },
+    {
+      id: 1,
+      name: 'Chocolate Donuts',
+      image: getImageUrl('images/faker/vegetables/celery.jpg'),
+    },
+    {
+      id: 1,
+      name: 'Chocolate Donuts',
+      image: getImageUrl('images/faker/vegetables/celery.jpg'),
+    },
+    {
+      id: 1,
+      name: 'Chocolate Donuts',
+      image: getImageUrl('images/faker/vegetables/celery.jpg'),
+    },
+    {
+      id: 1,
+      name: 'Chocolate Donuts',
+      image: getImageUrl('images/faker/vegetables/celery.jpg'),
+    },
+    {
+      id: 1,
+      name: 'Chocolate Donuts',
+      image: getImageUrl('images/faker/vegetables/celery.jpg'),
+    },
+    {
+      id: 1,
+      name: 'Chocolate Donuts',
+      image: getImageUrl('images/faker/vegetables/celery.jpg'),
+    },
+    {
+      id: 1,
+      name: 'Chocolate Donuts',
+      image: getImageUrl('images/faker/vegetables/celery.jpg'),
+    },
+    {
+      id: 1,
+      name: 'Chocolate Donuts',
+      image: getImageUrl('images/faker/vegetables/celery.jpg'),
+    },
+    {
+      id: 1,
+      name: 'Chocolate Donuts',
+      image: getImageUrl('images/faker/vegetables/celery.jpg'),
+    },
+    {
+      id: 1,
+      name: 'Chocolate Donuts',
+      image: getImageUrl('images/faker/vegetables/celery.jpg'),
+    },
+    {
+      id: 1,
+      name: 'Chocolate Donuts',
+      image: getImageUrl('images/faker/vegetables/celery.jpg'),
+    },
+    {
+      id: 1,
+      name: 'Chocolate Donuts',
+      image: getImageUrl('images/faker/vegetables/celery.jpg'),
+    },
+  ];
+};

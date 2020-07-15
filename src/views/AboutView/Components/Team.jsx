@@ -23,7 +23,6 @@ const Team = () => {
     setPagination({ ...pagination, currentPage: value });
   };
 
-  
   return (
     <div className="row team mt10">
       <div className="container center">

@@ -18,7 +18,6 @@ const About = () => {
     setState({ video: state.video + '?autoplay=1' });
   };
 
-  
   return (
     <div className="row">
       <div className="about-container">

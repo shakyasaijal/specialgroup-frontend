@@ -33,9 +33,9 @@ const MobileFooter = () => {
           <div className="grid-item mt10">
             <h4 className="medium white-color">Useful Links</h4>
             <div className="content mt10 flex footer-link">
-              <Link to="/">About Us</Link>
+              <Link to={PATHS.ABOUT_US}>About Us</Link>
               <Link to="/">Opportunity</Link>
-              <Link to="/">Contact Us</Link>
+              <Link to={PATHS.CUSTOMER_CARE}>Contact Us</Link>
               <Link to={PATHS.LOGIN_SECURITY}>Login and Security</Link>
               <Link to={PATHS.ORDER_HISTORY}>Order History</Link>
             </div>

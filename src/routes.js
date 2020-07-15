@@ -18,6 +18,7 @@ const PATHS = {
   WOW_BANNER: '/wow/:slug',
   CUSTOMER_CARE: '/customer-care',
   ABOUT_US: '/about-us',
+  CATEGORIES: '/categories',
   NOT_FOUND: '*',
 };
 
