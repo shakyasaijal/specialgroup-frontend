@@ -4,7 +4,7 @@ import storage from 'redux-persist/lib/storage';
 import { auth } from 'reducers/auth';
 import { account } from 'reducers/account';
 import { products, productDetails, productsByCategory } from 'reducers/product';
-import { cart } from 'reducers/cart';
+import { cart, cartByProductId } from 'reducers/cart';
 import { locationMap, marketingPlatforms, popularCategories } from 'reducers/publicReducer';
 import { notificationTS } from 'reducers/notificationTS';
 
@@ -28,6 +28,7 @@ const appReducer = combineReducers({
   productDetails,
   productsByCategory,
   cart,
+  cartByProductId,
   notificationTS,
 });
 

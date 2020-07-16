@@ -3,3 +3,9 @@ export const getCart = (state) => {
 
   return state.cart;
 };
+
+export const getCartByProductId = (state) => {
+  if (!state.cartByProductId) return null;
+
+  return state.cartByProductId;
+};

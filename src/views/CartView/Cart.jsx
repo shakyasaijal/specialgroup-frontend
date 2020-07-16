@@ -14,12 +14,12 @@ import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 
 import Marts from 'components/partials/Marts';
 
-import { cartDataRequest } from 'actions/cart';
+import { cartRequest } from 'actions/cart';
 
 import { getCart } from 'selectors/cart';
 import { isAccountVerified } from 'selectors/auth';
 
-import { cartItems } from 'constants/constants';
+import { getImageBasePath } from 'config/Config';
 
 const useStyles = makeStyles({
   table: {
@@ -28,25 +28,23 @@ const useStyles = makeStyles({
 });
 
 const Cart = (props) => {
-  const carts = cartItems();
   const classes = useStyles();
-  const isVerified = props.isVerified;
-  const [cartDataLoaded, setCartDataLoaded] = useState(false);
+  const [cartLoaded, setcartLoaded] = useState(false);
 
   useEffect(() => {
-    props.cartDataRequest(callbackSuccess);
+    props.cartRequest(callbackSuccess);
   }, []);
 
   const callbackSuccess = () => {
-    setCartDataLoaded(true);
+    setcartLoaded(true);
   };
 
-  return cartDataLoaded ? (
+  return cartLoaded ? (
     <>
       <div className="row carts">
         <div className="page-title">My Cart</div>
         <div className="cart-container">
-          {carts.data.length > 0 ? (
+          {props.cart.product && props.cart.product.length > 0 ? (
             <TableContainer component={Paper} className="mt10">
               <Table className={classes.table} aria-label="spanning table">
                 <TableHead>
@@ -60,50 +58,47 @@ const Cart = (props) => {
                   </TableRow>
                 </TableHead>
                 <TableBody>
-                  {carts.data.map((cart, index) => (
+                  {props.cart.product.map((c, index) => (
                     <TableRow key={index}>
                       <TableCell>
                         <div className="cart-img-container">
-                          <img src={cart.image} alt={cart.productName} />
+                          <img src={getImageBasePath(c.image)} alt={c.productName} />
                         </div>
                       </TableCell>
                       <TableCell>
-                        {cart.productName}
-                        <Link to="/">
+                        {c.productName}
+                        <Link to="/" title="Remove from cart">
                           <div className="delete">
                             <DeleteForeverIcon />
                           </div>
                         </Link>
                       </TableCell>
                       <TableCell>
-                        {cart.status ? (
-                          <span className="inStock">In Stock</span>
-                        ) : (
-                          <span className="outOfStock">Out of Stock</span>
-                        )}
+                        {c.status && <span className="inStock">In Stock</span>}
+                        {!c.status && <span className="outOfStock">Out of Stock</span>}
                       </TableCell>
-                      <TableCell align="right">{cart.price}</TableCell>
+                      <TableCell align="right">Rs. {c.price}</TableCell>
                       <TableCell align="right">
-                        <input className="quantity" value={cart.quantity || ''} disabled={true} />
+                        <input className="quantity" value={c.quantity || ''} />
                       </TableCell>
-                      <TableCell align="right">{cart.total}</TableCell>
+                      <TableCell align="right">{c.total}</TableCell>
                     </TableRow>
                   ))}
                   <TableRow>
                     <TableCell colSpan={4} rowSpan={3}>
-                      {isVerified ? (
+                      {props.isVerified ? (
                         <Link className="checkout" to="/">
                           Check Out
                         </Link>
                       ) : (
-                        'We are unable to proceed checkout unless you verify your email. verify here'
+                        'We are unable to proceed checkout unless you verify your email.'
                       )}
                     </TableCell>
                     <TableCell>
                       <b>Total</b>
                     </TableCell>
                     <TableCell align="right">
-                      <b>{carts.grandTotal}</b>
+                      <b>{props.cart.grandTotal}</b>
                     </TableCell>
                   </TableRow>
                 </TableBody>
@@ -113,11 +108,9 @@ const Cart = (props) => {
             <div className="no-cart">
               <div>You have no items in your shopping cart.</div>
               <div>
-                Click{' '}
                 <Link to="/" className="click-here">
-                  here
-                </Link>{' '}
-                to continue shopping.
+                  Continue shopping.
+                </Link>
               </div>
             </div>
           )}
@@ -138,6 +131,6 @@ const mapStateToProps = (state) => {
   };
 };
 
-const dispatchProps = { cartDataRequest };
+const dispatchProps = { cartRequest };
 
 export default connect(mapStateToProps, dispatchProps)(Cart);

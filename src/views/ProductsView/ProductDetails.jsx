@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState } from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 
 import Paper from '@material-ui/core/Paper';
 
@@ -8,34 +8,44 @@ import { getPercentage, settingsForOne } from 'constants/constants';
 import SlickMagnifier from 'components/Products/SlickMagnifier';
 import QuestionAnswers from './Components/QuestionAnswers';
 import RightBar from './Components/RightBar';
+import Form from 'components/Form/Form';
 
 import RecommendedSlider from 'views/HomeView/Components/RecommendedSlider';
-
 import PATHS from 'routes';
+
+// import PATHS from 'routes';
 
 const ProductDetails = (props) => {
   const { isLoggedIn } = props;
-  const [productQuantity, setProductQuantity] = useState(0);
+  const [productQuantity, setProductQuantity] = useState(1);
   const [productDetailsLoaded, setProductDetailsLoaded] = useState(false);
+  const [addedToCart, setAddedToCart] = useState(false);
+  const [cartDetailsLoaded, setCartDetailsLoaded] = useState(false);
   const comments = useRef(null);
 
   useEffect(() => {
     const productId = getProductIdParam();
 
     props.productDetailsRequest(productId, productDetailsSuccess);
+    if (isLoggedIn) {
+      props.cartByProductIdRequest(productId, cartDetailsSuccess, cartDetailsSuccess);
+    }
     // eslint-disable-next-line
-  }, []);
+  }, [productQuantity]);
 
   const productDetailsSuccess = () => {
     setProductDetailsLoaded(true);
   };
 
-  const addToCart = () => {
-    props.addToCartRequest(props.productDetails.id, productQuantity, addToCartSuccess);
+  const cartDetailsSuccess = () => {
+    setCartDetailsLoaded(true);
   };
 
-  const addToCartSuccess = () => {
-    props.history.push(PATHS.CART);
+  const addToCart = (e) => {
+    e.preventDefault();
+
+    setAddedToCart(true);
+    props.addToCartRequest(props.productDetails.id, productQuantity);
   };
 
   const handleChange = (e) => {
@@ -109,29 +119,51 @@ const ProductDetails = (props) => {
               <div className="bio">
                 <div dangerouslySetInnerHTML={{ __html: props.productDetails.description }} />
               </div>
-              <div className="add-to-cart">
-                <form action="POST">
-                  <div className="flex">
-                    <div className="count">
-                      <label>Quantity</label>
-                      <input
-                        type="number"
-                        name="count"
-                        min="1"
-                        value={productQuantity}
-                        onChange={handleChange}
-                        required
-                        className="quantity"
-                      />
-                      <Link to="/">
-                        <button onClick={addToCart} className="button">
-                          Add to cart
-                        </button>
-                      </Link>
+              {cartDetailsLoaded && (
+                <div className="add-to-cart">
+                  <Form>
+                    <div className="flex">
+                      <div className="count">
+                        <label>Quantity</label>
+                        {props.cartByProductId.quantity || addedToCart ? (
+                          <>
+                            <input
+                              type="number"
+                              name="count"
+                              min="1"
+                              value={props.cartByProductId.quantity}
+                              onChange={handleChange}
+                              required
+                              className="quantity"
+                              disabled={true}
+                            />
+                            <div>
+                              <small>
+                                You can change order quantity <Link to={PATHS.CART}>here</Link>.
+                              </small>
+                            </div>
+                          </>
+                        ) : (
+                          <>
+                            <input
+                              type="number"
+                              name="count"
+                              min="1"
+                              value={productQuantity}
+                              onChange={handleChange}
+                              required
+                              className="quantity"
+                            />
+                            <button onClick={addToCart} className="button">
+                              Add to cart
+                            </button>
+                          </>
+                        )}
+                      </div>
                     </div>
-                  </div>
-                </form>
-              </div>
+                  </Form>
+                </div>
+              )}
             </div>
             <div className="right">
               <RightBar

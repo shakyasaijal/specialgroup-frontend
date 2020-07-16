@@ -1,6 +1,12 @@
 import { takeLatest, call, all, put } from 'redux-saga/effects';
 
-import { cartDataUpdate, ADD_TO_CART_REQUEST, CART_DATA_REQUEST } from 'actions/cart';
+import {
+  cartUpdate,
+  ADD_TO_CART_REQUEST,
+  CART_REQUEST,
+  CART_BY_PRODUCT_ID_REQUEST,
+  cartByProductIdUpdate,
+} from 'actions/cart';
 
 import Cart from 'api/cart';
 
@@ -24,7 +30,7 @@ function* watchAddToCartRequest() {
   yield takeLatest(ADD_TO_CART_REQUEST, handleAddToCartRequest);
 }
 
-function* handleCartDataRequest(action) {
+function* handlecartRequest(action) {
   const { callbackSuccess, callbackError } = action;
 
   try {
@@ -34,17 +40,38 @@ function* handleCartDataRequest(action) {
 
     if (!res.status) throw new Error(res.data.message);
 
-    yield put(cartDataUpdate(res.data));
+    yield put(cartUpdate(res.data));
     if (callbackSuccess) callbackSuccess();
   } catch (e) {
     if (callbackError) callbackError(e);
   }
 }
 
-function* watchCartDataRequest() {
-  yield takeLatest(CART_DATA_REQUEST, handleCartDataRequest);
+function* watchcartRequest() {
+  yield takeLatest(CART_REQUEST, handlecartRequest);
+}
+
+function* handlecartByProductIdRequest(action) {
+  const { productId, callbackSuccess, callbackError } = action;
+
+  try {
+    const res = yield call(Cart.getByProductId, productId);
+
+    if (!res) throw new Error('connection error');
+
+    if (!res.status) throw new Error(res.data.message);
+
+    yield put(cartByProductIdUpdate(res.data));
+    if (callbackSuccess) callbackSuccess();
+  } catch (e) {
+    if (callbackError) callbackError(e);
+  }
+}
+
+function* watchcartByProductIdRequest() {
+  yield takeLatest(CART_BY_PRODUCT_ID_REQUEST, handlecartByProductIdRequest);
 }
 
 export default function* cartSaga() {
-  yield all([watchAddToCartRequest(), watchCartDataRequest()]);
+  yield all([watchAddToCartRequest(), watchcartRequest(), watchcartByProductIdRequest()]);
 }

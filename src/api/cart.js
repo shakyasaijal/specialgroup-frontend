@@ -6,6 +6,13 @@ class Cart {
 
     return specialGroupHttpService.get(path);
   }
+
+  static getByProductId(productId) {
+    const path = `/v1/api/add-to-cart/${productId}`;
+
+    return specialGroupHttpService.get(path);
+  }
+
   static post(productId, quantity) {
     const path = '/v1/api/add-to-cart/';
     const payload = { productId, quantity };

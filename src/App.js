@@ -94,7 +94,6 @@ function App() {
 
               <SpecialGroupRoute exact path={PATHS.SIGNIN} component={ReduxSignIn} title="Special Group | Login" />
               <SpecialGroupRoute exact path={PATHS.SIGNUP} component={ReduxSignUp} title="Special Group | Sign Up" />
-              <SpecialGroupRoute exact path={PATHS.CART} component={Cart} title="Special Group | My Cart" />
               <SpecialGroupRoute
                 exact
                 path={PATHS.RESET_PASSWORD}
@@ -110,6 +109,7 @@ function App() {
                   component={CompleteProfile}
                   title="Special Group | Complete your profile"
                 />
+                <SpecialGroupRoute exact path={PATHS.CART} component={Cart} title="Special Group | My Cart" />
                 <SpecialGroupRoute
                   exact
                   path={PATHS.ADDRESS}
