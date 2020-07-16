@@ -19,6 +19,7 @@ const PATHS = {
   CUSTOMER_CARE: '/customer-care',
   ABOUT_US: '/about-us',
   CATEGORIES: '/categories',
+  SUB_CATEGORIES: '/categories/:id',
   NOT_FOUND: '*',
 };
 

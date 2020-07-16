@@ -4,19 +4,318 @@ export const categories = () => {
   return [
     {
       id: 1,
-      name: 'Dress',
-      img: 'https://i.pinimg.com/originals/6d/b2/cf/6db2cfd78fae829ff7de7f20a9891fd0.png',
+      name: 'DressDressDressDressDress',
+      img: 'https://pluspng.com/img-png/dress-png-women-dress-png-transparent-image-1350.png',
     },
     {
       id: 2,
       name: 'Home Appliance',
-      img: 'https://i.ya-webdesign.com/images/home-appliances-png-1.png',
+      img: 'http://www.pngmart.com/files/6/Home-Appliance-Transparent-PNG.png',
     },
     {
       id: 3,
       name: 'Kitchen Appliance',
-      img:
-        'https://www.smeg.com/binaries/content/gallery/smeg/content-elements/cards/smf02pbeu_stand_mixer_2500x1783px_2.png/smf02pbeu_stand_mixer_2500x1783px_2.png/brx%3ApostcardDeskLarge',
+      img: 'http://www.pngmart.com/files/6/Home-Appliance-PNG-Photos.png',
+    },
+    {
+      id: 4,
+      name: 'Shoes',
+      img: 'https://pluspng.com/img-png/shoes-png-sneaker-png-transparent-image-2500.png',
+    },
+    {
+      id: 1,
+      name: 'Dress',
+      img: 'https://pluspng.com/img-png/dress-png-women-dress-png-transparent-image-1350.png',
+    },
+    {
+      id: 2,
+      name: 'Home Appliance',
+      img: 'http://www.pngmart.com/files/6/Home-Appliance-Transparent-PNG.png',
+    },
+    {
+      id: 3,
+      name: 'Kitchen Appliance',
+      img: 'http://www.pngmart.com/files/6/Home-Appliance-PNG-Photos.png',
+    },
+    {
+      id: 4,
+      name: 'Shoes',
+      img: 'https://pluspng.com/img-png/shoes-png-sneaker-png-transparent-image-2500.png',
+    },
+    {
+      id: 1,
+      name: 'Dress',
+      img: 'https://pluspng.com/img-png/dress-png-women-dress-png-transparent-image-1350.png',
+    },
+    {
+      id: 2,
+      name: 'Home Appliance',
+      img: 'http://www.pngmart.com/files/6/Home-Appliance-Transparent-PNG.png',
+    },
+    {
+      id: 3,
+      name: 'Kitchen Appliance',
+      img: 'http://www.pngmart.com/files/6/Home-Appliance-PNG-Photos.png',
+    },
+    {
+      id: 4,
+      name: 'Shoes',
+      img: 'https://pluspng.com/img-png/shoes-png-sneaker-png-transparent-image-2500.png',
+    },
+    {
+      id: 1,
+      name: 'Dress',
+      img: 'https://pluspng.com/img-png/dress-png-women-dress-png-transparent-image-1350.png',
+    },
+    {
+      id: 2,
+      name: 'Home Appliance',
+      img: 'http://www.pngmart.com/files/6/Home-Appliance-Transparent-PNG.png',
+    },
+    {
+      id: 3,
+      name: 'Kitchen Appliance',
+      img: 'http://www.pngmart.com/files/6/Home-Appliance-PNG-Photos.png',
+    },
+    {
+      id: 4,
+      name: 'Shoes',
+      img: 'https://pluspng.com/img-png/shoes-png-sneaker-png-transparent-image-2500.png',
+    },
+    {
+      id: 1,
+      name: 'Dress',
+      img: 'https://pluspng.com/img-png/dress-png-women-dress-png-transparent-image-1350.png',
+    },
+    {
+      id: 2,
+      name: 'Home Appliance',
+      img: 'http://www.pngmart.com/files/6/Home-Appliance-Transparent-PNG.png',
+    },
+    {
+      id: 3,
+      name: 'Kitchen Appliance',
+      img: 'http://www.pngmart.com/files/6/Home-Appliance-PNG-Photos.png',
+    },
+    {
+      id: 4,
+      name: 'Shoes',
+      img: 'https://pluspng.com/img-png/shoes-png-sneaker-png-transparent-image-2500.png',
+    },
+    {
+      id: 1,
+      name: 'Dress',
+      img: 'https://pluspng.com/img-png/dress-png-women-dress-png-transparent-image-1350.png',
+    },
+    {
+      id: 2,
+      name: 'Home Appliance',
+      img: 'http://www.pngmart.com/files/6/Home-Appliance-Transparent-PNG.png',
+    },
+    {
+      id: 3,
+      name: 'Kitchen Appliance',
+      img: 'http://www.pngmart.com/files/6/Home-Appliance-PNG-Photos.png',
+    },
+    {
+      id: 4,
+      name: 'Shoes',
+      img: 'https://pluspng.com/img-png/shoes-png-sneaker-png-transparent-image-2500.png',
+    },
+    {
+      id: 1,
+      name: 'Dress',
+      img: 'https://pluspng.com/img-png/dress-png-women-dress-png-transparent-image-1350.png',
+    },
+    {
+      id: 2,
+      name: 'Home Appliance',
+      img: 'http://www.pngmart.com/files/6/Home-Appliance-Transparent-PNG.png',
+    },
+    {
+      id: 3,
+      name: 'Kitchen Appliance',
+      img: 'http://www.pngmart.com/files/6/Home-Appliance-PNG-Photos.png',
+    },
+    {
+      id: 4,
+      name: 'Shoes',
+      img: 'https://pluspng.com/img-png/shoes-png-sneaker-png-transparent-image-2500.png',
+    },
+    {
+      id: 1,
+      name: 'Dress',
+      img: 'https://pluspng.com/img-png/dress-png-women-dress-png-transparent-image-1350.png',
+    },
+    {
+      id: 2,
+      name: 'Home Appliance',
+      img: 'http://www.pngmart.com/files/6/Home-Appliance-Transparent-PNG.png',
+    },
+    {
+      id: 3,
+      name: 'Kitchen Appliance',
+      img: 'http://www.pngmart.com/files/6/Home-Appliance-PNG-Photos.png',
+    },
+    {
+      id: 4,
+      name: 'Shoes',
+      img: 'https://pluspng.com/img-png/shoes-png-sneaker-png-transparent-image-2500.png',
+    },
+    {
+      id: 1,
+      name: 'DressDressDressDressDress',
+      img: 'https://pluspng.com/img-png/dress-png-women-dress-png-transparent-image-1350.png',
+    },
+    {
+      id: 2,
+      name: 'Home Appliance',
+      img: 'http://www.pngmart.com/files/6/Home-Appliance-Transparent-PNG.png',
+    },
+    {
+      id: 3,
+      name: 'Kitchen Appliance',
+      img: 'http://www.pngmart.com/files/6/Home-Appliance-PNG-Photos.png',
+    },
+    {
+      id: 4,
+      name: 'Shoes',
+      img: 'https://pluspng.com/img-png/shoes-png-sneaker-png-transparent-image-2500.png',
+    },
+    {
+      id: 1,
+      name: 'Dress',
+      img: 'https://pluspng.com/img-png/dress-png-women-dress-png-transparent-image-1350.png',
+    },
+    {
+      id: 2,
+      name: 'Home Appliance',
+      img: 'http://www.pngmart.com/files/6/Home-Appliance-Transparent-PNG.png',
+    },
+    {
+      id: 3,
+      name: 'Kitchen Appliance',
+      img: 'http://www.pngmart.com/files/6/Home-Appliance-PNG-Photos.png',
+    },
+    {
+      id: 4,
+      name: 'Shoes',
+      img: 'https://pluspng.com/img-png/shoes-png-sneaker-png-transparent-image-2500.png',
+    },
+    {
+      id: 1,
+      name: 'Dress',
+      img: 'https://pluspng.com/img-png/dress-png-women-dress-png-transparent-image-1350.png',
+    },
+    {
+      id: 2,
+      name: 'Home Appliance',
+      img: 'http://www.pngmart.com/files/6/Home-Appliance-Transparent-PNG.png',
+    },
+    {
+      id: 3,
+      name: 'Kitchen Appliance',
+      img: 'http://www.pngmart.com/files/6/Home-Appliance-PNG-Photos.png',
+    },
+    {
+      id: 4,
+      name: 'Shoes',
+      img: 'https://pluspng.com/img-png/shoes-png-sneaker-png-transparent-image-2500.png',
+    },
+    {
+      id: 1,
+      name: 'Dress',
+      img: 'https://pluspng.com/img-png/dress-png-women-dress-png-transparent-image-1350.png',
+    },
+    {
+      id: 2,
+      name: 'Home Appliance',
+      img: 'http://www.pngmart.com/files/6/Home-Appliance-Transparent-PNG.png',
+    },
+    {
+      id: 3,
+      name: 'Kitchen Appliance',
+      img: 'http://www.pngmart.com/files/6/Home-Appliance-PNG-Photos.png',
+    },
+    {
+      id: 4,
+      name: 'Shoes',
+      img: 'https://pluspng.com/img-png/shoes-png-sneaker-png-transparent-image-2500.png',
+    },
+    {
+      id: 1,
+      name: 'Dress',
+      img: 'https://pluspng.com/img-png/dress-png-women-dress-png-transparent-image-1350.png',
+    },
+    {
+      id: 2,
+      name: 'Home Appliance',
+      img: 'http://www.pngmart.com/files/6/Home-Appliance-Transparent-PNG.png',
+    },
+    {
+      id: 3,
+      name: 'Kitchen Appliance',
+      img: 'http://www.pngmart.com/files/6/Home-Appliance-PNG-Photos.png',
+    },
+    {
+      id: 4,
+      name: 'Shoes',
+      img: 'https://pluspng.com/img-png/shoes-png-sneaker-png-transparent-image-2500.png',
+    },
+    {
+      id: 1,
+      name: 'Dress',
+      img: 'https://pluspng.com/img-png/dress-png-women-dress-png-transparent-image-1350.png',
+    },
+    {
+      id: 2,
+      name: 'Home Appliance',
+      img: 'http://www.pngmart.com/files/6/Home-Appliance-Transparent-PNG.png',
+    },
+    {
+      id: 3,
+      name: 'Kitchen Appliance',
+      img: 'http://www.pngmart.com/files/6/Home-Appliance-PNG-Photos.png',
+    },
+    {
+      id: 4,
+      name: 'Shoes',
+      img: 'https://pluspng.com/img-png/shoes-png-sneaker-png-transparent-image-2500.png',
+    },
+    {
+      id: 1,
+      name: 'Dress',
+      img: 'https://pluspng.com/img-png/dress-png-women-dress-png-transparent-image-1350.png',
+    },
+    {
+      id: 2,
+      name: 'Home Appliance',
+      img: 'http://www.pngmart.com/files/6/Home-Appliance-Transparent-PNG.png',
+    },
+    {
+      id: 3,
+      name: 'Kitchen Appliance',
+      img: 'http://www.pngmart.com/files/6/Home-Appliance-PNG-Photos.png',
+    },
+    {
+      id: 4,
+      name: 'Shoes',
+      img: 'https://pluspng.com/img-png/shoes-png-sneaker-png-transparent-image-2500.png',
+    },
+    {
+      id: 1,
+      name: 'Dress',
+      img: 'https://pluspng.com/img-png/dress-png-women-dress-png-transparent-image-1350.png',
+    },
+    {
+      id: 2,
+      name: 'Home Appliance',
+      img: 'http://www.pngmart.com/files/6/Home-Appliance-Transparent-PNG.png',
+    },
+    {
+      id: 3,
+      name: 'Kitchen Appliance',
+      img: 'http://www.pngmart.com/files/6/Home-Appliance-PNG-Photos.png',
     },
     {
       id: 4,

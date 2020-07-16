@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { categories } from 'constants/constants';
 import Skeleton from '@material-ui/lab/Skeleton';
 import Paginations from 'components/SearchView/Components/Pagination';
 
-const Categories = () => {
+const SubCategories = () => {
   let perPage = 32;
   const allCategories = categories();
   const [state, setState] = useState({ dataLoaded: false });
@@ -43,7 +43,7 @@ const Categories = () => {
   return (
     <div className="row categories-list">
       <div className="rsc">
-        <div className="page-title title">Our Categories</div>
+        <div className="page-title title">Sub Categories</div>
         <div className="category-container">
           <div className="teams">
             {state.dataLoaded ? (
@@ -74,4 +74,4 @@ const Categories = () => {
   );
 };
 
-export default Categories;
+export default SubCategories;

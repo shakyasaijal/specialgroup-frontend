@@ -2170,6 +2170,7 @@ textarea:focus {
         color: $theme-color;
         font-weight: 500;
         font-size: 14px;
+        overflow: hidden;
       }
       & .img-container {
         height: 80px;

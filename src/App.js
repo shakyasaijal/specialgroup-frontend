@@ -32,6 +32,7 @@ import Wow from 'components/Wow/Wow';
 import CustomerCare from 'views/CustomerCareView/CustomerCare';
 import About from 'views/AboutView/About';
 import Categories from 'views/CategoryView/Categories';
+import SubCategories from 'views/SubCategoriesView/SubCategories';
 
 import './assets/sass/common.css';
 
@@ -70,6 +71,12 @@ function App() {
               <SpecialGroupRoute exact path={PATHS.HOME} component={Home} />
               <SpecialGroupRoute exact path={PATHS.WISHLIST} component={Wishlist} title="Special Group | Wishlist" />
               <SpecialGroupRoute exact path={PATHS.ABOUT_US} component={About} title="Special Group | About Us" />
+              <SpecialGroupRoute
+                exact
+                path={PATHS.SUB_CATEGORIES}
+                component={SubCategories}
+                title="Special Group | Sub Categories"
+              />
               <SpecialGroupRoute
                 exact
                 path={PATHS.CATEGORIES}
