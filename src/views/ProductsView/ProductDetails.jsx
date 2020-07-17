@@ -20,25 +20,17 @@ const ProductDetails = (props) => {
   const [productQuantity, setProductQuantity] = useState(1);
   const [productDetailsLoaded, setProductDetailsLoaded] = useState(false);
   const [addedToCart, setAddedToCart] = useState(false);
-  const [cartDetailsLoaded, setCartDetailsLoaded] = useState(false);
   const comments = useRef(null);
 
   useEffect(() => {
     const productId = getProductIdParam();
 
     props.productDetailsRequest(productId, productDetailsSuccess);
-    if (isLoggedIn) {
-      props.cartByProductIdRequest(productId, cartDetailsSuccess, cartDetailsSuccess);
-    }
     // eslint-disable-next-line
   }, [productQuantity]);
 
   const productDetailsSuccess = () => {
     setProductDetailsLoaded(true);
-  };
-
-  const cartDetailsSuccess = () => {
-    setCartDetailsLoaded(true);
   };
 
   const addToCart = (e) => {
@@ -49,6 +41,8 @@ const ProductDetails = (props) => {
   };
 
   const handleChange = (e) => {
+    e.preventDefault();
+
     setProductQuantity(e.target.value);
   };
 
@@ -119,51 +113,50 @@ const ProductDetails = (props) => {
               <div className="bio">
                 <div dangerouslySetInnerHTML={{ __html: props.productDetails.description }} />
               </div>
-              {cartDetailsLoaded && (
-                <div className="add-to-cart">
-                  <Form>
-                    <div className="flex">
-                      <div className="count">
-                        <label>Quantity</label>
-                        {props.cartByProductId.quantity || addedToCart ? (
-                          <>
-                            <input
-                              type="number"
-                              name="count"
-                              min="1"
-                              value={props.cartByProductId.quantity}
-                              onChange={handleChange}
-                              required
-                              className="quantity"
-                              disabled={true}
-                            />
-                            <div>
-                              <small>
-                                You can change order quantity <Link to={PATHS.CART}>here</Link>.
-                              </small>
-                            </div>
-                          </>
-                        ) : (
-                          <>
-                            <input
-                              type="number"
-                              name="count"
-                              min="1"
-                              value={productQuantity}
-                              onChange={handleChange}
-                              required
-                              className="quantity"
-                            />
-                            <button onClick={addToCart} className="button">
-                              Add to cart
-                            </button>
-                          </>
-                        )}
-                      </div>
+
+              <div className="add-to-cart">
+                <Form>
+                  <div className="flex">
+                    <div className="count">
+                      <label>Quantity</label>
+                      {addedToCart ? (
+                        <>
+                          <input
+                            type="number"
+                            name="count"
+                            min="1"
+                            value={productQuantity}
+                            onChange={handleChange}
+                            required
+                            className="quantity"
+                            disabled={true}
+                          />
+                          <div>
+                            <small>
+                              You can change order quantity <Link to={PATHS.CART}>here</Link>.
+                            </small>
+                          </div>
+                        </>
+                      ) : (
+                        <>
+                          <input
+                            type="number"
+                            name="count"
+                            min="1"
+                            value={productQuantity}
+                            onChange={handleChange}
+                            required
+                            className="quantity"
+                          />
+                          <button onClick={addToCart} className="button">
+                            Add to cart
+                          </button>
+                        </>
+                      )}
                     </div>
-                  </Form>
-                </div>
-              )}
+                  </div>
+                </Form>
+              </div>
             </div>
             <div className="right">
               <RightBar

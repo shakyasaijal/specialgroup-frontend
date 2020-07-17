@@ -7,17 +7,17 @@ class Cart {
     return specialGroupHttpService.get(path);
   }
 
-  static getByProductId(productId) {
-    const path = `/v1/api/add-to-cart/${productId}`;
-
-    return specialGroupHttpService.get(path);
-  }
-
   static post(productId, quantity) {
     const path = '/v1/api/add-to-cart/';
     const payload = { productId, quantity };
 
     return specialGroupHttpService.post(path, payload);
+  }
+
+  static delete(id) {
+    const path = `/v1/api/add-to-cart/${id}`;
+
+    return specialGroupHttpService.delete(path);
   }
 }
 

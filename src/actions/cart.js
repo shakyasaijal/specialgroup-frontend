@@ -6,6 +6,9 @@ export const CART_UPDATE = 'CART_UPDATE';
 export const CART_BY_PRODUCT_ID_REQUEST = 'CART_BY_PRODUCT_ID_REQUEST';
 export const CART_BY_PRODUCT_ID_UPDATE = 'CART_BY_PRODUCT_ID_UPDATE';
 
+export const CART_DELETE_REQUEST = 'CART_DELETE_REQUEST';
+export const CART_DELETE_UPDATE = 'CART_DELETE_UPDATE';
+
 export function addToCartRequest(productId, quantity, callbackSuccess = null, callbackError = null) {
   return {
     type: ADD_TO_CART_REQUEST,
@@ -31,18 +34,11 @@ export function cartUpdate(cart) {
   };
 }
 
-export function cartByProductIdRequest(productId, callbackSuccess = null, callbackError = null) {
+export function cartDeleteRequest(id, callbackSuccess = null, callbackError = null) {
   return {
-    type: CART_BY_PRODUCT_ID_REQUEST,
-    productId,
+    type: CART_DELETE_REQUEST,
+    id,
     callbackSuccess,
     callbackError,
-  };
-}
-
-export function cartByProductIdUpdate(cartByProductId) {
-  return {
-    type: CART_BY_PRODUCT_ID_UPDATE,
-    cartByProductId,
   };
 }
