@@ -73,7 +73,6 @@ const QuestionAnswers = (props) => {
   const handleClose = () => {
     setOpen(false);
   };
-  // Loading Effect End
 
   const classes = useStyles();
   const [state, setState] = useState({ expanded: true, myQuestions: props.currentUserComments, question: '' });

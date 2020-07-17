@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import SwipeableViews from 'react-swipeable-views';
+
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
@@ -7,14 +8,13 @@ import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import PhoneIcon from '@material-ui/icons/Phone';
-import FavoriteIcon from '@material-ui/icons/Favorite';
 import PersonPinIcon from '@material-ui/icons/PersonPin';
 import Paper from '@material-ui/core/Paper';
-import OrderHelp from './Components/OrderHelp';
+
 import Faq from './Components/Faq';
+import Contact from './Components/Contact';
 
 import { contactInfo } from 'constants/constants';
-import Contact from './Components/Contact';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -88,9 +88,8 @@ const CustomerCare = () => {
             variant="fullWidth"
             aria-label="full width tabs example"
           >
-            <Tab icon={<PhoneIcon />} label="Contact" {...a11yProps(0)} />
-            <Tab icon={<FavoriteIcon />} label="Order" {...a11yProps(1)} />
-            <Tab icon={<PersonPinIcon />} label="FAQ" {...a11yProps(2)} />
+            <Tab icon={<PhoneIcon />} label="contact us" {...a11yProps(0)} />
+            <Tab icon={<PersonPinIcon />} label="FAQ" {...a11yProps(1)} />
           </Tabs>
         </AppBar>
         <SwipeableViews
@@ -109,9 +108,6 @@ const CustomerCare = () => {
             </div>
           </TabPanel>
           <TabPanel value={value} index={1} dir={theme.direction}>
-            <OrderHelp />
-          </TabPanel>
-          <TabPanel value={value} index={2} dir={theme.direction}>
             <Faq />
           </TabPanel>
         </SwipeableViews>
