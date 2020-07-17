@@ -7,6 +7,8 @@ import rootReducer, { persistConfig } from 'reducers/root';
 
 import rootSaga from 'sagas/root';
 
+import { isProduction } from 'config/Config';
+
 const LOGGER = createLogger({
   collapsed: true,
 });
@@ -14,10 +16,13 @@ const LOGGER = createLogger({
 const SAGA_MIDDLEWARE = createSagaMiddleware();
 const middlewares = [SAGA_MIDDLEWARE];
 
-// for debugging purpose - should only be enabled for local and dev
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+let composeEnhancers = compose;
 
-middlewares.push(LOGGER);
+// Enable redux logger in local and dev only
+if (!isProduction()) {
+  composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+  middlewares.push(LOGGER);
+}
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 const STORE = createStore(persistedReducer, composeEnhancers(applyMiddleware(...middlewares)));
