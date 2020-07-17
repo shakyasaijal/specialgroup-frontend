@@ -5,7 +5,6 @@ export const getEnv = () => {
 export const isProduction = () => {
   const env = getEnv().toLowerCase();
 
-  
   return env === 'prod' || env === 'production';
 };
 
@@ -19,6 +18,10 @@ export const googleToken = () => {
 
 export const facebookToken = () => {
   return process.env.REACT_APP_FACEBOOK_TOKEN;
+};
+
+export const recaptchaToken = () => {
+  return process.env.REACT_APP_CAPTCHA_KEY;
 };
 
 export const getImageBasePath = (fileName) => {

@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
+import ReCAPTCHA from 'react-google-recaptcha';
+
 import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
-import ReCAPTCHA from 'react-google-recaptcha';
+
+import { recaptchaToken } from 'config/Config';
 
 const Contact = (props) => {
   const [state, setState] = useState({ service: '', fullName: '', contact: '', note: '', error: true });
@@ -89,7 +92,7 @@ const Contact = (props) => {
           <div className="error">Note is required.</div>
         </div>
         <div className="captcha-form">
-          <ReCAPTCHA sitekey={process.env.REACT_APP_CAPTCHA_KEY} onChange={verifyCallback} theme="" />
+          <ReCAPTCHA sitekey={recaptchaToken()} onChange={verifyCallback} theme="" />
           <div className="error">Error will receive after form submission only.</div>
         </div>
         <div className="form-group">
