@@ -9,11 +9,11 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 
 import Marts from 'components/partials/Marts';
 
 import { getImageBasePath } from 'config/Config';
+import ChangeCartItem from './ChangeCartItem';
 
 const useStyles = makeStyles({
   table: {
@@ -38,21 +38,26 @@ const CartTable = (props) => {
   const classes = useStyles();
   const [cart, setCart] = useState({ product: [...props.cart.product], grandTotal: props.cart.grandTotal });
 
-  const cartDeleteConfirmDialog = (e, c) => {
-    e.preventDefault();
-    
-    // for now js confirm is used for prompt, need to make modal for this purpose
-    if (window.confirm(`Remove ${c.productName} from the cart?`)) {
-      props.cartDeleteRequest(c.id, () => cartRemoveSuccess(c.id));
-    }
-  };
-
   const cartRemoveSuccess = (id) => {
     const ps = [...cart.product];
     const filteredProduct = ps.filter((p) => p.id !== id);
     const grandTotal = filteredProduct.reduce((a, b) => +a + +b.total, 0);
 
     setCart({ product: filteredProduct, grandTotal });
+  };
+
+  const cartUpdateSuccess = (id, quantity) => {
+    const ps = [...cart.product];
+
+    ps.forEach((p) => {
+      if (p.id === id) {
+        p.quantity = quantity;
+        p.total = quantity * p.price;
+      }
+    });
+    const grandTotal = ps.reduce((a, b) => +a + +b.total, 0);
+
+    setCart({ product: ps, grandTotal });
   };
 
   return (
@@ -65,12 +70,13 @@ const CartTable = (props) => {
               <Table className={classes.table} aria-label="spanning table">
                 <TableHead>
                   <TableRow>
-                    <TableCell>Product Image</TableCell>
-                    <TableCell>Product Description</TableCell>
-                    <TableCell>Stock</TableCell>
-                    <TableCell align="right">Price.</TableCell>
-                    <TableCell align="right">Qty.</TableCell>
-                    <TableCell align="right">Sum</TableCell>
+                    <TableCell>Image</TableCell>
+                    <TableCell>Name</TableCell>
+                    <TableCell>Status</TableCell>
+                    <TableCell align="right">Rate</TableCell>
+                    <TableCell align="right">Quantity</TableCell>
+                    <TableCell align="right">Total</TableCell>
+                    <TableCell align="right"></TableCell>
                   </TableRow>
                 </TableHead>
                 <TableBody>
@@ -81,21 +87,21 @@ const CartTable = (props) => {
                           <img src={getImageBasePath(c.image)} alt={c.productName} />
                         </div>
                       </TableCell>
-                      <TableCell>
-                        {c.productName}
-                        <div className="delete" title="Remove from cart" onClick={(e) => cartDeleteConfirmDialog(e, c)}>
-                          <DeleteForeverIcon />
-                        </div>
-                      </TableCell>
+                      <TableCell>{c.productName}</TableCell>
                       <TableCell>
                         {c.status && <span className="inStock">In Stock</span>}
                         {!c.status && <span className="outOfStock">Out of Stock</span>}
                       </TableCell>
                       <TableCell align="right">Rs. {c.price}</TableCell>
-                      <TableCell align="right">
-                        <input type="number" min="1" value={c.quantity || ''} className="quantity" />
-                      </TableCell>
+                      <TableCell align="right">{c.quantity}</TableCell>
                       <TableCell align="right">{c.total}</TableCell>
+                      <TableCell align="right">
+                        <ChangeCartItem
+                          cart={c}
+                          cartRemoveSuccess={cartRemoveSuccess}
+                          cartUpdateSuccess={cartUpdateSuccess}
+                        />
+                      </TableCell>
                     </TableRow>
                   ))}
                   <TableRow>
@@ -108,11 +114,12 @@ const CartTable = (props) => {
                       {!props.isVerified && <p>We are unable to proceed checkout unless you verify your email.</p>}
                     </TableCell>
                     <TableCell>
-                      <b>Total</b>
+                      <b>Total Cost</b>
                     </TableCell>
                     <TableCell align="right">
                       <b>{cart.grandTotal}</b>
                     </TableCell>
+                    <TableCell></TableCell>
                   </TableRow>
                 </TableBody>
               </Table>

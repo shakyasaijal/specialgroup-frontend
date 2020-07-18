@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 
-import { cartRequest, cartDeleteRequest } from 'actions/cart';
+import { cartRequest } from 'actions/cart';
 
 import { getCart } from 'selectors/cart';
 import { isAccountVerified } from 'selectors/auth';
@@ -20,11 +20,7 @@ const Cart = (props) => {
     setCartLoaded(true);
   };
 
-  return cartLoaded ? (
-    <CartTable cart={props.cart} cartDeleteRequest={props.cartDeleteRequest} isVerified={props.isVerified} />
-  ) : (
-    <></>
-  );
+  return cartLoaded ? <CartTable cart={props.cart} isVerified={props.isVerified} /> : <></>;
 };
 
 const mapStateToProps = (state) => {
@@ -34,6 +30,6 @@ const mapStateToProps = (state) => {
   };
 };
 
-const dispatchProps = { cartRequest, cartDeleteRequest };
+const dispatchProps = { cartRequest };
 
 export default connect(mapStateToProps, dispatchProps)(Cart);

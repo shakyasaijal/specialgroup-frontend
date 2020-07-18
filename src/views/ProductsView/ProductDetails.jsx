@@ -17,7 +17,7 @@ import PATHS from 'routes';
 
 const ProductDetails = (props) => {
   const { isLoggedIn } = props;
-  const [productQuantity, setProductQuantity] = useState(1);
+  const [productQuantity, setProductQuantity] = useState(0);
   const [productDetailsLoaded, setProductDetailsLoaded] = useState(false);
   const [addedToCart, setAddedToCart] = useState(false);
   const comments = useRef(null);
@@ -27,7 +27,7 @@ const ProductDetails = (props) => {
 
     props.productDetailsRequest(productId, productDetailsSuccess);
     // eslint-disable-next-line
-  }, [productQuantity]);
+  }, []);
 
   const productDetailsSuccess = () => {
     setProductDetailsLoaded(true);
@@ -38,12 +38,6 @@ const ProductDetails = (props) => {
 
     setAddedToCart(true);
     props.addToCartRequest(props.productDetails.id, productQuantity);
-  };
-
-  const handleChange = (e) => {
-    e.preventDefault();
-
-    setProductQuantity(e.target.value);
   };
 
   const getProductIdParam = () => {
@@ -119,14 +113,13 @@ const ProductDetails = (props) => {
                   <div className="flex">
                     <div className="count">
                       <label>Quantity</label>
-                      {addedToCart ? (
+                      {props.productDetails.cart.quantity || addedToCart ? (
                         <>
                           <input
                             type="number"
                             name="count"
                             min="1"
-                            value={productQuantity}
-                            onChange={handleChange}
+                            value={props.productDetails.cart.quantity}
                             required
                             className="quantity"
                             disabled={true}
@@ -143,9 +136,9 @@ const ProductDetails = (props) => {
                             type="number"
                             name="count"
                             min="1"
-                            value={productQuantity}
-                            onChange={handleChange}
-                            required
+                            value={productQuantity || 1}
+                            onChange={(e) => setProductQuantity(e.target.value)}
+                            required={true}
                             className="quantity"
                           />
                           <button onClick={addToCart} className="button">

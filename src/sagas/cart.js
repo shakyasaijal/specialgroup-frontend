@@ -1,6 +1,6 @@
-import { takeLatest, call, all, put } from 'redux-saga/effects';
+import { takeLatest, call, all, put, takeEvery } from 'redux-saga/effects';
 
-import { cartUpdate, ADD_TO_CART_REQUEST, CART_REQUEST, CART_DELETE_REQUEST } from 'actions/cart';
+import { cartUpdate, ADD_TO_CART_REQUEST, CART_REQUEST, CART_DELETE_REQUEST, CHANGE_CART_REQUEST } from 'actions/cart';
 
 import Cart from 'api/cart';
 
@@ -42,7 +42,27 @@ function* handleCartRequest(action) {
 }
 
 function* watchCartRequest() {
-  yield takeLatest(CART_REQUEST, handleCartRequest);
+  yield takeEvery(CART_REQUEST, handleCartRequest);
+}
+
+function* handleChangeCartRequest(action) {
+  const { id, quantity, callbackSuccess, callbackError } = action;
+
+  try {
+    const res = yield call(Cart.put, id, quantity);
+
+    if (!res) throw new Error('connection error');
+
+    if (!res.status) throw new Error(res.data.message);
+
+    if (callbackSuccess) callbackSuccess();
+  } catch (e) {
+    if (callbackError) callbackError(e);
+  }
+}
+
+function* watchChangeCarteRequest() {
+  yield takeLatest(CHANGE_CART_REQUEST, handleChangeCartRequest);
 }
 
 function* handleCartDeleteRequest(action) {
@@ -66,5 +86,5 @@ function* watchCartDeleteRequest() {
 }
 
 export default function* cartSaga() {
-  yield all([watchAddToCartRequest(), watchCartRequest(), watchCartDeleteRequest()]);
+  yield all([watchAddToCartRequest(), watchCartRequest(), watchChangeCarteRequest(), watchCartDeleteRequest()]);
 }

@@ -3,3 +3,14 @@ export const getCart = (state) => {
 
   return state.cart;
 };
+
+export const getCartLength = (state) => {
+  const cart = getCart(state);
+  let cartLength = 0;
+
+  if (cart.product) {
+    cartLength = cart.product.reduce((a, b) => +a + +b.quantity, 0);
+  }
+
+  return cartLength;
+};

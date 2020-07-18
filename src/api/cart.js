@@ -14,8 +14,15 @@ class Cart {
     return specialGroupHttpService.post(path, payload);
   }
 
+  static put(id, quantity) {
+    const path = `/v1/api/add-to-cart/${id}/`;
+    const payload = { quantity };
+
+    return specialGroupHttpService.put(path, payload);
+  }
+
   static delete(id) {
-    const path = `/v1/api/add-to-cart/${id}`;
+    const path = `/v1/api/add-to-cart/${id}/`;
 
     return specialGroupHttpService.delete(path);
   }

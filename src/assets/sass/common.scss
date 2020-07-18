@@ -856,7 +856,8 @@ label {
   }
 }
 
-.change-password {
+.change-password,
+.change-cart {
   & #transition-modal-description {
     & .form-group {
       margin-top: 10px;
@@ -1793,6 +1794,9 @@ textarea:focus {
   }
   & .delete {
     color: red;
+  }
+  & .edit {
+    color: #3f51b5;
   }
   & .checkout {
     background: $ternary-color;
