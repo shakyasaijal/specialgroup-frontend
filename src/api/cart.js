@@ -1,0 +1,31 @@
+import specialGroupHttpService from 'services/SpecialGroupHttpService';
+
+class Cart {
+  static get() {
+    const path = '/v1/api/add-to-cart/';
+
+    return specialGroupHttpService.get(path);
+  }
+
+  static post(productId, quantity) {
+    const path = '/v1/api/add-to-cart/';
+    const payload = { productId, quantity };
+
+    return specialGroupHttpService.post(path, payload);
+  }
+
+  static put(id, quantity) {
+    const path = `/v1/api/add-to-cart/${id}/`;
+    const payload = { quantity };
+
+    return specialGroupHttpService.put(path, payload);
+  }
+
+  static delete(id) {
+    const path = `/v1/api/add-to-cart/${id}/`;
+
+    return specialGroupHttpService.delete(path);
+  }
+}
+
+export default Cart;

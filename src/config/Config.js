@@ -5,7 +5,6 @@ export const getEnv = () => {
 export const isProduction = () => {
   const env = getEnv().toLowerCase();
 
-  
   return env === 'prod' || env === 'production';
 };
 
