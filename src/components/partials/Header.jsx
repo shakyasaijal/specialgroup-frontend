@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
@@ -8,20 +8,24 @@ import TwitterIcon from '@material-ui/icons/Twitter';
 import SearchIcon from '@material-ui/icons/Search';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
-
-import MobileNavigation from './MobileNavigation';
-
-import { authLogoutRequest } from 'actions/auth';
-
-import { isLoggedIn, isAccountVerified, getAccountInfo } from 'selectors/auth';
-
-import PATHS from 'routes';
 import NotVerifiedModal from './NotVerifiedModal';
 import Badge from '@material-ui/core/Badge';
 import CircularProgress from '@material-ui/core/CircularProgress';
 
+import MobileNavigation from './MobileNavigation';
+
+import { authLogoutRequest } from 'actions/auth';
+import { cartRequest } from 'actions/cart';
+
+import { isLoggedIn, isAccountVerified, getAccountInfo } from 'selectors/auth';
+import { getCartLength } from 'selectors/cart';
+
+import PATHS from 'routes';
+
 const Header = (props) => {
   const { isLoggedIn, isAccountVerified, account } = props;
+  const [cartLoaded, setCartLoaded] = useState(false);
+  const cartPage = props.location.pathname === '/cart';
 
   const logout = () => {
     const { authLogoutRequest } = props;
@@ -31,6 +35,21 @@ const Header = (props) => {
 
   const logoutSuccess = () => {
     props.history.push(PATHS.HOME);
+  };
+
+  // const isCartPage = () => {
+  //   console.log(props.location)
+  //   return props.location.pathname === '/cart';
+  // }
+
+  useEffect(() => {
+    if (!cartPage) {
+      props.cartRequest(cartLoadedSuccess);
+    }
+  }, [cartPage]);
+
+  const cartLoadedSuccess = () => {
+    setCartLoaded(true);
   };
 
   const userName = () => {
@@ -133,14 +152,23 @@ const Header = (props) => {
                 </div>
               </div>
             </div>
-            <div className="cart">
-              <Badge badgeContent={4} color="primary">
-                <AddShoppingCartIcon fontSize="large" />
-              </Badge>
-              <Link to={PATHS.CART} className="cart-name">
-                Cart
-              </Link>
-            </div>
+            {!cartPage && (
+              <div className="cart">
+                {!cartLoaded && (
+                  <Badge badgeContent={0} color="primary">
+                    <AddShoppingCartIcon fontSize="large" />
+                  </Badge>
+                )}
+                {cartLoaded && (
+                  <Badge badgeContent={props.cartLength} color="primary">
+                    <AddShoppingCartIcon fontSize="large" />
+                  </Badge>
+                )}
+                <Link to={PATHS.CART} className="cart-name">
+                  Cart
+                </Link>
+              </div>
+            )}
           </div>
         </div>
       </header>
@@ -154,10 +182,11 @@ const mapStateToProps = (state) => {
   return {
     isLoggedIn: isLoggedIn(state),
     isAccountVerified: isAccountVerified(state),
+    cartLength: getCartLength(state),
     account: getAccountInfo(state),
   };
 };
 
-const dispatchProps = { authLogoutRequest };
+const dispatchProps = { authLogoutRequest, cartRequest };
 
 export default connect(mapStateToProps, dispatchProps)(withRouter(Header));

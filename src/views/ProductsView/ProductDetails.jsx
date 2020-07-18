@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 
 import Paper from '@material-ui/core/Paper';
 
@@ -8,12 +8,18 @@ import { getPercentage, settingsForOne } from 'constants/constants';
 import SlickMagnifier from 'components/Products/SlickMagnifier';
 import QuestionAnswers from './Components/QuestionAnswers';
 import RightBar from './Components/RightBar';
+import Form from 'components/Form/Form';
 
 import RecommendedSlider from 'views/HomeView/Components/RecommendedSlider';
+import PATHS from 'routes';
+
+// import PATHS from 'routes';
 
 const ProductDetails = (props) => {
   const { isLoggedIn } = props;
+  const [productQuantity, setProductQuantity] = useState(0);
   const [productDetailsLoaded, setProductDetailsLoaded] = useState(false);
+  const [addedToCart, setAddedToCart] = useState(false);
   const comments = useRef(null);
 
   useEffect(() => {
@@ -25,6 +31,13 @@ const ProductDetails = (props) => {
 
   const productDetailsSuccess = () => {
     setProductDetailsLoaded(true);
+  };
+
+  const addToCart = (e) => {
+    e.preventDefault();
+
+    setAddedToCart(true);
+    props.addToCartRequest(props.productDetails.id, productQuantity);
   };
 
   const getProductIdParam = () => {
@@ -94,20 +107,48 @@ const ProductDetails = (props) => {
               <div className="bio">
                 <div dangerouslySetInnerHTML={{ __html: props.productDetails.description }} />
               </div>
+
               <div className="add-to-cart">
-                <form action="POST">
+                <Form>
                   <div className="flex">
                     <div className="count">
                       <label>Quantity</label>
-                      <input type="number" name="count" min="1" placeholder="1" required className="quantity" />
-                      <Link to="/">
-                        <button type="submit" className="button">
-                          Add to cart
-                        </button>
-                      </Link>
+                      {props.productDetails.cart.quantity || addedToCart ? (
+                        <>
+                          <input
+                            type="number"
+                            name="count"
+                            min="1"
+                            value={props.productDetails.cart.quantity}
+                            required
+                            className="quantity"
+                            disabled={true}
+                          />
+                          <div>
+                            <small>
+                              You can change order quantity <Link to={PATHS.CART}>here</Link>.
+                            </small>
+                          </div>
+                        </>
+                      ) : (
+                        <>
+                          <input
+                            type="number"
+                            name="count"
+                            min="1"
+                            value={productQuantity || 1}
+                            onChange={(e) => setProductQuantity(e.target.value)}
+                            required={true}
+                            className="quantity"
+                          />
+                          <button onClick={addToCart} className="button">
+                            Add to cart
+                          </button>
+                        </>
+                      )}
                     </div>
                   </div>
-                </form>
+                </Form>
               </div>
             </div>
             <div className="right">
@@ -129,7 +170,10 @@ const ProductDetails = (props) => {
         </Paper>
       </div>
 
-      {props.productDetails.comments.length > 0 && props.productDetails.currentUserComments.length > 0 && (
+      {props.productDetails.comments &&
+        props.productDetails.comments.length > 0 &&
+        props.productDetails.currentUserComments &&
+        props.productDetails.currentUserComments.length > 0 && (
         <div className="questions-and-recommendations">
           <div className="q-a" ref={comments}>
             <QuestionAnswers
@@ -148,4 +192,4 @@ const ProductDetails = (props) => {
   );
 };
 
-export default ProductDetails;
+export default withRouter(ProductDetails);

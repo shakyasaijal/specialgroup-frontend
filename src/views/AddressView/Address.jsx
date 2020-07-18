@@ -25,13 +25,11 @@ const Address = (props) => {
     <div className="row">
       <div className="change-address center">
         <h3 className="page-title medium-dark">Your Address</h3>
-        {state.hasAddress ? (
+        {state.hasAddress && (
           <small className="small">
             Your default address has been set when you signed up. You can change delivery address during checkout as
             well.
           </small>
-        ) : (
-          ''
         )}
 
         <div className="block">{state.msg ? state.msg : ''}</div>
