@@ -11,6 +11,7 @@ import { getBanners, getCategories } from 'selectors/product';
 
 import { getImageBasePath } from 'config/Config';
 import { getImageUrl } from 'constants/constants';
+import PATHS from 'routes';
 
 const BannerSlider = (props) => {
   const [bannerSliderLoaded, setBannerSliderLoaded] = useState(false);
@@ -81,7 +82,7 @@ const BannerSlider = (props) => {
       <div className="bs-slider">
         <div className="bs-img-container">
           <Slider {...settings}>
-            <Link to="/" key="carousel01" className="bs-image">
+            <Link to={PATHS.ABOUT_REFER} key="carousel01" className="bs-image">
               <img src={referer} alt="Refer" />
             </Link>
             {props.banners.map((slide, index) => (

@@ -1057,16 +1057,20 @@ export const accountSettings = () => {
 export const mobileDrawerItems = () => {
   return [
     {
-      name: 'Inbox',
-      route: '/',
+      name: 'Account Settings',
+      route: '/account-settings',
     },
     {
-      name: 'Starred',
-      route: '/',
+      name: 'About Us',
+      route: '/about-us',
     },
     {
-      name: 'Categories',
-      route: '/',
+      name: 'Customer Care',
+      route: '/customer-care',
+    },
+    {
+      name: 'About Refer',
+      route: '/about-referring',
     },
     {
       name: 'Logout',
@@ -2425,6 +2429,104 @@ export const subCategories = () => {
       id: 1,
       name: 'Chocolate Donuts',
       image: getImageUrl('images/faker/vegetables/celery.jpg'),
+    },
+  ];
+};
+
+export const aboutRefer = () => {
+  return [
+    {
+      image: getImageUrl('images/refer.png'),
+      content: `
+      <h2>Affiliate Marketing</h2>
+      <p>
+        Lorem ipsum doler sit amet. Lorem ipsum doler sit amet.
+        Lorem ipsum doler sit amet. Lorem ipsum doler sit amet.
+        Lorem ipsum doler sit amet. Lorem ipsum doler sit amet.
+        Lorem ipsum doler sit amet. Lorem ipsum doler sit amet.
+        Lorem ipsum doler sit amet. Lorem ipsum doler sit amet.
+
+
+        Lorem ipsum doler sit amet. Lorem ipsum doler sit amet.
+        Lorem ipsum doler sit amet. Lorem ipsum doler sit amet.
+        Lorem ipsum doler sit amet. Lorem ipsum doler sit amet.
+        Lorem ipsum doler sit amet. Lorem ipsum doler sit amet.
+        Lorem ipsum doler sit amet. Lorem ipsum doler sit amet.
+      </p>
+
+      <h2>How earn with it?</h2>
+      <p>
+        Lorem ipsum doler sit amet. Lorem ipsum doler sit amet.
+        Lorem ipsum doler sit amet. Lorem ipsum doler sit amet.
+        Lorem ipsum doler sit amet. Lorem ipsum doler sit amet.
+        Lorem ipsum doler sit amet. Lorem ipsum doler sit amet.
+        Lorem ipsum doler sit amet. Lorem ipsum doler sit amet.
+
+
+        Lorem ipsum doler sit amet. Lorem ipsum doler sit amet.
+        Lorem ipsum doler sit amet. Lorem ipsum doler sit amet.
+        Lorem ipsum doler sit amet. Lorem ipsum doler sit amet.
+        Lorem ipsum doler sit amet. Lorem ipsum doler sit amet.
+        Lorem ipsum doler sit amet. Lorem ipsum doler sit amet.
+      </p>
+      `,
+    },
+  ];
+};
+
+export const referData = () => {
+  return [
+    {
+      bannerAds: {
+        large: getImageUrl('images/faker/ads/nepatop.gif'),
+        small: getImageUrl('images/faker/ads/nepatopMobile.jpg'),
+        linkTo: 'https://nepatop.com',
+      },
+      referNow: {
+        points: 7000,
+        referLink: 'https://tiny.cc/asd9ew9h',
+      },
+      analytics: {
+        views: 700,
+        registered: 250,
+        ordered: 200,
+        smallAds: [
+          {
+            small: getImageUrl('images/faker/ads/nepatopMobile.jpg'),
+            linkTo: 'https://nepatop.com',
+          },
+          {
+            small: getImageUrl('images/faker/ads/marutiMobile.gif'),
+            linkTo: 'https://maruti.com',
+          },
+          {
+            small: getImageUrl('images/faker/ads/nepatopMobile.jpg'),
+            linkTo: 'https://nepatop.com',
+          },
+        ],
+      },
+      history: [
+        {
+          date: '10/20/2020',
+          status: 'In Review',
+          totalPoints: 4500,
+        },
+        {
+          date: '10/10/2020',
+          status: 'In Review',
+          totalPoints: 8500,
+        },
+        {
+          date: '10/20/2020',
+          status: 'Received',
+          totalPoints: 4500,
+        },
+        {
+          date: '10/20/2020',
+          status: 'Received',
+          totalPoints: 4500,
+        },
+      ],
     },
   ];
 };
