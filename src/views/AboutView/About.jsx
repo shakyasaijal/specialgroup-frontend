@@ -32,11 +32,12 @@ const About = () => {
                 frameBorder="0"
                 allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen="0"
+                title="about-us"
               ></iframe>
             </div>
             {data.videoBanner && (
               <div className="overlay" onClick={(e) => showVideo(e)}>
-                <img src={data.videoBanner} />
+                <img src={data.videoBanner} alt="" />
               </div>
             )}
           </div>

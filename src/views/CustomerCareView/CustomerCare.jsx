@@ -63,6 +63,7 @@ const CustomerCare = () => {
 
   useEffect(() => {
     setState({ ...state, allServices: info[0].services, companyInfo: info[0].info });
+    // eslint-disable-next-line
   }, []);
 
   const handleChange = (event, newValue) => {

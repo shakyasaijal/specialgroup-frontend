@@ -1,21 +1,16 @@
 import React from 'react';
+
 import FullWidthAd from 'components/Advertisement/FullWidthAd';
+import ReferAnalytics from './Components/ReferAnalytics';
+import ReferNow from './Components/ReferNow';
+import ReferHistory from './Components/ReferHistory';
+
 import { referData } from 'constants/constants';
-import ReferAnalytics from './ReferAnalytics';
-import ReferNow from './ReferNow';
-import ReferHistory from './ReferHistory';
-import { Redirect } from 'react-router-dom';
 
 const ReferDashboard = () => {
   const data = referData()[0];
   const { referNow, analytics, history } = data;
-  const isVerified = true;
 
-  if (!isVerified) {
-    // And pass message as "Verify your account first"
-    return <Redirect to="/" />;
-  }
-  
   return (
     <div className="refer">
       <div className="top-ads">

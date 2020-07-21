@@ -64,7 +64,10 @@ const SignIn = (props) => {
   };
 
   function callbackSuccess() {
-    props.history.push(PATHS.HOME);
+    const redirectTo =
+      props.location && props.location.state && props.location.state.from ? props.location.state.from : PATHS.HOME;
+
+    props.history.push(redirectTo);
   }
 
   const getFormErrors = () => {

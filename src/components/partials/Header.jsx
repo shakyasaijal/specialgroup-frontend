@@ -43,9 +43,10 @@ const Header = (props) => {
   // }
 
   useEffect(() => {
-    if (!cartPage) {
+    if (!cartPage && isLoggedIn) {
       props.cartRequest(cartLoadedSuccess);
     }
+    // eslint-disable-next-line
   }, [cartPage]);
 
   const cartLoadedSuccess = () => {
@@ -153,7 +154,7 @@ const Header = (props) => {
                 </div>
               </div>
             </div>
-            {!cartPage && (
+            {!cartPage && isLoggedIn && (
               <div className="cart">
                 {!cartLoaded && (
                   <Badge badgeContent={0} color="primary">

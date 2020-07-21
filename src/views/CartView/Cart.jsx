@@ -12,6 +12,7 @@ const Cart = (props) => {
   const [cartLoaded, setCartLoaded] = useState(false);
 
   useEffect(() => {
+    // document.title = "Special Group | My Cart";
     props.cartRequest(callbackSuccess);
     // eslint-disable-next-line
   }, []);

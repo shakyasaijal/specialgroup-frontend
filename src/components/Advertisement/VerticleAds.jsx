@@ -3,7 +3,6 @@ import React from 'react';
 const VerticleAds = (props) => {
   const { ads } = props;
 
-  
   return (
     <div className="vert-ads">
       <div className="v-grid">

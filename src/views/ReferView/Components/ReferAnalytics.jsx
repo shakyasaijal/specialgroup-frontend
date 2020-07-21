@@ -21,7 +21,6 @@ const ReferAnalytics = (props) => {
     ],
   };
 
-  
   return (
     <div className="row refer">
       <div className="analytics-container mt10">
