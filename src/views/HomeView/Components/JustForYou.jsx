@@ -58,7 +58,7 @@ const JustForYou = (props) => {
 
   return forYouProductLoaded && props.justForYouProduct.length ? (
     <div className="row">
-      <h4 className="medium-dark mt10 main-title">Just for you</h4>
+      <h4 className="medium-dark mt10 main-title landing-title">Just for you</h4>
       <hr />
       <div className="sep mt30 popular">
         <div className="grid3 center full-width">

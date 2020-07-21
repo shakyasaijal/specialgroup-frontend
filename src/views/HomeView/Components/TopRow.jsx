@@ -1,5 +1,6 @@
 import React from 'react';
-import FeaturedCategory from './FeaturedCategory';
+// import FeaturedCategory from './FeaturedCategory';
+import RandomSubCat from './RandomSubCat';
 import SignedOutRow from './SignedOutRow';
 import BannerSlider from './BannerSlider';
 import { settingsForOne } from 'constants/constants';
@@ -11,7 +12,8 @@ const TopRow = (props) => {
     <>
       <BannerSlider settings={settingsForOne} />
       {isLoggedIn ? (
-        <FeaturedCategory />
+        // <FeaturedCategory />
+        <RandomSubCat />
       ) : (
         <div className="row">
           <SignedOutRow isLoggedIn={isLoggedIn} />

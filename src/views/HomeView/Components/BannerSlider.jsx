@@ -10,9 +10,13 @@ import { bannerDataRequest } from 'actions/product';
 import { getBanners, getCategories } from 'selectors/product';
 
 import { getImageBasePath } from 'config/Config';
+import { getImageUrl } from 'constants/constants';
+import PATHS from 'routes';
 
 const BannerSlider = (props) => {
   const [bannerSliderLoaded, setBannerSliderLoaded] = useState(false);
+  const referer =
+    window.innerWidth <= 800 ? getImageUrl('images/marketingSmall.png') : getImageUrl('images/marketingBig.png');
 
   useEffect(() => {
     props.bannerDataRequest(callbackSuccess);
@@ -78,6 +82,9 @@ const BannerSlider = (props) => {
       <div className="bs-slider">
         <div className="bs-img-container">
           <Slider {...settings}>
+            <Link to={PATHS.ABOUT_REFER} key="carousel01" className="bs-image">
+              <img src={referer} alt="Refer" />
+            </Link>
             {props.banners.map((slide, index) => (
               <Link to={`/wow/${slide.slug}`} key={`carousel${index}`} className="bs-image">
                 <img src={getImageBasePath(getFittedImage(slide))} alt={slide.title} />

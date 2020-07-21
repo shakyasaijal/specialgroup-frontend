@@ -11,6 +11,7 @@ import { shopByCategoryRequest, recentArrivalsRequest } from 'actions/product';
 
 import { getImageBasePath } from 'config/Config';
 import Skeleton from '@material-ui/lab/Skeleton';
+import PATHS from 'routes';
 
 const SignedOutRow = (props) => {
   const [shopByCategoryLoaded, setShopByCategoryLoaded] = useState(false);
@@ -69,7 +70,7 @@ const SignedOutRow = (props) => {
               ))}
             </div>
             <div className="see-more center mt30">
-              <Link to="/">See More</Link>
+              <Link to={PATHS.CATEGORIES}>See More</Link>
             </div>
           </div>
         </Paper>

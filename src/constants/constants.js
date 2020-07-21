@@ -4,19 +4,318 @@ export const categories = () => {
   return [
     {
       id: 1,
-      name: 'Dress',
-      img: 'https://i.pinimg.com/originals/6d/b2/cf/6db2cfd78fae829ff7de7f20a9891fd0.png',
+      name: 'DressDressDressDressDress',
+      img: 'https://pluspng.com/img-png/dress-png-women-dress-png-transparent-image-1350.png',
     },
     {
       id: 2,
       name: 'Home Appliance',
-      img: 'https://i.ya-webdesign.com/images/home-appliances-png-1.png',
+      img: 'http://www.pngmart.com/files/6/Home-Appliance-Transparent-PNG.png',
     },
     {
       id: 3,
       name: 'Kitchen Appliance',
-      img:
-        'https://www.smeg.com/binaries/content/gallery/smeg/content-elements/cards/smf02pbeu_stand_mixer_2500x1783px_2.png/smf02pbeu_stand_mixer_2500x1783px_2.png/brx%3ApostcardDeskLarge',
+      img: 'http://www.pngmart.com/files/6/Home-Appliance-PNG-Photos.png',
+    },
+    {
+      id: 4,
+      name: 'Shoes',
+      img: 'https://pluspng.com/img-png/shoes-png-sneaker-png-transparent-image-2500.png',
+    },
+    {
+      id: 1,
+      name: 'Dress',
+      img: 'https://pluspng.com/img-png/dress-png-women-dress-png-transparent-image-1350.png',
+    },
+    {
+      id: 2,
+      name: 'Home Appliance',
+      img: 'http://www.pngmart.com/files/6/Home-Appliance-Transparent-PNG.png',
+    },
+    {
+      id: 3,
+      name: 'Kitchen Appliance',
+      img: 'http://www.pngmart.com/files/6/Home-Appliance-PNG-Photos.png',
+    },
+    {
+      id: 4,
+      name: 'Shoes',
+      img: 'https://pluspng.com/img-png/shoes-png-sneaker-png-transparent-image-2500.png',
+    },
+    {
+      id: 1,
+      name: 'Dress',
+      img: 'https://pluspng.com/img-png/dress-png-women-dress-png-transparent-image-1350.png',
+    },
+    {
+      id: 2,
+      name: 'Home Appliance',
+      img: 'http://www.pngmart.com/files/6/Home-Appliance-Transparent-PNG.png',
+    },
+    {
+      id: 3,
+      name: 'Kitchen Appliance',
+      img: 'http://www.pngmart.com/files/6/Home-Appliance-PNG-Photos.png',
+    },
+    {
+      id: 4,
+      name: 'Shoes',
+      img: 'https://pluspng.com/img-png/shoes-png-sneaker-png-transparent-image-2500.png',
+    },
+    {
+      id: 1,
+      name: 'Dress',
+      img: 'https://pluspng.com/img-png/dress-png-women-dress-png-transparent-image-1350.png',
+    },
+    {
+      id: 2,
+      name: 'Home Appliance',
+      img: 'http://www.pngmart.com/files/6/Home-Appliance-Transparent-PNG.png',
+    },
+    {
+      id: 3,
+      name: 'Kitchen Appliance',
+      img: 'http://www.pngmart.com/files/6/Home-Appliance-PNG-Photos.png',
+    },
+    {
+      id: 4,
+      name: 'Shoes',
+      img: 'https://pluspng.com/img-png/shoes-png-sneaker-png-transparent-image-2500.png',
+    },
+    {
+      id: 1,
+      name: 'Dress',
+      img: 'https://pluspng.com/img-png/dress-png-women-dress-png-transparent-image-1350.png',
+    },
+    {
+      id: 2,
+      name: 'Home Appliance',
+      img: 'http://www.pngmart.com/files/6/Home-Appliance-Transparent-PNG.png',
+    },
+    {
+      id: 3,
+      name: 'Kitchen Appliance',
+      img: 'http://www.pngmart.com/files/6/Home-Appliance-PNG-Photos.png',
+    },
+    {
+      id: 4,
+      name: 'Shoes',
+      img: 'https://pluspng.com/img-png/shoes-png-sneaker-png-transparent-image-2500.png',
+    },
+    {
+      id: 1,
+      name: 'Dress',
+      img: 'https://pluspng.com/img-png/dress-png-women-dress-png-transparent-image-1350.png',
+    },
+    {
+      id: 2,
+      name: 'Home Appliance',
+      img: 'http://www.pngmart.com/files/6/Home-Appliance-Transparent-PNG.png',
+    },
+    {
+      id: 3,
+      name: 'Kitchen Appliance',
+      img: 'http://www.pngmart.com/files/6/Home-Appliance-PNG-Photos.png',
+    },
+    {
+      id: 4,
+      name: 'Shoes',
+      img: 'https://pluspng.com/img-png/shoes-png-sneaker-png-transparent-image-2500.png',
+    },
+    {
+      id: 1,
+      name: 'Dress',
+      img: 'https://pluspng.com/img-png/dress-png-women-dress-png-transparent-image-1350.png',
+    },
+    {
+      id: 2,
+      name: 'Home Appliance',
+      img: 'http://www.pngmart.com/files/6/Home-Appliance-Transparent-PNG.png',
+    },
+    {
+      id: 3,
+      name: 'Kitchen Appliance',
+      img: 'http://www.pngmart.com/files/6/Home-Appliance-PNG-Photos.png',
+    },
+    {
+      id: 4,
+      name: 'Shoes',
+      img: 'https://pluspng.com/img-png/shoes-png-sneaker-png-transparent-image-2500.png',
+    },
+    {
+      id: 1,
+      name: 'Dress',
+      img: 'https://pluspng.com/img-png/dress-png-women-dress-png-transparent-image-1350.png',
+    },
+    {
+      id: 2,
+      name: 'Home Appliance',
+      img: 'http://www.pngmart.com/files/6/Home-Appliance-Transparent-PNG.png',
+    },
+    {
+      id: 3,
+      name: 'Kitchen Appliance',
+      img: 'http://www.pngmart.com/files/6/Home-Appliance-PNG-Photos.png',
+    },
+    {
+      id: 4,
+      name: 'Shoes',
+      img: 'https://pluspng.com/img-png/shoes-png-sneaker-png-transparent-image-2500.png',
+    },
+    {
+      id: 1,
+      name: 'DressDressDressDressDress',
+      img: 'https://pluspng.com/img-png/dress-png-women-dress-png-transparent-image-1350.png',
+    },
+    {
+      id: 2,
+      name: 'Home Appliance',
+      img: 'http://www.pngmart.com/files/6/Home-Appliance-Transparent-PNG.png',
+    },
+    {
+      id: 3,
+      name: 'Kitchen Appliance',
+      img: 'http://www.pngmart.com/files/6/Home-Appliance-PNG-Photos.png',
+    },
+    {
+      id: 4,
+      name: 'Shoes',
+      img: 'https://pluspng.com/img-png/shoes-png-sneaker-png-transparent-image-2500.png',
+    },
+    {
+      id: 1,
+      name: 'Dress',
+      img: 'https://pluspng.com/img-png/dress-png-women-dress-png-transparent-image-1350.png',
+    },
+    {
+      id: 2,
+      name: 'Home Appliance',
+      img: 'http://www.pngmart.com/files/6/Home-Appliance-Transparent-PNG.png',
+    },
+    {
+      id: 3,
+      name: 'Kitchen Appliance',
+      img: 'http://www.pngmart.com/files/6/Home-Appliance-PNG-Photos.png',
+    },
+    {
+      id: 4,
+      name: 'Shoes',
+      img: 'https://pluspng.com/img-png/shoes-png-sneaker-png-transparent-image-2500.png',
+    },
+    {
+      id: 1,
+      name: 'Dress',
+      img: 'https://pluspng.com/img-png/dress-png-women-dress-png-transparent-image-1350.png',
+    },
+    {
+      id: 2,
+      name: 'Home Appliance',
+      img: 'http://www.pngmart.com/files/6/Home-Appliance-Transparent-PNG.png',
+    },
+    {
+      id: 3,
+      name: 'Kitchen Appliance',
+      img: 'http://www.pngmart.com/files/6/Home-Appliance-PNG-Photos.png',
+    },
+    {
+      id: 4,
+      name: 'Shoes',
+      img: 'https://pluspng.com/img-png/shoes-png-sneaker-png-transparent-image-2500.png',
+    },
+    {
+      id: 1,
+      name: 'Dress',
+      img: 'https://pluspng.com/img-png/dress-png-women-dress-png-transparent-image-1350.png',
+    },
+    {
+      id: 2,
+      name: 'Home Appliance',
+      img: 'http://www.pngmart.com/files/6/Home-Appliance-Transparent-PNG.png',
+    },
+    {
+      id: 3,
+      name: 'Kitchen Appliance',
+      img: 'http://www.pngmart.com/files/6/Home-Appliance-PNG-Photos.png',
+    },
+    {
+      id: 4,
+      name: 'Shoes',
+      img: 'https://pluspng.com/img-png/shoes-png-sneaker-png-transparent-image-2500.png',
+    },
+    {
+      id: 1,
+      name: 'Dress',
+      img: 'https://pluspng.com/img-png/dress-png-women-dress-png-transparent-image-1350.png',
+    },
+    {
+      id: 2,
+      name: 'Home Appliance',
+      img: 'http://www.pngmart.com/files/6/Home-Appliance-Transparent-PNG.png',
+    },
+    {
+      id: 3,
+      name: 'Kitchen Appliance',
+      img: 'http://www.pngmart.com/files/6/Home-Appliance-PNG-Photos.png',
+    },
+    {
+      id: 4,
+      name: 'Shoes',
+      img: 'https://pluspng.com/img-png/shoes-png-sneaker-png-transparent-image-2500.png',
+    },
+    {
+      id: 1,
+      name: 'Dress',
+      img: 'https://pluspng.com/img-png/dress-png-women-dress-png-transparent-image-1350.png',
+    },
+    {
+      id: 2,
+      name: 'Home Appliance',
+      img: 'http://www.pngmart.com/files/6/Home-Appliance-Transparent-PNG.png',
+    },
+    {
+      id: 3,
+      name: 'Kitchen Appliance',
+      img: 'http://www.pngmart.com/files/6/Home-Appliance-PNG-Photos.png',
+    },
+    {
+      id: 4,
+      name: 'Shoes',
+      img: 'https://pluspng.com/img-png/shoes-png-sneaker-png-transparent-image-2500.png',
+    },
+    {
+      id: 1,
+      name: 'Dress',
+      img: 'https://pluspng.com/img-png/dress-png-women-dress-png-transparent-image-1350.png',
+    },
+    {
+      id: 2,
+      name: 'Home Appliance',
+      img: 'http://www.pngmart.com/files/6/Home-Appliance-Transparent-PNG.png',
+    },
+    {
+      id: 3,
+      name: 'Kitchen Appliance',
+      img: 'http://www.pngmart.com/files/6/Home-Appliance-PNG-Photos.png',
+    },
+    {
+      id: 4,
+      name: 'Shoes',
+      img: 'https://pluspng.com/img-png/shoes-png-sneaker-png-transparent-image-2500.png',
+    },
+    {
+      id: 1,
+      name: 'Dress',
+      img: 'https://pluspng.com/img-png/dress-png-women-dress-png-transparent-image-1350.png',
+    },
+    {
+      id: 2,
+      name: 'Home Appliance',
+      img: 'http://www.pngmart.com/files/6/Home-Appliance-Transparent-PNG.png',
+    },
+    {
+      id: 3,
+      name: 'Kitchen Appliance',
+      img: 'http://www.pngmart.com/files/6/Home-Appliance-PNG-Photos.png',
     },
     {
       id: 4,
@@ -758,16 +1057,20 @@ export const accountSettings = () => {
 export const mobileDrawerItems = () => {
   return [
     {
-      name: 'Inbox',
-      route: '/',
+      name: 'Account Settings',
+      route: '/account-settings',
     },
     {
-      name: 'Starred',
-      route: '/',
+      name: 'About Us',
+      route: '/about-us',
     },
     {
-      name: 'Categories',
-      route: '/',
+      name: 'Customer Care',
+      route: '/customer-care',
+    },
+    {
+      name: 'About Refer',
+      route: '/about-referring',
     },
     {
       name: 'Logout',
@@ -1780,6 +2083,448 @@ export const wowData = () => {
               oldPrice: '',
             },
           ],
+        },
+      ],
+    },
+  ];
+};
+
+export const contactInfo = () => {
+  return [
+    {
+      info: `
+    <h4>Special Group - eCommerce Platform</h4>
+    <p>Tel: 01-4200505, 01-4200506</p>
+    <p>Email: service@specialgroup.com</p>
+    <p>Feel free to contact us</p>
+    `,
+      services: [
+        {
+          value: '1',
+          label: 'Complaints',
+        },
+        {
+          value: '2',
+          label: 'Review',
+        },
+        {
+          value: '3',
+          label: 'Recommendation',
+        },
+        {
+          value: '4',
+          label: 'Queries',
+        },
+      ],
+    },
+  ];
+};
+
+export const orderHelp = () => {
+  return [
+    {
+      id: 1,
+      question: 'Within how many days we will receive the order?',
+      answer: 'Probably, you will receive within 24hours from business hours.',
+    },
+    {
+      id: 1,
+      question: 'Within how many days we will receive the order?',
+      answer: 'Probably, you will receive within 24hours from business hours.',
+    },
+    {
+      id: 1,
+      question: 'Within how many days we will receive the order?',
+      answer: 'Probably, you will receive within 24hours from business hours.',
+    },
+    {
+      id: 1,
+      question: 'Within how many days we will receive the order?',
+      answer: 'Probably, you will receive within 24hours from business hours.',
+    },
+    {
+      id: 1,
+      question: 'Within how many days we will receive the order?',
+      answer: 'Probably, you will receive within 24hours from business hours.',
+    },
+    {
+      id: 1,
+      question: 'Within how many days we will receive the order?',
+      answer: 'Probably, you will receive within 24hours from business hours.',
+    },
+  ];
+};
+
+export const faqHelp = () => {
+  return [
+    {
+      id: 1,
+      question: 'Within how many days we will receive the order?',
+      answer: 'Probably, you will receive within 24hours from business hours.',
+    },
+    {
+      id: 1,
+      question: 'Within how many days we will receive the order?',
+      answer: 'Probably, you will receive within 24hours from business hours.',
+    },
+    {
+      id: 1,
+      question: 'Within how many days we will receive the order?',
+      answer: 'Probably, you will receive within 24hours from business hours.',
+    },
+    {
+      id: 1,
+      question: 'Within how many days we will receive the order?',
+      answer: 'Probably, you will receive within 24hours from business hours.',
+    },
+    {
+      id: 1,
+      question: 'Within how many days we will receive the order?',
+      answer: 'Probably, you will receive within 24hours from business hours.',
+    },
+    {
+      id: 1,
+      question: 'Within how many days we will receive the order?',
+      answer: 'Probably, you will receive within 24hours from business hours.',
+    },
+  ];
+};
+
+export const aboutData = () => {
+  return [
+    {
+      video: 'https://www.youtube.com/embed/oqzHV7TedZk',
+      videoBanner: getImageUrl('images/faker/video/bg.png'),
+      info: `<h4>Special Group - eCommerce Platform</h4>
+      <p>Tel: 01-4200505, 01-4200506</p>
+      <p>Email: service@specialgroup.com</p>
+      <p>Feel free to contact us</p>`,
+      description: `
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed placerat nisl aliquam 
+      est molestie fermentum non quis odio. Fusce id ante justo. In interdum condimentum 
+      bibendum. Orci varius natoque penatibus et magnis dis parturient montes, nascetur 
+      ridiculus mus. Mauris quis mi a enim maximus scelerisque. Suspendisse potenti. </p>
+
+      <p>Praesent convallis eros euismod ipsum ultricies rhoncus. Nulla suscipit vitae 
+      risus mollis molestie. Aliquam vitae velit mollis, ultrices sapien id, ultricies 
+      lectus. Quisque augue orci, luctus a mattis non, lacinia quis augue. 
+      Fusce pellentesque, massa eget maximus tincidunt, tortor nunc pretium augue, 
+      accumsan egestas purus nisl eget sem. Aliquam a lacinia purus, id vulputate metus.</p>
+      `,
+    },
+  ];
+};
+
+export const ourTeam = () => {
+  return [
+    {
+      image: 'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
+      fullName: 'Saijal Shakya',
+      designation: 'Alu',
+      facebook: '//facebook.com/saijalshakya',
+      twitter: '//twitter.com/saijalshakya',
+      linkedin: '//linkedin.com/saijalshakya',
+    },
+    {
+      image: 'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
+      fullName: 'Saijal Shakya',
+      designation: 'Alu',
+      facebook: '//facebook.com/saijalshakya',
+      twitter: '',
+      linkedin: '//linkedin.com/saijalshakya',
+    },
+    {
+      image: 'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
+      fullName: 'Saijal Shakya',
+      designation: 'Alu',
+      facebook: '',
+      twitter: '//twitter.com/saijalshakya',
+      linkedin: '//linkedin.com/saijalshakya',
+    },
+    {
+      image: 'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
+      fullName: 'Saijal Shakya',
+      designation: 'Alu',
+      facebook: '//facebook.com/saijalshakya',
+      twitter: '//twitter.com/saijalshakya',
+      linkedin: '',
+    },
+    {
+      image: 'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
+      fullName: 'Saijal Shakya',
+      designation: 'Alu',
+      facebook: '//facebook.com/saijalshakya',
+      twitter: '//twitter.com/saijalshakya',
+      linkedin: '//linkedin.com/saijalshakya',
+    },
+    {
+      image: 'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
+      fullName: 'Saijal Shakya',
+      designation: 'Alu',
+      facebook: '//facebook.com/saijalshakya',
+      twitter: '//twitter.com/saijalshakya',
+      linkedin: '//linkedin.com/saijalshakya',
+    },
+    {
+      image: 'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
+      fullName: 'Saijal Shakya',
+      designation: 'Alu',
+      facebook: '//facebook.com/saijalshakya',
+      twitter: '//twitter.com/saijalshakya',
+      linkedin: '//linkedin.com/saijalshakya',
+    },
+    {
+      image: 'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
+      fullName: 'Saijal Shakya',
+      designation: 'Alu',
+      facebook: '//facebook.com/saijalshakya',
+      twitter: '//twitter.com/saijalshakya',
+      linkedin: '//linkedin.com/saijalshakya',
+    },
+    {
+      image: 'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
+      fullName: 'Saijal Shakya',
+      designation: 'Alu',
+      facebook: '//facebook.com/saijalshakya',
+      twitter: '//twitter.com/saijalshakya',
+      linkedin: '//linkedin.com/saijalshakya',
+    },
+    {
+      image: 'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
+      fullName: 'Saijal Shakya',
+      designation: 'Alu',
+      facebook: '//facebook.com/saijalshakya',
+      twitter: '',
+      linkedin: '//linkedin.com/saijalshakya',
+    },
+    {
+      image: 'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
+      fullName: 'Saijal Shakya',
+      designation: 'Alu',
+      facebook: '',
+      twitter: '//twitter.com/saijalshakya',
+      linkedin: '//linkedin.com/saijalshakya',
+    },
+    {
+      image: 'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
+      fullName: 'Saijal Shakya',
+      designation: 'Alu',
+      facebook: '//facebook.com/saijalshakya',
+      twitter: '//twitter.com/saijalshakya',
+      linkedin: '',
+    },
+    {
+      image: 'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
+      fullName: 'Saijal Shakya',
+      designation: 'Alu',
+      facebook: '//facebook.com/saijalshakya',
+      twitter: '//twitter.com/saijalshakya',
+      linkedin: '//linkedin.com/saijalshakya',
+    },
+    {
+      image: 'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
+      fullName: 'Saijal Shakya',
+      designation: 'Alu',
+      facebook: '//facebook.com/saijalshakya',
+      twitter: '//twitter.com/saijalshakya',
+      linkedin: '//linkedin.com/saijalshakya',
+    },
+    {
+      image: 'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
+      fullName: 'Saijal Shakya',
+      designation: 'Alu',
+      facebook: '//facebook.com/saijalshakya',
+      twitter: '//twitter.com/saijalshakya',
+      linkedin: '//linkedin.com/saijalshakya',
+    },
+    {
+      image: 'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
+      fullName: 'Shakya Saijal',
+      designation: 'Alu',
+      facebook: '//facebook.com/saijalshakya',
+      twitter: '//twitter.com/saijalshakya',
+      linkedin: '//linkedin.com/saijalshakya',
+    },
+  ];
+};
+
+export const subCategories = () => {
+  return [
+    {
+      id: 1,
+      name: 'Chocolate Donuts',
+      image: getImageUrl('images/faker/vegetables/celery.jpg'),
+    },
+    {
+      id: 1,
+      name: 'Chocolate Donuts',
+      image: getImageUrl('images/faker/vegetables/celery.jpg'),
+    },
+    {
+      id: 1,
+      name: 'Chocolate Donuts',
+      image: getImageUrl('images/faker/vegetables/celery.jpg'),
+    },
+    {
+      id: 1,
+      name: 'Chocolate Donuts',
+      image: getImageUrl('images/faker/vegetables/celery.jpg'),
+    },
+    {
+      id: 1,
+      name: 'Chocolate Donuts',
+      image: getImageUrl('images/faker/vegetables/celery.jpg'),
+    },
+    {
+      id: 1,
+      name: 'Chocolate Donuts',
+      image: getImageUrl('images/faker/vegetables/celery.jpg'),
+    },
+    {
+      id: 1,
+      name: 'Chocolate Donuts',
+      image: getImageUrl('images/faker/vegetables/celery.jpg'),
+    },
+    {
+      id: 1,
+      name: 'Chocolate Donuts',
+      image: getImageUrl('images/faker/vegetables/celery.jpg'),
+    },
+    {
+      id: 1,
+      name: 'Chocolate Donuts',
+      image: getImageUrl('images/faker/vegetables/celery.jpg'),
+    },
+    {
+      id: 1,
+      name: 'Chocolate Donuts',
+      image: getImageUrl('images/faker/vegetables/celery.jpg'),
+    },
+    {
+      id: 1,
+      name: 'Chocolate Donuts',
+      image: getImageUrl('images/faker/vegetables/celery.jpg'),
+    },
+    {
+      id: 1,
+      name: 'Chocolate Donuts',
+      image: getImageUrl('images/faker/vegetables/celery.jpg'),
+    },
+    {
+      id: 1,
+      name: 'Chocolate Donuts',
+      image: getImageUrl('images/faker/vegetables/celery.jpg'),
+    },
+    {
+      id: 1,
+      name: 'Chocolate Donuts',
+      image: getImageUrl('images/faker/vegetables/celery.jpg'),
+    },
+    {
+      id: 1,
+      name: 'Chocolate Donuts',
+      image: getImageUrl('images/faker/vegetables/celery.jpg'),
+    },
+    {
+      id: 1,
+      name: 'Chocolate Donuts',
+      image: getImageUrl('images/faker/vegetables/celery.jpg'),
+    },
+  ];
+};
+
+export const aboutRefer = () => {
+  return [
+    {
+      image: getImageUrl('images/refer.png'),
+      content: `
+      <h2>Affiliate Marketing</h2>
+      <p>
+        Lorem ipsum doler sit amet. Lorem ipsum doler sit amet.
+        Lorem ipsum doler sit amet. Lorem ipsum doler sit amet.
+        Lorem ipsum doler sit amet. Lorem ipsum doler sit amet.
+        Lorem ipsum doler sit amet. Lorem ipsum doler sit amet.
+        Lorem ipsum doler sit amet. Lorem ipsum doler sit amet.
+
+
+        Lorem ipsum doler sit amet. Lorem ipsum doler sit amet.
+        Lorem ipsum doler sit amet. Lorem ipsum doler sit amet.
+        Lorem ipsum doler sit amet. Lorem ipsum doler sit amet.
+        Lorem ipsum doler sit amet. Lorem ipsum doler sit amet.
+        Lorem ipsum doler sit amet. Lorem ipsum doler sit amet.
+      </p>
+
+      <h2>How earn with it?</h2>
+      <p>
+        Lorem ipsum doler sit amet. Lorem ipsum doler sit amet.
+        Lorem ipsum doler sit amet. Lorem ipsum doler sit amet.
+        Lorem ipsum doler sit amet. Lorem ipsum doler sit amet.
+        Lorem ipsum doler sit amet. Lorem ipsum doler sit amet.
+        Lorem ipsum doler sit amet. Lorem ipsum doler sit amet.
+
+
+        Lorem ipsum doler sit amet. Lorem ipsum doler sit amet.
+        Lorem ipsum doler sit amet. Lorem ipsum doler sit amet.
+        Lorem ipsum doler sit amet. Lorem ipsum doler sit amet.
+        Lorem ipsum doler sit amet. Lorem ipsum doler sit amet.
+        Lorem ipsum doler sit amet. Lorem ipsum doler sit amet.
+      </p>
+      `,
+    },
+  ];
+};
+
+export const referData = () => {
+  return [
+    {
+      bannerAds: {
+        large: getImageUrl('images/faker/ads/nepatop.gif'),
+        small: getImageUrl('images/faker/ads/nepatopMobile.jpg'),
+        linkTo: 'https://nepatop.com',
+      },
+      referNow: {
+        points: 7000,
+        referLink: 'https://tiny.cc/asd9ew9h',
+      },
+      analytics: {
+        views: 700,
+        registered: 250,
+        ordered: 200,
+        smallAds: [
+          {
+            small: getImageUrl('images/faker/ads/nepatopMobile.jpg'),
+            linkTo: 'https://nepatop.com',
+          },
+          {
+            small: getImageUrl('images/faker/ads/marutiMobile.gif'),
+            linkTo: 'https://maruti.com',
+          },
+          {
+            small: getImageUrl('images/faker/ads/nepatopMobile.jpg'),
+            linkTo: 'https://nepatop.com',
+          },
+        ],
+      },
+      history: [
+        {
+          date: '10/20/2020',
+          status: 'In Review',
+          totalPoints: 4500,
+        },
+        {
+          date: '10/10/2020',
+          status: 'In Review',
+          totalPoints: 8500,
+        },
+        {
+          date: '10/20/2020',
+          status: 'Received',
+          totalPoints: 4500,
+        },
+        {
+          date: '10/20/2020',
+          status: 'Received',
+          totalPoints: 4500,
         },
       ],
     },

@@ -94,10 +94,10 @@ const Header = (props) => {
                 <Link to="/" className="float-right">
                   Opportunity
                 </Link>
-                <Link to="/" className="float-right">
+                <Link to={PATHS.ABOUT_US} className="float-right">
                   About Us
                 </Link>
-                <Link to="/" className="float-right customer-care">
+                <Link to={PATHS.CUSTOMER_CARE} className="float-right">
                   Customer Care
                 </Link>
                 <Link to="/" className="float-right">
@@ -144,6 +144,7 @@ const Header = (props) => {
                         Account
                         <div className="dropdown-content">
                           <Link to={PATHS.ACCOUNT_SETTINGS}>My Account</Link>
+                          <Link to={PATHS.REFER_DASHBOARD}>Refer Dashboard</Link>
                           <span onClick={logout}>Logout</span>
                         </div>
                       </div>

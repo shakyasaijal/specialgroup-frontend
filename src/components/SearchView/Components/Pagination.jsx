@@ -1,7 +1,7 @@
 import React from 'react';
 import Pagination from '@material-ui/lab/Pagination';
 
-const Paginations = ({ productsPerPage, totalProducts, currentPage, handleChange }) => {
+const Paginations = ({ productsPerPage, totalProducts, currentPage, handleChange, color = '', shape = 'rounded' }) => {
   const pageNumbers = [];
 
   for (let i = 1; i <= Math.ceil(totalProducts / productsPerPage); i++) {
@@ -10,7 +10,7 @@ const Paginations = ({ productsPerPage, totalProducts, currentPage, handleChange
 
   return (
     <nav>
-      <Pagination count={pageNumbers.length} page={currentPage} onChange={handleChange} />
+      <Pagination count={pageNumbers.length} page={currentPage} onChange={handleChange} color={color} shape={shape} />
     </nav>
   );
 };

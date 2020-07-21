@@ -72,7 +72,7 @@ const PopularProducts = (props) => {
 
   return (
     <div className="row">
-      <h4 className="medium-dark mt10 main-title">Popular on your area</h4>
+      <h4 className="medium-dark mt10 main-title landing-title">Popular on your area</h4>
       <hr />
       <div className="sep mt30 popular">
         <div className="grid3 center full-width">
@@ -120,7 +120,6 @@ const PopularProducts = (props) => {
           )}
         </div>
       </div>
-      <div className="clearfix"></div>
     </div>
   );
 };

@@ -29,7 +29,7 @@ const RecommendedSlider = (props) => {
 
   return recommendedProductLoaded ? (
     <div className="product-slider-container mt30">
-      <h2 className="medium-dark main-title">Recommended for you</h2>
+      <h2 className="medium-dark main-title landing-title">Recommended for you</h2>
       <hr />
       <div className="product-slider">
         <Slider {...props.settings}>
