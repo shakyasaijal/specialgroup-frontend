@@ -3,9 +3,13 @@ import { getEndPoint } from 'config/Config';
 import { httpService } from 'services/HttpServices';
 import specialGroupHttpService from 'services/SpecialGroupHttpService';
 
-export const signUp = (firstName, lastName, email, password) => {
+export const signUp = (firstName, lastName, email, password, code = '') => {
   const path = `${getEndPoint()}/v1/api/register/`;
-  const payload = { firstName, lastName, email, password };
+  let payload = { firstName, lastName, email, password };
+
+  if (code) {
+    payload = { ...payload, code };
+  }
 
   return httpService.request('post', null, path, null, payload);
 };
@@ -17,16 +21,24 @@ export const login = (email, password) => {
   return httpService.request('post', null, path, null, payload);
 };
 
-export const googleLogin = (idToken) => {
+export const googleLogin = (idToken, code = '') => {
   const path = `${getEndPoint()}/v1/api/google-login/`;
-  const payload = { idToken };
+  let payload = { idToken };
+
+  if (code) {
+    payload = { ...payload, code };
+  }
 
   return httpService.request('post', null, path, null, payload);
 };
 
-export const facebookLogin = (idToken) => {
+export const facebookLogin = (idToken, code) => {
   const path = `${getEndPoint()}/v1/api/facebook-login/`;
-  const payload = { idToken };
+  let payload = { idToken };
+
+  if (code) {
+    payload = { ...payload, code };
+  }
 
   return httpService.request('post', null, path, null, payload);
 };

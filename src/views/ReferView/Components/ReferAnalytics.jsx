@@ -1,6 +1,6 @@
 import React from 'react';
 import { Doughnut } from 'react-chartjs-2';
-import VerticalAds from 'components/Advertisement/VerticleAds';
+import VerticalAds from 'components/Advertisement/VerticalAds';
 
 const ReferAnalytics = (props) => {
   const currentData = [

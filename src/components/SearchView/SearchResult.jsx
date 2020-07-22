@@ -122,7 +122,7 @@ const SearchResult = () => {
                     <option value="2">Price low to high</option>
                     <option value="3">Price high to low</option>
                   </select>
-                  <div className="verticle-center listing">
+                  <div className="vertical-center listing">
                     {state.grid ? <GridOnIcon onClick={toggleView} /> : <GridOffIcon onClick={toggleView} />}
                   </div>
                 </div>

@@ -36,7 +36,7 @@ const Marts = () => {
                 <div className="img-containier">
                   <img src={contents.categoryBanner} alt={contents.category} height="100%" width="100%" />
                 </div>
-                <div className="category-name top verticle-center text-center">
+                <div className="category-name top vertical-center text-center">
                   <h3>{contents.category}</h3>
                 </div>
                 <div className="category-seeMore top">

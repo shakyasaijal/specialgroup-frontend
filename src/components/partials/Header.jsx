@@ -62,7 +62,7 @@ const Header = (props) => {
   return (
     <>
       <div className="mobile-cover">
-        <div className="cover-img-container verticle-center center text-center">
+        <div className="cover-img-container vertical-center center text-center">
           <img src="https://www.chaudharygroup.com/templates/cg/images/logo.png" alt="Special Group" />
           <div className="welcome">
             <CircularProgress />
@@ -113,12 +113,12 @@ const Header = (props) => {
             <div className="img-container">
               <img
                 src="https://www.chaudharygroup.com/templates/cg/images/logo.png"
-                className="verticle-center"
+                className="vertical-center"
                 alt="Special Group"
               />
             </div>
           </div>
-          <div className="verticle-center">
+          <div className="vertical-center">
             <div className="search-engine">
               <form className="search-form" method="POST">
                 <input type="text" placeholder="Search.." name="search" autoComplete="off" />

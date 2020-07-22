@@ -42,10 +42,10 @@ const AccountSettings = (props) => {
                     <img src={setting.icon} alt={setting.title} />
                   </div>
                   <div className="details">
-                    <div className="title verticle-center medium-dark">
+                    <div className="title vertical-center medium-dark">
                       <p>{setting.title}</p>
                     </div>
-                    <div className="subtitle verticle-center">
+                    <div className="subtitle vertical-center">
                       <p>{setting.subtitle}</p>
                     </div>
                   </div>

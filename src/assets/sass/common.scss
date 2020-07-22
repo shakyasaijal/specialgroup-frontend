@@ -237,7 +237,7 @@ a:hover {
 section {
   height: 100vh;
 }
-.verticle-center {
+.vertical-center {
   position: relative;
   top: 50%;
   transform: translate(0, -50%);
@@ -995,7 +995,7 @@ label {
         top: 50%;
         transform: translate(-50%, -50%);
       }
-      & .verticle-center {
+      & .vertical-center {
         left: 50%;
       }
       & .category-seeMore {
@@ -2312,6 +2312,13 @@ textarea:focus {
           & .copy {
             cursor: pointer;
             background: $theme-color;
+            width: 50%;
+            padding: 10px;
+            color: $white;
+          }
+          & .copied {
+            cursor: not-allowed;
+            background: #617194;
             width: 50%;
             padding: 10px;
             color: $white;
