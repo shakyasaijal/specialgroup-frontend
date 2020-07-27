@@ -81,7 +81,7 @@ const ProductsByCategory = (props) => {
                   width="100%"
                 />
               </div>
-              <div className="category-name top verticle-center text-center">
+              <div className="category-name top vertical-center text-center">
                 <h3>{props.products[getCategoryIdParam()].category}</h3>
               </div>
               <div className="category-seeMore top"></div>

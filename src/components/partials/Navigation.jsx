@@ -60,12 +60,12 @@ const Navigation = () => {
             <div className="img-container">
               <img
                 src="https://www.chaudharygroup.com/templates/cg/images/logo.png"
-                className="verticle-center"
+                className="vertical-center"
                 alt="Special Group"
               />
             </div>
           </div>
-          <div className="verticle-center">
+          <div className="vertical-center">
             <div className="search-engine">
               <form className="search-form" method="POST">
                 <input type="text" placeholder="Search.." name="search" autoComplete="off" />

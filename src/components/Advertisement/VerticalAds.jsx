@@ -1,13 +1,13 @@
 import React from 'react';
 
-const VerticleAds = (props) => {
+const VerticalAds = (props) => {
   const { ads } = props;
 
   return (
     <div className="vert-ads">
       <div className="v-grid">
         {ads.map((ad, index) => (
-          <div className="ad-container verticle-center" key={index}>
+          <div className="ad-container vertical-center" key={index}>
             <img src={ad.small} alt="ad" />
           </div>
         ))}
@@ -16,4 +16,4 @@ const VerticleAds = (props) => {
   );
 };
 
-export default VerticleAds;
+export default VerticalAds;

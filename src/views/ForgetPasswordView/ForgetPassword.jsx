@@ -84,7 +84,7 @@ const ForgetPassword = (props) => {
           </div>
           {!sentSuccess && (
             <div className="right" id="right">
-              <Form onSubmit={onSubmit} className="verticle-center">
+              <Form onSubmit={onSubmit} className="vertical-center">
                 <span className="medium-dark">Forget Password?</span>
                 <span className="registered-email">Please enter your email address.</span>
                 <input
@@ -112,7 +112,7 @@ const ForgetPassword = (props) => {
           )}
           {sentSuccess && (
             <div className="text-center center full-width" id="emailSend">
-              <p className="verticle-center">
+              <p className="vertical-center">
                 We have sent you an email at {email} Please check your email inbox.
                 <Link to={PATHS.SIGNIN}>
                   <Button variant="contained" color="primary" size="small" className={classes.return}>
