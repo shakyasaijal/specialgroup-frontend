@@ -9,6 +9,12 @@ class Referral {
     return specialGroupHttpService.get(path);
   }
 
+  static getInfo() {
+    const path = '/v1/api/referral-info/';
+
+    return specialGroupHttpService.get(path);
+  }
+
   static handleClick(code) {
     // set facebook as default source, need to discuss with dev team
     const params = { code, source: 'facebook' };

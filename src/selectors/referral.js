@@ -9,3 +9,9 @@ export const getReferralCode = (state) => {
 
   return '';
 };
+
+export const getReferralInfo = (state) => {
+  if (state.referralInfo) return state.referralInfo;
+
+  return {};
+};

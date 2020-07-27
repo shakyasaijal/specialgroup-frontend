@@ -7,7 +7,7 @@ import { products, productDetails, productsByCategory } from 'reducers/product';
 import { cart } from 'reducers/cart';
 import { locationMap, marketingPlatforms, popularCategories } from 'reducers/publicReducer';
 import { notificationTS } from 'reducers/notificationTS';
-import { referral, referralCode } from 'reducers/referral';
+import { referral, referralCode, referralInfo } from 'reducers/referral';
 
 import { AUTH_CLEAR_STORE } from 'actions/auth';
 
@@ -32,6 +32,7 @@ const appReducer = combineReducers({
   notificationTS,
   referral,
   referralCode,
+  referralInfo,
 });
 
 const rootReducer = (state, action) => {

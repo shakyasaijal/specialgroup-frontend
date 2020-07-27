@@ -1,4 +1,4 @@
-import { REFERRAL_LINK_UPDATE, REFERRAL_CODE_UPDATE } from 'actions/referral';
+import { REFERRAL_LINK_UPDATE, REFERRAL_CODE_UPDATE, REFERRAL_INFO_UPDATE } from 'actions/referral';
 
 const defaultState = {};
 
@@ -20,6 +20,18 @@ export const referralCode = (state = '', action) => {
       const { referralCode } = action;
 
       return referralCode;
+    }
+    default:
+      return state;
+  }
+};
+
+export const referralInfo = (state = defaultState, action) => {
+  switch (action.type) {
+    case REFERRAL_INFO_UPDATE: {
+      const { referralInfo } = action;
+
+      return { ...state, ...referralInfo };
     }
     default:
       return state;

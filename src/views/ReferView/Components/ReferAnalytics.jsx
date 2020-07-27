@@ -1,20 +1,17 @@
 import React from 'react';
 import { Doughnut } from 'react-chartjs-2';
+
 import VerticalAds from 'components/Advertisement/VerticalAds';
 
 const ReferAnalytics = (props) => {
-  const currentData = [
-    {
-      views: props.data.views,
-      registered: props.data.registered,
-      ordered: props.data.ordered,
-    },
-  ];
-  const data = {
+  const views = props.referralInfo.points;
+  const registered = props.referralInfo.registeredUsers;
+  const ordered = props.referralInfo.ordersByUsers;
+  const doughnutData = {
     labels: ['Views', 'Registered', 'Ordered'],
     datasets: [
       {
-        data: [currentData[0].views, currentData[0].registered, currentData[0].ordered],
+        data: [views, registered, ordered],
         backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
         hoverBackgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
       },
@@ -29,20 +26,20 @@ const ReferAnalytics = (props) => {
           <div className="numbers">
             <div className="view">
               <div className="label">Views</div>
-              <div className="points">{currentData[0].views}</div>
+              <div className="points">{views}</div>
             </div>
             <div className="view">
               <div className="label">Registered</div>
-              <div className="points">{currentData[0].registered}</div>
+              <div className="points">{registered}</div>
             </div>
             <div className="view">
               <div className="label">Ordered</div>
-              <div className="points">{currentData[0].ordered}</div>
+              <div className="points">{ordered}</div>
             </div>
           </div>
           <div className="graph">
             <div className="sub-title">Refer Analytics</div>
-            <Doughnut data={data} />
+            <Doughnut data={doughnutData} />
           </div>
         </div>
       </div>

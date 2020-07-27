@@ -1,5 +1,11 @@
 import { takeLatest, call, all, put } from 'redux-saga/effects';
-import { REFERRAL_LINK_REQUEST, referralLinkUpdate, HANDLE_CLICK_REQUEST } from 'actions/referral';
+import {
+  REFERRAL_LINK_REQUEST,
+  referralLinkUpdate,
+  HANDLE_CLICK_REQUEST,
+  referralInfoUpdate,
+  REFERRAL_INFO_REQUEST,
+} from 'actions/referral';
 
 import Referral from 'api/referral';
 
@@ -23,6 +29,26 @@ function* watchReferralLinkRequest() {
   yield takeLatest(REFERRAL_LINK_REQUEST, handleReferralLinkRequest);
 }
 
+function* handleReferralInfoRequest(action) {
+  const { callbackSuccess, callbackError } = action;
+
+  try {
+    const res = yield call(Referral.getInfo);
+
+    if (!res && res.status) throw new Error('connection error');
+    const referralInfo = res.data;
+
+    yield put(referralInfoUpdate(referralInfo));
+    if (callbackSuccess) callbackSuccess();
+  } catch (e) {
+    if (callbackError) callbackError(e);
+  }
+}
+
+function* watchReferralInfoRequest() {
+  yield takeLatest(REFERRAL_INFO_REQUEST, handleReferralInfoRequest);
+}
+
 function* handleClickRequest(action) {
   const { code, callbackSuccess, callbackError } = action;
 
@@ -42,5 +68,5 @@ function* watchHandleClickRequest() {
 }
 
 export default function* referralSaga() {
-  yield all([watchReferralLinkRequest(), watchHandleClickRequest()]);
+  yield all([watchReferralLinkRequest(), watchReferralInfoRequest(), watchHandleClickRequest()]);
 }
