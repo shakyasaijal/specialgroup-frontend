@@ -1,8 +1,7 @@
 import { getState } from 'services/ReduxService';
-
 import { isLoggedIn } from 'selectors/auth';
-import { getEndPoint } from 'config/Config';
 import { httpService } from 'services/HttpServices';
+
 import specialGroupHttpService from 'services/SpecialGroupHttpService';
 
 class Product {
@@ -11,9 +10,7 @@ class Product {
     const authUser = isLoggedIn(state);
 
     if (!authUser) {
-      path = getEndPoint() + path;
-
-      return httpService.request('get', null, path);
+      return httpService.request('get', path);
     }
 
     return specialGroupHttpService.get(path);

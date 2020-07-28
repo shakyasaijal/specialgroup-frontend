@@ -1,8 +1,5 @@
-import { getEndPoint } from 'config/Config';
-
 import { accessToken } from 'services/authService';
-
-import { httpService } from './HttpServices';
+import { httpService } from 'services/HttpServices';
 
 const getMethod = 'get';
 const postMethod = 'post';
@@ -20,32 +17,27 @@ class SpecialGroupHttpService {
   }
 
   async get(path, query = null) {
-    path = getEndPoint() + path;
     const headers = await this.getAuthenticatedHeaders();
 
-    return httpService.request(getMethod, headers, path, query);
+    return httpService.request(getMethod, path, null, headers, query);
   }
 
-  async post(path, data) {
-    path = getEndPoint() + path;
-
+  async post(path, payload) {
     const headers = await this.getAuthenticatedHeaders();
 
-    return httpService.request(postMethod, headers, path, null, data);
+    return httpService.request(postMethod, path, payload, headers);
   }
 
-  async put(path, data) {
-    path = getEndPoint() + path;
+  async put(path, payload) {
     const headers = await this.getAuthenticatedHeaders();
 
-    return httpService.request(putMethod, headers, path, null, data);
+    return httpService.request(putMethod, path, payload, headers);
   }
 
   async delete(path) {
-    path = getEndPoint() + path;
     const headers = await this.getAuthenticatedHeaders();
 
-    return httpService.request(deleteMethod, headers, path);
+    return httpService.request(deleteMethod, path, null, headers);
   }
 }
 
