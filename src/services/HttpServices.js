@@ -2,6 +2,8 @@ import { dispatchFromStore } from 'services/ReduxService';
 
 import { authLogoutRequest } from 'actions/auth';
 
+import { getEndPoint } from 'config/Config';
+
 const BASE_HEADERS = {
   Accept: 'application/json',
   'Content-Type': 'application/json',
@@ -46,7 +48,8 @@ class HttpService {
     return response;
   }
 
-  async request(method = 'get', headers, url, query = null, data = null) {
+  async request(method = 'get', path = '', payload = null, headers = null, query = null) {
+    let url = getEndPoint() + path;
     let options = {};
 
     headers = { ...BASE_HEADERS, ...headers };
@@ -65,8 +68,8 @@ class HttpService {
         headers,
       };
 
-      if (data) {
-        const jsonData = JSON.stringify(data);
+      if (payload) {
+        const jsonData = JSON.stringify(payload);
 
         options.body = jsonData;
       }
