@@ -1,5 +1,119 @@
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
+  .redeem-history-container {
+    margin-top: 20px;
+  }
+  .vert-ads {
+    & .v-grid {
+      grid-template-columns: 100%;
+      grid-row-gap: 6%;
+    }
+  }
+  .refer {
+    & .row {
+      margin-bottom: 10px !important;
+      padding-top: 0;
+    }
+    & .page-title {
+      font-size: 20px;
+    }
+    & .sub-title {
+      font-size: 20px;
+    }
+    & .top-ads {
+      margin-top: 12px;
+    }
+    & .analytics-container {
+      grid-template-columns: 100%;
+      grid-gap: 2%;
+      grid-auto-rows: minmax(min-content, max-content);
+      & .analytics {
+        padding: 10px 15px;
+        grid-template-columns: 100%;
+        grid-gap: 6%;
+        margin-top: 25px;
+        & .numbers {
+          grid-template-columns: 100%;
+          & .view {
+            & .label {
+              font-size: 18px;
+              font-weight: 500;
+            }
+            & .points {
+              font-weight: 400;
+              font-size: 16px;
+            }
+          }
+        }
+        & .graph {
+          min-height: 250px;
+        }
+      }
+    }
+    & .refer-container {
+      grid-template-columns: 100%;
+      & .currentPoints {
+        line-height: 2rem;
+        min-height: 150px;
+        & .point {
+          font-size: 32px;
+          font-weight: 500;
+        }
+        & .points {
+          font-size: 22px;
+          font-weight: 400;
+        }
+      }
+      & .refer-shareable {
+        box-shadow: inset 0 0 8px -2px #3b5390;
+        border: 1px dotted $theme-color;
+        min-height: 150px;
+        grid-template-columns: 100%;
+        & .link {
+          height: 120px;
+          width: 100%;
+          grid-template-columns: 100%;
+          grid-gap: 20%;
+          & .my-link {
+            font-size: 22px;
+            padding: 0 15px;
+            text-align: center;
+          }
+          & .copy-link {
+            & .copy {
+              width: 50%;
+              margin: 0 auto;
+              padding: 10px;
+            }
+            & .social {
+              & > * {
+                margin: 0 10px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .rsc {
+    & .teams {
+      grid-template-columns: 50% 50%;
+      width: 100%;
+      & .team-member {
+        background: $white;
+        padding: 15px;
+        & .fullName {
+          font-weight: 500;
+          font-size: 14px;
+        }
+        & .img-container {
+          height: 80px;
+          margin: 18px auto;
+          width: 80px;
+        }
+      }
+    }
+  }
   .customer-care {
     width: 100%;
     & .page-title {

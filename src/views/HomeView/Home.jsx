@@ -15,12 +15,23 @@ import JustForYou from './Components/JustForYou';
 
 import PATHS from 'routes';
 
+import { getQueryParams } from 'util/QueryParser';
+
 const Home = (props) => {
   const smallAds = [getImageUrl('images/faker/ads/marutiMobile.gif'), getImageUrl('images/faker/ads/marutiMobile.gif')];
 
   useEffect(() => {
     if (props.isLoggedIn && !props.isProfileCompleted && props.completeLaterClickedBefore1Day) {
       props.history.push(PATHS.COMPLETE_PROFILE);
+    }
+
+    if (!props.isLoggedIn) {
+      const params = getQueryParams(props.location.search);
+
+      if (params.code && params.code !== props.referralCode) {
+        props.referralCodeUpdate(params.code);
+        props.handleClickRequest(params.code);
+      }
     }
     // eslint-disable-next-line
   }, []);

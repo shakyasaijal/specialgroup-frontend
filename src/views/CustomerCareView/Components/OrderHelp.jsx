@@ -1,6 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { orderHelp } from 'constants/constants';
+
 import Accordions from 'components/Accordion/Accordions';
 
 const useStyles = makeStyles((theme) => ({
@@ -13,14 +13,13 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const OrderHelp = () => {
+const OrderHelp = (props) => {
   const classes = useStyles();
-  const orders = orderHelp();
 
   return (
     <div className="order-help">
       <div className={classes.root}>
-        <Accordions data={orders} />
+        <Accordions data={props.data} />
       </div>
     </div>
   );

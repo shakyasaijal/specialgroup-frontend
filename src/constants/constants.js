@@ -4,19 +4,318 @@ export const categories = () => {
   return [
     {
       id: 1,
-      name: 'Dress',
-      img: 'https://i.pinimg.com/originals/6d/b2/cf/6db2cfd78fae829ff7de7f20a9891fd0.png',
+      name: 'DressDressDressDressDress',
+      img: 'https://pluspng.com/img-png/dress-png-women-dress-png-transparent-image-1350.png',
     },
     {
       id: 2,
       name: 'Home Appliance',
-      img: 'https://i.ya-webdesign.com/images/home-appliances-png-1.png',
+      img: 'http://www.pngmart.com/files/6/Home-Appliance-Transparent-PNG.png',
     },
     {
       id: 3,
       name: 'Kitchen Appliance',
-      img:
-        'https://www.smeg.com/binaries/content/gallery/smeg/content-elements/cards/smf02pbeu_stand_mixer_2500x1783px_2.png/smf02pbeu_stand_mixer_2500x1783px_2.png/brx%3ApostcardDeskLarge',
+      img: 'http://www.pngmart.com/files/6/Home-Appliance-PNG-Photos.png',
+    },
+    {
+      id: 4,
+      name: 'Shoes',
+      img: 'https://pluspng.com/img-png/shoes-png-sneaker-png-transparent-image-2500.png',
+    },
+    {
+      id: 1,
+      name: 'Dress',
+      img: 'https://pluspng.com/img-png/dress-png-women-dress-png-transparent-image-1350.png',
+    },
+    {
+      id: 2,
+      name: 'Home Appliance',
+      img: 'http://www.pngmart.com/files/6/Home-Appliance-Transparent-PNG.png',
+    },
+    {
+      id: 3,
+      name: 'Kitchen Appliance',
+      img: 'http://www.pngmart.com/files/6/Home-Appliance-PNG-Photos.png',
+    },
+    {
+      id: 4,
+      name: 'Shoes',
+      img: 'https://pluspng.com/img-png/shoes-png-sneaker-png-transparent-image-2500.png',
+    },
+    {
+      id: 1,
+      name: 'Dress',
+      img: 'https://pluspng.com/img-png/dress-png-women-dress-png-transparent-image-1350.png',
+    },
+    {
+      id: 2,
+      name: 'Home Appliance',
+      img: 'http://www.pngmart.com/files/6/Home-Appliance-Transparent-PNG.png',
+    },
+    {
+      id: 3,
+      name: 'Kitchen Appliance',
+      img: 'http://www.pngmart.com/files/6/Home-Appliance-PNG-Photos.png',
+    },
+    {
+      id: 4,
+      name: 'Shoes',
+      img: 'https://pluspng.com/img-png/shoes-png-sneaker-png-transparent-image-2500.png',
+    },
+    {
+      id: 1,
+      name: 'Dress',
+      img: 'https://pluspng.com/img-png/dress-png-women-dress-png-transparent-image-1350.png',
+    },
+    {
+      id: 2,
+      name: 'Home Appliance',
+      img: 'http://www.pngmart.com/files/6/Home-Appliance-Transparent-PNG.png',
+    },
+    {
+      id: 3,
+      name: 'Kitchen Appliance',
+      img: 'http://www.pngmart.com/files/6/Home-Appliance-PNG-Photos.png',
+    },
+    {
+      id: 4,
+      name: 'Shoes',
+      img: 'https://pluspng.com/img-png/shoes-png-sneaker-png-transparent-image-2500.png',
+    },
+    {
+      id: 1,
+      name: 'Dress',
+      img: 'https://pluspng.com/img-png/dress-png-women-dress-png-transparent-image-1350.png',
+    },
+    {
+      id: 2,
+      name: 'Home Appliance',
+      img: 'http://www.pngmart.com/files/6/Home-Appliance-Transparent-PNG.png',
+    },
+    {
+      id: 3,
+      name: 'Kitchen Appliance',
+      img: 'http://www.pngmart.com/files/6/Home-Appliance-PNG-Photos.png',
+    },
+    {
+      id: 4,
+      name: 'Shoes',
+      img: 'https://pluspng.com/img-png/shoes-png-sneaker-png-transparent-image-2500.png',
+    },
+    {
+      id: 1,
+      name: 'Dress',
+      img: 'https://pluspng.com/img-png/dress-png-women-dress-png-transparent-image-1350.png',
+    },
+    {
+      id: 2,
+      name: 'Home Appliance',
+      img: 'http://www.pngmart.com/files/6/Home-Appliance-Transparent-PNG.png',
+    },
+    {
+      id: 3,
+      name: 'Kitchen Appliance',
+      img: 'http://www.pngmart.com/files/6/Home-Appliance-PNG-Photos.png',
+    },
+    {
+      id: 4,
+      name: 'Shoes',
+      img: 'https://pluspng.com/img-png/shoes-png-sneaker-png-transparent-image-2500.png',
+    },
+    {
+      id: 1,
+      name: 'Dress',
+      img: 'https://pluspng.com/img-png/dress-png-women-dress-png-transparent-image-1350.png',
+    },
+    {
+      id: 2,
+      name: 'Home Appliance',
+      img: 'http://www.pngmart.com/files/6/Home-Appliance-Transparent-PNG.png',
+    },
+    {
+      id: 3,
+      name: 'Kitchen Appliance',
+      img: 'http://www.pngmart.com/files/6/Home-Appliance-PNG-Photos.png',
+    },
+    {
+      id: 4,
+      name: 'Shoes',
+      img: 'https://pluspng.com/img-png/shoes-png-sneaker-png-transparent-image-2500.png',
+    },
+    {
+      id: 1,
+      name: 'Dress',
+      img: 'https://pluspng.com/img-png/dress-png-women-dress-png-transparent-image-1350.png',
+    },
+    {
+      id: 2,
+      name: 'Home Appliance',
+      img: 'http://www.pngmart.com/files/6/Home-Appliance-Transparent-PNG.png',
+    },
+    {
+      id: 3,
+      name: 'Kitchen Appliance',
+      img: 'http://www.pngmart.com/files/6/Home-Appliance-PNG-Photos.png',
+    },
+    {
+      id: 4,
+      name: 'Shoes',
+      img: 'https://pluspng.com/img-png/shoes-png-sneaker-png-transparent-image-2500.png',
+    },
+    {
+      id: 1,
+      name: 'DressDressDressDressDress',
+      img: 'https://pluspng.com/img-png/dress-png-women-dress-png-transparent-image-1350.png',
+    },
+    {
+      id: 2,
+      name: 'Home Appliance',
+      img: 'http://www.pngmart.com/files/6/Home-Appliance-Transparent-PNG.png',
+    },
+    {
+      id: 3,
+      name: 'Kitchen Appliance',
+      img: 'http://www.pngmart.com/files/6/Home-Appliance-PNG-Photos.png',
+    },
+    {
+      id: 4,
+      name: 'Shoes',
+      img: 'https://pluspng.com/img-png/shoes-png-sneaker-png-transparent-image-2500.png',
+    },
+    {
+      id: 1,
+      name: 'Dress',
+      img: 'https://pluspng.com/img-png/dress-png-women-dress-png-transparent-image-1350.png',
+    },
+    {
+      id: 2,
+      name: 'Home Appliance',
+      img: 'http://www.pngmart.com/files/6/Home-Appliance-Transparent-PNG.png',
+    },
+    {
+      id: 3,
+      name: 'Kitchen Appliance',
+      img: 'http://www.pngmart.com/files/6/Home-Appliance-PNG-Photos.png',
+    },
+    {
+      id: 4,
+      name: 'Shoes',
+      img: 'https://pluspng.com/img-png/shoes-png-sneaker-png-transparent-image-2500.png',
+    },
+    {
+      id: 1,
+      name: 'Dress',
+      img: 'https://pluspng.com/img-png/dress-png-women-dress-png-transparent-image-1350.png',
+    },
+    {
+      id: 2,
+      name: 'Home Appliance',
+      img: 'http://www.pngmart.com/files/6/Home-Appliance-Transparent-PNG.png',
+    },
+    {
+      id: 3,
+      name: 'Kitchen Appliance',
+      img: 'http://www.pngmart.com/files/6/Home-Appliance-PNG-Photos.png',
+    },
+    {
+      id: 4,
+      name: 'Shoes',
+      img: 'https://pluspng.com/img-png/shoes-png-sneaker-png-transparent-image-2500.png',
+    },
+    {
+      id: 1,
+      name: 'Dress',
+      img: 'https://pluspng.com/img-png/dress-png-women-dress-png-transparent-image-1350.png',
+    },
+    {
+      id: 2,
+      name: 'Home Appliance',
+      img: 'http://www.pngmart.com/files/6/Home-Appliance-Transparent-PNG.png',
+    },
+    {
+      id: 3,
+      name: 'Kitchen Appliance',
+      img: 'http://www.pngmart.com/files/6/Home-Appliance-PNG-Photos.png',
+    },
+    {
+      id: 4,
+      name: 'Shoes',
+      img: 'https://pluspng.com/img-png/shoes-png-sneaker-png-transparent-image-2500.png',
+    },
+    {
+      id: 1,
+      name: 'Dress',
+      img: 'https://pluspng.com/img-png/dress-png-women-dress-png-transparent-image-1350.png',
+    },
+    {
+      id: 2,
+      name: 'Home Appliance',
+      img: 'http://www.pngmart.com/files/6/Home-Appliance-Transparent-PNG.png',
+    },
+    {
+      id: 3,
+      name: 'Kitchen Appliance',
+      img: 'http://www.pngmart.com/files/6/Home-Appliance-PNG-Photos.png',
+    },
+    {
+      id: 4,
+      name: 'Shoes',
+      img: 'https://pluspng.com/img-png/shoes-png-sneaker-png-transparent-image-2500.png',
+    },
+    {
+      id: 1,
+      name: 'Dress',
+      img: 'https://pluspng.com/img-png/dress-png-women-dress-png-transparent-image-1350.png',
+    },
+    {
+      id: 2,
+      name: 'Home Appliance',
+      img: 'http://www.pngmart.com/files/6/Home-Appliance-Transparent-PNG.png',
+    },
+    {
+      id: 3,
+      name: 'Kitchen Appliance',
+      img: 'http://www.pngmart.com/files/6/Home-Appliance-PNG-Photos.png',
+    },
+    {
+      id: 4,
+      name: 'Shoes',
+      img: 'https://pluspng.com/img-png/shoes-png-sneaker-png-transparent-image-2500.png',
+    },
+    {
+      id: 1,
+      name: 'Dress',
+      img: 'https://pluspng.com/img-png/dress-png-women-dress-png-transparent-image-1350.png',
+    },
+    {
+      id: 2,
+      name: 'Home Appliance',
+      img: 'http://www.pngmart.com/files/6/Home-Appliance-Transparent-PNG.png',
+    },
+    {
+      id: 3,
+      name: 'Kitchen Appliance',
+      img: 'http://www.pngmart.com/files/6/Home-Appliance-PNG-Photos.png',
+    },
+    {
+      id: 4,
+      name: 'Shoes',
+      img: 'https://pluspng.com/img-png/shoes-png-sneaker-png-transparent-image-2500.png',
+    },
+    {
+      id: 1,
+      name: 'Dress',
+      img: 'https://pluspng.com/img-png/dress-png-women-dress-png-transparent-image-1350.png',
+    },
+    {
+      id: 2,
+      name: 'Home Appliance',
+      img: 'http://www.pngmart.com/files/6/Home-Appliance-Transparent-PNG.png',
+    },
+    {
+      id: 3,
+      name: 'Kitchen Appliance',
+      img: 'http://www.pngmart.com/files/6/Home-Appliance-PNG-Photos.png',
     },
     {
       id: 4,
@@ -758,16 +1057,20 @@ export const accountSettings = () => {
 export const mobileDrawerItems = () => {
   return [
     {
-      name: 'Inbox',
-      route: '/',
+      name: 'Account Settings',
+      route: '/account-settings',
     },
     {
-      name: 'Starred',
-      route: '/',
+      name: 'About Us',
+      route: '/about-us',
     },
     {
-      name: 'Categories',
-      route: '/',
+      name: 'Customer Care',
+      route: '/customer-care',
+    },
+    {
+      name: 'About Refer',
+      route: '/about-referring',
     },
     {
       name: 'Logout',
@@ -2126,6 +2429,104 @@ export const subCategories = () => {
       id: 1,
       name: 'Chocolate Donuts',
       image: getImageUrl('images/faker/vegetables/celery.jpg'),
+    },
+  ];
+};
+
+export const aboutRefer = () => {
+  return [
+    {
+      image: getImageUrl('images/refer.png'),
+      content: `
+      <h2>Affiliate Marketing</h2>
+      <p>
+        Lorem ipsum doler sit amet. Lorem ipsum doler sit amet.
+        Lorem ipsum doler sit amet. Lorem ipsum doler sit amet.
+        Lorem ipsum doler sit amet. Lorem ipsum doler sit amet.
+        Lorem ipsum doler sit amet. Lorem ipsum doler sit amet.
+        Lorem ipsum doler sit amet. Lorem ipsum doler sit amet.
+
+
+        Lorem ipsum doler sit amet. Lorem ipsum doler sit amet.
+        Lorem ipsum doler sit amet. Lorem ipsum doler sit amet.
+        Lorem ipsum doler sit amet. Lorem ipsum doler sit amet.
+        Lorem ipsum doler sit amet. Lorem ipsum doler sit amet.
+        Lorem ipsum doler sit amet. Lorem ipsum doler sit amet.
+      </p>
+
+      <h2>How earn with it?</h2>
+      <p>
+        Lorem ipsum doler sit amet. Lorem ipsum doler sit amet.
+        Lorem ipsum doler sit amet. Lorem ipsum doler sit amet.
+        Lorem ipsum doler sit amet. Lorem ipsum doler sit amet.
+        Lorem ipsum doler sit amet. Lorem ipsum doler sit amet.
+        Lorem ipsum doler sit amet. Lorem ipsum doler sit amet.
+
+
+        Lorem ipsum doler sit amet. Lorem ipsum doler sit amet.
+        Lorem ipsum doler sit amet. Lorem ipsum doler sit amet.
+        Lorem ipsum doler sit amet. Lorem ipsum doler sit amet.
+        Lorem ipsum doler sit amet. Lorem ipsum doler sit amet.
+        Lorem ipsum doler sit amet. Lorem ipsum doler sit amet.
+      </p>
+      `,
+    },
+  ];
+};
+
+export const referData = () => {
+  return [
+    {
+      bannerAds: {
+        large: getImageUrl('images/faker/ads/nepatop.gif'),
+        small: getImageUrl('images/faker/ads/nepatopMobile.jpg'),
+        linkTo: 'https://nepatop.com',
+      },
+      referNow: {
+        points: 7000,
+        referLink: 'https://tiny.cc/asd9ew9h',
+      },
+      analytics: {
+        views: 700,
+        registered: 250,
+        ordered: 200,
+        smallAds: [
+          {
+            small: getImageUrl('images/faker/ads/nepatopMobile.jpg'),
+            linkTo: 'https://nepatop.com',
+          },
+          {
+            small: getImageUrl('images/faker/ads/marutiMobile.gif'),
+            linkTo: 'https://maruti.com',
+          },
+          {
+            small: getImageUrl('images/faker/ads/nepatopMobile.jpg'),
+            linkTo: 'https://nepatop.com',
+          },
+        ],
+      },
+      history: [
+        {
+          date: '10/20/2020',
+          status: 'In Review',
+          totalPoints: 4500,
+        },
+        {
+          date: '10/10/2020',
+          status: 'In Review',
+          totalPoints: 8500,
+        },
+        {
+          date: '10/20/2020',
+          status: 'Received',
+          totalPoints: 4500,
+        },
+        {
+          date: '10/20/2020',
+          status: 'Received',
+          totalPoints: 4500,
+        },
+      ],
     },
   ];
 };

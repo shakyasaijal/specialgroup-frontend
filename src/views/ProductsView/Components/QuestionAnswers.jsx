@@ -153,7 +153,7 @@ const QuestionAnswers = (props) => {
                         placeholder="Enter your question here."
                       ></textarea>
                     </div>
-                    <button type="submit" className="center verticle-center">
+                    <button type="submit" className="center vertical-center">
                       Ask Question
                     </button>
                   </div>

@@ -1,17 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import { Provider } from 'react-redux';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 
 import Container from '@material-ui/core/Container';
 
-import { runMiddlewares, getStore } from 'services/ReduxService';
+import { runMiddlewares, getStore, getState } from 'services/ReduxService';
+
+import { isLoggedIn } from 'selectors/auth';
 
 import PATHS from 'routes';
 
 import Header from './components/partials/Header';
 import QuickNavigation from './components/partials/QuickNavigation';
 import Footer from './components/partials/Footer';
-import AuthContainer from 'components/AuthContainer/AuthContainer';
 import SearchResult from 'components/SearchView/SearchResult';
 
 import Home from './views/HomeView/ReduxHome';
@@ -32,18 +33,33 @@ import Wow from 'components/Wow/Wow';
 import CustomerCare from 'views/CustomerCareView/CustomerCare';
 import About from 'views/AboutView/About';
 import Categories from 'views/CategoryView/Categories';
+import SubCategories from 'views/SubCategoriesView/SubCategories';
+import AboutRefer from 'views/ReferView/Refer';
+import ReferDashboard from 'views/ReferView/ReferDashboard';
 
 import './assets/sass/common.css';
 
 const DEFAULT_TITLE = 'Special Group | e-commerce';
 
-const SpecialGroupRoute = (props) => {
+const PublicRoute = (props) => {
   const { title, path, component } = props;
 
-  document.title = title ? title : DEFAULT_TITLE;
+  document.title = title ? 'Special Group | ' + title : DEFAULT_TITLE;
   window.scroll(0, 0);
 
   return <Route path={path} component={component} />;
+};
+
+const PrivateRoute = (props) => {
+  const { title, path, component } = props;
+  const state = getState();
+  const loggedIn = isLoggedIn(state);
+
+  if (loggedIn) {
+    return <PublicRoute title={title} path={path} component={component} />;
+  }
+
+  return <Redirect to={{ pathname: PATHS.SIGNIN, state: { from: path } }} />;
 };
 
 function App() {
@@ -67,91 +83,31 @@ function App() {
         <div className="page-wrapper">
           <Container maxWidth="lg">
             <Switch>
-              <SpecialGroupRoute exact path={PATHS.HOME} component={Home} />
-              <SpecialGroupRoute exact path={PATHS.WISHLIST} component={Wishlist} title="Special Group | Wishlist" />
-              <SpecialGroupRoute exact path={PATHS.ABOUT_US} component={About} title="Special Group | About Us" />
-              <SpecialGroupRoute
-                exact
-                path={PATHS.CATEGORIES}
-                component={Categories}
-                title="Special Group | Categories"
-              />
-              <SpecialGroupRoute
-                exact
-                path={PATHS.CUSTOMER_CARE}
-                component={CustomerCare}
-                title="Special Group | Customer Care"
-              />
-              <SpecialGroupRoute
-                exact
-                path={PATHS.PRODUCT_DETAILS}
-                component={ProductDetails}
-                title="Special Group | Details"
-              />
-              <SpecialGroupRoute
-                exact
-                path={PATHS.CATEGORY_BANNER}
-                component={ProductsByCategory}
-                title="Special Group"
-              />
-              <SpecialGroupRoute exact path={PATHS.WOW_BANNER} component={Wow} title="Special Group" />
-              <SpecialGroupRoute
-                exact
-                path={PATHS.FORGET_PASSWORD}
-                component={ForgetPassword}
-                title="Special Group | FORGET PASSWORD"
-              />
-              <SpecialGroupRoute
-                exact
-                path={PATHS.SEARCH_RESULT}
-                component={SearchResult}
-                title="Special Group | Search"
-              />
+              <PublicRoute exact path={PATHS.HOME} component={Home} />
+              <PublicRoute exact path={PATHS.WISHLIST} component={Wishlist} title="Wishlist" />
+              <PublicRoute exact path={PATHS.ABOUT_US} component={About} title="About Us" />
+              <PublicRoute exact path={PATHS.ABOUT_REFER} component={AboutRefer} title="FAQ - Referral" />
+              <PublicRoute exact path={PATHS.SUB_CATEGORIES} component={SubCategories} title="Sub Categories" />
+              <PublicRoute exact path={PATHS.CATEGORIES} component={Categories} title="Categories" />
+              <PublicRoute exact path={PATHS.CUSTOMER_CARE} component={CustomerCare} title="Customer Care" />
+              <PublicRoute exact path={PATHS.PRODUCT_DETAILS} component={ProductDetails} title="Product Details" />
+              <PublicRoute exact path={PATHS.CATEGORY_BANNER} component={ProductsByCategory} />
+              <PublicRoute exact path={PATHS.WOW_BANNER} component={Wow} />
+              <PublicRoute exact path={PATHS.FORGET_PASSWORD} component={ForgetPassword} title="Forget Password" />
+              <PublicRoute exact path={PATHS.SEARCH_RESULT} component={SearchResult} title="Search Product" />
+              <PublicRoute exact path={PATHS.SIGNIN} component={ReduxSignIn} title="Login" />
+              <PublicRoute exact path={PATHS.SIGNUP} component={ReduxSignUp} title="Sign Up" />
+              <PublicRoute exact path={PATHS.RESET_PASSWORD} component={ResetPassword} title="Reset Password" />
 
-              <SpecialGroupRoute exact path={PATHS.SIGNIN} component={ReduxSignIn} title="Special Group | Login" />
-              <SpecialGroupRoute exact path={PATHS.SIGNUP} component={ReduxSignUp} title="Special Group | Sign Up" />
-              <SpecialGroupRoute exact path={PATHS.CART} component={Cart} title="Special Group | My Cart" />
-              <SpecialGroupRoute
-                exact
-                path={PATHS.RESET_PASSWORD}
-                component={ResetPassword}
-                title="Special Group | Reset Password"
-              />
-
-              {/* Pages that Non Authorized user can't access goes inside AuthContainer */}
-              <AuthContainer>
-                <SpecialGroupRoute
-                  exact
-                  path={PATHS.COMPLETE_PROFILE}
-                  component={CompleteProfile}
-                  title="Special Group | Complete your profile"
-                />
-                <SpecialGroupRoute
-                  exact
-                  path={PATHS.ADDRESS}
-                  component={Address}
-                  title="Special Group | Change Address"
-                />
-                <SpecialGroupRoute
-                  exact
-                  path={PATHS.LOGIN_SECURITY}
-                  component={LoginAndSecurity}
-                  title="Special Group | Login and Security"
-                />
-                <SpecialGroupRoute
-                  exact
-                  path={PATHS.ACCOUNT_SETTINGS}
-                  component={AccountSettings}
-                  title="Special Group | Account Settings"
-                />
-                <SpecialGroupRoute
-                  exact
-                  path={PATHS.ORDER_HISTORY}
-                  component={OrderHistory}
-                  title="Special Group | Order History"
-                />
-              </AuthContainer>
-              <SpecialGroupRoute path={PATHS.NOT_FOUND} component={Home} />
+              {/* Pages that Non Authorized user can't access follows PrivateRoute */}
+              <PrivateRoute exact path={PATHS.REFER_DASHBOARD} component={ReferDashboard} title="Referral" />
+              <PrivateRoute exact path={PATHS.COMPLETE_PROFILE} component={CompleteProfile} title="Complete profile" />
+              <PrivateRoute exact path={PATHS.CART} component={Cart} title="My Cart" />
+              <PrivateRoute exact path={PATHS.ADDRESS} component={Address} title="Address" />
+              <PrivateRoute exact path={PATHS.LOGIN_SECURITY} component={LoginAndSecurity} title="Login & Security" />
+              <PrivateRoute exact path={PATHS.ACCOUNT_SETTINGS} component={AccountSettings} title="Account Settings" />
+              <PrivateRoute exact path={PATHS.ORDER_HISTORY} component={OrderHistory} title="Order History" />
+              <PublicRoute path={PATHS.NOT_FOUND} component={Home} />
             </Switch>
           </Container>
         </div>

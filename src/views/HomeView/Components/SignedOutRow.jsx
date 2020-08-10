@@ -11,6 +11,7 @@ import { shopByCategoryRequest, recentArrivalsRequest } from 'actions/product';
 
 import { getImageBasePath } from 'config/Config';
 import Skeleton from '@material-ui/lab/Skeleton';
+import PATHS from 'routes';
 
 const SignedOutRow = (props) => {
   const [shopByCategoryLoaded, setShopByCategoryLoaded] = useState(false);
@@ -69,7 +70,7 @@ const SignedOutRow = (props) => {
               ))}
             </div>
             <div className="see-more center mt30">
-              <Link to="/">See More</Link>
+              <Link to={PATHS.CATEGORIES}>See More</Link>
             </div>
           </div>
         </Paper>
@@ -111,7 +112,7 @@ const SignedOutRow = (props) => {
       <Paper elevation={3}>
         {!props.isLoggedIn && (
           <div className="grid-item sign-up-now">
-            <div className="verticle-center text-center full-width">
+            <div className="vertical-center text-center full-width">
               <h4 className="medium capitalize width-60 center white">sign up for better experience</h4>
               <Link to="/sign-up">
                 <button className="button mt10 capitalize">sign up now</button>

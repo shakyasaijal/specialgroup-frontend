@@ -5,7 +5,9 @@ import accountSaga from './account';
 import publicSaga from './publicSaga';
 import notificationTSSaga from './notificationTS';
 import productSaga from './product';
+import cartSaga from './cart';
+import referralSaga from './referral';
 
 export default function* rootSaga() {
-  yield all([authSaga(), accountSaga(), publicSaga(), notificationTSSaga(), productSaga()]);
+  yield all([authSaga(), accountSaga(), publicSaga(), notificationTSSaga(), productSaga(), cartSaga(), referralSaga()]);
 }

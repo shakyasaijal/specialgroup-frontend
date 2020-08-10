@@ -70,7 +70,7 @@ const Marketing = (props) => {
         value={i}
         checked={i === state.marketing}
       />
-      <span className="verticle-center">{i}</span>
+      <span className="vertical-center">{i}</span>
     </div>
   ));
 
@@ -86,7 +86,7 @@ const Marketing = (props) => {
                   {radioData}
                   <div className="content">
                     <input type="radio" name="marketing" className="radio" value="Others" onChange={handleChange} />
-                    <span className="verticle-center">Others</span>
+                    <span className="vertical-center">Others</span>
                   </div>
                   <input
                     type="text"

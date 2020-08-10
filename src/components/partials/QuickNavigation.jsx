@@ -8,6 +8,7 @@ import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import ViewModuleIcon from '@material-ui/icons/ViewModule';
 import PATHS from 'routes';
+import HomeIcon from '@material-ui/icons/Home';
 
 const useStyles = makeStyles({
   root: {
@@ -32,10 +33,10 @@ const QuickNavigation = () => {
         showLabels
         className={classes.root}
       >
-        <BottomNavigationAction component={Link} to="/" label="Home" icon={<ShoppingCartIcon />} />
+        <BottomNavigationAction component={Link} to="/" label="Home" icon={<HomeIcon />} />
         <BottomNavigationAction component={Link} to={PATHS.CART} label="Cart" icon={<ShoppingCartIcon />} />
         <BottomNavigationAction component={Link} to={PATHS.WISHLIST} label="Wishlist" icon={<FavoriteIcon />} />
-        <BottomNavigationAction component={Link} to="/" label="Categories" icon={<ViewModuleIcon />} />
+        <BottomNavigationAction component={Link} to={PATHS.CATEGORIES} label="Categories" icon={<ViewModuleIcon />} />
       </BottomNavigation>
     </div>
   );

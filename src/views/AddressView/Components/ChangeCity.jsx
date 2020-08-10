@@ -115,7 +115,7 @@ const ChangeCity = (props) => {
                   <Form onSubmit={handleSubmit}>
                     <small>Current City: {props.city}</small>
                     <div className={classes.formGroup}>
-                      <label className={classes.label}>New locationDropdownData</label>
+                      <label className={classes.label}>New location</label>
                       <select className={classes.input} onChange={(e) => setDistrict(e.target.value)} value={district}>
                         {locationDropdownData}
                       </select>

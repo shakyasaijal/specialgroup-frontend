@@ -7,6 +7,12 @@ export const MARKETING_PLATFORM_UPDATE = 'MARKETING_PLATFORM_UPDATE';
 export const POPULAR_CATEGORY_REQUEST = 'POPULAR_CATEGORY_REQUEST';
 export const POPULAR_CATEGORY_UPDATE = 'POPULAR_CATEGORY_UPDATE';
 
+export const ORDER_HELP_REQUEST = 'ORDER_HELP_REQUEST';
+export const ORDER_HELP_UPDATE = 'ORDER_HELP_UPDATE';
+
+export const FAQ_REQUEST = 'FAQ_REQUEST';
+export const FAQ_UPDATE = 'FAQ_UPDATE';
+
 export function locationMapRequest(callbackSuccess = null, callbackError = null) {
   return {
     type: LOCATION_MAP_REQUEST,
@@ -49,5 +55,35 @@ export function popularCategoryUpdate(popularCategories) {
   return {
     type: POPULAR_CATEGORY_UPDATE,
     popularCategories,
+  };
+}
+
+export function orderHelpRequest(callbackSuccess = null, callbackError = null) {
+  return {
+    type: ORDER_HELP_REQUEST,
+    callbackSuccess,
+    callbackError,
+  };
+}
+
+export function orderHelpUpdate(orderHelp) {
+  return {
+    type: ORDER_HELP_UPDATE,
+    orderHelp,
+  };
+}
+
+export function faqRequest(callbackSuccess = null, callbackError = null) {
+  return {
+    type: FAQ_REQUEST,
+    callbackSuccess,
+    callbackError,
+  };
+}
+
+export function faqUpdate(faq) {
+  return {
+    type: FAQ_UPDATE,
+    faq,
   };
 }

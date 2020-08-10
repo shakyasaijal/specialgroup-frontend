@@ -15,12 +15,14 @@ import {
 
 import { accountInfoRequest } from 'actions/account';
 import { getAccessToken, getRefreshToken } from 'selectors/auth';
+import { getReferralCode } from 'selectors/referral';
 
 function* handleAuthRegisterRequest(action) {
   const { firstName, lastName, email, password, callbackSuccess, callbackError } = action;
 
   try {
-    const res = yield call(signUp, firstName, lastName, email, password);
+    const referralCode = yield select(getReferralCode);
+    const res = yield call(signUp, firstName, lastName, email, password, referralCode);
 
     if (!res) throw new Error('connection error');
 
@@ -70,7 +72,8 @@ function* handleAuthGoogleRequest(action) {
   const { idToken, callbackSuccess, callbackError } = action;
 
   try {
-    const res = yield call(googleLogin, idToken);
+    const referralCode = yield select(getReferralCode);
+    const res = yield call(googleLogin, idToken, referralCode);
 
     if (!res) throw new Error('connection error');
 
@@ -97,7 +100,8 @@ function* handleAuthFacebookRequest(action) {
   const { facebookToken, callbackSuccess, callbackError } = action;
 
   try {
-    const res = yield call(facebookLogin, facebookToken);
+    const referralCode = yield select(getReferralCode);
+    const res = yield call(facebookLogin, facebookToken, referralCode);
 
     if (!res) throw new Error('connection error');
 

@@ -8,6 +8,7 @@ const RandomSubCat = () => {
   const data = subCategories();
   const [state, setState] = React.useState({ dataLoaded: false });
   const skeletons = [];
+  const dataSize = window.innerWidth <= 800 ? 8 : 16;
 
   for (let i = 0; i < 16; i++) {
     skeletons.push(
@@ -27,9 +28,9 @@ const RandomSubCat = () => {
     <div className="row rsc">
       <div className="container center">
         <div className="title landing-title">Essentials</div>
-        <div className="teams">
+        <div className="teams" data-size={dataSize}>
           {state.dataLoaded ? (
-            data.map((sub, index) => (
+            data.slice(0, dataSize).map((sub, index) => (
               <Link to="/" className="team-member" key={index}>
                 <div className="img-container center">
                   <img src={sub.image} alt={sub.name} />

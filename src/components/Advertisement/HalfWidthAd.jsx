@@ -15,7 +15,7 @@ const FullWidthAd = (props) => {
           {!hasAd && (
             <>
               <div className="panel ad">
-                <div className="container verticle-center text-center">
+                <div className="container vertical-center text-center">
                   <h4 className="medium-dark"> Ad Space Available Here * </h4>
                   <span className="subtitle">Contact Us: +977 - 98xxxxxxx</span>
                 </div>
@@ -29,7 +29,7 @@ const FullWidthAd = (props) => {
           ))}
           {small.length < 2 && (
             <div className="panel ad">
-              <div className="container verticle-center text-center">
+              <div className="container vertical-center text-center">
                 <h4 className="medium-dark"> Ad Space Available Here * </h4>
                 <span className="subtitle">Contact Us: +977 - 98xxxxxxx</span>
               </div>

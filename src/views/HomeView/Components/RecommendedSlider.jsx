@@ -36,7 +36,7 @@ const RecommendedSlider = (props) => {
           {props.recommendedProduct.map((product, index) => (
             <div className="product-container" key={index}>
               <Paper className="padding">
-                <Link to="/">
+                <Link to={`/product/${product.id}`}>
                   <div key={index} className="column-flex">
                     <div className="image-container">
                       <img src={getImageBasePath(product.mainImage)} alt={product.name} />

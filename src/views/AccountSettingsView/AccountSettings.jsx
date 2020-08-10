@@ -32,6 +32,7 @@ const AccountSettings = (props) => {
   return (
     <div className="row">
       <div className="settings-container center">
+        <div className="page-title">Account Settings</div>
         <div className="account-wrapper">
           {settings.map((setting, index) => (
             <div className="container" key={index}>
@@ -41,10 +42,10 @@ const AccountSettings = (props) => {
                     <img src={setting.icon} alt={setting.title} />
                   </div>
                   <div className="details">
-                    <div className="title verticle-center medium-dark">
+                    <div className="title vertical-center medium-dark">
                       <p>{setting.title}</p>
                     </div>
-                    <div className="subtitle verticle-center">
+                    <div className="subtitle vertical-center">
                       <p>{setting.subtitle}</p>
                     </div>
                   </div>

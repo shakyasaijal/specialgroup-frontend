@@ -1,14 +1,49 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { Link, withRouter } from 'react-router-dom';
+
+import { makeStyles } from '@material-ui/core/styles';
 import SecurityOutlinedIcon from '@material-ui/icons/SecurityOutlined';
 import LocationOnOutlinedIcon from '@material-ui/icons/LocationOnOutlined';
 import ContactMailOutlinedIcon from '@material-ui/icons/ContactMailOutlined';
 import ContactlessOutlinedIcon from '@material-ui/icons/ContactlessOutlined';
+import Button from '@material-ui/core/Button';
 import LockOpenIcon from '@material-ui/icons/LockOpen';
-import { Link } from 'react-router-dom';
+
+import { getAccount } from 'selectors/account';
+
 import PATHS from 'routes';
+import { isLoggedIn } from 'selectors/auth';
+
+const useStyles = makeStyles(() => ({
+  button: {
+    padding: '2px',
+  },
+}));
 
 const RightBar = (props) => {
-  const userState = { address: '', location: '', phone: '' };
+  const classes = useStyles();
+  const { address, district, phone } = props.account;
+
+  const completeProfileDialog = () => {
+    return (
+      <div className="right-for mt30">
+        <div className="icon text-center">
+          <ContactMailOutlinedIcon />
+        </div>
+        <div className="w-value">
+          <small>Your are missing our support because your profile is not complete. </small>
+          <div>
+            <Link to={PATHS.COMPLETE_PROFILE}>
+              <Button className={classes.button} size="small" color="primary" variant="outlined">
+                Complete now
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </div>
+    );
+  };
 
   return (
     <>
@@ -23,31 +58,20 @@ const RightBar = (props) => {
       ) : (
         ''
       )}
-      {props.isLoggedIn ? (
-        !userState.address && !userState.location && !userState.phone ? (
-          <>
-            <div className="right-for mt30">
-              <div className="icon text-center">
-                <ContactMailOutlinedIcon />
-                <small className="lh08">Complete Profile</small>
-              </div>
-              <div className="w-value">
-                Your are missing our support. <br />
-                <Link to={PATHS.COMPLETE_PROFILE}>Click here to complete your profile</Link>
-              </div>
-            </div>
-          </>
+      {props.isLoggedIn &&
+        (!district && !address && !phone ? (
+          completeProfileDialog()
         ) : (
           <>
             <div className="seperator mt30">Default Delivery Address</div>
-
             <div className="right-for">
               <div className="icon text-center">
                 <ContactMailOutlinedIcon />
                 <small>Address</small>
               </div>
               <div className="w-value">
-                {userState.address ? userState.address : <Link to={PATHS.ADDRESS}>Add your address.</Link>}
+                {address}
+                {!address && <Link to={PATHS.ADDRESS}>Add address</Link>}
               </div>
             </div>
             <div className="right-for mt30">
@@ -56,7 +80,8 @@ const RightBar = (props) => {
                 <small>Location</small>
               </div>
               <div className="w-value">
-                {userState.location ? userState.location : <Link to={PATHS.ADDRESS}>Add your location.</Link>}
+                {district}
+                {!district && <Link to={PATHS.ADDRESS}>Add location</Link>}
               </div>
             </div>
             <div className="right-for mt30">
@@ -65,12 +90,13 @@ const RightBar = (props) => {
                 <small>Contact</small>
               </div>
               <div className="w-value">
-                {userState.phone ? userState.phone : <Link to={PATHS.LOGIN_SECURITY}>Add Phone Number.</Link>}
+                {phone}
+                {!phone && <Link to={PATHS.LOGIN_SECURITY}>Add contact number</Link>}
               </div>
             </div>
           </>
-        )
-      ) : (
+        ))}
+      {!isLoggedIn && (
         <>
           <div className="right-for mt30">
             <div className="icon text-center">
@@ -103,4 +129,10 @@ const RightBar = (props) => {
   );
 };
 
-export default RightBar;
+const mapStateToProps = (state) => {
+  return {
+    account: getAccount(state),
+  };
+};
+
+export default connect(mapStateToProps, {})(withRouter(RightBar));

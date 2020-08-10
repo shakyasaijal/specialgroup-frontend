@@ -43,7 +43,7 @@ const MobileFooter = () => {
         </div>
       </div>
       <div className="bottom-footer">
-        <div className="grid verticle-center">
+        <div className="grid vertical-center">
           <div className="grid-item">&copy; CopyRight {new Date().getFullYear()} | Special Group</div>
           <div className="grid-item"></div>
         </div>
