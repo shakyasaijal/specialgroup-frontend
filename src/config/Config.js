@@ -20,6 +20,10 @@ export const facebookToken = () => {
   return process.env.REACT_APP_FACEBOOK_TOKEN;
 };
 
+export const recaptchaToken = () => {
+  return process.env.REACT_APP_CAPTCHA_KEY;
+};
+
 export const getImageBasePath = (fileName) => {
   return getEndPoint() + fileName;
 };
